@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { stats, saveProgress, addXP, isHapticEnabled, t } from '../data'
 import { showXP } from './XPToast'
 import { haptic } from '../nativeBridge'
+import { normalizeDailyRewardState } from '../data/dailyRewardState.js'
 
 /* ═══════════════════════════════════════════
    DAILY REWARD — Real 7-day calendar with localStorage persistence
@@ -33,42 +34,26 @@ function saveDailyState(state) {
 }
 
 function initDailyState() {
-    const existing = getDailyState()
-    const todayStr = getTodayStr()
-    if (existing) {
-        // Check if streak is broken (more than 1 day gap)
-        const lastDate = new Date(existing.lastClaimDate)
-        const today = new Date()
-        // Use UTC dates to avoid timezone issues
-        const lastUTC = Date.UTC(lastDate.getFullYear(), lastDate.getMonth(), lastDate.getDate())
-        const todayUTC = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())
-        const diffDays = Math.floor((todayUTC - lastUTC) / (1000 * 60 * 60 * 24))
-        if (diffDays > 1) {
-            // Streak broken — reset to day 1
-            return { currentDay: 1, lastClaimDate: null, claimedToday: false }
-        }
-        // Check if already claimed today
-        const claimedToday = existing.lastClaimDate === todayStr
-        return { ...existing, claimedToday }
-    }
-    // First time — start from day 1
-    return { currentDay: 1, lastClaimDate: null, claimedToday: false }
+    return normalizeDailyRewardState(getDailyState(), new Date())
 }
 
 export default function DailyReward({ onClose }) {
     const [state, setState] = useState(initDailyState)
     const [justClaimed, setJustClaimed] = useState(false)
+    const claimInFlight = useRef(false)
     const [mysteryReward, setMysteryReward] = useState(null)
 
     const { currentDay, claimedToday } = state
     const canClaim = !claimedToday && !justClaimed
 
     const handleClaim = () => {
-        if (!canClaim) return
+        if (!canClaim || claimInFlight.current) return
+        const reward = REWARD_DEFS[currentDay - 1]
+        if (!reward) return
+        claimInFlight.current = true
         setJustClaimed(true)
         if (isHapticEnabled()) haptic('success')
 
-        const reward = REWARD_DEFS[currentDay - 1]
         let rewardMsg = reward.label
 
         // Apply reward to stats

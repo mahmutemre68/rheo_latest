@@ -11,7 +11,7 @@
  * Where a shared link points. Must be a live host — a share that lands on a
  * dead domain is worse than a share with no link at all.
  */
-export const SHARE_URL = 'https://rheo-mvp-2026.web.app'
+export const SHARE_URL = 'https://apps.apple.com/app/id6799256948'
 
 function post(payload) {
   try {
