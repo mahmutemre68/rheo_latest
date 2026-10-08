@@ -1,0 +1,312 @@
+{
+  "passed": true,
+  "browser": "140.0.7339.16",
+  "results": [
+    {
+      "locale": "en",
+      "viewport": "320x568",
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "statusCount": 1,
+      "mascotPath": "/mascot_happy.png",
+      "mascotHidden": "true",
+      "buttons": [
+        {
+          "label": "Exit practice",
+          "width": 115,
+          "height": 48
+        },
+        {
+          "label": "Line 1",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Line 2",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Line 3",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Line 4",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Line 5",
+          "width": 88,
+          "height": 48
+        }
+      ],
+      "finalGeometry": {
+        "documentWidth": 320,
+        "viewportWidth": 320,
+        "rowCount": 3,
+        "finalButton": {
+          "label": "Back to journey",
+          "width": 280,
+          "height": 48
+        }
+      }
+    },
+    {
+      "locale": "en",
+      "viewport": "375x667",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "statusCount": 1,
+      "mascotPath": "/mascot_happy.png",
+      "mascotHidden": "true",
+      "buttons": [
+        {
+          "label": "Exit practice",
+          "width": 115,
+          "height": 48
+        },
+        {
+          "label": "Line 1",
+          "width": 106.328125,
+          "height": 48
+        },
+        {
+          "label": "Line 2",
+          "width": 106.328125,
+          "height": 48
+        },
+        {
+          "label": "Line 3",
+          "width": 106.34375,
+          "height": 48
+        },
+        {
+          "label": "Line 4",
+          "width": 106.328125,
+          "height": 48
+        },
+        {
+          "label": "Line 5",
+          "width": 106.328125,
+          "height": 48
+        }
+      ],
+      "finalGeometry": {
+        "documentWidth": 375,
+        "viewportWidth": 375,
+        "rowCount": 3,
+        "finalButton": {
+          "label": "Back to journey",
+          "width": 335,
+          "height": 48
+        }
+      }
+    },
+    {
+      "locale": "en",
+      "viewport": "390x844",
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "statusCount": 1,
+      "mascotPath": "/mascot_happy.png",
+      "mascotHidden": "true",
+      "buttons": [
+        {
+          "label": "Exit practice",
+          "width": 115,
+          "height": 48
+        },
+        {
+          "label": "Line 1",
+          "width": 111.328125,
+          "height": 48
+        },
+        {
+          "label": "Line 2",
+          "width": 111.328125,
+          "height": 48
+        },
+        {
+          "label": "Line 3",
+          "width": 111.34375,
+          "height": 48
+        },
+        {
+          "label": "Line 4",
+          "width": 111.328125,
+          "height": 48
+        },
+        {
+          "label": "Line 5",
+          "width": 111.328125,
+          "height": 48
+        }
+      ],
+      "finalGeometry": {
+        "documentWidth": 390,
+        "viewportWidth": 390,
+        "rowCount": 3,
+        "finalButton": {
+          "label": "Back to journey",
+          "width": 350,
+          "height": 48
+        }
+      }
+    },
+    {
+      "locale": "tr",
+      "viewport": "320x568",
+      "documentWidth": 320,
+      "viewportWidth": 320,
+      "statusCount": 1,
+      "mascotPath": "/mascot_happy.png",
+      "mascotHidden": "true",
+      "buttons": [
+        {
+          "label": "Pratikten çık",
+          "width": 115,
+          "height": 48
+        },
+        {
+          "label": "Satır 1",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Satır 2",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Satır 3",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Satır 4",
+          "width": 88,
+          "height": 48
+        },
+        {
+          "label": "Satır 5",
+          "width": 88,
+          "height": 48
+        }
+      ],
+      "finalGeometry": {
+        "documentWidth": 320,
+        "viewportWidth": 320,
+        "rowCount": 3,
+        "finalButton": {
+          "label": "Yolculuğa dön",
+          "width": 280,
+          "height": 48
+        }
+      }
+    },
+    {
+      "locale": "tr",
+      "viewport": "375x667",
+      "documentWidth": 375,
+      "viewportWidth": 375,
+      "statusCount": 1,
+      "mascotPath": "/mascot_happy.png",
+      "mascotHidden": "true",
+      "buttons": [
+        {
+          "label": "Pratikten çık",
+          "width": 115,
+          "height": 48
+        },
+        {
+          "label": "Satır 1",
+          "width": 106.328125,
+          "height": 48
+        },
+        {
+          "label": "Satır 2",
+          "width": 106.328125,
+          "height": 48
+        },
+        {
+          "label": "Satır 3",
+          "width": 106.34375,
+          "height": 48
+        },
+        {
+          "label": "Satır 4",
+          "width": 106.328125,
+          "height": 48
+        },
+        {
+          "label": "Satır 5",
+          "width": 106.328125,
+          "height": 48
+        }
+      ],
+      "finalGeometry": {
+        "documentWidth": 375,
+        "viewportWidth": 375,
+        "rowCount": 3,
+        "finalButton": {
+          "label": "Yolculuğa dön",
+          "width": 335,
+          "height": 48
+        }
+      }
+    },
+    {
+      "locale": "tr",
+      "viewport": "390x844",
+      "documentWidth": 390,
+      "viewportWidth": 390,
+      "statusCount": 1,
+      "mascotPath": "/mascot_happy.png",
+      "mascotHidden": "true",
+      "buttons": [
+        {
+          "label": "Pratikten çık",
+          "width": 115,
+          "height": 48
+        },
+        {
+          "label": "Satır 1",
+          "width": 111.328125,
+          "height": 48
+        },
+        {
+          "label": "Satır 2",
+          "width": 111.328125,
+          "height": 48
+        },
+        {
+          "label": "Satır 3",
+          "width": 111.34375,
+          "height": 48
+        },
+        {
+          "label": "Satır 4",
+          "width": 111.328125,
+          "height": 48
+        },
+        {
+          "label": "Satır 5",
+          "width": 111.328125,
+          "height": 48
+        }
+      ],
+      "finalGeometry": {
+        "documentWidth": 390,
+        "viewportWidth": 390,
+        "rowCount": 3,
+        "finalButton": {
+          "label": "Yolculuğa dön",
+          "width": 350,
+          "height": 48
+        }
+      }
+    }
+  ]
+}

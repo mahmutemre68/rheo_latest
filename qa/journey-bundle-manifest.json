@@ -1,0 +1,26 @@
+{
+  "root": "/workspace/scratch/fd38532af46b/work/rheo/dist",
+  "file_count": 14,
+  "index_local_references": [
+    "assets/index-DM3kM6Kq.js",
+    "assets/index-FA_l8ePM.css"
+  ],
+  "js_count": 5,
+  "css_count": 1,
+  "files": {
+    "asset-manifest.json": "c13637aa534eafe835c5938eafded52060b7f748311d7053a9edbf8e3d520be6",
+    "assets/HologramCard-BcZHgbaJ.js": "f572a93eaa15f9144ba6b0dee715d9a256bb7bb02e1bc76a57ac6aeb4049d2e0",
+    "assets/LeagueView-B1oXCE2R.js": "ce62b8d7c64ed59da107cf5c5bedc21a8e522e98411f44cbd748338fef6581cc",
+    "assets/ProfileView-Czm67ykb.js": "726f0841e7f4f6923a0f36d203062bce5895a9eda2c3045e248cdf59bf424660",
+    "assets/QuestsView-bS-g3PPv.js": "4b233532b4db3cfeccfc7051ec1eacee613b5c0570a62cf952c7b3b4ab199941",
+    "assets/index-DM3kM6Kq.js": "2ea6062c8e9f17b66ac14c182182e76c650f08fe0212a665a23c29c80e99d280",
+    "assets/index-FA_l8ePM.css": "e31e1cb102dc37a2e3b89e20624e246af5e7235c62f483fe3371c312020de6d8",
+    "fonts/nunito-latin-ext.woff2": "511ce967375fd2d924483d798f1086a533259fc675181f62944ec1176fe8786d",
+    "fonts/nunito-latin.woff2": "20fc9b6fc618e7c3c68d3ac750a2a5dfbceb8521675458d2cea580b5693e4798",
+    "index.html": "070029aee089aacf4fa014ef84a0a147ff42e34dcd115732ff7be244fb283a5e",
+    "mascot_greeting.png": "05cf9ce3a0e6cd19edb497e38da1a39924609147e165c211b3be17d962f1f589",
+    "mascot_happy.png": "22f3422167c3a9015b3e7930c8c9142abb0c4ceb81f774b5062bc76a79140f71",
+    "privacy.html": "e0128b44326f5dd56c30bb0986c33fdf756b5a64aad4c2141648708d47ff3a4e",
+    "terms.html": "13e28f3555359d7b45d1faac0eb468106b6793405a6f8494397170b2bb76af9f"
+  }
+}

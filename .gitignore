@@ -1,0 +1,10 @@
+node_modules/
+web/dist/
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+__pycache__/

@@ -1,0 +1,126 @@
+--- a/rheo-web/src/components/JourneyView.jsx
++++ b/rheo-web/src/components/JourneyView.jsx
+@@ -2,9 +2,11 @@
+ import { stats, journeyNodes, getSkillRadar, chapterColors, languages, setActiveLanguage, getActiveLanguage, getTipOfTheDay, getWeakExercises, t } from '../data'
+ import JourneyPath from './JourneyPath'
+ import PlacementCheck from './PlacementCheck'
++import DebugMission from './DebugMission'
+ 
+ export default function JourneyView() {
+     const [checkLanguage, setCheckLanguage] = useState(null)
++    const [debugLanguage, setDebugLanguage] = useState(null)
+     const scrollRef = useRef(null)
+     const [visibleChapter, setVisibleChapter] = useState(() => {
+         const activeIdx = journeyNodes.findIndex(n => n.status === 'active')
+@@ -53,11 +55,16 @@
+     return (
+         <>
+         {checkLanguage && <PlacementCheck language={checkLanguage} onClose={() => setCheckLanguage(null)} />}
+-        <div inert={checkLanguage ? true : undefined} className="h-full flex flex-col overflow-hidden relative">
++        {debugLanguage && <DebugMission language={debugLanguage} onClose={() => setDebugLanguage(null)} />}
++        <div inert={checkLanguage || debugLanguage ? true : undefined} className="h-full flex flex-col overflow-hidden relative">
+             <TopBar />
+             <button onClick={() => setCheckLanguage(getActiveLanguage())}
+                 className="mx-3 mb-2 shrink-0 text-left rounded-xl border border-teal-900 bg-teal-950/40 px-4 py-3 text-sm font-bold text-teal-200">
+                 {t('Quick code check')} <span className="font-normal text-slate-400">· {t('3 questions · optional')}</span>
++            </button>
++            <button onClick={() => setDebugLanguage(getActiveLanguage())}
++                className="mx-3 mb-2 shrink-0 text-left rounded-xl border border-slate-800 px-4 py-3 text-sm text-slate-300">
++                Debug Mission <span className="text-xs text-slate-400">· {t('Optional prototype')}</span>
+             </button>
+             <ChapterMap visibleChapter={visibleChapter} onChapterClick={scrollToChapter} />
+             <UnitHeader visibleChapter={visibleChapter} />
+--- /dev/null
++++ b/rheo-web/src/components/DebugMission.jsx
+@@ -0,0 +1,64 @@
++import { useEffect, useRef, useState } from 'react'
++import { getLocale } from '../data'
++import { debugMission, verifyDebugFix } from '../data/debugMission'
++import LivingOtter from './LivingOtter'
++
++export default function DebugMission({ language, onClose }) {
++    const tr = getLocale() === 'tr'
++    const text = (en, turkish) => tr ? turkish : en
++    const [stage, setStage] = useState(0)
++    const [feedback, setFeedback] = useState('')
++    const [operator, setOperator] = useState(null)
++    const heading = useRef(null), dialog = useRef(null), transition = useRef(false)
++    useEffect(() => { const previous = document.activeElement; return () => previous?.focus() }, [])
++    useEffect(() => { transition.current = false; heading.current?.focus() }, [stage])
++    const next = () => { if (transition.current) return; transition.current = true; setFeedback(''); setStage(s => s + 1) }
++    const supported = Boolean(debugMission.code[language])
++    const result = operator ? verifyDebugFix(operator) : null
++    const code = debugMission.code[language] || []
++    return <section ref={dialog} role="dialog" aria-modal="true" aria-labelledby="debug-title"
++        onKeyDown={event => {
++            if (event.key === 'Escape') { event.preventDefault(); onClose(); return }
++            if (event.key !== 'Tab') return
++            const buttons = [...dialog.current.querySelectorAll('button:not(:disabled)')]
++            const first = buttons[0], last = buttons.at(-1)
++            if (event.shiftKey && (document.activeElement === first || document.activeElement === heading.current)) {
++                event.preventDefault(); last?.focus()
++            } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
++        }} className="fixed inset-0 z-[300] flex flex-col bg-slate-950 text-white">
++        <header className="flex justify-between items-center px-5 py-4 border-b border-slate-800" style={{ paddingTop: 'max(16px, env(safe-area-inset-top))' }}>
++            <span className="text-sm text-teal-300">Debug Mission · {language}</span>
++            <button onClick={onClose} className="min-h-12 px-3 rounded-lg">{text('Exit practice', 'Pratikten çık')}</button>
++        </header>
++        <div className="flex-1 overflow-y-auto px-5 py-5" style={{ paddingBottom: 'max(20px, env(safe-area-inset-bottom))' }}>
++            <div className="max-w-md mx-auto space-y-4">
++                <LivingOtter size={64} mood="thinking" showGlow={false} />
++                <h1 ref={heading} tabIndex={-1} id="debug-title" className="text-xl font-bold outline-none">{text('Find it. Explain it. Verify it.', 'Bul. Açıkla. Doğrula.')}</h1>
++                <p className="text-sm text-slate-400">{text('Optional prototype · no timer, hearts or rewards.', 'İsteğe bağlı prototip · süre, kalp ve ödül yok.')}</p>
++                {!supported ? <p>{text('This prototype supports Python and JavaScript. Your selected language stays unchanged.', 'Bu prototip Python ve JavaScript destekler. Seçili dilin değişmez.')}</p> : <>
++                    <p className="text-teal-200">{text('Requirement: print A when score is at least 4; otherwise print B.', 'Kural: score en az 4 ise A, değilse B yazdır.')}</p>
++                    <pre className="font-mono text-sm bg-slate-900 p-4 rounded-xl overflow-x-auto" aria-label={text('Mission code', 'Görev kodu')}>{code.map((line, i) => `${i + 1}  ${stage >= 2 && i === debugMission.bugLine && operator ? line.replace(' > ', ` ${operator} `) : line}`).join('\n')}</pre>
++                    {stage === 0 && <>
++                        <h2 className="font-bold">{text('Which line violates the requirement?', 'Hangi satır kuralı karşılamıyor?')}</h2>
++                        <div className="grid grid-cols-3 gap-2">{code.map((_, i) => <button key={i} className="min-h-12 rounded-xl bg-slate-800" onClick={() => i === debugMission.bugLine ? next() : setFeedback(text('Trace score = 4 through the condition.', 'score = 4 için koşulu adım adım izle.'))}>{text('Line', 'Satır')} {i + 1}</button>)}</div>
++                    </>}
++                    {stage === 1 && <>
++                        <h2 className="font-bold">{text('Why does it fail?', 'Neden kuralı karşılamıyor?')}</h2>
++                        {[text('The condition excludes score = 4.', 'Koşul score = 4 değerini dışlıyor.'), text('The variable has no value.', 'Değişkenin değeri yok.'), text('The else branch never runs.', 'else dalı hiç çalışmaz.')].map((label, i) => <button key={i} className="w-full min-h-12 text-left rounded-xl bg-slate-800 p-3" onClick={() => i === 0 ? next() : setFeedback(text('4 > 4 is false, so the code prints B.', '4 > 4 yanlış; bu yüzden kod B yazdırıyor.'))}>{label}</button>)}
++                    </>}
++                    {stage === 2 && <>
++                        <h2 className="font-bold">{text('Choose a fix, then check all three cases.', 'Düzeltmeyi seç, ardından üç durumu kontrol et.')}</h2>
++                        <div className="flex gap-3">{['>', '>=', '=='].map(op => <button key={op} aria-pressed={operator === op} onClick={() => { setOperator(op); setFeedback('') }} className={`min-h-12 flex-1 font-mono rounded-xl border ${operator === op ? 'border-teal-300' : 'border-slate-700'}`}>{op}</button>)}</div>
++                        <button disabled={!operator} onClick={next} className="w-full min-h-12 rounded-xl bg-teal-400 text-slate-950 disabled:opacity-40">{text('Verify cases', 'Durumları doğrula')}</button>
++                    </>}
++                    {stage === 3 && <>
++                        <table className="w-full text-sm"><caption className="text-left mb-2">{text('Checked against the requirement', 'Kurala göre kontrol')}</caption><thead><tr><th>score</th><th>{text('Expected', 'Beklenen')}</th><th>{text('Result', 'Sonuç')}</th></tr></thead><tbody>{debugMission.inputs.map((n, i) => <tr key={n}><td className="py-2 text-center">{n}</td><td className="text-center">{debugMission.expected[i]}</td><td className="text-center">{result.actual[i]}</td></tr>)}</tbody></table>
++                        <p role="status">{result.passed ? text('All three cases match. >= includes 4 and still accepts 5.', 'Üç durum eşleşti. >= hem 4 hem de 5 değerini kapsıyor.') : text('A case still fails. Equality alone excludes 5; > excludes 4.', 'Bir durum hâlâ yanlış. Yalnız eşitlik 5’i, > ise 4’ü dışlıyor.')}</p>
++                        {result.passed ? <button onClick={onClose} className="w-full min-h-12 rounded-xl bg-teal-400 text-slate-950">{text('Back to journey', 'Yolculuğa dön')}</button> : <button onClick={() => { setStage(2); setOperator(null) }} className="w-full min-h-12 rounded-xl bg-teal-400 text-slate-950">{text('Try another fix', 'Başka düzeltme dene')}</button>}
++                    </>}
++                    {feedback && <p role="status" className="text-amber-200">{feedback}</p>}
++                </>}
++            </div>
++        </div>
++    </section>
++}
+--- /dev/null
++++ b/rheo-web/src/data/debugMission.js
+@@ -0,0 +1,14 @@
++// Local, reward-free prototype. No arbitrary user code is executed.
++export const debugMission = {
++    inputs: [3, 4, 5], expected: ['B', 'A', 'A'], bugLine: 1,
++    code: {
++        python: ['score = 4', 'if score > 4:', '    print("A")', 'else:', '    print("B")'],
++        javascript: ['const score = 4;', 'if (score > 4) {', '  console.log("A");', '} else {', '  console.log("B");', '}'],
++    },
++}
++export function verifyDebugFix(operator) {
++    const compare = { '>': n => n > 4, '>=': n => n >= 4, '==': n => n === 4 }[operator]
++    if (!compare) return null
++    const actual = debugMission.inputs.map(n => compare(n) ? 'A' : 'B')
++    return { actual, passed: actual.every((v, i) => v === debugMission.expected[i]) }
++}
+--- a/rheo-web/src/data/i18n.js
++++ b/rheo-web/src/data/i18n.js
+@@ -14,6 +14,7 @@
+ export function setLocale(loc) { _locale = loc; try { localStorage.setItem('rheo_locale', loc) } catch (e) { /* ignore */ } }
+ 
+ const _tr = {
++    'Optional prototype': 'İsteğe bağlı prototip',
+     'Quick code check': 'Kısa kod keşfi',
+     '3 questions · optional': '3 soru · isteğe bağlı',
+     'Skip for now': 'Şimdilik atla',
