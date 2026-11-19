@@ -15,6 +15,8 @@ export function setLocale(loc) { _locale = loc; try { localStorage.setItem('rheo
 
 const _tr = {
     'Optional prototype': 'İsteğe bağlı prototip',
+    'Could not load lessons.': 'Dersler yüklenemedi.',
+    'Try again': 'Tekrar dene',
     'Quick code check': 'Kısa kod keşfi',
     '3 questions · optional': '3 soru · isteğe bağlı',
     'Skip for now': 'Şimdilik atla',

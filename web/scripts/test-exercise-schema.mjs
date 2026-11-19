@@ -3,7 +3,15 @@ import { normalizeExercise } from '../src/data/normalizeExercise.js'
 const store = new Map()
 globalThis.localStorage = { getItem: key => store.get(key) ?? null, setItem: (key, value) => store.set(key, String(value)), removeItem:key=>store.delete(key) }
 globalThis.window = { addEventListener() {}, dispatchEvent() {}, localStorage: globalThis.localStorage }
-const { getExercisesForNode } = await import('../src/data/core.js')
+const { getExercisesForNode, loadLanguageBank, isLanguageBankReady } = await import('../src/data/core.js')
+// Banks are code-split: before load a lookup must be empty and must not cache a
+// placeholder that would survive the load.
+assert.equal(isLanguageBankReady('java'), false)
+assert.deepEqual(getExercisesForNode(1, 'java'), [])
+await Promise.all(['python', 'javascript', 'java'].map(l => loadLanguageBank(l)))
+assert.ok(getExercisesForNode(1, 'java').length > 1, 'bank lookup after load returns real exercises')
+assert.strictEqual(await loadLanguageBank('java'), await loadLanguageBank('java'), 'repeat loads reuse the bank')
+await assert.rejects(loadLanguageBank('cobol'))
 const banks = [
  ['python', (await import('../src/exercises_python.js')).pyExercises],
  ['python', (await import('../src/exercises_python2.js')).pyExercisesCh6to10],

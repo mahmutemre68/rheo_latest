@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react'
 import { stats, journeyNodes, getSkillRadar, chapterColors, languages, setActiveLanguage, getActiveLanguage, getTipOfTheDay, getWeakExercises, t } from '../data'
 import JourneyPath from './JourneyPath'
-import PlacementCheck from './PlacementCheck'
-import DebugMission from './DebugMission'
+const PlacementCheck = lazy(() => import('./PlacementCheck'))
+const DebugMission = lazy(() => import('./DebugMission'))
 
 export default function JourneyView() {
     const [checkLanguage, setCheckLanguage] = useState(null)
@@ -54,8 +54,8 @@ export default function JourneyView() {
 
     return (
         <>
-        {checkLanguage && <PlacementCheck language={checkLanguage} onClose={() => setCheckLanguage(null)} />}
-        {debugLanguage && <DebugMission language={debugLanguage} onClose={() => setDebugLanguage(null)} />}
+        {checkLanguage && <Suspense fallback={null}><PlacementCheck language={checkLanguage} onClose={() => setCheckLanguage(null)} /></Suspense>}
+        {debugLanguage && <Suspense fallback={null}><DebugMission language={debugLanguage} onClose={() => setDebugLanguage(null)} /></Suspense>}
         <div inert={checkLanguage || debugLanguage ? true : undefined} className="h-full flex flex-col overflow-hidden relative">
             <TopBar />
             <button onClick={() => setCheckLanguage(getActiveLanguage())}

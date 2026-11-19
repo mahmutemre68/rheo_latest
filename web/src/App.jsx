@@ -7,11 +7,15 @@ import BottomNav from './components/BottomNav'
 import XPToastProvider from './components/XPToast'
 import { AppProvider } from './components/AppContext'
 import DailyReward from './components/DailyReward'
-import Onboarding from './components/Onboarding'
-import LessonScreen from './components/LessonScreen'
+// Not needed for first paint: the lesson (with its concept decks) and the
+// one-time onboarding are separate chunks. LessonScreen is prefetched once the
+// journey is up, so the first tap on a node does not wait on the network.
+const loadLessonScreen = () => import('./components/LessonScreen')
+const LessonScreen = lazy(loadLessonScreen)
+const Onboarding = lazy(() => import('./components/Onboarding'))
 import { SplashScreen } from './components/LivingOtter'
 import { AnimatePresence, motion } from 'framer-motion'
-import { getActiveLanguage, journeyNodes, chapterColors, saveProgress, loadProgress, isOnboardingDone, setOnboardingDone, t, trackQuestEvent, useEnergy, stats, resetSeasonIfNeeded, buildReviewExercises, selectExercisesForNode, SHORT_LESSON_LENGTH, getEnergyRefillTime, MAX_ENERGY } from './data'
+import { getActiveLanguage, journeyNodes, chapterColors, saveProgress, loadProgress, isOnboardingDone, setOnboardingDone, t, trackQuestEvent, useEnergy, stats, resetSeasonIfNeeded, buildReviewExercises, selectExercisesForNode, SHORT_LESSON_LENGTH, getEnergyRefillTime, MAX_ENERGY, isLanguageBankReady, loadLanguageBank } from './data'
 
 // Lazy loading fallback
 const LazyFallback = () => <div className="h-full flex items-center justify-center"><div className="w-6 h-6 border-2 border-teal-400 border-t-transparent rounded-full animate-spin" /></div>
@@ -24,6 +28,20 @@ export default function App() {
     const [milestoneChapter, setMilestoneChapter] = useState(null)
     const [outOfEnergy, setOutOfEnergy] = useState(false)
     const [, forceUpdate] = useState(0)
+    const [bankError, setBankError] = useState(false)
+
+    // The journey bank for the active language is a separate chunk. Fetch it on
+    // mount (and on retry); setActiveLanguage fetches on switch and calls
+    // __refreshApp when done.
+    const loadActiveBank = useCallback(() => {
+        setBankError(false)
+        loadLanguageBank(getActiveLanguage())
+            .then(() => forceUpdate(n => n + 1))
+            .catch(() => setBankError(true))
+    }, [])
+    useEffect(() => { loadActiveBank() }, [loadActiveBank])
+    useEffect(() => { const id = setTimeout(() => { loadLessonScreen().catch(() => {}) }, 1500); return () => clearTimeout(id) }, [])
+    const bankReady = isLanguageBankReady(getActiveLanguage())
 
     // Check for seasonal leaderboard reset on mount
     useEffect(() => { resetSeasonIfNeeded() }, [])
@@ -69,14 +87,14 @@ export default function App() {
     // the learner's ability, which changes with every answer — recomputing on each
     // render would swap the questions out from under the lesson mid-run.
     const exercises = useMemo(() => {
-        if (!lessonNodeId) return []
+        if (!lessonNodeId || !bankReady) return []
         if (lessonNodeId === 'review_weaknesses') return buildReviewExercises(getActiveLanguage())
         // Chest and playground nodes run a short round — they are a reward and a
         // sandbox, not a full lesson, and their pools are deliberately small.
         const node = journeyNodes.find(n => n.id === lessonNodeId)
         const short = node && (node.type === 'chest' || node.type === 'playground')
         return selectExercisesForNode(lessonNodeId, getActiveLanguage(), short ? SHORT_LESSON_LENGTH : undefined)
-    }, [lessonNodeId])
+    }, [lessonNodeId, bankReady])
 
     // Energy gate — consume energy when lesson screen opens.
     // A refusal used to close the lesson with no message at all: the learner
@@ -128,14 +146,21 @@ export default function App() {
                         <div className="w-full max-w-[430px] h-full flex flex-col relative"
                             style={{ background: '#0F172A', boxShadow: '0 0 60px rgba(0,0,0,0.5)' }}>
                             <div className="flex-1 overflow-hidden">
-                                {views[activeTab] || <JourneyView />}
+                                {!bankReady && (activeTab === 'journey' || !views[activeTab])
+                                    ? (bankError
+                                        ? <div className="h-full flex flex-col items-center justify-center gap-3 text-slate-300 text-sm">
+                                            <p>{t('Could not load lessons.')}</p>
+                                            <button onClick={loadActiveBank} className="px-4 py-2 rounded-xl bg-teal-500 text-slate-900 font-bold">{t('Try again')}</button>
+                                        </div>
+                                        : <LazyFallback />)
+                                    : (views[activeTab] || <JourneyView />)}
                             </div>
                             <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
                         </div>
                     </div>
 
                     <AnimatePresence>
-                        {showOnboarding && <Onboarding onFinish={handleOnboardingDone} />}
+                        {showOnboarding && <Suspense fallback={null}><Onboarding onFinish={handleOnboardingDone} /></Suspense>}
                     </AnimatePresence>
 
                     <AnimatePresence>
@@ -149,7 +174,7 @@ export default function App() {
 
                     {/* Lesson Screen */}
                     <AnimatePresence>
-                        {lessonNodeId && <LessonScreen onClose={handleLessonClose} exercises={exercises} />}
+                        {lessonNodeId && <Suspense fallback={null}><LessonScreen onClose={handleLessonClose} exercises={exercises} /></Suspense>}
                     </AnimatePresence>
 
                     {/* Chapter Milestone Celebration */}

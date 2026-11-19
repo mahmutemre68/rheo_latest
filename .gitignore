@@ -8,3 +8,4 @@ web/dist/
 *.p12
 *.mobileprovision
 __pycache__/
+web/dist-test/

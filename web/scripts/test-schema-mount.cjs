@@ -1,4 +1,4 @@
-const { JSDOM } = require('/workspace/scratch/cd71ff465b23/rheo-retry-delivery/qa-runtime/node_modules/jsdom')
+const { JSDOM } = require('jsdom')
 const fs=require('node:fs'),assert=require('node:assert/strict')
 ;(async()=>{
 const w=new JSDOM('<div id="root"></div>',{url:'http://localhost/',runScripts:'dangerously',pretendToBeVisual:true}).window
@@ -6,6 +6,7 @@ w.matchMedia=()=>({matches:true,addEventListener(){},removeEventListener(){}})
 const errors=[];w.addEventListener('error',e=>errors.push(e.message))
 w.eval(fs.readFileSync(process.argv[2],'utf8'))
 const wait=()=>new Promise(r=>setTimeout(r,30))
+await w.ready
 assert.equal(w.cards.length,55)
 for(let i=0;i<w.cards.length;i++){
  w.mountCard(i);await wait()
