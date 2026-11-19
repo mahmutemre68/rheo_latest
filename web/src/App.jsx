@@ -39,9 +39,15 @@ export default function App() {
             .then(() => forceUpdate(n => n + 1))
             .catch(() => setBankError(true))
     }, [])
-    useEffect(() => { loadActiveBank() }, [loadActiveBank])
+    // A failed import() is cached by the browser for that module URL, so the
+    // retry button reloads the page rather than calling this again.
+    // Re-run whenever the active language changes under us (JourneyView and the
+    // duel screen switch it directly), so a failed switch still reaches the
+    // retry screen instead of an empty map.
+    const activeLang = getActiveLanguage()
+    useEffect(() => { if (!isLanguageBankReady(activeLang)) loadActiveBank() }, [activeLang, loadActiveBank])
     useEffect(() => { const id = setTimeout(() => { loadLessonScreen().catch(() => {}) }, 1500); return () => clearTimeout(id) }, [])
-    const bankReady = isLanguageBankReady(getActiveLanguage())
+    const bankReady = isLanguageBankReady(activeLang)
 
     // Check for seasonal leaderboard reset on mount
     useEffect(() => { resetSeasonIfNeeded() }, [])
@@ -150,7 +156,7 @@ export default function App() {
                                     ? (bankError
                                         ? <div className="h-full flex flex-col items-center justify-center gap-3 text-slate-300 text-sm">
                                             <p>{t('Could not load lessons.')}</p>
-                                            <button onClick={loadActiveBank} className="px-4 py-2 rounded-xl bg-teal-500 text-slate-900 font-bold">{t('Try again')}</button>
+                                            <button onClick={() => window.location.reload()} className="px-4 py-2 rounded-xl bg-teal-500 text-slate-900 font-bold">{t('Try again')}</button>
                                         </div>
                                         : <LazyFallback />)
                                     : (views[activeTab] || <JourneyView />)}

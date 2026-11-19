@@ -1,4 +1,4 @@
-import{r,j as e}from"./vendor-react-BUwNS7rP.js";import{t as n,am as S}from"./index-BjYC9Rqp.js";import"./vendor-motion-BLsFjOXQ.js";const g={python:[`x = 2
+import{r,j as e}from"./vendor-react-BUwNS7rP.js";import{t as n,am as S}from"./index-oxjcBYVw.js";import"./vendor-motion-BLsFjOXQ.js";const g={python:[`x = 2
 x = x + 3
 print(x)`,`x = 3
 if x > 5:

@@ -36,7 +36,7 @@ export function setActiveLanguage(id) {
     saveTo(LANG_KEY, id)
     // Journey banks are code-split per language; start fetching the new one
     // right away and repaint once it lands (see loadLanguageBank).
-    if (!isLanguageBankReady(id)) loadLanguageBank(id).then(() => window.__refreshApp?.()).catch(() => {})
+    if (!isLanguageBankReady(id)) loadLanguageBank(id).finally(() => window.__refreshApp?.()).catch(() => {})
 }
 
 /* ── Otter Tip of the Day ── */
