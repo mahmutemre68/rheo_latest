@@ -2,12 +2,19 @@ import { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react'
 import { stats, journeyNodes, getSkillRadar, chapterColors, languages, setActiveLanguage, getActiveLanguage, getTipOfTheDay, getWeakExercises, t } from '../data'
 import JourneyPath from './JourneyPath'
 import { applyPlacement, canStillPlaceForward } from '../data/placement.js'
+import { hasPlaced } from '../data/adaptive.js'
+
+const BANNER_KEY = 'rheo_placement_banner_dismissed'
 const AdaptivePlacement = lazy(() => import('./AdaptivePlacement'))
-const DebugMission = lazy(() => import('./DebugMission'))
 
 export default function JourneyView() {
     const [checkLanguage, setCheckLanguage] = useState(null)
-    const [debugLanguage, setDebugLanguage] = useState(null)
+    // The placement banner is for newcomers: hidden once they placed, dismissed
+    // it, or have done a few lessons. (Settings → Find your level keeps it reachable.)
+    const [bannerDismissed, setBannerDismissed] = useState(() => { try { return localStorage.getItem(BANNER_KEY) === '1' } catch (e) { return false } })
+    const showPlacementBanner = !bannerDismissed && !hasPlaced() && canStillPlaceForward()
+        && journeyNodes.filter(n => n.status === 'completed').length < 3
+    const dismissBanner = () => { setBannerDismissed(true); try { localStorage.setItem(BANNER_KEY, '1') } catch (e) { /* ignore */ } }
     const scrollRef = useRef(null)
     const [visibleChapter, setVisibleChapter] = useState(() => {
         const activeIdx = journeyNodes.findIndex(n => n.status === 'active')
@@ -56,19 +63,16 @@ export default function JourneyView() {
     return (
         <>
         {checkLanguage && <Suspense fallback={null}><AdaptivePlacement language={checkLanguage} onDone={result => { if (result) applyPlacement(result, checkLanguage); setCheckLanguage(null); window.__refreshApp?.() }} /></Suspense>}
-        {debugLanguage && <Suspense fallback={null}><DebugMission language={debugLanguage} onClose={() => setDebugLanguage(null)} /></Suspense>}
-        <div inert={checkLanguage || debugLanguage ? true : undefined} className="h-full flex flex-col overflow-hidden relative">
+        <div inert={checkLanguage ? true : undefined} className="h-full flex flex-col overflow-hidden relative">
             <TopBar />
-            {canStillPlaceForward() && (
-                <button onClick={() => setCheckLanguage(getActiveLanguage())}
-                    className="mx-3 mb-2 shrink-0 text-left rounded-xl border border-teal-900 bg-teal-950/40 px-4 py-3 text-sm font-bold text-teal-200">
-                    {t('Find your level')} <span className="font-normal text-slate-400">· {t('skip what you already know · ~8 questions')}</span>
-                </button>
+            {showPlacementBanner && (
+                <div className="mx-3 mb-2 shrink-0 flex items-center rounded-xl border border-teal-900 bg-teal-950/40">
+                    <button onClick={() => setCheckLanguage(getActiveLanguage())} className="flex-1 min-h-11 text-left px-4 py-2.5 text-sm font-bold text-teal-200">
+                        {t('Find your level')} <span className="font-normal text-slate-400">· {t('skip what you already know · ~8 questions')}</span>
+                    </button>
+                    <button onClick={dismissBanner} aria-label={t('Dismiss')} className="w-11 h-11 shrink-0 text-slate-400 text-lg">✕</button>
+                </div>
             )}
-            <button onClick={() => setDebugLanguage(getActiveLanguage())}
-                className="mx-3 mb-2 shrink-0 text-left rounded-xl border border-slate-800 px-4 py-3 text-sm text-slate-300">
-                Debug Mission <span className="text-xs text-slate-400">· {t('Optional prototype')}</span>
-            </button>
             <ChapterMap visibleChapter={visibleChapter} onChapterClick={scrollToChapter} />
             <UnitHeader visibleChapter={visibleChapter} />
             <div ref={scrollRef} className="flex-1 overflow-y-auto overflow-x-hidden relative">

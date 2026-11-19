@@ -243,7 +243,7 @@ export default function Onboarding({ onFinish }) {
                             {/* Skip button */}
                             {!foundBug && (
                                 <button onClick={handleSkip}
-                                    className="mt-6 text-[11px] font-bold text-slate-400 cursor-pointer hover:text-slate-400 transition">
+                                    className="mt-6 min-h-11 px-5 rounded-xl text-sm font-bold text-slate-300 cursor-pointer hover:text-white transition">
                                     {t('Skip')} →
                                 </button>
                             )}

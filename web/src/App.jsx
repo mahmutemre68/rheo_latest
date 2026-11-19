@@ -17,6 +17,8 @@ import { SplashScreen } from './components/LivingOtter'
 import { AnimatePresence, motion } from 'framer-motion'
 import { getActiveLanguage, journeyNodes, chapterColors, saveProgress, loadProgress, isOnboardingDone, setOnboardingDone, t, trackQuestEvent, useEnergy, stats, resetSeasonIfNeeded, buildReviewExercises, selectExercisesForNode, SHORT_LESSON_LENGTH, getEnergyRefillTime, MAX_ENERGY, isLanguageBankReady, loadLanguageBank } from './data'
 
+const JOINED_KEY = 'rheo_joined_on'
+
 // Lazy loading fallback
 const LazyFallback = () => <div className="h-full flex items-center justify-center"><div className="w-6 h-6 border-2 border-teal-400 border-t-transparent rounded-full animate-spin" /></div>
 
@@ -63,7 +65,10 @@ export default function App() {
         if (isOnboardingDone()) {
             const today = new Date().toDateString()
             const lastClaim = localStorage.getItem('rheo_last_daily')
-            if (lastClaim !== today) {
+            // Not on the day they joined: onboarding already ended on a reward,
+            // and a second reward screen right after it buries the journey.
+            const joined = localStorage.getItem(JOINED_KEY)
+            if (lastClaim !== today && joined !== today) {
                 setShowDaily(true)
             }
         }
@@ -86,7 +91,7 @@ export default function App() {
     const handleOnboardingDone = () => {
         setShowOnboarding(false)
         setOnboardingDone()
-        setShowDaily(true)
+        try { localStorage.setItem(JOINED_KEY, new Date().toDateString()) } catch (e) { /* ignore */ }
     }
 
     // Pick the questions ONCE, when the lesson opens. The adaptive selector reads

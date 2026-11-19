@@ -103,6 +103,9 @@ export function getAbility(skill) {
 
 export function getOverallAbility() { return _ability.overall }
 
+/** Has this learner taken the placement test? */
+export function hasPlaced() { return !!_ability.placement }
+
 /**
  * Seed ability from placement. Only ratings that real answers have not yet
  * established are replaced (fewer than SEED_MAX_ATTEMPTS answers); anything

@@ -1,10 +1,13 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import HologramCard from './HologramCard'
-import { getActivityGrid, getOverallAbility, getAbilityBySkill, getBand, getBandProgress, profile, stats, getSkillRadar, achievements, otterCostumes, journeyPowerUps as powerUps, buyPowerUp, getPowerUpCount, isAchievementUnlocked, t, xpMilestones, isMilestoneClaimed, getDailyXPGoal, appThemes, getUnlockedThemes, getActiveTheme, setActiveTheme, levelPerks, getTotalXP, getXPMultiplier, saveProgress, buyCostume, equipCostume, addXP, isHapticEnabled, isSoundEnabled, setLocale, getLocale, duelStats, languages, getLeagueTier, getLangElo } from '../data'
+import { getActivityGrid, getOverallAbility, getAbilityBySkill, getBand, getBandProgress, profile, stats, getSkillRadar, achievements, otterCostumes, journeyPowerUps as powerUps, buyPowerUp, getPowerUpCount, isAchievementUnlocked, t, xpMilestones, isMilestoneClaimed, getDailyXPGoal, appThemes, getUnlockedThemes, getActiveTheme, setActiveTheme, levelPerks, getTotalXP, getXPMultiplier, saveProgress, buyCostume, equipCostume, addXP, isHapticEnabled, isSoundEnabled, setLocale, getLocale, duelStats, languages, getLeagueTier, getLangElo, getActiveLanguage } from '../data'
 
 import { share as nativeShare, haptic, isNative, getReminderState, enableReminders, disableReminders, queryReminders, onRemindersChanged, openExternal, SHARE_URL } from '../nativeBridge'
 import LivingOtter from './LivingOtter'
+import { applyPlacement } from '../data/placement.js'
+const AdaptivePlacement = lazy(() => import('./AdaptivePlacement'))
+const DebugMission = lazy(() => import('./DebugMission'))
 
 /* ═══════════════════════════════════════════
    PROFILE VIEW — polished, 3D, Costume Shop
@@ -133,9 +136,9 @@ export default function ProfileView() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }}
                     className="grid grid-cols-2 gap-3">
                     <StatBox icon="⭐" label={t('Stars')} value={`${profile.totalStars}/${profile.maxStars}`} color="text-amber-400" />
-                    <StatBox icon="🔥" label={t('Streak')} value={`${stats.streak} ${t('days')}`} color="text-orange-400" />
+                    <StatBox icon="🔥" label={t('Streak')} value={`${stats.streak} ${t(stats.streak === 1 ? 'day' : 'days')}`} color="text-orange-400" />
                     <StatBox icon="📅" label={t('Days Active')} value={profile.daysLearning} color="text-sky-400" />
-                    <StatBox icon="🏆" label={t('Best Streak')} value={`${profile.longestStreak} ${t('days')}`} color="text-purple-400" />
+                    <StatBox icon="🏆" label={t('Best Streak')} value={`${profile.longestStreak} ${t(profile.longestStreak === 1 ? 'day' : 'days')}`} color="text-purple-400" />
                 </motion.div>
 
                 {/* XP REWARDS ZONE */}
@@ -521,6 +524,12 @@ function StreakCalendar() {
     let loginHistory = []
     try { loginHistory = JSON.parse(localStorage.getItem('rheo_login_history') || '[]') } catch (e) { }
 
+    // Days before the learner's first visit are not "missed" — a new learner
+    // should not open the profile to a row of red crosses on day one.
+    const startOfDay = d => new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime()
+    const known = loginHistory.map(d => new Date(d)).filter(d => !isNaN(d))
+    const firstDay = known.length ? Math.min(...known.map(startOfDay)) : startOfDay(today)
+
     // Build this week's dates
     const mondayOffset = todayIdx
     const streakDays = days.map((_, i) => {
@@ -530,6 +539,7 @@ function StreakCalendar() {
         if (i === todayIdx) return 'today'
         if (i > todayIdx) return 'future'
         if (loginHistory.includes(dateStr)) return 'done'
+        if (startOfDay(date) < firstDay) return 'before'
         return 'missed'
     })
 
@@ -539,7 +549,7 @@ function StreakCalendar() {
                 const status = streakDays[i]
                 return (
                     <div key={day} className="flex-1 text-center">
-                        <p className={`text-[11px] font-bold mb-1 ${status === 'today' ? 'text-amber-400' : 'text-slate-400'}`}>{day}</p>
+                        <p className={`text-[11px] font-bold mb-1 ${status === 'today' ? 'text-amber-400' : 'text-slate-400'}`}>{t(day)}</p>
                         <motion.div
                             initial={{ scale: 0.8 }} animate={{ scale: 1 }}
                             transition={{ delay: i * 0.05 }}
@@ -548,7 +558,7 @@ function StreakCalendar() {
                                     : status === 'today' ? 'bg-amber-500/20 border-amber-700 text-amber-400 ring-1 ring-amber-400/30'
                                         : status === 'missed' ? 'bg-red-500/10 border-red-900/40 text-red-400/50'
                                             : 'bg-slate-900/40 border-slate-950 text-slate-500'}`}>
-                            {status === 'done' ? '🔥' : status === 'today' ? '✨' : status === 'missed' ? '✕' : '·'}
+                            {status === 'done' ? '🔥' : status === 'today' ? '✨' : status === 'missed' ? '✕' : status === 'before' ? '' : '·'}
                         </motion.div>
                     </div>
                 )
@@ -731,7 +741,7 @@ function DailyXPModule() {
                     ? <p className="text-[11px] font-black text-amber-400">✅ {t('Goal hit!')} {goal.goalStreak > 1 ? `🔥 ${goal.goalStreak} ${t('day streak')}` : ''}</p>
                     : <p className="text-[11px] font-bold text-slate-400">{goal.targetXp - goal.xpEarned} XP {t('to go')}</p>
                 }
-                {goal.goalStreak > 0 && !goal.completed && <p className="text-[11px] font-bold text-slate-400">🎯 {t('Goal Streak')}: {goal.goalStreak} {t('days')}</p>}
+                {goal.goalStreak > 0 && !goal.completed && <p className="text-[11px] font-bold text-slate-400">🎯 {t('Goal Streak')}: {goal.goalStreak} {t(goal.goalStreak === 1 ? 'day' : 'days')}</p>}
             </div>
         </div>
     )
@@ -798,6 +808,7 @@ function NextPerkPreview() {
 
 /* ═══════════════ SETTINGS MODAL ═══════════════ */
 function SettingsModal({ onClose }) {
+    const [lab, setLab] = useState(null)
     const [sound, setSound] = useState(() => isSoundEnabled())
     const [haptic, setHaptic] = useState(() => isHapticEnabled())
     const [locale, setLocaleState] = useState(() => getLocale())
@@ -838,6 +849,9 @@ function SettingsModal({ onClose }) {
     }
 
     return (
+        <>
+        {lab === 'placement' && <Suspense fallback={null}><AdaptivePlacement language={getActiveLanguage()} onDone={r => { if (r) applyPlacement(r, getActiveLanguage()); setLab(null); onClose(); window.__refreshApp?.() }} /></Suspense>}
+        {lab === 'debug' && <Suspense fallback={null}><DebugMission language={getActiveLanguage()} onClose={() => setLab(null)} /></Suspense>}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex flex-col justify-end"
             style={{ background: 'rgba(15,23,42,0.8)', backdropFilter: 'blur(8px)' }}>
@@ -889,6 +903,17 @@ function SettingsModal({ onClose }) {
                         )}
                     </div>
 
+                    {/* Learning: placement retake + prototypes (kept off the journey map) */}
+                    <div className="bg-slate-900/50 rounded-2xl p-4 border border-slate-700/50">
+                        <h3 className="text-xs font-black text-slate-400 tracking-wider mb-3 uppercase">{t('Learning')}</h3>
+                        <button onClick={() => setLab('placement')} className="w-full min-h-11 text-left py-2 flex items-center justify-between">
+                            <span className="text-sm font-bold text-slate-300">{t('Find your level')}</span><span className="text-slate-400">›</span>
+                        </button>
+                        <button onClick={() => setLab('debug')} className="w-full min-h-11 text-left py-2 flex items-center justify-between">
+                            <span className="text-sm font-bold text-slate-300">Debug Mission <span className="text-[11px] font-bold text-amber-300/80 ml-1">LABS</span></span><span className="text-slate-400">›</span>
+                        </button>
+                    </div>
+
                     {/* Language */}
                     <div className="bg-slate-900/50 rounded-2xl p-4 border border-slate-700/50">
                         <h3 className="text-xs font-black text-slate-400 tracking-wider mb-4 uppercase">{t('Language')}</h3>
@@ -928,6 +953,7 @@ function SettingsModal({ onClose }) {
                 </button>
             </motion.div>
         </motion.div>
+        </>
     )
 }
 
