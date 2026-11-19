@@ -189,7 +189,7 @@ export default function Onboarding({ onFinish }) {
                                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
                                     <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                                    <span className="text-[9px] font-bold text-slate-500 ml-2">main.py</span>
+                                    <span className="text-[11px] font-bold text-slate-400 ml-2">main.py</span>
                                 </div>
 
                                 {/* Code Lines */}
@@ -207,7 +207,7 @@ export default function Onboarding({ onFinish }) {
                                                         : 'hover:bg-slate-800/50 border border-transparent'
                                                 }`}>
                                             {/* Line number */}
-                                            <span className="text-[10px] font-mono font-bold text-slate-600 w-4 text-right select-none">{i + 1}</span>
+                                            <span className="text-[11px] font-mono font-bold text-slate-400 w-4 text-right select-none">{i + 1}</span>
                                             {/* Code text */}
                                             <code className={`text-xs font-mono font-bold flex-1 whitespace-pre ${foundBug && line.hasBug ? 'text-emerald-400' : 'text-slate-300'
                                                 }`}>
@@ -225,7 +225,7 @@ export default function Onboarding({ onFinish }) {
                                 {/* Error hint */}
                                 {!foundBug && (
                                     <div className="px-4 py-2 border-t border-slate-700/20">
-                                        <p className="text-[9px] font-bold text-red-400/70 font-mono">
+                                        <p className="text-[11px] font-bold text-red-400/70 font-mono">
                                             SyntaxError: unexpected EOF while parsing
                                         </p>
                                     </div>
@@ -233,7 +233,7 @@ export default function Onboarding({ onFinish }) {
                                 {foundBug && (
                                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                                         className="px-4 py-2 border-t border-emerald-700/20 bg-emerald-500/5">
-                                        <p className="text-[9px] font-bold text-emerald-400 font-mono">
+                                        <p className="text-[11px] font-bold text-emerald-400 font-mono">
                                             ✓ Fixed! Missing closing parenthesis added.
                                         </p>
                                     </motion.div>
@@ -243,7 +243,7 @@ export default function Onboarding({ onFinish }) {
                             {/* Skip button */}
                             {!foundBug && (
                                 <button onClick={handleSkip}
-                                    className="mt-6 text-[10px] font-bold text-slate-600 cursor-pointer hover:text-slate-400 transition">
+                                    className="mt-6 text-[11px] font-bold text-slate-400 cursor-pointer hover:text-slate-400 transition">
                                     {t('Skip')} →
                                 </button>
                             )}
@@ -288,7 +288,7 @@ export default function Onboarding({ onFinish }) {
                                     animate={{ scale: 1 }}
                                     transition={{ delay: 0.4, type: 'spring', stiffness: 200 }}
                                     className="inline-block px-3 py-1 rounded-lg bg-red-500/15 border border-red-500/30 mb-3">
-                                    <span className="text-[10px] font-black text-red-400 tracking-wider">🩸 FIRST BLOOD</span>
+                                    <span className="text-[11px] font-black text-red-400 tracking-wider">🩸 FIRST BLOOD</span>
                                 </motion.div>
                                 <h1 className="text-2xl font-black mb-2" style={{
                                     background: 'linear-gradient(135deg, #06b6d4, #14b8a6, #22c55e)',

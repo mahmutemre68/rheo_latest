@@ -116,9 +116,9 @@ function AchievementToast({ icon, title, desc, onDone }) {
                     <span className="text-xl">{icon}</span>
                 </motion.div>
                 <div className="flex-1 min-w-0">
-                    <p className="text-[9px] font-extrabold text-amber-400/70 tracking-widest uppercase">{t('Achievement Unlocked')}</p>
+                    <p className="text-[11px] font-extrabold text-amber-400/70 tracking-widest uppercase">{t('Achievement Unlocked')}</p>
                     <p className="text-sm font-black text-white truncate">{title}</p>
-                    <p className="text-[10px] font-bold text-slate-500 truncate">{desc}</p>
+                    <p className="text-[11px] font-bold text-slate-400 truncate">{desc}</p>
                 </div>
                 <motion.div animate={{ scale: [1, 1.3, 1] }} transition={{ duration: 0.8, repeat: 2 }}
                     className="text-lg">🏆</motion.div>
@@ -176,7 +176,7 @@ function LevelUpCelebration({ level, onDone }) {
                     </div>
                 </motion.div>
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
-                    className="text-[10px] font-bold text-slate-500 mt-2">{t('Tap anywhere to continue')}</motion.p>
+                    className="text-[11px] font-bold text-slate-400 mt-2">{t('Tap anywhere to continue')}</motion.p>
             </motion.div>
         </motion.div>
     )

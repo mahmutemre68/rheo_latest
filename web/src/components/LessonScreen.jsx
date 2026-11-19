@@ -268,7 +268,7 @@ export default function LessonScreen({ onClose, exercises = [], practice = false
             {/* ═══ TOP BAR ═══ */}
             <div className="shrink-0 flex items-center gap-3 px-4 py-3"
                 style={{ paddingTop: 'max(12px, env(safe-area-inset-top, 12px))' }}>
-                <button onClick={() => onClose({ completed: false, stars: 0, correct: correctCount, total: scorableTotal })} className="text-slate-500 hover:text-white transition cursor-pointer p-1">
+                <button onClick={() => onClose({ completed: false, stars: 0, correct: correctCount, total: scorableTotal })} className="text-slate-400 hover:text-white transition cursor-pointer p-1">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
                         <path d="M18 6L6 18M6 6l12 12" />
                     </svg>
@@ -291,7 +291,7 @@ export default function LessonScreen({ onClose, exercises = [], practice = false
                     <span className="text-xs font-black text-pink-400">{hearts}</span>
                 </div>}
                 {/* Sound toggle */}
-                <button onClick={() => { setSoundMuted(toggleMute()) }} className="text-slate-500 hover:text-white transition cursor-pointer p-1">
+                <button onClick={() => { setSoundMuted(toggleMute()) }} className="text-slate-400 hover:text-white transition cursor-pointer p-1">
                     <span className="text-sm">{soundMuted ? '🔇' : '🔊'}</span>
                 </button>
             </div>
@@ -313,7 +313,7 @@ export default function LessonScreen({ onClose, exercises = [], practice = false
                     <div className="flex items-center gap-1.5 bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-full px-3 py-1">
                         <span className="text-sm">{'🔥'.repeat(Math.min(streak, 3))}</span>
                         <span className="text-xs font-black text-amber-400">{streak}x COMBO</span>
-                        {streak >= 2 && <span className="text-[10px] font-bold text-amber-300/70">+{streak >= 6 ? 25 : streak >= 4 ? 10 : 5} XP</span>}
+                        {streak >= 2 && <span className="text-[11px] font-bold text-amber-300/70">+{streak >= 6 ? 25 : streak >= 4 ? 10 : 5} XP</span>}
                     </div>
                 </motion.div>
             )}
@@ -339,15 +339,15 @@ export default function LessonScreen({ onClose, exercises = [], practice = false
                                 ? 'bg-indigo-500/20 border-indigo-500/30 cursor-pointer hover:bg-indigo-500/30'
                                 : 'bg-slate-800/60 border-slate-700/40 opacity-60 cursor-not-allowed'}`}>
                             <span className="text-sm">{hasHintLeft ? '💡' : '🔒'}</span>
-                            <span className={`text-[11px] font-bold ${hasHintLeft ? 'text-indigo-300' : 'text-slate-500'}`}>{t('Show Hint')}</span>
+                            <span className={`text-[11px] font-bold ${hasHintLeft ? 'text-indigo-300' : 'text-slate-400'}`}>{t('Show Hint')}</span>
                             {/* Say what a tap will cost before it is spent, so the
                                 learner can choose to save the last one. */}
                             {hintCredits.free > 0 ? (
-                                <span className="text-[9px] font-black text-indigo-200/80 bg-indigo-500/25 rounded-full px-1.5">{hintCredits.free}/{DAILY_HINT_CREDITS}</span>
+                                <span className="text-[11px] font-black text-indigo-200/80 bg-indigo-500/25 rounded-full px-1.5">{hintCredits.free}/{DAILY_HINT_CREDITS}</span>
                             ) : hintCredits.tokens > 0 ? (
-                                <span className="text-[9px] font-black text-amber-400 bg-amber-500/20 rounded-full px-1.5">🔮 {hintCredits.tokens}</span>
+                                <span className="text-[11px] font-black text-amber-400 bg-amber-500/20 rounded-full px-1.5">🔮 {hintCredits.tokens}</span>
                             ) : (
-                                <span className="text-[9px] font-black text-slate-500 bg-slate-700/40 rounded-full px-1.5">0</span>
+                                <span className="text-[11px] font-black text-slate-400 bg-slate-700/40 rounded-full px-1.5">0</span>
                             )}
                         </button>
                         {/* Skip Token — also only useful before answering: skipping a
@@ -430,7 +430,7 @@ export default function LessonScreen({ onClose, exercises = [], practice = false
                         <LivingOtter mood={isCorrect ? "happy" : "encouraging"} size={40} showGlow={false} />
                         <div className="flex-1 min-w-0">
                             <p className={`text-sm font-black ${isCorrect ? 'text-emerald-400' : 'text-amber-400'}`}>{isCorrect ? t('Correct!') : t('Not quite —')}</p>
-                            <p className="text-[10px] font-bold text-slate-500">
+                            <p className="text-[11px] font-bold text-slate-400">
                                 {isCorrect ? (practice ? t('Practice does not change your lesson score or rewards.') : (
                                     <>{speedBonus ? '🔍 Deep Read! +20 XP' : '+15 XP'}{streak >= 2 && ` · 🔥 ${streak} streak`}</>
                                 )) : t(mistakeGuideKey(ex.type))}
@@ -442,7 +442,7 @@ export default function LessonScreen({ onClose, exercises = [], practice = false
                         </div>
                         {isCorrect && speedBonus && (
                             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="px-2 py-1 rounded-lg bg-amber-500/20 border border-amber-600/30">
-                                <span className="text-[10px] font-black text-amber-400">🔍 DEEP READ</span>
+                                <span className="text-[11px] font-black text-amber-400">🔍 DEEP READ</span>
                             </motion.div>
                         )}
                     </motion.div>
@@ -480,7 +480,7 @@ function IDEBlock({ children, filename }) {
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                 <div className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
-                <span className="text-[8px] font-bold text-slate-600 ml-2">{display}</span>
+                <span className="text-[11px] font-bold text-slate-400 ml-2">{display}</span>
             </div>
             <div className="p-4 font-mono text-sm space-y-0.5 overflow-x-auto">{children}</div>
         </div>
@@ -522,7 +522,7 @@ function TraceVariable({ ex, selected, setSelected, answered, onAnswer }) {
                     {ex.code.map((line, i) => (
                         <div key={i} className={`flex items-start gap-3 px-2 py-1 rounded-lg transition-all
                             ${line.highlight ? 'bg-amber-500/10 border border-amber-500/30 shadow-[0_0_12px_rgba(245,158,11,0.1)]' : ''}`}>
-                            <span className="text-[10px] text-slate-600 w-4 shrink-0 pt-0.5 select-none">{i + 1}</span>
+                            <span className="text-[11px] text-slate-400 w-4 shrink-0 pt-0.5 select-none">{i + 1}</span>
                             <CodeColored text={line.text} />
                         </div>
                     ))}
@@ -547,7 +547,7 @@ function BugHunt({ ex, selected, setSelected, answered, onAnswer }) {
     return (
         <div>
             <p className="text-sm font-black text-white mb-1">{ex.prompt}</p>
-            <p className="text-[10px] font-bold text-slate-500 mb-4">🐛 Find the bug!</p>
+            <p className="text-[11px] font-bold text-slate-400 mb-4">🐛 Find the bug!</p>
             <IDEBlock>
                 {ex.code.map((line, i) => (
                     <motion.button key={i} whileTap={{ scale: 0.98 }} onClick={() => handleTap(i)} disabled={answered}
@@ -556,7 +556,7 @@ function BugHunt({ ex, selected, setSelected, answered, onAnswer }) {
                                 : answered && i === selected && i !== ex.correctLine ? 'bg-amber-500/10 border-amber-900 border border-amber-700/30'
                                     : selected === i ? 'bg-amber-500/15 border-amber-800 border border-amber-600/30'
                                         : 'bg-slate-900/40 border-slate-950 hover:bg-slate-800/60 border border-transparent'}`}>
-                        <span className="text-[10px] text-slate-600 w-4 shrink-0 pt-0.5">{i + 1}</span>
+                        <span className="text-[11px] text-slate-400 w-4 shrink-0 pt-0.5">{i + 1}</span>
                         <CodeColored text={line.text} />
                         {answered && i === ex.correctLine && <span className="ml-auto text-xs">🐛</span>}
                     </motion.button>
@@ -586,9 +586,9 @@ function CodeScramble({ ex, answered, onAnswer }) {
     return (
         <div>
             <p className="text-sm font-black text-white mb-1">{ex.prompt}</p>
-            <p className="text-[10px] font-bold text-slate-500 mb-4">🧩 Tap to arrange</p>
+            <p className="text-[11px] font-bold text-slate-400 mb-4">🧩 Tap to arrange</p>
             <div className="rounded-2xl bg-slate-950 border-2 border-dashed border-slate-700/50 p-4 min-h-[100px] mb-5">
-                {placed.length === 0 && <p className="text-xs font-bold text-slate-700 text-center mt-6">Tap code pieces below</p>}
+                {placed.length === 0 && <p className="text-xs font-bold text-slate-500 text-center mt-6">Tap code pieces below</p>}
                 <div className="space-y-2">
                     {placed.map((piece, i) => (
                         <motion.button key={piece.id} initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
@@ -597,7 +597,7 @@ function CodeScramble({ ex, answered, onAnswer }) {
                                 ${answered && ex.correctOrder[i] === piece.id ? 'bg-emerald-500/15 border-emerald-900 text-emerald-400 border border-emerald-700/30'
                                     : answered ? 'bg-red-500/15 border-red-900 text-red-400 border border-red-700/30'
                                         : 'bg-slate-800 border-slate-950 text-teal-300 border border-slate-700/30'}`}>
-                            <span className="text-[10px] text-slate-600 mr-3">{i + 1}</span>{piece.text}
+                            <span className="text-[11px] text-slate-400 mr-3">{i + 1}</span>{piece.text}
                         </motion.button>
                     ))}
                 </div>
@@ -659,14 +659,14 @@ function OutputPredict({ ex, selected, setSelected, answered, onAnswer }) {
             <p className="text-sm font-black text-white mb-4">{ex.prompt}</p>
             <div className="mb-3"><IDEBlock>{ex.code.map((line, i) => (
                 <div key={i} className="flex items-start gap-3 px-2 py-0.5">
-                    <span className="text-[10px] text-slate-600 w-4 shrink-0">{i + 1}</span>
+                    <span className="text-[11px] text-slate-400 w-4 shrink-0">{i + 1}</span>
                     <CodeColored text={line.text} />
                 </div>
             ))}</IDEBlock></div>
             <div className="rounded-xl bg-black border border-slate-700/30 p-3 mb-5 font-mono">
                 <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[8px] font-bold text-emerald-500">▸ OUTPUT</span>
-                    {!answered && <span className="text-[8px] font-bold text-slate-600">{t('runs after you answer')}</span>}
+                    <span className="text-[11px] font-bold text-emerald-500">▸ OUTPUT</span>
+                    {!answered && <span className="text-[11px] font-bold text-slate-400">{t('runs after you answer')}</span>}
                 </div>
                 <div className="flex items-center gap-1">
                     <span className="text-emerald-400 text-sm">&gt;&gt;&gt;</span>
@@ -702,7 +702,7 @@ function FillTheGap({ ex, answered, onAnswer }) {
     return (
         <div>
             <p className="text-sm font-black text-white mb-1">{ex.prompt}</p>
-            <p className="text-[10px] font-bold text-slate-500 mb-4">📝 Tap words to fill the blanks</p>
+            <p className="text-[11px] font-bold text-slate-400 mb-4">📝 Tap words to fill the blanks</p>
             <IDEBlock>
                 <div className="flex flex-wrap items-center gap-y-1">
                 {ex.codeParts.map((part, i) => {
@@ -715,19 +715,19 @@ function FillTheGap({ ex, answered, onAnswer }) {
                                     ? 'bg-emerald-500/20 border-emerald-800 text-emerald-400 border border-emerald-700/30'
                                     : answered ? 'bg-red-500/20 border-red-800 text-red-400 border border-red-700/30'
                                         : 'bg-teal-500/20 border-teal-800 text-teal-300 border border-teal-700/30'
-                                    : 'bg-slate-800 border-slate-900 border-2 border-dashed border-slate-600 text-slate-600'}`}>
+                                    : 'bg-slate-800 border-slate-900 border-2 border-dashed border-slate-600 text-slate-400'}`}>
                             {filled || '___'}
                         </motion.button>
                     )
                 })}
                 </div>
             </IDEBlock>
-            <p className="text-[9px] font-extrabold text-slate-500 tracking-wider mb-2 mt-5">WORD BANK</p>
+            <p className="text-[11px] font-extrabold text-slate-400 tracking-wider mb-2 mt-5">WORD BANK</p>
             <div className="flex flex-wrap gap-2">
                 {ex.bank.map((word, i) => (
                     <motion.button key={i} whileTap={{ scale: 0.95 }} onClick={() => handleFill(word)} disabled={bankUsed.includes(word) || answered}
                         className={`px-4 py-2.5 rounded-xl font-mono text-sm font-bold border-b-[3px] cursor-pointer transition-all
-                            ${bankUsed.includes(word) ? 'bg-slate-900 border-slate-950 text-slate-700 opacity-40'
+                            ${bankUsed.includes(word) ? 'bg-slate-900 border-slate-950 text-slate-500 opacity-40'
                                 : 'bg-slate-800 border-slate-950 text-white border border-slate-700/30 active:border-b-0 active:translate-y-[3px]'}`}>
                         {word}
                     </motion.button>
@@ -764,7 +764,7 @@ function PairMatch({ ex, answered, onAnswer }) {
     return (
         <div>
             <p className="text-sm font-black text-white mb-1">{ex.prompt}</p>
-            <p className="text-[10px] font-bold text-slate-500 mb-5">🔗 Tap a concept, then its match</p>
+            <p className="text-[11px] font-bold text-slate-400 mb-5">🔗 Tap a concept, then its match</p>
             <div className="flex gap-3">
                 <div className="flex-1 space-y-2 min-w-0">
                     {shuffledLeft.map(p => (
@@ -806,19 +806,19 @@ function CodeRefactor({ ex, selected, setSelected, answered, onAnswer }) {
                 <p className="text-sm font-black text-white">{ex.prompt}</p>
             </div>
             {/* Original messy code */}
-            <p className="text-[9px] font-extrabold text-red-400/70 tracking-wider mb-2">ORIGINAL CODE</p>
+            <p className="text-[11px] font-extrabold text-red-400/70 tracking-wider mb-2">ORIGINAL CODE</p>
             <div className="mb-5">
                 <IDEBlock>
                     {ex.originalCode.split('\n').map((line, i) => (
                         <div key={i} className="flex items-start gap-3 px-2 py-0.5">
-                            <span className="text-[10px] text-slate-600 w-4 shrink-0">{i + 1}</span>
+                            <span className="text-[11px] text-slate-400 w-4 shrink-0">{i + 1}</span>
                             <CodeColored text={line} />
                         </div>
                     ))}
                 </IDEBlock>
             </div>
             {/* Refactored options */}
-            <p className="text-[9px] font-extrabold text-teal-400/70 tracking-wider mb-2">PICK THE BEST REFACTOR</p>
+            <p className="text-[11px] font-extrabold text-teal-400/70 tracking-wider mb-2">PICK THE BEST REFACTOR</p>
             <div className="space-y-3">
                 {ex.options.map((opt, i) => (
                     <motion.button key={i} whileTap={{ scale: 0.97 }} onClick={() => handleSelect(i)} disabled={answered}
@@ -829,7 +829,7 @@ function CodeRefactor({ ex, selected, setSelected, answered, onAnswer }) {
                                         : 'border border-slate-700/30 border-b-slate-950 bg-slate-800 active:translate-y-[4px] active:border-b-0'}`}>
                         <div className="px-4 py-2 font-mono text-[11px] text-slate-300 whitespace-pre-wrap break-all overflow-hidden">{opt.code}</div>
                         <div className="px-4 py-2 border-t border-slate-700/20">
-                            <span className="text-[10px] font-bold text-slate-500">{opt.label}</span>
+                            <span className="text-[11px] font-bold text-slate-400">{opt.label}</span>
                             {answered && i === ex.correct && <span className="ml-2 text-xs">✨ Best!</span>}
                         </div>
                     </motion.button>
@@ -853,11 +853,11 @@ function ErrorDecoder({ ex, selected, setSelected, answered, onAnswer }) {
             {/* Error traceback */}
             <div className="rounded-2xl bg-red-950/30 border border-red-800/30 border-b-[4px] border-b-red-950 p-4 mb-5 font-mono overflow-x-auto">
                 <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[8px] font-extrabold text-red-500 tracking-wider">⚠ ERROR OUTPUT</span>
+                    <span className="text-[11px] font-extrabold text-red-500 tracking-wider">⚠ ERROR OUTPUT</span>
                 </div>
                 {ex.errorText.split('\n').map((line, i) => (
                     <div key={i} className="flex items-start gap-2 min-w-0">
-                        <span className="text-red-400/60 text-[10px] shrink-0">│</span>
+                        <span className="text-red-400/60 text-[11px] shrink-0">│</span>
                         <span className={`text-xs break-all ${line.includes('Error') || line.includes('Exception') ? 'text-red-400 font-bold' : 'text-red-300/70'}`}>{line}</span>
                     </div>
                 ))}
@@ -933,11 +933,11 @@ function TerminalSim({ ex, answered, onAnswer }) {
                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-500/60" />
                     <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/60" />
-                    <span className="text-[8px] font-bold text-slate-500 ml-2">Terminal</span>
+                    <span className="text-[11px] font-bold text-slate-400 ml-2">Terminal</span>
                 </div>
                 <div ref={scrollRef} className="p-4 font-mono text-sm min-h-[200px] max-h-[300px] overflow-y-auto space-y-1">
                     {history.map((line, i) => (
-                        <div key={i} className={`text-xs ${line.type === 'system' ? 'text-slate-500'
+                        <div key={i} className={`text-xs ${line.type === 'system' ? 'text-slate-400'
                             : line.type === 'input' ? 'text-teal-300'
                                 : line.type === 'success' ? 'text-emerald-400'
                                     : 'text-red-400'
@@ -961,8 +961,8 @@ function TerminalSim({ ex, answered, onAnswer }) {
             </div>
             {/* Hint */}
             <div className="mt-3 px-3 py-2 rounded-xl bg-amber-500/5 border border-amber-700/20">
-                <p className="text-[10px] font-bold text-amber-400/80">💡 Hint: {ex.hint}</p>
-                <p className="text-[9px] text-amber-500/50 mt-1">Step {cmdIndex + 1} of {ex.expectedCommands.length}</p>
+                <p className="text-[11px] font-bold text-amber-400/80">💡 Hint: {ex.hint}</p>
+                <p className="text-[11px] text-amber-500/50 mt-1">Step {cmdIndex + 1} of {ex.expectedCommands.length}</p>
             </div>
             {/* Send button for mobile */}
             {!answered && (
@@ -982,7 +982,7 @@ function AlgorithmStepper({ ex, selected, setSelected, answered, onAnswer }) {
     const handleSelect = (idx) => { if (answered) return; setSelected(idx); onAnswer(idx === ex.correct, { selectedIndex: idx }) }
     const arrLen = ex.array?.length || 0
     // Responsive sizing: shrink boxes when array is large
-    const boxSize = arrLen > 8 ? 'w-8 h-8 text-[10px]' : arrLen > 5 ? 'w-10 h-10 text-xs' : 'w-12 h-12 text-sm'
+    const boxSize = arrLen > 8 ? 'w-8 h-8 text-[11px]' : arrLen > 5 ? 'w-10 h-10 text-xs' : 'w-12 h-12 text-sm'
     return (
         <div>
             <div className="flex items-center gap-2 mb-4">
@@ -1006,7 +1006,7 @@ function AlgorithmStepper({ ex, selected, setSelected, answered, onAnswer }) {
                 </div>
                 {/* Step indicator */}
                 <div className="flex items-center gap-2 justify-center mb-3">
-                    <span className="text-[9px] font-extrabold text-teal-400 tracking-wider">STEP {ex.step}</span>
+                    <span className="text-[11px] font-extrabold text-teal-400 tracking-wider">STEP {ex.step}</span>
                 </div>
                 <p className="text-xs font-bold text-slate-400 text-center leading-relaxed break-words">{ex.description}</p>
             </div>
@@ -1031,11 +1031,11 @@ function RealWorldConnect({ ex, selected, setSelected, answered, onAnswer }) {
             </div>
             {/* Scenario card */}
             <div className="rounded-2xl bg-gradient-to-br from-purple-900/20 to-teal-900/20 border border-purple-700/20 border-b-[4px] border-b-purple-950 p-5 mb-5">
-                <p className="text-[9px] font-extrabold text-purple-400/70 tracking-wider mb-2">REAL WORLD SCENARIO</p>
+                <p className="text-[11px] font-extrabold text-purple-400/70 tracking-wider mb-2">REAL WORLD SCENARIO</p>
                 <p className="text-sm font-bold text-white leading-relaxed break-words">{ex.scenario}</p>
             </div>
             {/* Code options */}
-            <p className="text-[9px] font-extrabold text-slate-500 tracking-wider mb-3">WHICH CODE SOLVES THIS?</p>
+            <p className="text-[11px] font-extrabold text-slate-400 tracking-wider mb-3">WHICH CODE SOLVES THIS?</p>
             <div className="space-y-3">
                 {ex.options.map((opt, i) => (
                     <motion.button key={i} whileTap={{ scale: 0.97 }} onClick={() => handleSelect(i)} disabled={answered}
@@ -1046,7 +1046,7 @@ function RealWorldConnect({ ex, selected, setSelected, answered, onAnswer }) {
                                         : 'border border-slate-700/30 border-b-slate-950 bg-slate-800 active:translate-y-[4px] active:border-b-0'}`}>
                         <div className="px-4 py-2 font-mono text-[11px] text-slate-300 whitespace-pre-wrap break-all overflow-hidden">{opt.code}</div>
                         <div className="px-4 py-2 border-t border-slate-700/20">
-                            <span className="text-[10px] font-bold text-slate-500">{opt.label}</span>
+                            <span className="text-[11px] font-bold text-slate-400">{opt.label}</span>
                             {answered && i === ex.correct && <span className="ml-2 text-xs">✅</span>}
                         </div>
                     </motion.button>
@@ -1070,7 +1070,7 @@ function ComplexityMatch({ ex, selected, setSelected, answered, onAnswer }) {
                 <p className="text-sm font-black text-white">{ex.prompt}</p>
             </div>
             {ex.scenario && <p className="text-[11px] font-bold text-slate-400 mb-4">{ex.scenario}</p>}
-            <p className="text-[9px] font-extrabold text-amber-400/70 tracking-wider mb-3 mt-4">{t('WHICH IS MORE EFFICIENT?')}</p>
+            <p className="text-[11px] font-extrabold text-amber-400/70 tracking-wider mb-3 mt-4">{t('WHICH IS MORE EFFICIENT?')}</p>
             <div className="space-y-3">
                 {ex.options.map((opt, i) => (
                     <motion.button key={i} whileTap={{ scale: 0.97 }} onClick={() => handleSelect(i)} disabled={answered}
@@ -1080,8 +1080,8 @@ function ComplexityMatch({ ex, selected, setSelected, answered, onAnswer }) {
                                     : selected === i ? 'border border-teal-600/40 border-b-teal-800 bg-teal-500/5'
                                         : 'border border-slate-700/30 border-b-slate-950 bg-slate-800 active:translate-y-[4px] active:border-b-0'}`}>
                         <div className="flex items-center justify-between px-4 py-1.5 bg-slate-900/50 border-b border-slate-700/20">
-                            <span className="text-[10px] font-bold text-slate-500">{opt.label}</span>
-                            {answered && <span className={`text-[10px] font-black font-mono ${i === ex.correct ? 'text-emerald-400' : 'text-red-400/80'}`}>{opt.complexity}</span>}
+                            <span className="text-[11px] font-bold text-slate-400">{opt.label}</span>
+                            {answered && <span className={`text-[11px] font-black font-mono ${i === ex.correct ? 'text-emerald-400' : 'text-red-400/80'}`}>{opt.complexity}</span>}
                         </div>
                         <div className="px-4 py-2 font-mono text-[11px] text-slate-300 whitespace-pre-wrap break-all overflow-hidden">{opt.code}</div>
                         {answered && i === ex.correct && <div className="absolute top-1.5 right-3 text-xs">🏆</div>}
@@ -1169,7 +1169,7 @@ function LessonComplete({ hearts, total, correct, bestStreak = 0, fastestTime = 
                             className="rounded-2xl bg-slate-800/70 border border-red-900/20 border-b-[3px] border-b-slate-950 p-4">
                             <div className="flex items-start gap-2 mb-2">
                                 <span className="text-xs font-black text-red-400 bg-red-500/10 px-2 py-0.5 rounded-lg">{i + 1}</span>
-                                <span className="text-[10px] font-bold text-slate-500 uppercase">{wq.type}</span>
+                                <span className="text-[11px] font-bold text-slate-400 uppercase">{wq.type}</span>
                             </div>
                             <p className="text-sm font-bold text-slate-300 mb-2">{t(wq.prompt)}</p>
                             {wq.context && <pre className="text-xs whitespace-pre-wrap break-words text-amber-200 mb-3">{wq.context}</pre>}
@@ -1222,7 +1222,7 @@ function LessonComplete({ hearts, total, correct, bestStreak = 0, fastestTime = 
                         {[0, 1, 2].map(s => (
                             <motion.div key={s} initial={{ scale: 0, rotate: -30 }} animate={{ scale: 1, rotate: 0 }}
                                 transition={{ delay: 0.3 + s * 0.2, type: 'spring', stiffness: 300 }}>
-                                <svg className={`w-8 h-8 ${s < stars ? 'text-yellow-400' : 'text-slate-700'}`} fill="currentColor" viewBox="0 0 24 24">
+                                <svg className={`w-8 h-8 ${s < stars ? 'text-yellow-400' : 'text-slate-500'}`} fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                 </svg>
                             </motion.div>
@@ -1234,7 +1234,7 @@ function LessonComplete({ hearts, total, correct, bestStreak = 0, fastestTime = 
                 {passed && (xpBreakdown.base > 0 || totalXP > 0) && (
                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
                         className="w-full max-w-[280px] rounded-2xl bg-slate-800/60 border border-slate-700/30 px-4 py-3">
-                        <p className="text-[8px] font-extrabold text-slate-500 tracking-wider mb-2">XP BREAKDOWN</p>
+                        <p className="text-[11px] font-extrabold text-slate-400 tracking-wider mb-2">XP BREAKDOWN</p>
                         <div className="space-y-1.5">
                             <div className="flex justify-between items-center">
                                 <span className="text-[11px] font-bold text-slate-400">📝 {t('Base')} ({correct}×15)</span>
@@ -1263,15 +1263,15 @@ function LessonComplete({ hearts, total, correct, bestStreak = 0, fastestTime = 
                 {/* Main stats row */}
                 <div className="flex gap-3">
                     <div className="rounded-2xl bg-slate-800 border-b-[4px] border-slate-950 px-4 py-3 text-center min-w-[70px]">
-                        <p className="text-[9px] font-bold text-slate-500">{t('Accuracy')}</p>
+                        <p className="text-[11px] font-bold text-slate-400">{t('Accuracy')}</p>
                         <p className="text-lg font-black text-amber-400">{animPct}%</p>
                     </div>
                     <div className="rounded-2xl bg-slate-800 border-b-[4px] border-slate-950 px-4 py-3 text-center min-w-[70px]">
-                        <p className="text-[9px] font-bold text-slate-500">{t('Hearts')}</p>
+                        <p className="text-[11px] font-bold text-slate-400">{t('Hearts')}</p>
                         <p className="text-lg font-black text-pink-400">{hearts}/5</p>
                     </div>
                     <div className="rounded-2xl bg-slate-800 border-b-[4px] border-slate-950 px-4 py-3 text-center min-w-[70px]">
-                        <p className="text-[9px] font-bold text-slate-500">{t('Correct')}</p>
+                        <p className="text-[11px] font-bold text-slate-400">{t('Correct')}</p>
                         <p className="text-lg font-black text-teal-400">{correct}/{total}</p>
                     </div>
                 </div>
@@ -1281,14 +1281,14 @@ function LessonComplete({ hearts, total, correct, bestStreak = 0, fastestTime = 
                     {bestStreak >= 3 && (
                         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.5 }}
                             className="rounded-2xl bg-orange-500/10 border border-orange-700/20 border-b-[3px] border-b-orange-900 px-4 py-2 text-center">
-                            <p className="text-[9px] font-bold text-slate-500">{t('Best Streak')}</p>
+                            <p className="text-[11px] font-bold text-slate-400">{t('Best Streak')}</p>
                             <p className="text-base font-black text-orange-400">🔥 {bestStreak}</p>
                         </motion.div>
                     )}
                     {fastestTime < Infinity && fastestTime < 10 && (
                         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.6 }}
                             className="rounded-2xl bg-amber-500/10 border border-amber-700/20 border-b-[3px] border-b-amber-900 px-4 py-2 text-center">
-                            <p className="text-[9px] font-bold text-slate-500">{t('Fastest')}</p>
+                            <p className="text-[11px] font-bold text-slate-400">{t('Fastest')}</p>
                             <p className="text-base font-black text-amber-400">⚡ {fastestTime.toFixed(1)}s</p>
                         </motion.div>
                     )}
@@ -1298,7 +1298,7 @@ function LessonComplete({ hearts, total, correct, bestStreak = 0, fastestTime = 
                 {questionTimes.length > 1 && (
                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
                         className="w-full max-w-[280px] rounded-2xl bg-slate-800/50 border border-slate-700/30 px-4 py-3">
-                        <p className="text-[8px] font-extrabold text-slate-500 tracking-wider mb-2">TIME PER QUESTION</p>
+                        <p className="text-[11px] font-extrabold text-slate-400 tracking-wider mb-2">TIME PER QUESTION</p>
                         <div className="flex items-end gap-1 h-[40px]">
                             {questionTimes.map((time, i) => {
                                 const maxT = Math.max(...questionTimes, 15)
@@ -1364,7 +1364,7 @@ function CodeColored({ text }) {
     // Handle full-line comments first
     // whitespace-pre: leading indentation IS the semantics in Python — never collapse it
     if (text.trimStart().startsWith('#') || text.trimStart().startsWith('//')) {
-        return <span className="text-slate-600 whitespace-pre">{text}</span>
+        return <span className="text-slate-400 whitespace-pre">{text}</span>
     }
 
     const tokens = text.split(/(\s+|[()[\]{},.:;=+\-*/%<>!&|?]+|"[^"]*"|'[^']*'|`[^`]*`)/g).filter(Boolean)
@@ -1376,8 +1376,8 @@ function CodeColored({ text }) {
                 if (builtins.includes(t)) return <span key={i} className="text-sky-400">{token}</span>
                 if (/^\d+$/.test(t)) return <span key={i} className="text-amber-300">{token}</span>
                 if (/^["'`]/.test(t)) return <span key={i} className="text-emerald-400">{token}</span>
-                if (/^#|^\/\//.test(t)) return <span key={i} className="text-slate-600">{token}</span>
-                if (/^[()[\]{},.:;=+\-*/%<>!&|?]+$/.test(t)) return <span key={i} className="text-slate-500">{token}</span>
+                if (/^#|^\/\//.test(t)) return <span key={i} className="text-slate-400">{token}</span>
+                if (/^[()[\]{},.:;=+\-*/%<>!&|?]+$/.test(t)) return <span key={i} className="text-slate-400">{token}</span>
                 return <span key={i}>{token}</span>
             })}
         </span>

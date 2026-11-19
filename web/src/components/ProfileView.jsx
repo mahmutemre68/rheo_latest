@@ -67,7 +67,7 @@ export default function ProfileView() {
                         </div>
                     </div>
                     <h1 className="text-xl font-black text-white mt-3">{profile.name}</h1>
-                    <p className="text-xs font-bold text-slate-500">{t('Level')} {profile.level} Coder</p>
+                    <p className="text-xs font-bold text-slate-400">{t('Level')} {profile.level} Coder</p>
 
                     <div className="flex gap-2 mt-3">
                         <motion.button whileTap={{ scale: 0.95 }}
@@ -107,10 +107,10 @@ export default function ProfileView() {
                         {stats.streakShield ? (
                             <div className="flex items-center gap-1.5 bg-emerald-500/15 px-2.5 py-1 rounded-full border border-emerald-700/30">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="#FCD34D"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-                                <span className="text-[9px] font-black text-emerald-400">{t('ACTIVE')}</span>
+                                <span className="text-[11px] font-black text-emerald-400">{t('ACTIVE')}</span>
                             </div>
                         ) : (
-                            <span className="text-[9px] font-bold text-red-400/70">{t('INACTIVE')}</span>
+                            <span className="text-[11px] font-bold text-red-400/70">{t('INACTIVE')}</span>
                         )}
                     </div>
                     {/* 7-day calendar */}
@@ -143,7 +143,7 @@ export default function ProfileView() {
                     className="rounded-2xl p-5 bg-gradient-to-br from-amber-950/30 to-slate-800 border-2 border-amber-700/20 border-b-[5px] border-b-slate-950">
                     <div className="flex items-center justify-between mb-4">
                         <h3 className="text-xs font-extrabold text-amber-400 tracking-wider">⚡ {t('XP REWARDS')}</h3>
-                        {(() => { const m = getXPMultiplier(); return m.label ? <span className="text-[10px] font-black text-amber-400 bg-amber-500/15 px-2 py-0.5 rounded-full">{m.label} BONUS</span> : null })()}
+                        {(() => { const m = getXPMultiplier(); return m.label ? <span className="text-[11px] font-black text-amber-400 bg-amber-500/15 px-2 py-0.5 rounded-full">{m.label} BONUS</span> : null })()}
                     </div>
 
                     {/* Daily XP Goal */}
@@ -151,7 +151,7 @@ export default function ProfileView() {
 
                     {/* XP Milestones */}
                     <div className="mt-4">
-                        <p className="text-[10px] font-black text-slate-400 mb-2">🏔️ {t('MILESTONES')}</p>
+                        <p className="text-[11px] font-black text-slate-400 mb-2">🏔️ {t('MILESTONES')}</p>
                         <div className="space-y-1.5">
                             {xpMilestones.map(m => {
                                 const totalXP = getTotalXP()
@@ -162,15 +162,15 @@ export default function ProfileView() {
                                         <span className={`text-lg ${claimed ? '' : 'grayscale opacity-40'}`}>{m.icon}</span>
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center justify-between">
-                                                <p className="text-[10px] font-black text-slate-300">{m.title}</p>
-                                                <p className="text-[8px] font-bold text-slate-600">{m.xp.toLocaleString()} XP</p>
+                                                <p className="text-[11px] font-black text-slate-300">{m.title}</p>
+                                                <p className="text-[11px] font-bold text-slate-400">{m.xp.toLocaleString()} XP</p>
                                             </div>
                                             <div className="w-full h-1.5 bg-slate-800 rounded-full mt-1 overflow-hidden">
                                                 <motion.div initial={{ width: 0 }} animate={{ width: `${pct}%` }}
                                                     className={`h-full rounded-full ${claimed ? 'bg-amber-500' : 'bg-slate-600'}`} />
                                             </div>
                                         </div>
-                                        <span className="text-[8px] font-black text-amber-400 shrink-0">{claimed ? '✓' : m.reward}</span>
+                                        <span className="text-[11px] font-black text-amber-400 shrink-0">{claimed ? '✓' : m.reward}</span>
                                     </div>
                                 )
                             })}
@@ -215,8 +215,8 @@ export default function ProfileView() {
                                 <HologramCard key={a.id} unlocked={unlocked} color={unlocked ? '#f59e0b' : '#475569'}>
                                     <div className="p-3 flex flex-col items-center text-center">
                                         <div className={`text-2xl mb-1 ${unlocked ? '' : 'grayscale'}`}>{a.icon}</div>
-                                        <span className="text-[8px] font-extrabold text-slate-400 leading-tight">{a.title}</span>
-                                        <span className="text-[7px] font-bold text-slate-600 leading-tight mt-0.5">{a.desc}</span>
+                                        <span className="text-[11px] font-extrabold text-slate-400 leading-tight">{a.title}</span>
+                                        <span className="text-[11px] font-bold text-slate-400 leading-tight mt-0.5">{a.desc}</span>
                                     </div>
                                 </HologramCard>
                             )
@@ -294,7 +294,7 @@ function CostumeShop({ costumes, equipped, onEquip, onBuy, onClose, gems }) {
                     if (!items.length) return null
                     return (
                         <div key={slot}>
-                            <h3 className="text-xs font-extrabold text-slate-500 tracking-widest uppercase mb-3">{slotLabels[slot]}</h3>
+                            <h3 className="text-xs font-extrabold text-slate-400 tracking-widest uppercase mb-3">{slotLabels[slot]}</h3>
                             <div className="grid grid-cols-3 gap-3">
                                 {items.map(item => (
                                     <motion.button key={item.id} whileTap={{ scale: 0.95 }}
@@ -304,18 +304,18 @@ function CostumeShop({ costumes, equipped, onEquip, onBuy, onClose, gems }) {
                                                 : item.owned ? 'bg-slate-800 border-slate-700/40 border-b-slate-950'
                                                     : 'bg-slate-900 border-slate-800 border-b-slate-950 opacity-70'}`}>
                                         <span className="text-3xl">{item.emoji}</span>
-                                        <span className="text-[9px] font-black text-white">{item.name}</span>
+                                        <span className="text-[11px] font-black text-white">{item.name}</span>
                                         {!item.owned && (
                                             <div className="flex items-center gap-1 bg-amber-500/15 rounded-full px-2 py-0.5 border border-amber-700">
-                                                <span className="text-[8px]">💎</span>
-                                                <span className="text-[8px] font-black text-amber-400">{item.price}</span>
+                                                <span className="text-[11px]">💎</span>
+                                                <span className="text-[11px] font-black text-amber-400">{item.price}</span>
                                             </div>
                                         )}
                                         {item.owned && item.equipped && (
-                                            <span className="text-[8px] font-black text-purple-400">EQUIPPED</span>
+                                            <span className="text-[11px] font-black text-purple-400">EQUIPPED</span>
                                         )}
                                         {item.owned && !item.equipped && (
-                                            <span className="text-[8px] font-black text-slate-500">EQUIP</span>
+                                            <span className="text-[11px] font-black text-slate-400">EQUIP</span>
                                         )}
                                     </motion.button>
                                 ))}
@@ -334,7 +334,7 @@ function StatBox({ icon, label, value, color }) {
             <span className="text-xl">{icon}</span>
             <div>
                 <p className={`text-sm font-black ${color}`}>{value}</p>
-                <p className="text-[9px] font-bold text-slate-500">{label}</p>
+                <p className="text-[11px] font-bold text-slate-400">{label}</p>
             </div>
         </div>
     )
@@ -373,9 +373,9 @@ function ActivityGrid({ weeks = 53 }) {
         <div>
             <div className="flex items-baseline justify-between mb-3">
                 <span className="text-sm font-black text-white">
-                    {total} <span className="text-xs font-bold text-slate-500">{t('questions in the last year')}</span>
+                    {total} <span className="text-xs font-bold text-slate-400">{t('questions in the last year')}</span>
                 </span>
-                <span className="text-[10px] font-bold text-slate-500">{activeDays} {t('active days')}</span>
+                <span className="text-[11px] font-bold text-slate-400">{activeDays} {t('active days')}</span>
             </div>
 
             <div ref={scrollRef} className="overflow-x-auto pb-1 -mx-1 px-1">
@@ -383,7 +383,7 @@ function ActivityGrid({ weeks = 53 }) {
                     <div className="flex gap-[3px] h-3">
                         {monthLabels.map((label, i) => (
                             <div key={i} className="w-[10px] shrink-0 relative">
-                                {label && <span className="absolute left-0 top-0 text-[8px] font-bold text-slate-600 whitespace-nowrap">{label}</span>}
+                                {label && <span className="absolute left-0 top-0 text-[11px] font-bold text-slate-400 whitespace-nowrap">{label}</span>}
                             </div>
                         ))}
                     </div>
@@ -408,7 +408,7 @@ function ActivityGrid({ weeks = 53 }) {
             </div>
 
             <div className="flex items-center justify-between mt-2.5">
-                <span className="text-[10px] font-bold text-slate-500 min-h-[14px]">
+                <span className="text-[11px] font-bold text-slate-400 min-h-[14px]">
                     {picked
                         ? picked.n === 0
                             ? `${picked.key} — ${t('no questions')}`
@@ -416,11 +416,11 @@ function ActivityGrid({ weeks = 53 }) {
                         : t('Tap a square for that day')}
                 </span>
                 <div className="flex items-center gap-1 shrink-0">
-                    <span className="text-[9px] font-bold text-slate-600">{t('Less')}</span>
+                    <span className="text-[11px] font-bold text-slate-400">{t('Less')}</span>
                     {ACTIVITY_SHADES.map((c, i) => (
                         <div key={i} className="w-[9px] h-[9px] rounded-[2px]" style={{ backgroundColor: c }} />
                     ))}
-                    <span className="text-[9px] font-bold text-slate-600">{t('More')}</span>
+                    <span className="text-[11px] font-bold text-slate-400">{t('More')}</span>
                 </div>
             </div>
         </div>
@@ -441,9 +441,9 @@ function ReadingLevel() {
             <div className="flex items-end justify-between mb-2">
                 <div>
                     <span className="text-2xl font-black" style={{ color: band.color }}>{t(band.label)}</span>
-                    <span className="ml-2 text-xs font-bold text-slate-500">{Math.round(rating)}</span>
+                    <span className="ml-2 text-xs font-bold text-slate-400">{Math.round(rating)}</span>
                 </div>
-                {next && <span className="text-[10px] font-bold text-slate-500">{remaining} {t('to')} {t(next.label)}</span>}
+                {next && <span className="text-[11px] font-bold text-slate-400">{remaining} {t('to')} {t(next.label)}</span>}
             </div>
 
             <div className="h-2.5 rounded-full bg-slate-900 overflow-hidden border-b-2 border-slate-950">
@@ -453,7 +453,7 @@ function ReadingLevel() {
             </div>
 
             {skills.length === 0 ? (
-                <p className="text-[10px] font-bold text-slate-600 mt-3">{t('Answer a few questions and your level will calibrate itself.')}</p>
+                <p className="text-[11px] font-bold text-slate-400 mt-3">{t('Answer a few questions and your level will calibrate itself.')}</p>
             ) : (
                 <div className="mt-4 space-y-1.5">
                     {skills.slice(0, 5).map(s => {
@@ -461,9 +461,9 @@ function ReadingLevel() {
                         return (
                             <div key={s.skill} className="flex items-center gap-2">
                                 <span className="text-[11px] font-bold text-slate-400 flex-1 truncate">{t(s.skill)}</span>
-                                <span className="text-[10px] font-black px-1.5 py-0.5 rounded"
+                                <span className="text-[11px] font-black px-1.5 py-0.5 rounded"
                                     style={{ color: b.color, backgroundColor: b.color + '1A' }}>{t(b.label)}</span>
-                                <span className="text-[10px] font-bold text-slate-600 w-9 text-right">{s.rating}</span>
+                                <span className="text-[11px] font-bold text-slate-400 w-9 text-right">{s.rating}</span>
                             </div>
                         )
                     })}
@@ -539,15 +539,15 @@ function StreakCalendar() {
                 const status = streakDays[i]
                 return (
                     <div key={day} className="flex-1 text-center">
-                        <p className={`text-[7px] font-bold mb-1 ${status === 'today' ? 'text-amber-400' : 'text-slate-600'}`}>{day}</p>
+                        <p className={`text-[11px] font-bold mb-1 ${status === 'today' ? 'text-amber-400' : 'text-slate-400'}`}>{day}</p>
                         <motion.div
                             initial={{ scale: 0.8 }} animate={{ scale: 1 }}
                             transition={{ delay: i * 0.05 }}
-                            className={`w-full aspect-square rounded-lg flex items-center justify-center border-b-[2px] text-[10px] font-black
+                            className={`w-full aspect-square rounded-lg flex items-center justify-center border-b-[2px] text-[11px] font-black
                                 ${status === 'done' ? 'bg-teal-500/20 border-teal-800 text-teal-400'
                                     : status === 'today' ? 'bg-amber-500/20 border-amber-700 text-amber-400 ring-1 ring-amber-400/30'
                                         : status === 'missed' ? 'bg-red-500/10 border-red-900/40 text-red-400/50'
-                                            : 'bg-slate-900/40 border-slate-950 text-slate-700'}`}>
+                                            : 'bg-slate-900/40 border-slate-950 text-slate-500'}`}>
                             {status === 'done' ? '🔥' : status === 'today' ? '✨' : status === 'missed' ? '✕' : '·'}
                         </motion.div>
                     </div>
@@ -587,21 +587,21 @@ function ShareCard({ equipped }) {
                         <OtterAvatar size={56} equipped={equipped} />
                     </div>
                     <h3 className="text-lg font-black text-white">{profile.name}</h3>
-                    <p className="text-[10px] font-bold text-white/50 mb-3">Level {profile.level} • Rheo</p>
+                    <p className="text-[11px] font-bold text-white/50 mb-3">Level {profile.level} • Rheo</p>
                     <div className="flex justify-center gap-4">
                         <div className="text-center">
                             <p className="text-base font-black text-white">{stats.streak}</p>
-                            <p className="text-[7px] font-bold text-white/40">STREAK</p>
+                            <p className="text-[11px] font-bold text-white/40">STREAK</p>
                         </div>
                         <div className="w-px bg-white/10" />
                         <div className="text-center">
                             <p className="text-base font-black text-white">{profile.xpCurrent}</p>
-                            <p className="text-[7px] font-bold text-white/40">XP</p>
+                            <p className="text-[11px] font-bold text-white/40">XP</p>
                         </div>
                         <div className="w-px bg-white/10" />
                         <div className="text-center">
                             <p className="text-base font-black text-white">{profile.totalStars}</p>
-                            <p className="text-[7px] font-bold text-white/40">STARS</p>
+                            <p className="text-[11px] font-bold text-white/40">STARS</p>
                         </div>
                     </div>
                 </div>
@@ -654,7 +654,7 @@ function PowerUpShop({ onClose }) {
                 <div className="p-5 pb-3 flex items-center justify-between">
                     <div>
                         <h2 className="text-lg font-black text-white">⚡ {t('Power-Ups')}</h2>
-                        <p className="text-[10px] font-bold text-slate-500">{t('Spend gems on boosts')}</p>
+                        <p className="text-[11px] font-bold text-slate-400">{t('Spend gems on boosts')}</p>
                     </div>
                     <div className="flex items-center gap-1.5 bg-slate-700 rounded-xl px-3 py-2 border-b-[2px] border-slate-900">
                         <span className="text-sm">💎</span>
@@ -680,12 +680,12 @@ function PowerUpShop({ onClose }) {
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <p className="text-sm font-black text-white">{item.name}</p>
-                                    <p className="text-[10px] font-bold text-slate-500">{item.desc}</p>
-                                    {count > 0 && <p className="text-[9px] font-black text-teal-400 mt-0.5">x{count} owned</p>}
+                                    <p className="text-[11px] font-bold text-slate-400">{item.desc}</p>
+                                    {count > 0 && <p className="text-[11px] font-black text-teal-400 mt-0.5">x{count} owned</p>}
                                 </div>
                                 <motion.button whileTap={{ scale: 0.9 }}
                                     onClick={() => handleBuy(item.id)}
-                                    className="px-3 py-2 rounded-xl font-black text-[10px] text-white bg-amber-500 border-b-[3px] border-amber-700 active:border-b-0 active:translate-y-[3px] transition-all cursor-pointer shrink-0">
+                                    className="px-3 py-2 rounded-xl font-black text-[11px] text-white bg-amber-500 border-b-[3px] border-amber-700 active:border-b-0 active:translate-y-[3px] transition-all cursor-pointer shrink-0">
                                     💎 {item.price}
                                 </motion.button>
                             </div>
@@ -725,13 +725,13 @@ function DailyXPModule() {
                 </div>
             </div>
             <div className="flex-1">
-                <p className="text-[10px] font-black text-slate-400 mb-0.5">{t('DAILY XP GOAL')}</p>
-                <p className="text-lg font-black text-white">{goal.xpEarned} <span className="text-sm text-slate-500">/ {goal.targetXp}</span></p>
+                <p className="text-[11px] font-black text-slate-400 mb-0.5">{t('DAILY XP GOAL')}</p>
+                <p className="text-lg font-black text-white">{goal.xpEarned} <span className="text-sm text-slate-400">/ {goal.targetXp}</span></p>
                 {goal.completed
-                    ? <p className="text-[10px] font-black text-amber-400">✅ {t('Goal hit!')} {goal.goalStreak > 1 ? `🔥 ${goal.goalStreak} ${t('day streak')}` : ''}</p>
-                    : <p className="text-[10px] font-bold text-slate-600">{goal.targetXp - goal.xpEarned} XP {t('to go')}</p>
+                    ? <p className="text-[11px] font-black text-amber-400">✅ {t('Goal hit!')} {goal.goalStreak > 1 ? `🔥 ${goal.goalStreak} ${t('day streak')}` : ''}</p>
+                    : <p className="text-[11px] font-bold text-slate-400">{goal.targetXp - goal.xpEarned} XP {t('to go')}</p>
                 }
-                {goal.goalStreak > 0 && !goal.completed && <p className="text-[9px] font-bold text-slate-600">🎯 {t('Goal Streak')}: {goal.goalStreak} {t('days')}</p>}
+                {goal.goalStreak > 0 && !goal.completed && <p className="text-[11px] font-bold text-slate-400">🎯 {t('Goal Streak')}: {goal.goalStreak} {t('days')}</p>}
             </div>
         </div>
     )
@@ -753,7 +753,7 @@ function ThemeGallery() {
 
     return (
         <div className="mt-4">
-            <p className="text-[10px] font-black text-slate-400 mb-2">🎨 {t('THEMES')}</p>
+            <p className="text-[11px] font-black text-slate-400 mb-2">🎨 {t('THEMES')}</p>
             <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none' }}>
                 {appThemes.map(theme => {
                     const isUnlocked = unlocked.includes(theme.id)
@@ -767,10 +767,10 @@ function ThemeGallery() {
                                         : 'border-slate-950 bg-slate-900/40 opacity-30'}`}>
                             <div className="w-8 h-8 mx-auto rounded-lg mb-1 border border-slate-700/20"
                                 style={{ background: `linear-gradient(135deg, ${theme.colors.bg}, ${theme.colors.accent})` }}>
-                                {!isUnlocked && <div className="w-full h-full flex items-center justify-center text-[10px]">🔒</div>}
+                                {!isUnlocked && <div className="w-full h-full flex items-center justify-center text-[11px]">🔒</div>}
                             </div>
-                            <p className="text-[7px] font-black text-slate-500 leading-tight">{theme.name}</p>
-                            {!isUnlocked && <p className="text-[6px] font-bold text-slate-700">{theme.unlockXP} XP</p>}
+                            <p className="text-[11px] font-black text-slate-400 leading-tight">{theme.name}</p>
+                            {!isUnlocked && <p className="text-[6px] font-bold text-slate-500">{theme.unlockXP} XP</p>}
                         </motion.div>
                     )
                 })}
@@ -788,10 +788,10 @@ function NextPerkPreview() {
         <div className="mt-4 flex items-center gap-3 rounded-xl px-3 py-2.5 bg-slate-900/40 border border-dashed border-slate-700/30">
             <span className="text-2xl grayscale opacity-50">{nextPerk.icon}</span>
             <div className="flex-1">
-                <p className="text-[10px] font-black text-slate-400">🔮 {t('NEXT PERK')} — Level {nextPerk.level}</p>
-                <p className="text-[9px] font-bold text-slate-600">{nextPerk.perk}</p>
+                <p className="text-[11px] font-black text-slate-400">🔮 {t('NEXT PERK')} — Level {nextPerk.level}</p>
+                <p className="text-[11px] font-bold text-slate-400">{nextPerk.perk}</p>
             </div>
-            <span className="text-[9px] font-black text-slate-600">{levelsAway} lvl</span>
+            <span className="text-[11px] font-black text-slate-400">{levelsAway} lvl</span>
         </div>
     )
 }
@@ -850,11 +850,11 @@ function SettingsModal({ onClose }) {
                 <div className="space-y-4 mb-6">
                     {/* Preferences */}
                     <div className="bg-slate-900/50 rounded-2xl p-4 border border-slate-700/50">
-                        <h3 className="text-xs font-black text-slate-500 tracking-wider mb-4 uppercase">{t('Preferences')}</h3>
+                        <h3 className="text-xs font-black text-slate-400 tracking-wider mb-4 uppercase">{t('Preferences')}</h3>
                         <div className="flex items-center justify-between mb-4">
                             <div>
                                 <p className="text-sm font-bold text-slate-300">{t('Sound Effects')}</p>
-                                <p className="text-[10px] text-slate-500">{t('In-game audio & feedback')}</p>
+                                <p className="text-[11px] text-slate-400">{t('In-game audio & feedback')}</p>
                             </div>
                             <button onClick={toggleSound} className={`w-12 h-6 rounded-full relative transition-colors ${sound ? 'bg-teal-500' : 'bg-slate-700'}`}>
                                 <motion.div animate={{ x: sound ? 24 : 2 }} className="w-5 h-5 bg-white rounded-full mt-0.5 shadow-sm" />
@@ -863,7 +863,7 @@ function SettingsModal({ onClose }) {
                         <div className="flex items-center justify-between">
                             <div>
                                 <p className="text-sm font-bold text-slate-300">{t('Haptic Feedback')}</p>
-                                <p className="text-[10px] text-slate-500">{t('Vibrations on action')}</p>
+                                <p className="text-[11px] text-slate-400">{t('Vibrations on action')}</p>
                             </div>
                             <button onClick={toggleHaptic} className={`w-12 h-6 rounded-full relative transition-colors ${haptic ? 'bg-teal-500' : 'bg-slate-700'}`}>
                                 <motion.div animate={{ x: haptic ? 24 : 2 }} className="w-5 h-5 bg-white rounded-full mt-0.5 shadow-sm" />
@@ -876,7 +876,7 @@ function SettingsModal({ onClose }) {
                             <div className="flex items-center justify-between mt-4">
                                 <div>
                                     <p className="text-sm font-bold text-slate-300">{t('Daily Reminder')}</p>
-                                    <p className="text-[10px] text-slate-500">
+                                    <p className="text-[11px] text-slate-400">
                                         {reminders.enabled
                                             ? `${t('Every day at')} ${String(reminders.hour ?? 20).padStart(2, '0')}:${String(reminders.minute ?? 0).padStart(2, '0')}`
                                             : t('A nudge so your streak survives')}
@@ -891,26 +891,26 @@ function SettingsModal({ onClose }) {
 
                     {/* Language */}
                     <div className="bg-slate-900/50 rounded-2xl p-4 border border-slate-700/50">
-                        <h3 className="text-xs font-black text-slate-500 tracking-wider mb-4 uppercase">{t('Language')}</h3>
+                        <h3 className="text-xs font-black text-slate-400 tracking-wider mb-4 uppercase">{t('Language')}</h3>
                         <div className="flex gap-2">
                             <button onClick={() => handleLocale('en')} className={`flex-1 py-2 rounded-xl text-xs font-bold border transition-all ${locale === 'en' ? 'bg-teal-500/20 border-teal-500 text-teal-400' : 'bg-slate-800 border-slate-700 text-slate-400'}`}>🇬🇧 English</button>
                             <button onClick={() => handleLocale('tr')} className={`flex-1 py-2 rounded-xl text-xs font-bold border transition-all ${locale === 'tr' ? 'bg-teal-500/20 border-teal-500 text-teal-400' : 'bg-slate-800 border-slate-700 text-slate-400'}`}>🇹🇷 Türkçe</button>
                         </div>
-                        <p className="text-[9px] text-slate-500 text-center mt-3">{t('Changing language will reload the app.')}</p>
+                        <p className="text-[11px] text-slate-400 text-center mt-3">{t('Changing language will reload the app.')}</p>
                     </div>
 
                     {/* Legal & About */}
                     <div className="bg-slate-900/50 rounded-2xl p-4 border border-slate-700/50 space-y-2">
-                        <h3 className="text-xs font-black text-slate-500 tracking-wider mb-3 uppercase">{t('Legal & About')}</h3>
+                        <h3 className="text-xs font-black text-slate-400 tracking-wider mb-3 uppercase">{t('Legal & About')}</h3>
                         <button onClick={() => openExternal('https://rheo-mvp-2026.web.app/privacy.html')}
                             className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-800 border border-slate-700/40 text-slate-300 text-xs font-bold hover:bg-slate-700/40 transition-colors">
                             <span className="flex items-center gap-2">🔒 {t('Privacy Policy')}</span>
-                            <span className="text-slate-500">↗</span>
+                            <span className="text-slate-400">↗</span>
                         </button>
                         <button onClick={() => openExternal('https://rheo-mvp-2026.web.app/terms.html')}
                             className="w-full flex items-center justify-between p-3 rounded-xl bg-slate-800 border border-slate-700/40 text-slate-300 text-xs font-bold hover:bg-slate-700/40 transition-colors">
                             <span className="flex items-center gap-2">📖 {t('Terms of Service')}</span>
-                            <span className="text-slate-500">↗</span>
+                            <span className="text-slate-400">↗</span>
                         </button>
                     </div>
 
@@ -953,8 +953,8 @@ function LanguageMastery() {
                             <div className="flex items-center justify-between mb-1">
                                 <span className="text-xs font-black text-slate-300">{l.name}</span>
                                 <div className="flex items-center gap-1.5">
-                                    <span className="text-[9px] font-bold" style={{ color: l.tier.color }}>{l.tier.name}</span>
-                                    <span className="text-[10px] font-black text-slate-500">{l.elo} <span className="text-[8px]">ELO</span></span>
+                                    <span className="text-[11px] font-bold" style={{ color: l.tier.color }}>{l.tier.name}</span>
+                                    <span className="text-[11px] font-black text-slate-400">{l.elo} <span className="text-[11px]">ELO</span></span>
                                 </div>
                             </div>
                             <div className="h-2.5 rounded-full bg-slate-900 overflow-hidden relative" style={{ boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.5)' }}>

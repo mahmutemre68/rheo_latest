@@ -117,7 +117,7 @@ export default function DailyReward({ onClose }) {
                         transition={{ duration: 1, repeat: 2 }}
                         className="text-4xl mb-2">🎉</motion.div>
                     <h2 className="text-xl font-black text-white">{t('Daily Reward')}</h2>
-                    <p className="text-xs font-bold text-slate-500 mt-1">{t('Come back every day for bigger prizes!')}</p>
+                    <p className="text-xs font-bold text-slate-400 mt-1">{t('Come back every day for bigger prizes!')}</p>
                 </div>
 
                 {/* 7-day calendar */}
@@ -139,11 +139,11 @@ export default function DailyReward({ onClose }) {
                                             : isClaimed ? 'bg-teal-500/10 border-teal-900/40 border border-teal-700/20'
                                                 : r.special ? 'bg-purple-500/10 border-purple-900/40 border border-purple-700/20'
                                                     : 'bg-slate-900/60 border-slate-950 border border-slate-700/10'}`}>
-                                    <span className="text-[8px] font-black text-slate-500">DAY {r.day}</span>
+                                    <span className="text-[11px] font-black text-slate-400">DAY {r.day}</span>
                                     <span className={`text-lg ${!isToday && !isClaimed && !r.special ? 'opacity-30' : ''}`}>
                                         {isClaimed ? '✅' : r.emoji}
                                     </span>
-                                    <span className={`text-[7px] font-bold leading-tight text-center ${isClaimed ? 'text-teal-500' : isToday ? 'text-amber-300' : 'text-slate-600'}`}>
+                                    <span className={`text-[11px] font-bold leading-tight text-center ${isClaimed ? 'text-teal-500' : isToday ? 'text-amber-300' : 'text-slate-400'}`}>
                                         {r.label}
                                     </span>
                                 </motion.div>
@@ -170,8 +170,8 @@ export default function DailyReward({ onClose }) {
                         </motion.div>
                     ) : (
                         <div className="text-center py-3">
-                            <span className="text-sm font-black text-slate-500">✅ {t('Already claimed today!')}</span>
-                            <p className="text-[10px] font-bold text-slate-600 mt-1">{t('Come back tomorrow for Day')} {currentDay}!</p>
+                            <span className="text-sm font-black text-slate-400">✅ {t('Already claimed today!')}</span>
+                            <p className="text-[11px] font-bold text-slate-400 mt-1">{t('Come back tomorrow for Day')} {currentDay}!</p>
                         </div>
                     )}
                 </div>

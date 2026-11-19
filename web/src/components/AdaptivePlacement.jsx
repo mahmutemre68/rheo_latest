@@ -149,7 +149,7 @@ function Result({ result, heading, onDone }) {
                 {CHAPTER_NAMES.map((name, i) => {
                     const ch = i + 1, passed = ch < start, here = ch === start
                     return (
-                        <div key={ch} title={t(name)} className={`rounded-lg py-2 text-center text-[10px] font-black ${here ? 'bg-teal-400 text-slate-950' : passed ? 'bg-teal-900/60 text-teal-200' : 'bg-slate-800 text-slate-500'}`}>
+                        <div key={ch} title={t(name)} className={`rounded-lg py-2 text-center text-[11px] font-black ${here ? 'bg-teal-400 text-slate-950' : passed ? 'bg-teal-900/60 text-teal-200' : 'bg-slate-800 text-slate-400'}`}>
                             CH {ch}{passed ? ' ✓' : ''}
                         </div>
                     )

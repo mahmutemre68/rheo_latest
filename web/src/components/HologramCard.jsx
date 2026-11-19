@@ -153,7 +153,7 @@ export default function HologramCard({ unlocked = false, color = '#14b8a6', chil
                 {unlocked && (
                     <div className="absolute top-1 right-1 w-4 h-4 rounded-full flex items-center justify-center"
                         style={{ background: color, boxShadow: `0 0 6px ${color}80` }}>
-                        <span className="text-[7px] font-black text-white">✓</span>
+                        <span className="text-[11px] font-black text-white">✓</span>
                     </div>
                 )}
             </div>

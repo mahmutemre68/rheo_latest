@@ -120,10 +120,10 @@ function ChapterMap({ visibleChapter, onChapterClick }) {
                                 ${isActive ? 'bg-teal-500/15 border-teal-800 border border-teal-600/30'
                                     : isPast ? 'bg-slate-800/60 border-slate-950 border border-slate-700/20'
                                         : 'bg-slate-900/40 border-slate-950 border border-slate-800/20 opacity-40'}`}>
-                            <p className={`text-[8px] font-extrabold tracking-wider ${isActive ? 'text-teal-400' : isPast ? 'text-slate-500' : 'text-slate-600'}`}>
+                            <p className={`text-[11px] font-extrabold tracking-wider ${isActive ? 'text-teal-400' : isPast ? 'text-slate-400' : 'text-slate-400'}`}>
                                 CH {num}
                             </p>
-                            <p className={`text-[9px] font-black mt-0.5 ${isActive ? 'text-white' : isPast ? 'text-slate-400' : 'text-slate-600'}`}>
+                            <p className={`text-[11px] font-black mt-0.5 ${isActive ? 'text-white' : isPast ? 'text-slate-400' : 'text-slate-400'}`}>
                                 {t(ch.name)}
                             </p>
                             {/* Mini progress */}
@@ -134,7 +134,7 @@ function ChapterMap({ visibleChapter, onChapterClick }) {
                                         backgroundColor: isActive ? '#14B8A6' : isPast ? '#475569' : '#1E293B'
                                     }} />
                             </div>
-                            <p className={`text-[7px] font-bold mt-0.5 ${isActive ? 'text-teal-500/80' : 'text-slate-600/60'}`}>
+                            <p className={`text-[11px] font-bold mt-0.5 ${isActive ? 'text-teal-500/80' : 'text-slate-400'}`}>
                                 {isPast && pct === 100 ? '✓' : `${pct}%`}
                             </p>
                         </div>
@@ -234,7 +234,7 @@ function UnitHeader({ visibleChapter }) {
             <div className="relative rounded-2xl px-5 py-4 bg-teal-600 border-b-[5px] border-teal-800 active:border-b-[1px] active:translate-y-[4px] transition-all duration-75 cursor-pointer overflow-hidden">
                 <div className="flex items-center justify-between">
                     <div className="flex-1 pr-4">
-                        <p className="text-[10px] font-extrabold text-teal-200/60 tracking-[0.2em] uppercase">{t('Chapter')} {chapterNum} • {t(chapter?.name || 'Basics')}</p>
+                        <p className="text-[11px] font-extrabold text-teal-200/60 tracking-[0.2em] uppercase">{t('Chapter')} {chapterNum} • {t(chapter?.name || 'Basics')}</p>
                         <h2 className="text-[17px] font-black text-white mt-0.5 leading-tight">{t(nodeTitle)}<br /><span className="text-teal-200/70 text-[13px] capitalize">{t(nodeSkill)}</span></h2>
                     </div>
                     <SkillRadar />
