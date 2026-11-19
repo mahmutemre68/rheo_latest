@@ -43,6 +43,8 @@ const clamp = r => Math.min(RATING_MAX, Math.max(RATING_MIN, r))
    already ordered by difficulty); exercise type adjusts it, because "spot the
    bug" is harder than "match the pairs" even on identical material.          */
 const CHAPTER_BASE = ch => 780 + (Math.min(Math.max(ch, 1), 10) - 1) * 115  // CH1 780 … CH10 1815
+/** Typical difficulty of a chapter's questions (a `trace` item's prior). */
+export const chapterBaseRating = CHAPTER_BASE
 
 const TYPE_OFFSET = {
     concept: -220, pair: -130, output: -40, trace: 0, fillgap: 20,
@@ -100,6 +102,23 @@ export function getAbility(skill) {
 }
 
 export function getOverallAbility() { return _ability.overall }
+
+/**
+ * Seed ability from placement. Only ratings that real answers have not yet
+ * established are replaced (fewer than SEED_MAX_ATTEMPTS answers); anything
+ * the learner has earned stays. Attempts are not inflated, so the next answers
+ * still move the rating quickly and can correct a lucky or unlucky test.
+ */
+const SEED_MAX_ATTEMPTS = 10
+export function seedAbility(rating) {
+    const r = clamp(rating)
+    if (_ability.attempts < SEED_MAX_ATTEMPTS) _ability.overall = r
+    for (const rec of Object.values(_ability.skills)) {
+        if (rec.attempts < SEED_MAX_ATTEMPTS) rec.rating = r
+    }
+    _ability.placement = { rating: Math.round(r), at: new Date().toISOString() }
+    saveTo(ABILITY_KEY, _ability)
+}
 
 /** Every skill the learner has actually attempted, strongest first. */
 export function getAbilityBySkill() {

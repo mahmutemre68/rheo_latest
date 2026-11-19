@@ -152,7 +152,7 @@ class AnalyticsService {
   /// Events forwarded from the bundled web app through the RheoNative channel.
   /// Only known event names pass, and parameters are coerced to what Firebase
   /// accepts (String / num; bool becomes 0/1). Strings are capped at 100 chars.
-  static const Set<String> _webEvents = {'exercise_answered'};
+  static const Set<String> _webEvents = {'exercise_answered', 'placement_completed'};
 
   Future<void> logWebEvent(String name, Map<String, dynamic>? raw) async {
     if (!_webEvents.contains(name)) return;

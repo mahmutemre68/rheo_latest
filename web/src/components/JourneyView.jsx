@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, useCallback, lazy, Suspense } from 'react'
 import { stats, journeyNodes, getSkillRadar, chapterColors, languages, setActiveLanguage, getActiveLanguage, getTipOfTheDay, getWeakExercises, t } from '../data'
 import JourneyPath from './JourneyPath'
-const PlacementCheck = lazy(() => import('./PlacementCheck'))
+import { applyPlacement, canStillPlaceForward } from '../data/placement.js'
+const AdaptivePlacement = lazy(() => import('./AdaptivePlacement'))
 const DebugMission = lazy(() => import('./DebugMission'))
 
 export default function JourneyView() {
@@ -54,14 +55,16 @@ export default function JourneyView() {
 
     return (
         <>
-        {checkLanguage && <Suspense fallback={null}><PlacementCheck language={checkLanguage} onClose={() => setCheckLanguage(null)} /></Suspense>}
+        {checkLanguage && <Suspense fallback={null}><AdaptivePlacement language={checkLanguage} onDone={result => { if (result) applyPlacement(result, checkLanguage); setCheckLanguage(null); window.__refreshApp?.() }} /></Suspense>}
         {debugLanguage && <Suspense fallback={null}><DebugMission language={debugLanguage} onClose={() => setDebugLanguage(null)} /></Suspense>}
         <div inert={checkLanguage || debugLanguage ? true : undefined} className="h-full flex flex-col overflow-hidden relative">
             <TopBar />
-            <button onClick={() => setCheckLanguage(getActiveLanguage())}
-                className="mx-3 mb-2 shrink-0 text-left rounded-xl border border-teal-900 bg-teal-950/40 px-4 py-3 text-sm font-bold text-teal-200">
-                {t('Quick code check')} <span className="font-normal text-slate-400">· {t('3 questions · optional')}</span>
-            </button>
+            {canStillPlaceForward() && (
+                <button onClick={() => setCheckLanguage(getActiveLanguage())}
+                    className="mx-3 mb-2 shrink-0 text-left rounded-xl border border-teal-900 bg-teal-950/40 px-4 py-3 text-sm font-bold text-teal-200">
+                    {t('Find your level')} <span className="font-normal text-slate-400">· {t('skip what you already know · ~8 questions')}</span>
+                </button>
+            )}
             <button onClick={() => setDebugLanguage(getActiveLanguage())}
                 className="mx-3 mb-2 shrink-0 text-left rounded-xl border border-slate-800 px-4 py-3 text-sm text-slate-300">
                 Debug Mission <span className="text-xs text-slate-400">· {t('Optional prototype')}</span>
