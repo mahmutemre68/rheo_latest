@@ -1,0 +1,32 @@
+{
+  "files": [
+    "assets/DebugMission-BgpuVt8j.js",
+    "assets/HologramCard-BGKwJOAB.js",
+    "assets/LeagueView-BTsiDaA7.js",
+    "assets/LessonScreen-8HIPtN1G.js",
+    "assets/Onboarding-Ca-8_CLZ.js",
+    "assets/PlacementCheck-xG2sBY5m.js",
+    "assets/ProfileView-DG-ik30f.js",
+    "assets/QuestsView-BmKZmdLm.js",
+    "assets/ai_java-yoD6TSFD.js",
+    "assets/ai_javascript-yoD6TSFD.js",
+    "assets/ai_python-FmFgRqLi.js",
+    "assets/exercises_java-D1AS7AQ8.js",
+    "assets/exercises_java2-gD40zo7y.js",
+    "assets/exercises_js-VOjPE5VH.js",
+    "assets/exercises_js2-CBU0P5vu.js",
+    "assets/exercises_python-B3WH7QRQ.js",
+    "assets/exercises_python2-Bfyhktw_.js",
+    "assets/index-BjYC9Rqp.js",
+    "assets/index-CkYIKVfG.css",
+    "assets/vendor-motion-BLsFjOXQ.js",
+    "assets/vendor-react-BUwNS7rP.js",
+    "fonts/nunito-latin-ext.woff2",
+    "fonts/nunito-latin.woff2",
+    "index.html",
+    "mascot_greeting.png",
+    "mascot_happy.png",
+    "privacy.html",
+    "terms.html"
+  ]
+}
