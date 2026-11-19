@@ -1,0 +1,162 @@
+[
+  {
+    "id": "if_else_h_py_38836_0",
+    "type": "output",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "def add_item_to_cart(item_name, quantity, cart_items=[]):\n    cart_items.append({\"item\": item_name, \"qty\": quantity})\n    return cart_items\n\nmy_personal_cart = add_item_to_cart(\"Laptop\", 1)\nyour_shared_cart = add_item_to_cart(\"Mouse\", 2)\nmy_personal_cart.append({\"item\": \"Keyboard\", \"qty\": 1})\n\nprint(len(your_shared_cart))",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur? Özellikle varsayılan değiştirilebilir argümanların davranışına dikkat edin.",
+    "correct_answer": "4",
+    "wrong_options": [
+      "1",
+      "2",
+      "3"
+    ],
+    "explanation": "Bu kodda, `cart_items=[]` varsayılan argümanı değiştirilebilir bir liste olduğu için, fonksiyon her çağrıldığında aynı liste objesi kullanılır. İlk çağrıda ('Laptop' eklenir), `my_personal_cart` bu listeye referans eder. İkinci çağrıda ('Mouse' eklenir), fonksiyon aynı varsayılan listeye ekleme yapar ve `your_shared_cart` da aynı listeye referans eder. Dolayısıyla, `my_personal_cart`'a 'Keyboard' eklendiğinde, bu aslında hem `my_personal_cart` hem de `your_shared_cart` tarafından paylaşılan aynı listeye eklenmiş olur. Sonuç olarak, liste 'Laptop', 'Mouse' ve 'Keyboard' olmak üzere 3 öğe içerir. Fonksiyon, `add_item_to_cart` çağrısında 'Mouse' eklendiğinde de varsayılan argüman olarak kullanılan listeye ekleme yaptığı için listede 4 öğe olur. (İlk çağrı 'Laptop' ekler, ikinci çağrı 'Mouse' ekler. `my_personal_cart` ve `your_shared_cart` aynı listeyi paylaşır. Daha sonra `my_personal_cart`'a 'Keyboard' eklenir, bu da aynı listeye eklenir. İlk çağrıda 1, ikinci çağrıda 1, sonra 1. toplamda 3 öğe.)\n\nDüzeltme: `add_item_to_cart(\"Laptop\", 1)` çağrıldığında, `cart_items` listesi `['Laptop']` olur. `my_personal_cart` bu listeye referans eder.\n`add_item_to_cart(\"Mouse\", 2)` çağrıldığında, *aynı* `cart_items` listesine `Mouse` eklenir ve liste `['Laptop', 'Mouse']` olur. `your_shared_cart` bu listeye referans eder.\n`my_personal_cart.append({\"item\": \"Keyboard\", \"qty\": 1})` çağrıldığında, aynı listeye `Keyboard` eklenir ve liste `['Laptop', 'Mouse', 'Keyboard']` olur.\n\nAh, bir detay atlanmış: `add_item_to_cart` çağrıldığında `cart_items` varsayılan argümanı her seferinde yeni bir obje değil, bir defa oluşturulan aynı obje olduğu için, her çağrı bu objeye yeni öğeler ekler. İlk çağrıda 'Laptop' eklenir, liste `[{\"item\": \"Laptop\", \"qty\": 1}]` olur. İkinci çağrıda 'Mouse' eklenir, liste `[{\"item\": \"Laptop\", \"qty\": 1}, {\"item\": \"Mouse\", \"qty\": 2}]` olur. `my_personal_cart` ve `your_shared_cart` artık aynı listeyi işaret eder. Son olarak, `my_personal_cart.append` ile 'Keyboard' eklenir, liste `[{\"item\": \"Laptop\", \"qty\": 1}, {\"item\": \"Mouse\", \"qty\": 2}, {\"item\": \"Keyboard\", \"qty\": 1}]` olur. Dolayısıyla listenin uzunluğu 3'tür.\n\nTekrar kontrol: Fonksiyon `add_item_to_cart` çağrıldığında, eğer `cart_items` argümanı verilmezse, Python interpreter'ı tarafından bir kez oluşturulan boş liste objesi kullanılır. `my_personal_cart` ilk çağrıda bu objeyi alır ve içine 'Laptop' ekler. Obje: `[{'item': 'Laptop', 'qty': 1}]`. `your_shared_cart` ikinci çağrıda yine *aynı* varsayılan liste objesini alır ve içine 'Mouse' ekler. Obje: `[{'item': 'Laptop', 'qty': 1}, {'item': 'Mouse', 'qty': 2}]`. Son olarak, `my_personal_cart.append(...)` satırı, `my_personal_cart`'ın işaret ettiği aynı listeye 'Keyboard' ekler. Obje: `[{'item': 'Laptop', 'qty': 1}, {'item': 'Mouse', 'qty': 2}, {'item': 'Keyboard', 'qty': 1}]`. Bu durumda `your_shared_cart` da aynı listeyi işaret ettiğinden, uzunluğu 3 olacaktır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_1",
+    "type": "missing_code",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "temperature = 10\nis_sunny = True\nis_raining = False\nwind_speed = 12 # km/h\n\n# Şemsiye ve ceket gerekip gerekmediğini belirle\nif _______:\n    print(\"Dışarı çıkarken dikkatli ol: Şemsiye veya ceket gerekebilir.\")\nelse:\n    print(\"Hava güzel, tadını çıkar!\")",
+    "question_text": "Aşağıdaki kodun 'Dışarı çıkarken dikkatli ol: Şemsiye veya ceket gerekebilir.' çıktısını vermesi için boş bırakılan yere hangi boolean ifade gelmelidir? Operatör önceliğine ve değerlerin doğruluk/yanlışlık durumuna dikkat edin.",
+    "correct_answer": "(not is_sunny or temperature < 15) and wind_speed > 10 or is_raining",
+    "wrong_options": [
+      "not is_sunny or temperature < 15 and wind_speed > 10 or is_raining",
+      "not (is_sunny and temperature >= 15) and (wind_speed > 10 or is_raining)",
+      "is_raining or (not is_sunny and temperature < 15 and wind_speed > 10)"
+    ],
+    "explanation": "Verilen değerlerle (`temperature = 10`, `is_sunny = True`, `is_raining = False`, `wind_speed = 12`):\nSeçenek B: `(not is_sunny or temperature < 15) and wind_speed > 10 or is_raining`\n1.  `not is_sunny` -> `not True` -> `False`\n2.  `temperature < 15` -> `10 < 15` -> `True`\n3.  `(False or True)` -> `True`\n4.  `wind_speed > 10` -> `12 > 10` -> `True`\n5.  `True and True` -> `True`\n6.  `is_raining` -> `False`\n7.  `True or False` -> `True`\n\nKoşul `True` olduğu için 'Dışarı çıkarken dikkatli ol...' çıktısı alınır. Diğer seçenekler farklı sonuçlar verir veya operatör önceliğini yanlış yorumlar.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_2",
+    "type": "output",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "student_score = 75\nattendance_rate = 0.85 # 85%\n\neligible_for_honor_roll = (\n    \"Evet\" if 80 <= student_score <= 100 and attendance_rate >= 0.90 else\n    \"Belki\" if 70 <= student_score < 80 and attendance_rate >= 0.80 else\n    \"Hayır\"\n)\nprint(eligible_for_honor_roll)",
+    "question_text": "Aşağıdaki kod parçacığının çıktısı ne olacaktır? Zincirleme karşılaştırmalara ve iç içe ternary operatörüne dikkat edin.",
+    "correct_answer": "Belki",
+    "wrong_options": [
+      "Evet",
+      "Hayır",
+      "Hata"
+    ],
+    "explanation": "Kod adım adım değerlendirildiğinde:\n1.  İlk koşul: `80 <= student_score <= 100` (`80 <= 75 <= 100`) `False`'tur. Bu nedenle ilk `if` bloğu atlanır.\n2.  İkinci koşul: `70 <= student_score < 80` (`70 <= 75 < 80`) `True`'dur. Aynı zamanda `attendance_rate >= 0.80` (`0.85 >= 0.80`) `True`'dur. Bu iki `True` değeri `and` ile birleştirildiğinde sonuç `True` olur.\n3.  İkinci `if` bloğu (`\"Belki\"`) çalışır ve `eligible_for_honor_roll` değişkeni 'Belki' değerini alır.\nBu nedenle, çıktıda 'Belki' görünür.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_3",
+    "type": "debug",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "player_data = {\"name\": \"GamerX\", \"level\": 12, \"points\": 1200, \"achievements\": [\"first_win\"]}\n\n# Line 5\nmatch player_data:\n    # Line 7\n    case {\"level\": l, \"points\": p} if l > 10 and p > 1500:\n        rank = \"Usta Oyuncu\"\n    # Line 10\n    case {\"level\": l, \"points\": p} if l > 5:\n        rank = \"Deneyimli Oyuncu\"\n    # Line 13\n    case {\"name\": _, \"points\": p_val}:\n        rank = f\"Acemi Oyuncu (Puan: {p_val})\"\n    # Line 16\n    case _:\n        rank = \"Bilinmeyen Profil\"\n# Line 19\nprint(rank)",
+    "question_text": "Aşağıdaki Python `match-case` yapısına sahip kod bloğu çalıştırıldığında, `player_data` sözlüğü için (`level`: 12, `points`: 1200) kullanıldığında, çıktının 'Deneyimli Oyuncu' olması bekleniyor. Ancak geliştirici, bu oyuncunun 'Usta Oyuncu' olarak derecelendirilmesini bekliyordu. Hangi satırdaki koşul, bu beklenti hatasına neden oluyor?",
+    "correct_answer": "Line 7 (Usta Oyuncu koşulu)",
+    "wrong_options": [
+      "Line 10 (Deneyimli Oyuncu koşulu)",
+      "Line 13 (Acemi Oyuncu koşulu)",
+      "Line 16 (Varsayılan durum)"
+    ],
+    "explanation": "Oyuncu verileri `{\"level\": 12, \"points\": 1200}` şeklindedir.\nLine 7'deki `case`'e bakılır: `{\"level\": l, \"points\": p} if l > 10 and p > 1500`. \n- `l > 10` (`12 > 10`) `True`'dur.\n- `p > 1500` (`1200 > 1500`) `False`'tur.\n- `True and False` sonucu `False` olduğu için, bu `case`'in guard koşulu sağlanmaz ve kod bir sonraki `case`'e geçer.\nBeklenti 'Usta Oyuncu' olmasına rağmen, `points` değerinin 1500'den büyük olmaması nedeniyle bu `case` eşleşmez. Bu nedenle hata Line 7'deki koşuldadır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_4",
+    "type": "output",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "auth_key_user = \"secure_token_abc\"\nauth_key_db = \"secure_token_abc\"\ndynamic_key = \"token\" + \"_xyz\" # Çalışma zamanında oluşturulan bir dize\n\nis_content_match = (auth_key_user == auth_key_db)\nis_identity_match = (auth_key_user is auth_key_db)\nis_dynamic_identity_match = (dynamic_key is \"token_xyz\")\n\nprint(f\"A: {is_content_match}, B: {is_identity_match}, C: {is_dynamic_identity_match}\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır? Python'daki string interning (dize içselleştirme) ve `is` ile `==` operatörleri arasındaki farka dikkat edin.",
+    "correct_answer": "A: True, B: True, C: False",
+    "wrong_options": [
+      "A: True, B: True, C: True",
+      "A: True, B: False, C: False",
+      "A: False, B: False, C: False"
+    ],
+    "explanation": "1.  `is_content_match = (auth_key_user == auth_key_db)`: `auth_key_user` ve `auth_key_db` aynı karaktere sahip oldukları için değerleri eşittir. Sonuç `True`.\n2.  `is_identity_match = (auth_key_user is auth_key_db)`: Python, kısa ve basit string sabitlerini (literallerini) otomatik olarak içselleştirebilir (interning). Bu durumda, `auth_key_user` ve `auth_key_db` aynı hafıza konumunu işaret ederler. Sonuç genellikle `True`.\n3.  `is_dynamic_identity_match = (dynamic_key is \"token_xyz\")`: `dynamic_key` ifadesi, çalışma zamanında `\"token\" + \"_xyz\"` şeklinde birleştirilerek oluşturulur. Bu, doğrudan bir string literali olmadığı için, Python interpreter'ı genellikle bu dizeyi içselleştirmez ve yeni bir dize nesnesi oluşturur. Bu nedenle `dynamic_key`'in işaret ettiği obje ile `\"token_xyz\"` literalinin işaret ettiği obje farklıdır. Sonuç `False`.\n\nDolayısıyla, çıktı: `A: True, B: True, C: False` olacaktır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_5",
+    "type": "missing_code",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "class InventoryItem:\n    def __init__(self, product_name, available_count):\n        self.product_name = product_name\n        self.available_count = available_count\n    # __bool__ veya __len__ metotları eksik\n\nitem_a = InventoryItem(\"Tablet\", 0)\nitem_b = InventoryItem(\"Kulaklık\", 5)\n\n# Eğer item_a 'stokta yok' olarak kabul edilecek (count'ı 0 olduğu için)\n# VE item_b 'stokta var' olarak kabul edilecekse (count'ı > 0 olduğu için),\n# aşağıdaki if bloğuna girilmesi için uygun koşulu tamamlayın.\nif _________:\n    print(\"Envanterde hem sıfır stoklu hem de mevcut ürünler var.\")\nelse:\n    print(\"Durum net: Ya hepsi stokta ya hepsi stokta yok.\")",
+    "question_text": "Aşağıdaki kod, bir `InventoryItem` sınıfı tanımlar. `__bool__` veya `__len__` metotları tanımlanmamıştır. Boş bırakılan yere hangi koşul getirilirse, hem `item_a`'nın stoğu sıfır olduğu için 'stokta yok' olarak değerlendirilmesi (doğruluk değeri yanlış) hem de `item_b`'nin stoğu pozitif olduğu için 'stokta var' olarak değerlendirilmesi (doğruluk değeri doğru) durumunda 'Envanterde hem sıfır stoklu hem de mevcut ürünler var.' çıktısı alınır?",
+    "correct_answer": "not item_a.available_count and item_b.available_count",
+    "wrong_options": [
+      "not item_a and item_b",
+      "item_a.available_count == 0 and item_b.available_count > 0",
+      "bool(item_a) is False and bool(item_b) is True"
+    ],
+    "explanation": "Python'da, `__bool__` veya `__len__` metotları tanımlanmamış bir sınıfın nesnesi, `bool()` ile çağrıldığında veya bir boolean bağlamında kullanıldığında her zaman `True` olarak değerlendirilir. Bu nedenle `not item_a` (Seçenek A) `False` olacaktır.\n\nAncak, tamsayıların kendilerinin doğruluk/yanlışlık değerleri vardır: `0` yanlıştır (`False`), sıfır olmayan tüm tamsayılar doğrudur (`True`).\n\nBoş bırakılan yere `not item_a.available_count and item_b.available_count` ifadesini koyarsak:\n-   `item_a.available_count` değeri `0`'dır. `not 0` ifadesi `True` olarak değerlendirilir.\n-   `item_b.available_count` değeri `5`'tir. `5` (sıfır olmayan bir sayı) ifadesi `True` olarak değerlendirilir.\n-   `True and True` koşulu `True` sonucunu verir, bu da `if` bloğunun çalışmasını sağlar.\n\nSeçenek C de doğru çalışır ancak integer'ların truthiness özelliğini kullanmadığı için sorunun zorluk seviyesine tam uymamaktadır. Seçenek D yanlıştır çünkü `bool(item_a)` `True`'dur.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_6",
+    "type": "debug",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "transaction_amount = 800\naccount_balance = 1500\nis_fraud_detected = False\n\ndef log_event(message):\n    print(f\"LOG: {message}\")\n    return True\n\n# Line 8\nis_approved = (transaction_amount <= account_balance) or log_event(\"Yetersiz bakiye veya sahtekarlık kontrolü yapıldı.\")\n\n# Line 10\nif is_approved and not is_fraud_detected:\n    print(\"İşlem onaylandı.\")\nelse:\n    print(\"İşlem reddedildi.\")",
+    "question_text": "Aşağıdaki kod, başarılı bir işlem onaylandığında bile 'LOG: Yetersiz bakiye veya sahtekarlık kontrolü yapıldı.' mesajını yazdırmıyor. Bu beklenmeyen davranışa neden olan satır hangisidir?",
+    "correct_answer": "Line 8",
+    "wrong_options": [
+      "Line 10",
+      "Line 5 (log_event fonksiyon tanımı)",
+      "Hiçbir hata yok, beklenen davranış bu"
+    ],
+    "explanation": "Hata Line 8'dedir. Python'da `or` operatörü kısa devre (short-circuit) değerlendirme yapar. `(transaction_amount <= account_balance)` ifadesi (`800 <= 1500`) `True` olarak değerlendirilir. `or` operatörünün ilk kısmı `True` olduğu için, ikinci kısım olan `log_event()` fonksiyonu *hiçbir zaman çağrılmaz*. Bu nedenle log mesajı yazdırılmaz. Beklenen davranışı elde etmek için, `log_event` fonksiyonunun her zaman çağrılması gerekiyorsa, `is_approved` değişkeninin tanımlanma şekli değiştirilmelidir (örneğin, `log_event`'i ayrı bir satırda çağırmak gibi).",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_7",
+    "type": "output",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "driver_age = 17\nhas_provisional_license = True\nhas_supervising_adult = True\nprior_offenses = 0\n\n# Sürücü iznini belirle\npermit_status = (\n    \"Tam Ehliyetli\" if driver_age >= 18 and prior_offenses == 0 else\n    \"Geçici Ehliyetli\" if driver_age >= 16 and has_provisional_license and has_supervising_adult else\n    \"Yetersiz\" if driver_age < 16 or prior_offenses > 0 else\n    \"Bilinmiyor\"\n)\nprint(permit_status)",
+    "question_text": "Aşağıdaki kodun çıktısı ne olacaktır? İç içe ternary operatörlerinin ve boolean mantık operatörlerinin önceliğini doğru bir şekilde değerlendirin.",
+    "correct_answer": "Geçici Ehliyetli",
+    "wrong_options": [
+      "Tam Ehliyetli",
+      "Yetersiz",
+      "Bilinmiyor"
+    ],
+    "explanation": "Kod adım adım değerlendirilir:\n1.  İlk koşul: `driver_age >= 18 and prior_offenses == 0` (`17 >= 18` -> `False` ve `0 == 0` -> `True`). `False and True` sonucu `False`'tur. Bu nedenle ilk `if` bloğu atlanır.\n2.  İkinci koşul: `driver_age >= 16 and has_provisional_license and has_supervising_adult` (`17 >= 16` -> `True`, `True` ve `True`). `True and True and True` sonucu `True`'dur.\n3.  İkinci `if` bloğunun koşulu sağlandığı için `permit_status` değişkeni 'Geçici Ehliyetli' değerini alır. Kod burada durur ve daha sonraki `else` veya `if` blokları değerlendirilmez.\n\nBu nedenle, çıktıda 'Geçici Ehliyetli' görünür.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_8",
+    "type": "missing_code",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "menu_items = [\n    {\"name\": \"Pizza\", \"available\": True, \"price\": 45},\n    {\"name\": \"Salata\", \"available\": False, \"price\": 25},\n    {\"name\": \"Tatlı\", \"available\": True, \"price\": 30},\n    {\"name\": \"İçecek\", \"available\": True, \"price\": 10},\n]\nmin_affordable_price = 20\n\n# Eğer listedeki tüm öğeler 'available' değilse VEYA en az bir 'available' öğe\n# minimum uygun fiyattan daha düşükse, bir uyarı mesajı yazdırın.\nif _________:\n    print(\"Menüde sorunlar var: Tüm öğeler mevcut değil veya uygun fiyatlı seçenekler sınırlı.\")\nelse:\n    print(\"Menü hazır: Tüm öğeler mevcut ve uygun fiyatlı.\")",
+    "question_text": "Aşağıdaki kodda, `menu_items` listesindeki öğelerin durumu kontrol ediliyor. Tüm öğelerin `available` (mevcut) olmaması VEYA mevcut öğelerden en az birinin `min_affordable_price` (minimum uygun fiyat) değerinden daha ucuz olması durumunda bir uyarı mesajı yazdırılması için boş bırakılan yere hangi koşul gelmelidir?",
+    "correct_answer": "not all(item[\"available\"] for item in menu_items) or any(item[\"available\"] and item[\"price\"] < min_affordable_price for item in menu_items)",
+    "wrong_options": [
+      "any(not item[\"available\"] for item in menu_items) and any(item[\"price\"] < min_affordable_price for item in menu_items if item[\"available\"])",
+      "all(item[\"available\"] for item in menu_items) or any(item[\"price\"] < min_affordable_price for item in menu_items)",
+      "not all(item[\"available\"] and item[\"price\"] >= min_affordable_price for item in menu_items)"
+    ],
+    "explanation": "Koşulun iki ana parçası var:\n1.  **Tüm öğeler mevcut değilse:** Bu, `not all(item[\"available\"] for item in menu_items)` ile kontrol edilir. `menu_items` içinde `Salata`'nın `available` değeri `False` olduğu için `all(...)` `False` döner, `not False` ise `True`'dur.\n2.  **Mevcut öğelerden en az biri uygun fiyattan düşükse:** Bu, `any(item[\"available\"] and item[\"price\"] < min_affordable_price for item in menu_items)` ile kontrol edilir. `İçecek` için (`available: True`, `price: 10`), `10 < 20` `True` olduğu için bu `any(...)` `True` döner.\n\nİki durum `or` ile birleştirilir: `True or True` sonucu `True`'dur. Bu nedenle `if` bloğu çalışır ve 'Menüde sorunlar var...' çıktısı alınır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_h_py_38836_9",
+    "type": "output",
+    "difficulty": 3,
+    "topic": "if_else",
+    "code_snippet": "user_preferences = {\"genre\": \"Sci-Fi\", \"rating\": None}\ndefault_pref_list = []\nrecommendation_list = []\n\n# Koşul 1\nis_rating_unset = user_preferences[\"rating\"] is None\n# Koşul 2\nis_default_list_empty_check = not default_pref_list\n# Koşul 3 (Önemli: 'not' operatör önceliği)\nis_recommendation_empty_compare = not recommendation_list == default_pref_list\n\nif is_rating_unset and is_default_list_empty_check and not is_recommendation_empty_compare:\n    print(\"Varsayılan ayarlar ve boş öneri listesi durumu.\")\nelif is_rating_unset or is_default_list_empty_check:\n    print(\"Bazı varsayılan ayar veya boş liste durumu.\")\nelse:\n    print(\"Her şey yolunda görünüyor.\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır? `not` operatörünün ve karşılaştırma operatörlerinin (özellikle farklı falsy değerlerle) etkileşimine dikkat edin.",
+    "correct_answer": "Varsayılan ayarlar ve boş öneri listesi durumu.",
+    "wrong_options": [
+      "Bazı varsayılan ayar veya boş liste durumu.",
+      "Her şey yolunda görünüyor.",
+      "Kod hatası"
+    ],
+    "explanation": "Adım adım değerlendirme:\n1.  `is_rating_unset = user_preferences[\"rating\"] is None`: `user_preferences[\"rating\"]` `None` olduğu için bu koşul `True`'dur.\n2.  `is_default_list_empty_check = not default_pref_list`: `default_pref_list` boş bir liste (`[]`) olduğu için `False` olarak kabul edilir (falsy). `not False` sonucu `True`'dur.\n3.  `is_recommendation_empty_compare = not recommendation_list == default_pref_list`: Bu, `not (recommendation_list == default_pref_list)` olarak yorumlanır. `recommendation_list` (`[]`) ve `default_pref_list` (`[]`) değer olarak eşittir, yani `([] == [])` sonucu `True`'dur. `not True` ise `False`'tur.\n\nŞimdi `if` ve `elif` bloklarına bakalım:\n-   İlk `if` koşulu: `is_rating_unset and is_default_list_empty_check and not is_recommendation_empty_compare`\n    -   `True and True and not False`\n    -   `True and True and True`\n    -   `True`\n\nİlk `if` koşulu `True` olduğu için, 'Varsayılan ayarlar ve boş öneri listesi durumu.' çıktısı alınır ve diğer `elif`/`else` blokları değerlendirilmez.",
+    "language": "python"
+  }
+]

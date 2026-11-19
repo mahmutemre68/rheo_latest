@@ -1,0 +1,2162 @@
+[
+  {
+    "id": "java_1_57494_26",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int a = 1;\nif (a > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Less",
+    "wrong_options": [
+      "Greater",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "1 > 5 koşulu yanlış olduğu için 'Less' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "java_3_57494_31",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "polymorphism",
+    "code_snippet": "class Animal {\n    void speak() {\n        System.out.println(\"...\");\n    }\n}\nclass Dog extends Animal {\n    void speak() {\n        System.out.println(\"Woof\");\n    }\n}\nAnimal a = new Dog();\na.speak();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Woof",
+    "wrong_options": [
+      "...",
+      "Error",
+      "Animal"
+    ],
+    "explanation": "Polimorfizm: Değişken tipi Animal olsa da, nesne Dog olduğu için Dog.speak() çalışır.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_40",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "const b = 19;\nconsole.log(b);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "19",
+    "wrong_options": [
+      "20",
+      "undefined",
+      "Error"
+    ],
+    "explanation": "const sabit değişken tanımlar. b = 19",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_20",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int a = 2;\nif (a > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Less",
+    "wrong_options": [
+      "Greater",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "2 > 5 koşulu yanlış olduğu için 'Less' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "variables_2_57494_13",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "variables",
+    "code_snippet": "b = 5\nb = b + 2\nprint(b)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "5",
+      "2",
+      "8"
+    ],
+    "explanation": "b önce 5 değerini alıyor, sonra + 2 işlemiyle 7 oluyor.",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_30",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int y = 2;\nint a = 5;\nSystem.out.println(y + a);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "8",
+      "6",
+      "25"
+    ],
+    "explanation": "Java'da + operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "java_2_57494_19",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "strings",
+    "code_snippet": "System.out.println(\"Java\".toUpperCase());",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "JAVA",
+    "wrong_options": [
+      "java",
+      "5",
+      "a"
+    ],
+    "explanation": "toUpperCase() büyük harfe çevirir",
+    "language": "java"
+  },
+  {
+    "id": "java_2_57494_34",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "strings",
+    "code_snippet": "System.out.println(\"Hello\".charAt(0));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "H",
+    "wrong_options": [
+      "hello",
+      "6",
+      "e"
+    ],
+    "explanation": "charAt(0) ilk karakteri verir",
+    "language": "java"
+  },
+  {
+    "id": "loops_2_57494_4",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "toplam = 0\nfor i in range(7):\n    toplam += i\nprint(toplam)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "21",
+    "wrong_options": [
+      "28",
+      "6",
+      "42"
+    ],
+    "explanation": "0+1+2+...+6 = 21. range(7) 0'dan 6'e kadar toplar.",
+    "language": "python"
+  },
+  {
+    "id": "java_3_57494_28",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "inheritance",
+    "code_snippet": "class Parent {\n    int x = 13;\n}\nclass Child extends Parent {\n    int y = 2;\n    void print() {\n        System.out.println(x + y);\n    }\n}\nnew Child().print();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "15",
+    "wrong_options": [
+      "13",
+      "2",
+      "Error"
+    ],
+    "explanation": "Child, Parent'tan x=13 değerini miras alır. x + y = 15",
+    "language": "java"
+  },
+  {
+    "id": "if_else_2_57494_3",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "x = 29\nif x >= 90:\n    print('A')\nelif x >= 70:\n    print('B')\nelif x >= 50:\n    print('C')\nelse:\n    print('F')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "F",
+    "wrong_options": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explanation": "29 < 50 olduğu için 'F' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "loops_2_57494_14",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "for i in range(2, 7):\n    print(i)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "2\n3\n4\n5\n6",
+    "wrong_options": [
+      "2\n3\n4\n5\n6\n7",
+      "0\n1\n2\n3\n4\n5\n6",
+      "1\n2\n3\n4\n5\n6"
+    ],
+    "explanation": "range(2, 7) 2'den başlar, 7'e kadar gider (7 dahil değil).",
+    "language": "python"
+  },
+  {
+    "id": "loops_1_57494_7",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "loops",
+    "code_snippet": "for i in range(6):\n    print(i)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "0\n1\n2\n3\n4\n5",
+    "wrong_options": [
+      "1\n2\n3\n4\n5\n6",
+      "0\n1\n2\n3\n4\n5\n6",
+      "6"
+    ],
+    "explanation": "range(6) 0'dan 5'e kadar sayılar üretir (6 dahil değil).",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_32",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "functions",
+    "code_snippet": "function add(a, b) {\n    return a + b;\n}\nconsole.log(add(2, 10));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "12",
+    "wrong_options": [
+      "13",
+      "210",
+      "undefined"
+    ],
+    "explanation": "add fonksiyonu 2 + 10 = 12 döndürür.",
+    "language": "javascript"
+  },
+  {
+    "id": "variables_1_57494_15",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "a = 12\nn = 2\nprint(a - n)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "9",
+      "11",
+      "-10"
+    ],
+    "explanation": "Python'da - operatörü sayıları çıkarır.",
+    "language": "python"
+  },
+  {
+    "id": "js_2_57494_9",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "spread",
+    "code_snippet": "const arr1 = [2, 1, 1];\nconst arr2 = [...arr1, 6];\nconsole.log(arr2);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[2,1,1,6]",
+    "wrong_options": [
+      "[2, 1, 1]",
+      "[6, 2, 1, 1]",
+      "Error"
+    ],
+    "explanation": "Spread operator (...) diziyi açar ve yeni eleman ekler.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_35",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int x = 6;\nif (x > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Greater",
+    "wrong_options": [
+      "Less",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "6 > 5 koşulu doğru olduğu için 'Greater' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_3",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "functions",
+    "code_snippet": "function add(a, b) {\n    return a + b;\n}\nconsole.log(add(7, 4));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "11",
+    "wrong_options": [
+      "12",
+      "74",
+      "undefined"
+    ],
+    "explanation": "add fonksiyonu 7 + 4 = 11 döndürür.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_2_57494_18",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "int sum = 0;\nfor (int i = 0; i < 4; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "10",
+      "10",
+      "4"
+    ],
+    "explanation": "Döngü 0'dan 3'e kadar gider. 0+1+...+3 = 6",
+    "language": "java"
+  },
+  {
+    "id": "java_3_57494_13",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "polymorphism",
+    "code_snippet": "class Animal {\n    void speak() {\n        System.out.println(\"...\");\n    }\n}\nclass Dog extends Animal {\n    void speak() {\n        System.out.println(\"Woof\");\n    }\n}\nAnimal a = new Dog();\na.speak();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Woof",
+    "wrong_options": [
+      "...",
+      "Error",
+      "Animal"
+    ],
+    "explanation": "Polimorfizm: Değişken tipi Animal olsa da, nesne Dog olduğu için Dog.speak() çalışır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_2_57494_13",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "score = 16\nif score >= 90:\n    print('A')\nelif score >= 70:\n    print('B')\nelif score >= 50:\n    print('C')\nelse:\n    print('F')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "F",
+    "wrong_options": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explanation": "16 < 50 olduğu için 'F' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "js_2_57494_15",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "spread",
+    "code_snippet": "const arr1 = [1, 3, 1];\nconst arr2 = [...arr1, 5];\nconsole.log(arr2);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[1,3,1,5]",
+    "wrong_options": [
+      "[1, 3, 1]",
+      "[5, 1, 3, 1]",
+      "Error"
+    ],
+    "explanation": "Spread operator (...) diziyi açar ve yeni eleman ekler.",
+    "language": "javascript"
+  },
+  {
+    "id": "js_1_57494_2",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "const y = 3;\nconsole.log(y);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "3",
+    "wrong_options": [
+      "4",
+      "undefined",
+      "Error"
+    ],
+    "explanation": "const sabit değişken tanımlar. y = 3",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_2_57494_1",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "val = 12\nif val < 8:\n    print('Pozitif')\nelse:\n    print('Negatif')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Negatif",
+    "wrong_options": [
+      "Pozitif",
+      "Pozitif\nNegatif",
+      "Error"
+    ],
+    "explanation": "12 küçüktür 8 olmadığı için else bloğu çalışır.",
+    "language": "python"
+  },
+  {
+    "id": "loops_1_57494_8",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "loops",
+    "code_snippet": "for i in range(4):\n    print(i)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "0\n1\n2\n3",
+    "wrong_options": [
+      "1\n2\n3\n4",
+      "0\n1\n2\n3\n4",
+      "4"
+    ],
+    "explanation": "range(4) 0'dan 3'e kadar sayılar üretir (4 dahil değil).",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_43",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int b = 8;\nif (b > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Greater",
+    "wrong_options": [
+      "Less",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "8 > 5 koşulu doğru olduğu için 'Greater' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "variables_2_57494_9",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "variables",
+    "code_snippet": "y = 10\ny = y + 3\nprint(y)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "13",
+    "wrong_options": [
+      "10",
+      "3",
+      "14"
+    ],
+    "explanation": "y önce 10 değerini alıyor, sonra + 3 işlemiyle 13 oluyor.",
+    "language": "python"
+  },
+  {
+    "id": "variables_2_57494_1",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "variables",
+    "code_snippet": "x = 3\nx = x - 2\nprint(x)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "1",
+    "wrong_options": [
+      "3",
+      "2",
+      "6"
+    ],
+    "explanation": "x önce 3 değerini alıyor, sonra - 2 işlemiyle 1 oluyor.",
+    "language": "python"
+  },
+  {
+    "id": "loops_1_57494_13",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "loops",
+    "code_snippet": "for i in range(3):\n    print(i)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "0\n1\n2",
+    "wrong_options": [
+      "1\n2\n3",
+      "0\n1\n2\n3",
+      "3"
+    ],
+    "explanation": "range(3) 0'dan 2'e kadar sayılar üretir (3 dahil değil).",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_2",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int num = 14;\nSystem.out.println(num);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "14",
+    "wrong_options": [
+      "15",
+      "13",
+      "Error"
+    ],
+    "explanation": "Java'da int bir tam sayı tipidir ve num değişkenine 14 atanmıştır.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_38",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let b = 7;\nconsole.log(b);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "8",
+      "6",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan b değişkeni 7 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_2_57494_14",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "y = 2\nif y < 10:\n    print('Doğru')\nelse:\n    print('Yanlış')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Doğru",
+    "wrong_options": [
+      "Yanlış",
+      "Doğru\nYanlış",
+      "Error"
+    ],
+    "explanation": "2 küçüktür 10 olduğu için if bloğu çalışır.",
+    "language": "python"
+  },
+  {
+    "id": "js_2_57494_31",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "arrow_functions",
+    "code_snippet": "const add = (a, b) => a + b;\nconsole.log(add(3, 7));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "9",
+      "37",
+      "undefined"
+    ],
+    "explanation": "Arrow function: (a, b) => a + b kısaltılmış function sözdizimi.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_45",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int a = 12;\nSystem.out.println(a);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "12",
+    "wrong_options": [
+      "13",
+      "11",
+      "Error"
+    ],
+    "explanation": "Java'da int bir tam sayı tipidir ve a değişkenine 12 atanmıştır.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_13",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let val = 6;\nconsole.log(val);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "7",
+      "5",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan val değişkeni 6 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "js_3_57494_21",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [1, 4, 3];\nconst doubled = arr.map(x => x * 3);\nconsole.log(doubled);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[3,12,9]",
+    "wrong_options": [
+      "[1, 4, 3]",
+      "24",
+      "[undefined]"
+    ],
+    "explanation": "map() her elemanı 3 ile çarpar: [3, 12, 9]",
+    "language": "javascript"
+  },
+  {
+    "id": "js_2_57494_23",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "arrow_functions",
+    "code_snippet": "const add = (a, b) => a + b;\nconsole.log(add(3, 4));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "6",
+      "34",
+      "undefined"
+    ],
+    "explanation": "Arrow function: (a, b) => a + b kısaltılmış function sözdizimi.",
+    "language": "javascript"
+  },
+  {
+    "id": "js_1_57494_5",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "functions",
+    "code_snippet": "function add(a, b) {\n    return a + b;\n}\nconsole.log(add(7, 10));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "17",
+    "wrong_options": [
+      "18",
+      "710",
+      "undefined"
+    ],
+    "explanation": "add fonksiyonu 7 + 10 = 17 döndürür.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_2_57494_4",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "puan = 78\nif puan >= 90:\n    print('A')\nelif puan >= 70:\n    print('B')\nelif puan >= 50:\n    print('C')\nelse:\n    print('F')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "B",
+    "wrong_options": [
+      "A",
+      "C",
+      "F"
+    ],
+    "explanation": "78 >= 70 ve < 90 olduğu için 'B' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "js_3_57494_18",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [1, 1, 7, 10, 8];\nconst filtered = arr.filter(x => x > 5);\nconsole.log(filtered);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[7,10,8]",
+    "wrong_options": [
+      "[1, 1, 7, 10, 8]",
+      "[]",
+      "[1, 1]"
+    ],
+    "explanation": "filter() sadece 5'ten büyük elemanları döndürür: [7, 10, 8]",
+    "language": "javascript"
+  },
+  {
+    "id": "java_2_57494_37",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "int sum = 0;\nfor (int i = 0; i < 3; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "3",
+    "wrong_options": [
+      "6",
+      "6",
+      "3"
+    ],
+    "explanation": "Döngü 0'dan 2'e kadar gider. 0+1+...+2 = 3",
+    "language": "java"
+  },
+  {
+    "id": "variables_1_57494_8",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "a = 7\nprint(a)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "8",
+      "6",
+      "Error"
+    ],
+    "explanation": "print() fonksiyonu a değişkeninin değerini ekrana basar.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_2_57494_8",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "x = 41\nif x >= 90:\n    print('A')\nelif x >= 70:\n    print('B')\nelif x >= 50:\n    print('C')\nelse:\n    print('F')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "F",
+    "wrong_options": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explanation": "41 < 50 olduğu için 'F' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_42",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int y = 13;\nint x = 4;\nSystem.out.println(y * x);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "52",
+    "wrong_options": [
+      "53",
+      "51",
+      "17"
+    ],
+    "explanation": "Java'da * operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "js_3_57494_20",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [8, 10, 5, 8, 1];\nconst filtered = arr.filter(x => x > 5);\nconsole.log(filtered);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[8,10,8]",
+    "wrong_options": [
+      "[8, 10, 5, 8, 1]",
+      "[]",
+      "[5, 1]"
+    ],
+    "explanation": "filter() sadece 5'ten büyük elemanları döndürür: [8, 10, 8]",
+    "language": "javascript"
+  },
+  {
+    "id": "java_2_57494_5",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "strings",
+    "code_snippet": "System.out.println(\"Hello\".length());",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "5",
+    "wrong_options": [
+      "hello",
+      "6",
+      "e"
+    ],
+    "explanation": "length() String uzunluğunu verir",
+    "language": "java"
+  },
+  {
+    "id": "java_2_57494_6",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "strings",
+    "code_snippet": "System.out.println(\"Hello\".length());",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "5",
+    "wrong_options": [
+      "hello",
+      "6",
+      "e"
+    ],
+    "explanation": "length() String uzunluğunu verir",
+    "language": "java"
+  },
+  {
+    "id": "java_3_57494_8",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "polymorphism",
+    "code_snippet": "class Animal {\n    void speak() {\n        System.out.println(\"...\");\n    }\n}\nclass Dog extends Animal {\n    void speak() {\n        System.out.println(\"Woof\");\n    }\n}\nAnimal a = new Dog();\na.speak();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Woof",
+    "wrong_options": [
+      "...",
+      "Error",
+      "Animal"
+    ],
+    "explanation": "Polimorfizm: Değişken tipi Animal olsa da, nesne Dog olduğu için Dog.speak() çalışır.",
+    "language": "java"
+  },
+  {
+    "id": "js_3_57494_1",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [2, 2, 2];\nconst doubled = arr.map(x => x * 3);\nconsole.log(doubled);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[6,6,6]",
+    "wrong_options": [
+      "[2, 2, 2]",
+      "18",
+      "[undefined]"
+    ],
+    "explanation": "map() her elemanı 3 ile çarpar: [6, 6, 6]",
+    "language": "javascript"
+  },
+  {
+    "id": "loops_2_57494_1",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "toplam = 0\nfor i in range(5):\n    toplam += i\nprint(toplam)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "15",
+      "4",
+      "20"
+    ],
+    "explanation": "0+1+2+...+4 = 10. range(5) 0'dan 4'e kadar toplar.",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_30",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "functions",
+    "code_snippet": "function add(a, b) {\n    return a + b;\n}\nconsole.log(add(2, 5));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "8",
+      "25",
+      "undefined"
+    ],
+    "explanation": "add fonksiyonu 2 + 5 = 7 döndürür.",
+    "language": "javascript"
+  },
+  {
+    "id": "loops_2_57494_11",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "toplam = 0\nfor i in range(4):\n    toplam += i\nprint(toplam)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "10",
+      "3",
+      "12"
+    ],
+    "explanation": "0+1+2+...+3 = 6. range(4) 0'dan 3'e kadar toplar.",
+    "language": "python"
+  },
+  {
+    "id": "variables_1_57494_3",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "y = 7\nm = 3\nprint(y * m)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "21",
+    "wrong_options": [
+      "20",
+      "22",
+      "10"
+    ],
+    "explanation": "Python'da * operatörü sayıları çarpar.",
+    "language": "python"
+  },
+  {
+    "id": "java_3_57494_23",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "inheritance",
+    "code_snippet": "class Parent {\n    int x = 10;\n}\nclass Child extends Parent {\n    int y = 6;\n    void print() {\n        System.out.println(x + y);\n    }\n}\nnew Child().print();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "16",
+    "wrong_options": [
+      "10",
+      "6",
+      "Error"
+    ],
+    "explanation": "Child, Parent'tan x=10 değerini miras alır. x + y = 16",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_19",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "strings",
+    "code_snippet": "const name = \"Ali\";\nconst age = 26;\nconsole.log(`${name} is ${age}`);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Ali is 26",
+    "wrong_options": [
+      "${Ali} is ${26}",
+      "Ali26",
+      "undefined"
+    ],
+    "explanation": "Template literals (``) içinde ${} ile değişkenler yazılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_2_57494_12",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "int sum = 0;\nfor (int i = 0; i < 4; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "10",
+      "10",
+      "4"
+    ],
+    "explanation": "Döngü 0'dan 3'e kadar gider. 0+1+...+3 = 6",
+    "language": "java"
+  },
+  {
+    "id": "java_1_57494_32",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int y = 16;\nSystem.out.println(y);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "16",
+    "wrong_options": [
+      "17",
+      "15",
+      "Error"
+    ],
+    "explanation": "Java'da int bir tam sayı tipidir ve y değişkenine 16 atanmıştır.",
+    "language": "java"
+  },
+  {
+    "id": "loops_1_57494_2",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "loops",
+    "code_snippet": "sayac = 0\nfor i in range(3):\n    sayac += 1\nprint(sayac)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "3",
+    "wrong_options": [
+      "2",
+      "4",
+      "0"
+    ],
+    "explanation": "Döngü 3 kez çalışır (i: 0, 1, 2, ..., 2).",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_24",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "const num = 13;\nconsole.log(num);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "13",
+    "wrong_options": [
+      "14",
+      "undefined",
+      "Error"
+    ],
+    "explanation": "const sabit değişken tanımlar. num = 13",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_7",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int y = 8;\nint a = 10;\nSystem.out.println(y + a);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "18",
+    "wrong_options": [
+      "19",
+      "17",
+      "810"
+    ],
+    "explanation": "Java'da + operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "java_2_57494_24",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "int sum = 0;\nfor (int i = 0; i < 3; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "3",
+    "wrong_options": [
+      "6",
+      "6",
+      "3"
+    ],
+    "explanation": "Döngü 0'dan 2'e kadar gider. 0+1+...+2 = 3",
+    "language": "java"
+  },
+  {
+    "id": "variables_2_57494_10",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "variables",
+    "code_snippet": "a = 10\na = a + 4\nprint(a)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "14",
+    "wrong_options": [
+      "10",
+      "4",
+      "15"
+    ],
+    "explanation": "a önce 10 değerini alıyor, sonra + 4 işlemiyle 14 oluyor.",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_4",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int a = 5;\nif (a > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Less",
+    "wrong_options": [
+      "Greater",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "5 > 5 koşulu yanlış olduğu için 'Less' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "java_1_57494_11",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int y = 2;\nif (y > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Less",
+    "wrong_options": [
+      "Greater",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "2 > 5 koşulu yanlış olduğu için 'Less' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "loops_2_57494_5",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "x = 0\nwhile x < 4:\n    x += 1\nprint(x)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "4",
+    "wrong_options": [
+      "3",
+      "5",
+      "0"
+    ],
+    "explanation": "x 0'dan başlar, her adımda 1 artar. x=4 olunca koşul sağlanmaz ve döngü biter.",
+    "language": "python"
+  },
+  {
+    "id": "js_3_57494_37",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [6, 6, 2, 9, 8];\nconst filtered = arr.filter(x => x > 5);\nconsole.log(filtered);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[6,6,9,8]",
+    "wrong_options": [
+      "[6, 6, 2, 9, 8]",
+      "[]",
+      "[2]"
+    ],
+    "explanation": "filter() sadece 5'ten büyük elemanları döndürür: [6, 6, 9, 8]",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_3",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int b = 6;\nif (b > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Greater",
+    "wrong_options": [
+      "Less",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "6 > 5 koşulu doğru olduğu için 'Greater' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "loops_2_57494_3",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "x = 1\nwhile x < 6:\n    x += 1\nprint(x)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "5",
+      "7",
+      "1"
+    ],
+    "explanation": "x 1'dan başlar, her adımda 1 artar. x=6 olunca koşul sağlanmaz ve döngü biter.",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_44",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int b = 7;\nif (b > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Greater",
+    "wrong_options": [
+      "Less",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "7 > 5 koşulu doğru olduğu için 'Greater' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "js_3_57494_22",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [3, 2, 5];\nconst doubled = arr.map(x => x * 3);\nconsole.log(doubled);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[9,6,15]",
+    "wrong_options": [
+      "[3, 2, 5]",
+      "30",
+      "[undefined]"
+    ],
+    "explanation": "map() her elemanı 3 ile çarpar: [9, 6, 15]",
+    "language": "javascript"
+  },
+  {
+    "id": "java_3_57494_41",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "polymorphism",
+    "code_snippet": "class Animal {\n    void speak() {\n        System.out.println(\"...\");\n    }\n}\nclass Dog extends Animal {\n    void speak() {\n        System.out.println(\"Woof\");\n    }\n}\nAnimal a = new Dog();\na.speak();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Woof",
+    "wrong_options": [
+      "...",
+      "Error",
+      "Animal"
+    ],
+    "explanation": "Polimorfizm: Değişken tipi Animal olsa da, nesne Dog olduğu için Dog.speak() çalışır.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_6",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "const count = 16;\nconsole.log(count);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "16",
+    "wrong_options": [
+      "17",
+      "undefined",
+      "Error"
+    ],
+    "explanation": "const sabit değişken tanımlar. count = 16",
+    "language": "javascript"
+  },
+  {
+    "id": "variables_1_57494_7",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "x = 11\nprint(x)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "11",
+    "wrong_options": [
+      "12",
+      "10",
+      "Error"
+    ],
+    "explanation": "print() fonksiyonu x değişkeninin değerini ekrana basar.",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_16",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "functions",
+    "code_snippet": "function add(a, b) {\n    return a + b;\n}\nconsole.log(add(8, 6));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "14",
+    "wrong_options": [
+      "15",
+      "86",
+      "undefined"
+    ],
+    "explanation": "add fonksiyonu 8 + 6 = 14 döndürür.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_2_57494_21",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "int sum = 0;\nfor (int i = 0; i < 5; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "15",
+      "15",
+      "5"
+    ],
+    "explanation": "Döngü 0'dan 4'e kadar gider. 0+1+...+4 = 10",
+    "language": "java"
+  },
+  {
+    "id": "js_3_57494_11",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [2, 1, 4];\nconst doubled = arr.map(x => x * 3);\nconsole.log(doubled);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[6,3,12]",
+    "wrong_options": [
+      "[2, 1, 4]",
+      "21",
+      "[undefined]"
+    ],
+    "explanation": "map() her elemanı 3 ile çarpar: [6, 3, 12]",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_2_57494_5",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "score = 5\nif score >= 90:\n    print('A')\nelif score >= 70:\n    print('B')\nelif score >= 50:\n    print('C')\nelse:\n    print('F')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "F",
+    "wrong_options": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explanation": "5 < 50 olduğu için 'F' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_14",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let val = 19;\nconsole.log(val);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "19",
+    "wrong_options": [
+      "20",
+      "18",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan val değişkeni 19 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_2_57494_14",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "strings",
+    "code_snippet": "System.out.println(\"Hello\".toUpperCase());",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "HELLO",
+    "wrong_options": [
+      "hello",
+      "6",
+      "e"
+    ],
+    "explanation": "toUpperCase() büyük harfe çevirir",
+    "language": "java"
+  },
+  {
+    "id": "java_1_57494_25",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int x = 8;\nSystem.out.println(x);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "8",
+    "wrong_options": [
+      "9",
+      "7",
+      "Error"
+    ],
+    "explanation": "Java'da int bir tam sayı tipidir ve x değişkenine 8 atanmıştır.",
+    "language": "java"
+  },
+  {
+    "id": "variables_1_57494_5",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "a = 3\nnum = 6\nprint(a - num)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "-3",
+    "wrong_options": [
+      "-4",
+      "3",
+      "-2"
+    ],
+    "explanation": "Python'da - operatörü sayıları çıkarır.",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_1",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int b = 15;\nint y = 3;\nSystem.out.println(b - y);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "12",
+    "wrong_options": [
+      "13",
+      "11",
+      "18"
+    ],
+    "explanation": "Java'da - operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "js_3_57494_43",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [5, 4, 3];\nconst doubled = arr.map(x => x * 2);\nconsole.log(doubled);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[10,8,6]",
+    "wrong_options": [
+      "[5, 4, 3]",
+      "24",
+      "[undefined]"
+    ],
+    "explanation": "map() her elemanı 2 ile çarpar: [10, 8, 6]",
+    "language": "javascript"
+  },
+  {
+    "id": "java_3_57494_16",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "inheritance",
+    "code_snippet": "class Parent {\n    int x = 20;\n}\nclass Child extends Parent {\n    int y = 4;\n    void print() {\n        System.out.println(x + y);\n    }\n}\nnew Child().print();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "24",
+    "wrong_options": [
+      "20",
+      "4",
+      "Error"
+    ],
+    "explanation": "Child, Parent'tan x=20 değerini miras alır. x + y = 24",
+    "language": "java"
+  },
+  {
+    "id": "java_1_57494_10",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int y = 14;\nint a = 5;\nSystem.out.println(y - a);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "9",
+    "wrong_options": [
+      "10",
+      "8",
+      "19"
+    ],
+    "explanation": "Java'da - operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_17",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "functions",
+    "code_snippet": "function add(a, b) {\n    return a + b;\n}\nconsole.log(add(2, 3));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "5",
+    "wrong_options": [
+      "6",
+      "23",
+      "undefined"
+    ],
+    "explanation": "add fonksiyonu 2 + 3 = 5 döndürür.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_15",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int a = 10;\nif (a > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Greater",
+    "wrong_options": [
+      "Less",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "10 > 5 koşulu doğru olduğu için 'Greater' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "java_1_57494_38",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int x = 10;\nint a = 3;\nSystem.out.println(x + a);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "13",
+    "wrong_options": [
+      "14",
+      "12",
+      "103"
+    ],
+    "explanation": "Java'da + operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_8",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "const x = 10;\nconsole.log(x);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "11",
+      "undefined",
+      "Error"
+    ],
+    "explanation": "const sabit değişken tanımlar. x = 10",
+    "language": "javascript"
+  },
+  {
+    "id": "variables_1_57494_2",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "a = 8\nprint(a)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "8",
+    "wrong_options": [
+      "9",
+      "7",
+      "Error"
+    ],
+    "explanation": "print() fonksiyonu a değişkeninin değerini ekrana basar.",
+    "language": "python"
+  },
+  {
+    "id": "loops_2_57494_10",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "toplam = 0\nfor i in range(4):\n    toplam += i\nprint(toplam)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "10",
+      "3",
+      "12"
+    ],
+    "explanation": "0+1+2+...+3 = 6. range(4) 0'dan 3'e kadar toplar.",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_36",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int a = 11;\nint b = 5;\nSystem.out.println(a - b);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "7",
+      "5",
+      "16"
+    ],
+    "explanation": "Java'da - operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "js_3_57494_36",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [5, 8, 5, 10, 9];\nconst filtered = arr.filter(x => x > 5);\nconsole.log(filtered);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[8,10,9]",
+    "wrong_options": [
+      "[5, 8, 5, 10, 9]",
+      "[]",
+      "[5, 5]"
+    ],
+    "explanation": "filter() sadece 5'ten büyük elemanları döndürür: [8, 10, 9]",
+    "language": "javascript"
+  },
+  {
+    "id": "variables_1_57494_4",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "a = 6\nnum = 3\nprint(a * num)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "18",
+    "wrong_options": [
+      "9",
+      "17",
+      "19"
+    ],
+    "explanation": "Python'da * operatörü sayıları çarpar.",
+    "language": "python"
+  },
+  {
+    "id": "java_2_57494_40",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "int sum = 0;\nfor (int i = 0; i < 5; i++) {\n    sum += i;\n}\nSystem.out.println(sum);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "15",
+      "15",
+      "5"
+    ],
+    "explanation": "Döngü 0'dan 4'e kadar gider. 0+1+...+4 = 10",
+    "language": "java"
+  },
+  {
+    "id": "loops_2_57494_9",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "for i in range(3, 8):\n    print(i)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "3\n4\n5\n6\n7",
+    "wrong_options": [
+      "3\n4\n5\n6\n7\n8",
+      "0\n1\n2\n3\n4\n5\n6\n7",
+      "2\n3\n4\n5\n6\n7"
+    ],
+    "explanation": "range(3, 8) 3'den başlar, 8'e kadar gider (8 dahil değil).",
+    "language": "python"
+  },
+  {
+    "id": "loops_2_57494_15",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "x = 0\nwhile x < 5:\n    x += 1\nprint(x)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "5",
+    "wrong_options": [
+      "4",
+      "6",
+      "0"
+    ],
+    "explanation": "x 0'dan başlar, her adımda 1 artar. x=5 olunca koşul sağlanmaz ve döngü biter.",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_7",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "strings",
+    "code_snippet": "const name = \"Mehmet\";\nconst age = 23;\nconsole.log(`${name} is ${age}`);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Mehmet is 23",
+    "wrong_options": [
+      "${Mehmet} is ${23}",
+      "Mehmet23",
+      "undefined"
+    ],
+    "explanation": "Template literals (``) içinde ${} ile değişkenler yazılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_1_57494_7",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "x = 4\nif x > 5:\n    print('Hayır')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "(Çıktı yok)",
+    "wrong_options": [
+      "Hayır",
+      "Error",
+      "4"
+    ],
+    "explanation": "4 büyüktür 5 olmadığı için koşul yanlış, hiçbir şey yazdırılmaz.",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_42",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let num = 13;\nconsole.log(num);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "13",
+    "wrong_options": [
+      "14",
+      "12",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan num değişkeni 13 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "loops_1_57494_6",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "loops",
+    "code_snippet": "for i in range(4):\n    print(i)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "0\n1\n2\n3",
+    "wrong_options": [
+      "1\n2\n3\n4",
+      "0\n1\n2\n3\n4",
+      "4"
+    ],
+    "explanation": "range(4) 0'dan 3'e kadar sayılar üretir (4 dahil değil).",
+    "language": "python"
+  },
+  {
+    "id": "js_2_57495_44",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "let sum = 0;\nfor (let i = 0; i < 4; i++) {\n    sum += i;\n}\nconsole.log(sum);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "10",
+      "10",
+      "4"
+    ],
+    "explanation": "Döngü 0'dan 3'e kadar gider. Toplam = 6",
+    "language": "javascript"
+  },
+  {
+    "id": "js_1_57494_39",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let count = 18;\nconsole.log(count);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "18",
+    "wrong_options": [
+      "19",
+      "17",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan count değişkeni 18 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_27",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int a = 15;\nint x = 8;\nSystem.out.println(a * x);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "120",
+    "wrong_options": [
+      "121",
+      "119",
+      "23"
+    ],
+    "explanation": "Java'da * operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_41",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "functions",
+    "code_snippet": "function add(a, b) {\n    return a + b;\n}\nconsole.log(add(6, 3));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "9",
+    "wrong_options": [
+      "10",
+      "63",
+      "undefined"
+    ],
+    "explanation": "add fonksiyonu 6 + 3 = 9 döndürür.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_1_57494_15",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "x = 6\nif x >= 10:\n    print('Evet')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "(Çıktı yok)",
+    "wrong_options": [
+      "Evet",
+      "Error",
+      "6"
+    ],
+    "explanation": "6 büyük veya eşittir 10 olmadığı için koşul yanlış, hiçbir şey yazdırılmaz.",
+    "language": "python"
+  },
+  {
+    "id": "js_3_57494_35",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [2, 5, 3];\nconst doubled = arr.map(x => x * 2);\nconsole.log(doubled);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[4,10,6]",
+    "wrong_options": [
+      "[2, 5, 3]",
+      "20",
+      "[undefined]"
+    ],
+    "explanation": "map() her elemanı 2 ile çarpar: [4, 10, 6]",
+    "language": "javascript"
+  },
+  {
+    "id": "variables_1_57494_14",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "x = 12\nval = 10\nprint(x + val)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "22",
+    "wrong_options": [
+      "1210",
+      "120",
+      "23"
+    ],
+    "explanation": "Python'da + operatörü sayıları toplar.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_1_57494_2",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "num = 4\nif num <= 9:\n    print('Hayır')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Hayır",
+    "wrong_options": [
+      "(Çıktı yok)",
+      "Error",
+      "4"
+    ],
+    "explanation": "4 küçük veya eşittir 9 olduğu için koşul doğru, 'Hayır' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_2_57494_10",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "x = 1\nif x < 9:\n    print('Pozitif')\nelse:\n    print('Negatif')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Pozitif",
+    "wrong_options": [
+      "Negatif",
+      "Pozitif\nNegatif",
+      "Error"
+    ],
+    "explanation": "1 küçüktür 9 olduğu için if bloğu çalışır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_2_57494_11",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "x = 16\nif x >= 90:\n    print('A')\nelif x >= 70:\n    print('B')\nelif x >= 50:\n    print('C')\nelse:\n    print('F')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "F",
+    "wrong_options": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explanation": "16 < 50 olduğu için 'F' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "variables_1_57494_12",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "a = 10\nnum = 6\nprint(a + num)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "16",
+    "wrong_options": [
+      "106",
+      "60",
+      "15"
+    ],
+    "explanation": "Python'da + operatörü sayıları toplar.",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_10",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "strings",
+    "code_snippet": "const name = \"Ali\";\nconst age = 23;\nconsole.log(`${name} is ${age}`);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Ali is 23",
+    "wrong_options": [
+      "${Ali} is ${23}",
+      "Ali23",
+      "undefined"
+    ],
+    "explanation": "Template literals (``) içinde ${} ile değişkenler yazılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_2_57494_33",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "strings",
+    "code_snippet": "System.out.println(\"World\".toUpperCase());",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "WORLD",
+    "wrong_options": [
+      "world",
+      "6",
+      "o"
+    ],
+    "explanation": "toUpperCase() büyük harfe çevirir",
+    "language": "java"
+  },
+  {
+    "id": "js_1_57494_29",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let result = 15;\nconsole.log(result);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "15",
+    "wrong_options": [
+      "16",
+      "14",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan result değişkeni 15 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "js_2_57494_28",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "arrow_functions",
+    "code_snippet": "const add = (a, b) => a + b;\nconsole.log(add(5, 6));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "11",
+    "wrong_options": [
+      "10",
+      "56",
+      "undefined"
+    ],
+    "explanation": "Arrow function: (a, b) => a + b kısaltılmış function sözdizimi.",
+    "language": "javascript"
+  },
+  {
+    "id": "js_1_57494_27",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let y = 7;\nconsole.log(y);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "8",
+      "6",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan y değişkeni 7 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_2_57494_6",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "x = 77\nif x >= 90:\n    print('A')\nelif x >= 70:\n    print('B')\nelif x >= 50:\n    print('C')\nelse:\n    print('F')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "B",
+    "wrong_options": [
+      "A",
+      "C",
+      "F"
+    ],
+    "explanation": "77 >= 70 ve < 90 olduğu için 'B' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "java_1_57494_22",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int y = 4;\nif (y > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Less",
+    "wrong_options": [
+      "Greater",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "4 > 5 koşulu yanlış olduğu için 'Less' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "java_1_57494_39",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "int x = 3;\nif (x > 5) {\n    System.out.println(\"Greater\");\n} else {\n    System.out.println(\"Less\");\n}",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Less",
+    "wrong_options": [
+      "Greater",
+      "Equal",
+      "Error"
+    ],
+    "explanation": "3 > 5 koşulu yanlış olduğu için 'Less' basılır.",
+    "language": "java"
+  },
+  {
+    "id": "variables_2_57494_6",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "variables",
+    "code_snippet": "a = 8\na = a - 2\nprint(a)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "6",
+    "wrong_options": [
+      "8",
+      "2",
+      "11"
+    ],
+    "explanation": "a önce 8 değerini alıyor, sonra - 2 işlemiyle 6 oluyor.",
+    "language": "python"
+  },
+  {
+    "id": "js_1_57494_25",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "strings",
+    "code_snippet": "const name = \"Mehmet\";\nconst age = 24;\nconsole.log(`${name} is ${age}`);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Mehmet is 24",
+    "wrong_options": [
+      "${Mehmet} is ${24}",
+      "Mehmet24",
+      "undefined"
+    ],
+    "explanation": "Template literals (``) içinde ${} ile değişkenler yazılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "js_1_57494_26",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "strings",
+    "code_snippet": "const name = \"Zeynep\";\nconst age = 23;\nconsole.log(`${name} is ${age}`);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Zeynep is 23",
+    "wrong_options": [
+      "${Zeynep} is ${23}",
+      "Zeynep23",
+      "undefined"
+    ],
+    "explanation": "Template literals (``) içinde ${} ile değişkenler yazılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "js_2_57495_45",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "arrow_functions",
+    "code_snippet": "const add = (a, b) => a + b;\nconsole.log(add(10, 3));",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "13",
+    "wrong_options": [
+      "12",
+      "103",
+      "undefined"
+    ],
+    "explanation": "Arrow function: (a, b) => a + b kısaltılmış function sözdizimi.",
+    "language": "javascript"
+  },
+  {
+    "id": "loops_2_57494_12",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "loops",
+    "code_snippet": "x = 1\nwhile x < 5:\n    x += 1\nprint(x)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "5",
+    "wrong_options": [
+      "4",
+      "6",
+      "1"
+    ],
+    "explanation": "x 1'dan başlar, her adımda 1 artar. x=5 olunca koşul sağlanmaz ve döngü biter.",
+    "language": "python"
+  },
+  {
+    "id": "js_3_57494_12",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [4, 6, 6, 2, 1];\nconst filtered = arr.filter(x => x > 5);\nconsole.log(filtered);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[6,6]",
+    "wrong_options": [
+      "[4, 6, 6, 2, 1]",
+      "[]",
+      "[4, 2, 1]"
+    ],
+    "explanation": "filter() sadece 5'ten büyük elemanları döndürür: [6, 6]",
+    "language": "javascript"
+  },
+  {
+    "id": "js_3_57494_33",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [3, 10, 2, 6, 10];\nconst filtered = arr.filter(x => x > 5);\nconsole.log(filtered);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[10,6,10]",
+    "wrong_options": [
+      "[3, 10, 2, 6, 10]",
+      "[]",
+      "[3, 2]"
+    ],
+    "explanation": "filter() sadece 5'ten büyük elemanları döndürür: [10, 6, 10]",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_1_57494_9",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "n = 12\nif n > 6:\n    print('Doğru')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Doğru",
+    "wrong_options": [
+      "(Çıktı yok)",
+      "Error",
+      "12"
+    ],
+    "explanation": "12 büyüktür 6 olduğu için koşul doğru, 'Doğru' yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "java_3_57494_17",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "polymorphism",
+    "code_snippet": "class Animal {\n    void speak() {\n        System.out.println(\"...\");\n    }\n}\nclass Dog extends Animal {\n    void speak() {\n        System.out.println(\"Woof\");\n    }\n}\nAnimal a = new Dog();\na.speak();",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Woof",
+    "wrong_options": [
+      "...",
+      "Error",
+      "Animal"
+    ],
+    "explanation": "Polimorfizm: Değişken tipi Animal olsa da, nesne Dog olduğu için Dog.speak() çalışır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_2_57494_12",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "if_else",
+    "code_snippet": "x = 2\nif x > 6:\n    print('Doğru')\nelse:\n    print('Yanlış')",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Yanlış",
+    "wrong_options": [
+      "Doğru",
+      "Doğru\nYanlış",
+      "Error"
+    ],
+    "explanation": "2 büyüktür 6 olmadığı için else bloğu çalışır.",
+    "language": "python"
+  },
+  {
+    "id": "variables_2_57494_11",
+    "type": "prediction",
+    "difficulty": 2,
+    "topic": "variables",
+    "code_snippet": "b = 7\nb = b + 2\nprint(b)",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "9",
+    "wrong_options": [
+      "7",
+      "2",
+      "10"
+    ],
+    "explanation": "b önce 7 değerini alıyor, sonra + 2 işlemiyle 9 oluyor.",
+    "language": "python"
+  },
+  {
+    "id": "js_3_57494_34",
+    "type": "prediction",
+    "difficulty": 3,
+    "topic": "array_methods",
+    "code_snippet": "const arr = [5, 3, 1];\nconst doubled = arr.map(x => x * 2);\nconsole.log(doubled);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "[10,6,2]",
+    "wrong_options": [
+      "[5, 3, 1]",
+      "18",
+      "[undefined]"
+    ],
+    "explanation": "map() her elemanı 2 ile çarpar: [10, 6, 2]",
+    "language": "javascript"
+  },
+  {
+    "id": "js_1_57494_4",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "let x = 1;\nconsole.log(x);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "1",
+    "wrong_options": [
+      "2",
+      "0",
+      "undefined"
+    ],
+    "explanation": "let ile tanımlanan x değişkeni 1 değerini tutar.",
+    "language": "javascript"
+  },
+  {
+    "id": "java_1_57494_29",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int b = 3;\nint x = 7;\nSystem.out.println(b + x);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "11",
+      "9",
+      "37"
+    ],
+    "explanation": "Java'da + operatörü matematiksel işlem yapar.",
+    "language": "java"
+  },
+  {
+    "id": "java_1_57494_9",
+    "type": "prediction",
+    "difficulty": 1,
+    "topic": "variables",
+    "code_snippet": "int a = 7;\nSystem.out.println(a);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "7",
+    "wrong_options": [
+      "8",
+      "6",
+      "Error"
+    ],
+    "explanation": "Java'da int bir tam sayı tipidir ve a değişkenine 7 atanmıştır.",
+    "language": "java"
+  }
+]

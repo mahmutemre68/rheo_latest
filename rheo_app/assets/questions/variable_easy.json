@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "variable_e_py_84362_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "player_score = 100\nbonus_points = 25\nfinal_score = player_score + bonus_points\nprint(final_score)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır?",
+    "correct_answer": "125",
+    "wrong_options": [
+      "100",
+      "25",
+      "player_score + bonus_points"
+    ],
+    "explanation": "Kodda, `player_score` değişkenine 100 ve `bonus_points` değişkenine 25 değeri atanır. `final_score` değişkeni, bu iki değişkenin toplamı olan 100 + 25 = 125 değerini alır. Son olarak, `final_score` değeri ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "celsius_temp = 25.0\nfahrenheit_temp = celsius_temp * 9/5 + 32\nprint(fahrenheit_temp)",
+    "question_text": "Bu kod çalıştırıldığında ne çıktı verir?",
+    "correct_answer": "77.0",
+    "wrong_options": [
+      "77",
+      "25.0",
+      "Hata"
+    ],
+    "explanation": "`celsius_temp` değişkeni 25.0 olarak atanmıştır. Fahrenheit dönüşüm formülü `(Celsius * 9/5) + 32` kullanılarak `fahrenheit_temp` hesaplanır. (25.0 * 1.8) + 32 = 45.0 + 32 = 77.0. Sonuç bir float değeri olarak ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_2",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "user_name = \"Ayşe\"\ngreeting_prefix = \"Merhaba, \"\ngreeting_suffix = \"!\"\nfull_greeting = greeting_prefix + _____ + greeting_suffix\nprint(full_greeting)",
+    "question_text": "Aşağıdaki kod parçasının 'Merhaba, Ayşe!' çıktısını vermesi için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "user_name",
+    "wrong_options": [
+      "\"Ayşe\"",
+      "greeting_prefix",
+      "greeting_suffix"
+    ],
+    "explanation": "`user_name` değişkeni 'Ayşe' değerini tutar. 'Merhaba, Ayşe!' çıktısını almak için `greeting_prefix` ve `greeting_suffix` arasına `user_name` değişkeni getirilerek dizgiler birleştirilmelidir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "stock_quantity = 50\nmin_threshold = 20\nis_available = stock_quantity > min_threshold\nprint(is_available)",
+    "question_text": "Bu Python kodunun çıktısı nedir?",
+    "correct_answer": "True",
+    "wrong_options": [
+      "False",
+      "50",
+      "20"
+    ],
+    "explanation": "`stock_quantity` (50) `min_threshold` (20) değerinden büyük olduğu için, `stock_quantity > min_threshold` ifadesi doğru (True) olarak değerlendirilir. `is_available` değişkeni `True` değerini alır ve bu değer ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "item_price_int = 25\ndiscount_rate = 0.15\nitem_price_float = float(item_price_int)\nfinal_price = item_price_float * (1 - discount_rate)\nprint(final_price)",
+    "question_text": "Aşağıdaki kodun çıktısı ne olacaktır?",
+    "correct_answer": "21.25",
+    "wrong_options": [
+      "25",
+      "21",
+      "25.0"
+    ],
+    "explanation": "`item_price_int` int (tam sayı) olarak 25 atanır. `float(item_price_int)` ile `item_price_float` değeri 25.0'a dönüştürülür. İndirim oranı %15'tir (0.15). `final_price` hesaplaması: 25.0 * (1 - 0.15) = 25.0 * 0.85 = 21.25. Sonuç olarak 21.25 ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "cart_total = 120.50\nitem_cost = 35.75\ncart_total _____ item_cost\nprint(cart_total)",
+    "question_text": "Alışveriş sepeti toplamına yeni bir ürün maliyetini eklemek için boş bırakılan yere hangi işlem gelmelidir?",
+    "correct_answer": "+=",
+    "wrong_options": [
+      "=",
+      "-=",
+      "*="
+    ],
+    "explanation": "Alışveriş sepeti toplamına (`cart_total`) yeni ürün maliyetini (`item_cost`) eklemek ve sonucu `cart_total` değişkenine tekrar atamak için `+=` (arttırarak atama) operatörü kullanılmalıdır. Bu işlem `cart_total = cart_total + item_cost` ile aynıdır. Sonuç 156.25 olur.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_6",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "report_title = \"Satış Raporu \"\nreport_number = 2023\nfull_report_id = report_title + report_number\nprint(full_report_id)",
+    "question_text": "Aşağıdaki kod parçası bir hata veriyor. Hatanın sebebi hangi satırdadır?",
+    "correct_answer": "full_report_id = report_title + report_number",
+    "wrong_options": [
+      "report_title = \"Satış Raporu \"",
+      "report_number = 2023",
+      "print(full_report_id)"
+    ],
+    "explanation": "Python'da farklı veri tipleri doğrudan birleştirilemez. `report_title` bir dizgi (string), `report_number` ise bir tam sayıdır (int). Bir dizgi ve bir tam sayıyı `+` operatörü ile birleştirmeye çalışmak `TypeError` hatasına neden olur. Bu hatayı düzeltmek için `report_number`'ı `str(report_number)` şeklinde dizgiye dönüştürmek gerekir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "student_name, grade_score = \"Mehmet\", 88\nfeedback_message = f\"{student_name} notu: {grade_score}.\"\nprint(feedback_message)",
+    "question_text": "Bu kod çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Mehmet notu: 88.",
+    "wrong_options": [
+      "student_name notu: grade_score.",
+      "('Mehmet', 88)",
+      "Hata"
+    ],
+    "explanation": "Kodda `student_name` ve `grade_score` değişkenlerine sırasıyla 'Mehmet' ve 88 değerleri atanır (çoklu atama). `f-string` (biçimlendirilmiş dizgi değişmezi) kullanılarak `feedback_message` oluşturulur. `f-string` içindeki süslü parantezler (`{}`) arasına yazılan değişkenlerin değerleri, dizgi içine yerleştirilir. Bu nedenle çıktı 'Mehmet notu: 88.' olacaktır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "current_task = \"Rapor Hazırla\"\ncurrent_task = None\nnext_task = \"Toplantıya Katıl\"\nprint(current_task)",
+    "question_text": "Aşağıdaki kodun çıktısı nedir?",
+    "correct_answer": "None",
+    "wrong_options": [
+      "Rapor Hazırla",
+      "Toplantıya Katıl",
+      "Hata"
+    ],
+    "explanation": "`current_task` başlangıçta 'Rapor Hazırla' değerini alır. Ancak bir sonraki satırda `current_task` değişkenine `None` değeri atanarak yeniden tanımlanır. `next_task` değişkeninin atanması `current_task` üzerinde herhangi bir etki yapmaz. Son olarak `current_task`'in en güncel değeri olan `None` ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_84362_9",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "birth_year_str = \"1995\"\ncurrent_year = 2023\nbirth_year_int = _____ (birth_year_str)\nage = current_year - birth_year_int\nprint(age)",
+    "question_text": "Kullanıcının yaşını doğru bir şekilde hesaplamak için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "int",
+    "wrong_options": [
+      "float",
+      "str",
+      "bool"
+    ],
+    "explanation": "`birth_year_str` değişkeni bir dizgi (string) olarak '1995' değerini tutar. Matematiksel işlemler yapabilmek için bu dizgi değerinin bir tam sayıya (integer) dönüştürülmesi gerekir. `int()` fonksiyonu bir dizgiyi tam sayıya dönüştürür. `birth_year_int` 1995 değerini alacak ve `age` hesaplaması 2023 - 1995 = 28 olacaktır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_ja_11639_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class BankaHesabi {\n    public static void main(String[] args) {\n        int hesapBakiyesi = 500;\n        int paraYatirmaMiktari = 150;\n        hesapBakiyesi = hesapBakiyesi + paraYatirmaMiktari;\n        System.out.println(\"Yeni Bakiye: \" + hesapBakiyesi);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Yeni Bakiye: 650",
+    "wrong_options": [
+      "Yeni Bakiye: 500",
+      "Yeni Bakiye: 150",
+      "Derleme Hatası"
+    ],
+    "explanation": "`hesapBakiyesi` başlangıçta 500 olarak ayarlanır. `paraYatirmaMiktari` 150'dir. Üçüncü satırda, `paraYatirmaMiktari` (150) `hesapBakiyesi`ne (500) eklenir ve sonuç tekrar `hesapBakiyesi` değişkenine atanır, bu da onu 650 yapar. Son olarak, bu yeni değer ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class Selamlama {\n    public static void main(String[] args) {\n        String kullaniciAdi = \"Ayşe\";\n        String selamlamaMesaji = \"Merhaba, \" + kullaniciAdi + \"! Nasılsın?\";\n        System.out.println(selamlamaMesaji);\n    }\n}",
+    "question_text": "Aşağıdaki kod parçacığının çıktısı nedir?",
+    "correct_answer": "Merhaba, Ayşe! Nasılsın?",
+    "wrong_options": [
+      "Merhaba, kullaniciAdi! Nasılsın?",
+      "Merhaba, + Ayşe + ! Nasılsın?",
+      "Derleme Hatası"
+    ],
+    "explanation": "`kullaniciAdi` değişkeni \"Ayşe\" değerini tutmaktadır. `selamlamaMesaji` değişkeni oluşturulurken, string birleştirme (`+` operatörü) kullanılarak \"Merhaba, \" string'i, `kullaniciAdi` değişkeninin değeri ve \"! Nasılsın?\" string'i birleştirilir. Bu da \"Merhaba, Ayşe! Nasılsın?\" çıktısını verir.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_2",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class SicaklikDonusumu {\n    public static void main(String[] args) {\n        int celcius = 25;\n        double fahrenheit;\n        // EKSİK KOD\n        System.out.println(\"Fahrenheit: \" + fahrenheit);\n    }\n}",
+    "question_text": "Aşağıdaki kod, Celsius sıcaklığını Fahrenheit'a dönüştürmek için tasarlanmıştır. `// EKSİK KOD` yerine hangi kod parçacığı gelmelidir?",
+    "correct_answer": "fahrenheit = (double) celcius * 9 / 5 + 32;",
+    "wrong_options": [
+      "fahrenheit = celcius * 9 / 5 + 32;",
+      "fahrenheit = (int) (celcius * 9 / 5 + 32);",
+      "fahrenheit = \"(celcius * 9 / 5) + 32\";"
+    ],
+    "explanation": "Celsius'tan Fahrenheit'a dönüşüm formülü `(C * 9/5) + 32`'dir. Eğer `celcius` bir `int` ise ve 9/5 işlemi `int` olarak yapılırsa sonuç 1 olur (9 bölü 5'in tam sayı kısmı). Ondalık basamakları korumak için `celcius` değişkeninin `double`'a dönüştürülmesi gerekir. `(double) celcius * 9 / 5 + 32;` ifadesinde `celcius` önce `double`'a çevrilir, böylece çarpma ve bölme işlemleri ondalık sayılarla yapılır ve doğru `double` sonuç elde edilir.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class NotHesaplama {\n    public static void main(String[] args) {\n        double hamNot = 85.7;\n        int yuvarlanmisNot;\n        yuvarlanmisNot = (int) Math.floor(hamNot); // Hatalı Satır\n        System.out.println(\"Yuvarlanmış Not: \" + yuvarlanmisNot);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunda bir hata vardır. Programın, bir öğrencinin aldığı notu en yakın tam sayıya yuvarlayarak `yuvarlanmisNot` değişkenine atamasını sağlayacak şekilde hangi satır düzeltilmelidir?",
+    "correct_answer": "`yuvarlanmisNot = (int) Math.round(hamNot);`",
+    "wrong_options": [
+      "`yuvarlanmisNot = (double) hamNot;`",
+      "`yuvarlanmisNot = (int) Math.ceil(hamNot);`",
+      "`yuvarlanmisNot = hamNot;`"
+    ],
+    "explanation": "`Math.floor()` sayıyı aşağıya, en yakın tam sayıya yuvarlar (85.7 için 85 olur). `Math.ceil()` sayıyı yukarıya, en yakın tam sayıya yuvarlar (85.7 için 86 olur). En yakın tam sayıya yuvarlamak için `Math.round()` metodu kullanılır. `Math.round()` bir `long` veya `int` döndürür, bu yüzden `int`'e explicit cast yapmak gerekebilir (ancak `Math.round(double)` `long` döndürdüğü için `(int)` cast'i gereklidir).",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class KarakterArtirma {\n    public static void main(String[] args) {\n        char baslangicHarfi = 'E';\n        char sonrakiHarf = (char) (baslangicHarfi + 1);\n        System.out.println(sonrakiHarf);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı ne olacaktır?",
+    "correct_answer": "F",
+    "wrong_options": [
+      "E1",
+      "Derleme Hatası",
+      "E + 1"
+    ],
+    "explanation": "`char` veri tipi aslında bir tam sayı değeri olarak da temsil edilebilir (ASCII veya Unicode değerleri). `baslangicHarfi + 1` işlemi, 'E' karakterinin ASCII değerine (69) 1 ekler, bu da 70 yapar. Daha sonra bu 70 değeri `(char)` cast'i ile tekrar karaktere dönüştürülür. ASCII'de 70, 'F' karakterine karşılık gelir, bu yüzden çıktı 'F' olur.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "import java.util.Scanner;\n\npublic class KullaniciGiris {\n    public static void main(String[] args) {\n        Scanner klavye = new Scanner(System.in);\n        System.out.print(\"Adınızı girin: \");\n        String kullaniciAdi = // EKSİK KOD\n        System.out.println(\"Hoş geldiniz, \" + kullaniciAdi + \"!\");\n        klavye.close();\n    }\n}",
+    "question_text": "Bir kullanıcının adını almak için aşağıdaki kodu tamamlayın. `// EKSİK KOD` yerine ne gelmelidir?",
+    "correct_answer": "klavye.next();",
+    "wrong_options": [
+      "klavye.read();",
+      "System.in.read();",
+      "new String(klavye);"
+    ],
+    "explanation": "`Scanner` sınıfı, kullanıcıdan girdi almak için kullanılır. Bir sonraki kelimeyi (boşluklara kadar olan kısmı) `String` olarak okumak için `next()` metodu kullanılır. Eğer tüm satırı (boşluklar dahil) okumak istenseydi `nextLine()` kullanılırdı.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class SiparisKontrolu {\n    public static void main(String[] args) {\n        boolean urunStoktaVar = true;\n        boolean musteriOdemeYapti = false;\n        boolean siparisHazir = urunStoktaVar && musteriOdemeYapti;\n        System.out.println(\"Sipariş hazır mı? \" + siparisHazir);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Sipariş hazır mı? false",
+    "wrong_options": [
+      "Sipariş hazır mı? true",
+      "Sipariş hazır mı? null",
+      "Derleme Hatası"
+    ],
+    "explanation": "`urunStoktaVar` `true` ve `musteriOdemeYapti` `false` olarak ayarlanmıştır. `&&` (mantıksal VE) operatörü, her iki taraf da `true` ise `true` döndürür; aksi takdirde `false` döndürür. Bu durumda, `true && false` ifadesi `false` sonucunu verir. Dolayısıyla, `siparisHazir` `false` olur ve bu değer ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_7",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class SifreKontrol {\n    public static void main(String[] args) {\n        String girilenSifre = \"abc123\";\n        int minimumUzunluk = 8;\n        \n        // Hatalı Satır\n        int mevcutUzunluk = girilenSifre.length;\n        \n        if (mevcutUzunluk >= minimumUzunluk) {\n            System.out.println(\"Şifre yeterince uzun.\");\n        } else {\n            System.out.println(\"Şifre çok kısa. Minimum \" + minimumUzunluk + \" karakter olmalı.\");\n        }\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu, bir şifrenin minimum uzunlukta olup olmadığını kontrol etmek için yazılmıştır. Ancak `girilenSifre`'nin uzunluğunu yanlış hesaplıyor. Hangi satır düzeltilmelidir?",
+    "correct_answer": "`int mevcutUzunluk = girilenSifre.length();`",
+    "wrong_options": [
+      "`int mevcutUzunluk = girilenSifre.size();`",
+      "`int mevcutUzunluk = girilenSifre.count();`",
+      "`int mevcutUzunluk = length(girilenSifre);`"
+    ],
+    "explanation": "Java'da `String`'in uzunluğunu almak için `length()` metodu kullanılır, `length` bir özellik (field) değildir. `length()` parantezlerle çağrılması gereken bir metoddur. Array'lerin uzunluğu `array.length` ile alınırken, `String`'lerin uzunluğu `string.length()` ile alınır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_8",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class UrunFiyati {\n    public static void main(String[] args) {\n        // EKSİK KOD urunFiyati = 19.99;\n        System.out.println(\"Ürün Fiyatı: \" + urunFiyati);\n    }\n}",
+    "question_text": "Bir ürünün fiyatını ondalık değerlerle saklamak için aşağıdaki değişken tanımını tamamlayın. `// EKSİK KOD` yerine hangi veri tipi gelmelidir?",
+    "correct_answer": "double",
+    "wrong_options": [
+      "int",
+      "char",
+      "boolean"
+    ],
+    "explanation": "`19.99` gibi ondalık bir sayısal değeri saklamak için `double` veya `float` veri tipleri kullanılır. `double` varsayılan ondalık tiptir ve daha fazla hassasiyet sunar. `int` sadece tam sayıları saklar, `char` tek bir karakteri, `boolean` ise `true` veya `false` değerini saklar.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_11639_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class OrtalamaHesaplama {\n    public static void main(String[] args) {\n        int toplamPuan = 250;\n        int sinavSayisi = 3;\n        double ortalamaPuan = (double) toplamPuan / sinavSayisi;\n        System.out.println(\"Ortalama Puan: \" + ortalamaPuan);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Ortalama Puan: 83.33333333333333",
+    "wrong_options": [
+      "Ortalama Puan: 83.0",
+      "Ortalama Puan: 83",
+      "Derleme Hatası"
+    ],
+    "explanation": "`toplamPuan` ve `sinavSayisi` `int` tiplerindedir. Eğer `(double)` cast'i olmasaydı `toplamPuan / sinavSayisi` işlemi tam sayı bölmesi yapacak ve `83` sonucunu verecekti. Ancak `(double) toplamPuan` ifadesi `toplamPuan` değişkenini geçici olarak `double`'a dönüştürür. Bu durumda bölme işlemi `double` olarak yapılır ve ondalık kısımlar korunur, bu da `83.33333333333333` gibi bir sonuç verir. Bu `double` değer `ortalamaPuan` değişkenine atanır ve ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_44996_0",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const project_name = \"Yıldız Sistemi Geliştirme\";\nlet project_status = \"Başladı\";\nproject_status = \"Devam Ediyor\";\nconst team_lead = \"Ayşe Yılmaz\";\nteam_lead = \"Mehmet Demir\";\nconsole.log(team_lead);",
+    "question_text": "Aşağıdaki JavaScript kodunda bir hata bulunmaktadır. Kodu doğru çalıştırmak için hangi satır düzeltilmelidir?",
+    "correct_answer": "5. satır: `team_lead = \"Mehmet Demir\";`",
+    "wrong_options": [
+      "2. satır: `let project_status = \"Başladı\";`",
+      "3. satır: `project_status = \"Devam Ediyor\";`",
+      "6. satır: `console.log(team_lead);`"
+    ],
+    "explanation": "`const` ile tanımlanan değişkenlerin değeri bir kez atandıktan sonra değiştirilemez (yeniden atanamaz). `team_lead` bir `const` olarak tanımlandığı için 5. satırdaki atama bir hata (`TypeError`) ile sonuçlanacaktır. Bu hatayı düzeltmek için `team_lead` değişkeninin `let` ile tanımlanması veya hiç yeniden atanmaması gerekir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "var current_city = \"Ankara\";\nlet temperature = 25;\n\nif (temperature > 20) {\n  var forecast_message = \"Sıcak hava bekleniyor.\";\n  let humidity_level = \"Düşük\";\n}\n\nconsole.log(forecast_message);",
+    "question_text": "Aşağıdaki kod parçacığının çıktısı ne olur?",
+    "correct_answer": "Sıcak hava bekleniyor.",
+    "wrong_options": [
+      "undefined",
+      "Hata: forecast_message tanımlı değil.",
+      "null"
+    ],
+    "explanation": "`var` anahtar kelimesi ile tanımlanan değişkenler fonksiyon kapsamına (veya global kapsama) sahiptir. Bu nedenle, `if` bloğu içinde tanımlanan `forecast_message` değişkenine `if` bloğunun dışından erişilebilir. `let` ile tanımlanan `humidity_level` ise sadece `if` bloğu içinde geçerli olurdu.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_2",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "film_adı = \"Matrix\";\nconsole.log(film_adı);\n_____ film_adı;\n\nvar yönetmen = \"Lana Wachowski\";\nyönetmen = \"Lilly Wachowski\";\nconsole.log(yönetmen);",
+    "question_text": "Aşağıdaki kodun beklenen çıktıyı vermesi için `_____` yerine ne gelmelidir?",
+    "correct_answer": "var",
+    "wrong_options": [
+      "let",
+      "const",
+      "hiçbir şey"
+    ],
+    "explanation": "JavaScript'te `var` ile tanımlanan değişkenler 'hoist' edilir, yani tanımlamaları en üste taşınır. Bu nedenle, `var film_adı;` tanımı kodun en başına taşınır ve `film_adı` değişkenine daha tanımlanmadan önce değer atanabilir. `film_adı` değişkeni deklarasyondan önce kullanıldığı için `var` uygun bir seçimdir ve herhangi bir hata oluşmaz. Çıktı 'Matrix' ve sonra 'Lilly Wachowski' olacaktır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let employee_name = \"Can Yılmaz\";\nconst employee_id = 105;\nlet is_active = true;\n\nconsole.log(typeof employee_name);\nconsole.log(typeof employee_id);\nconsole.log(typeof is_active);",
+    "question_text": "Aşağıdaki kod çalıştırıldığında çıktılar ne olur?",
+    "correct_answer": "string\nnumber\nboolean",
+    "wrong_options": [
+      "String\nNumber\nBoolean",
+      "variable\ninteger\nboolean",
+      "name\nid\nstatus"
+    ],
+    "explanation": "`typeof` operatörü bir değişkenin veya ifadenin veri tipini bir string olarak döndürür. `employee_name` bir string, `employee_id` bir sayı ve `is_active` bir boolean olduğu için çıktılar sırasıyla \"string\", \"number\" ve \"boolean\" olacaktır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_4",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let product_quantity; // undefined\nlet last_update = null; // null deliberately assigned\n\nconsole.log(_____ product_quantity);\nconsole.log(typeof last_update);",
+    "question_text": "Aşağıdaki kodun beklenen çıktıyı vermesi için `_____` yerine ne gelmelidir?",
+    "correct_answer": "typeof",
+    "wrong_options": [
+      "console.log",
+      "value",
+      "type"
+    ],
+    "explanation": "Soruda çıktısı istenen `product_quantity`'nin veri tipi, `last_update`'in veri tipiyle benzer bir formatta (`typeof last_update`) istendiği için boşluğa `typeof` gelmelidir. `product_quantity`'ye bir değer atanmadığı için `undefined` tipinde olacaktır. `typeof undefined` çıktısı \"undefined\" olacaktır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_5",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let distance_km = \"yüz\"; \nconst speed_kmh = 80;\nlet travel_time_hours = distance_km / speed_kmh;\n\nconsole.log(travel_time_hours);\nconsole.log(typeof travel_time_hours);",
+    "question_text": "Aşağıdaki kod parçacığının çıktısı ne olur?",
+    "correct_answer": "NaN\nnumber",
+    "wrong_options": [
+      "NaN\nstring",
+      "Hata: Geçersiz işlem",
+      "undefined\nnumber"
+    ],
+    "explanation": "Bir string (`\"yüz\"`) bir sayıya (`80`) bölünmeye çalışıldığında, JavaScript sonucu geçerli bir sayıya dönüştüremez ve `NaN` (Not-a-Number) değerini döndürür. `NaN` özel bir sayısal değerdir, bu nedenle `typeof NaN` değeri \"number\" olarak döner.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_6",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const username = \"gezginruh\";\nconst post_id = 789;\nconst post_message = `Merhaba _____, yeni bir macera mı planlıyorsun?`;\n\nconsole.log(post_message);",
+    "question_text": "Aşağıdaki kodun çıktısının `Merhaba gezginruh, yeni bir macera mı planlıyorsun?` olması için `_____` yerine ne gelmelidir?",
+    "correct_answer": "${username}",
+    "wrong_options": [
+      "username",
+      "\"username\"",
+      "const username"
+    ],
+    "explanation": "Template literal'lar (ters tırnak ` `` ` ile tanımlanır) içine JavaScript ifadelerini `${expression}` sözdizimini kullanarak gömebiliriz. Bu durumda, `username` değişkeninin değerini string içine eklemek için `${username}` kullanılmalıdır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const initial_balance = 1000;\nconst transaction_amount = 250;\nconst currency_symbol = \"TL\";\n\nconst receipt_message = `Hesap Bakiyeniz: ${initial_balance - transaction_amount} ${currency_symbol} kalan bakiyeniz var.`;\n\nconsole.log(receipt_message);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "Hesap Bakiyeniz: 750 TL kalan bakiyeniz var.",
+    "wrong_options": [
+      "Hesap Bakiyeniz: 1000 - 250 TL kalan bakiyeniz var.",
+      "Hesap Bakiyeniz: NaN TL kalan bakiyeniz var.",
+      "Hata: Geçersiz işlem."
+    ],
+    "explanation": "Template literal'lar (ters tırnak ` `` ` ile tanımlanan string'ler), içlerine doğrudan JavaScript ifadelerini `${ifade}` şeklinde gömmeye izin verir. `${initial_balance - transaction_amount}` ifadesi hesaplanacak ve sonucu (`750`) string'e eklenecektir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let user_id = 123;\nconst user_name = \"Mert\";\nconst welcome_message = \"Hoş geldiniz, kullanıcı \" + user_id + \" - \" + user_name + \"!\";\n\nconsole.log(welcome_message);",
+    "question_text": "Aşağıdaki kod çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Hoş geldiniz, kullanıcı 123 - Mert!",
+    "wrong_options": [
+      "Hoş geldiniz, kullanıcı user_id - user_name!",
+      "Hoş geldiniz, kullanıcı 123 Mert!",
+      "Hata: String ve sayı birleştirilemez."
+    ],
+    "explanation": "JavaScript'te `+` operatörü bir sayı ve bir string arasında kullanıldığında, sayı otomatik olarak bir string'e dönüştürülür ve iki string birleştirilir (concatenation). Bu nedenle `user_id` (`123`) string'e dönüştürülüp diğer string'lerle birleşecektir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_44996_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let is_car_available = true;\nconst rental_duration_days = 0; // Falsy value\n\nif (!rental_duration_days) {\n  console.log(\"Kiralama süresi belirtilmedi.\");\n} else {\n  console.log(\"Kiralama süresi geçerli.\");\n}\n\nconst has_driver = null; // Falsy value\nconsole.log(!!has_driver);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "Kiralama süresi belirtilmedi.\nfalse",
+    "wrong_options": [
+      "Kiralama süresi belirtilmedi.\ntrue",
+      "Kiralama süresi geçerli.\nfalse",
+      "Kiralama süresi geçerli.\ntrue"
+    ],
+    "explanation": "JavaScript'te `0`, `null`, `undefined`, boş string (`\"\"`), `NaN` ve `false` değerleri 'falsy' kabul edilir. `rental_duration_days`'in değeri `0` olduğu için 'falsy'dir ve `!rental_duration_days` ifadesi `true` olur, bu da ilk `if` bloğunun çalışmasını sağlar. `has_driver` değeri `null` olduğu için 'falsy'dir. `!null` `true` olur ve `!!null` ise `!true` yani `false` olur.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_py_2600_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "total_pizza_slices = 17\nnumber_of_friends = 3\n\nslices_per_friend_int = total_pizza_slices // number_of_friends\nremaining_slices = total_pizza_slices % number_of_friends\n\nprint(f\"Her arkadaşa {slices_per_friend_int} dilim düşüyor ve {remaining_slices} dilim arttı.\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Her arkadaşa 5 dilim düşüyor ve 2 dilim arttı.",
+    "wrong_options": [
+      "Her arkadaşa 5.66 dilim düşüyor ve 2 dilim arttı.",
+      "Her arkadaşa 6 dilim düşüyor ve 1 dilim arttı.",
+      "Her arkadaşa 5 dilim düşüyor ve 0 dilim arttı."
+    ],
+    "explanation": "`total_pizza_slices // number_of_friends` işlemi, tamsayı bölme (floor division) yapar, yani 17 / 3 = 5.66 olmasına rağmen sonucu tamsayı olarak aşağı yuvarlar ve 5 verir. `%` operatörü ise kalanı verir, yani 17 % 3 = 2'dir. Bu nedenle çıktı 'Her arkadaşa 5 dilim düşüyor ve 2 dilim arttı.' olur.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "player_name = \"Sam\"\ncurrent_score = 1500\n\nprint(f\"Oyuncu {player_name}'in mevcut puanı: _____\")",
+    "question_text": "Aşağıdaki kod parçasının amacı, bir oyuncunun mevcut puanını belirten bir mesaj yazdırmaktır. Çıktının 'Oyuncu Sam'in mevcut puanı: 1500' olmasını sağlamak için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "{current_score}",
+    "wrong_options": [
+      "current_score",
+      "str(current_score)",
+      "\"1500\""
+    ],
+    "explanation": "f-stringler içinde süslü parantezler `{}` kullanarak değişkenleri doğrudan yerleştirebiliriz. Bu durumda, `current_score` değişkeninin değeri olan 1500 doğrudan mesajın içine dahil edilir. Diğer seçenekler ya yanlış sözdizimi oluşturur ya da istenen değişken değerini değil, string karşılığını veya değişken adını yazdırır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "shopping_cart_total = 125.50\ndiscount_applied = 20.00\nshipping_cost = 10.00\n\nshopping_cart_total -= discount_applied\nshopping_cart_total += shipping_cost\n\nprint(f\"Son ödenmesi gereken tutar: {shopping_cart_total} TL\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Son ödenmesi gereken tutar: 115.5 TL",
+    "wrong_options": [
+      "Son ödenmesi gereken tutar: 105.5 TL",
+      "Son ödenmesi gereken tutar: 135.5 TL",
+      "Son ödenmesi gereken tutar: 95.5 TL"
+    ],
+    "explanation": "`shopping_cart_total` başlangıçta 125.50'dir. `shopping_cart_total -= discount_applied` (yani `shopping_cart_total = shopping_cart_total - discount_applied`) işleminden sonra 125.50 - 20.00 = 105.50 olur. Ardından `shopping_cart_total += shipping_cost` (yani `shopping_cart_total = shopping_cart_total + shipping_cost`) işleminden sonra 105.50 + 10.00 = 115.50 olur. Bu yüzden çıktı 115.5 TL'dir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "user_age = 25\nfavorite_color = \"Mavi\"\n\n# Line 1: print(\"Yaşınız: \" + user_age + \", Favori renginiz: \" + favorite_color)\n# Line 2: print(f\"Yaşınız: {user_age}, Favori renginiz: {favorite_color}\")",
+    "question_text": "Aşağıdaki kod parçasında, bir kullanıcının yaşını ve favori rengini yazdırmaya çalışırken bir hata var. Hangi satır hataya neden olur ve nasıl düzeltilmelidir?",
+    "correct_answer": "Line 1, çünkü string ve int doğrudan '+' ile birleştirilemez. Düzeltme: `print(\"Yaşınız: \" + str(user_age) + \", Favori renginiz: \" + favorite_color)`",
+    "wrong_options": [
+      "Line 2, çünkü f-stringlerde değişkenler süslü parantez içine alınamaz. Düzeltme: `print(f\"Yaşınız: user_age, Favori renginiz: favorite_color\")`",
+      "Her iki satır da hata verir. Düzeltme: `print(\"Yaşınız: \", user_age, \", Favori renginiz: \", favorite_color)`",
+      "Kodda hata yok, her iki satır da doğru çalışır."
+    ],
+    "explanation": "Line 1'de, Python'da bir string (`\"Yaşınız: \"`) ile bir integer (`user_age`) doğrudan `+` operatörü ile birleştirilemez. Bu bir `TypeError` hatasına yol açar. `user_age` değişkenini `str(user_age)` şeklinde string'e dönüştürmek gerekir. Line 2'deki f-string kullanımı ise doğrudur ve hata vermez.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "first_item_price = 45.0\nsecond_item_price = 70.0\n\nfirst_item_price, second_item_price = second_item_price, first_item_price\n\nprint(f\"Yeni Fiyat 1: {first_item_price}, Yeni Fiyat 2: {second_item_price}\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Yeni Fiyat 1: 70.0, Yeni Fiyat 2: 45.0",
+    "wrong_options": [
+      "Yeni Fiyat 1: 45.0, Yeni Fiyat 2: 70.0",
+      "Yeni Fiyat 1: 70.0, Yeni Fiyat 2: 70.0",
+      "Hata oluşur"
+    ],
+    "explanation": "`first_item_price, second_item_price = second_item_price, first_item_price` ifadesi, Python'da birden fazla atama (multiple assignment) veya değer takası (swapping values) olarak bilinir. Bu satır, `first_item_price` değişkenine `second_item_price`'ın değerini (70.0), `second_item_price` değişkenine ise `first_item_price`'ın başlangıç değerini (45.0) atar. Dolayısıyla değerler yer değiştirir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "is_data_available = False\ncurrent_temperature = _____\n\nif is_data_available:\n    current_temperature = 25.5\n\nprint(f\"Mevcut sıcaklık: {current_temperature}\")",
+    "question_text": "Bir hava durumu uygulamasında, sıcaklık verisi mevcut değilse 'None' olarak işaretlenmeli, aksi halde mevcut sıcaklık değeri kullanılmalıdır. Boş bırakılan yere hangi değer gelmelidir?",
+    "correct_answer": "None",
+    "wrong_options": [
+      "0",
+      "\"-\"",
+      "False"
+    ],
+    "explanation": "Problem açıklamasına göre, sıcaklık verisi mevcut değilse değişken 'None' olarak ayarlanmalıdır. `None`, Python'da bir değerin yokluğunu veya atanmamış olduğunu belirtmek için kullanılan özel bir sabittir. Bu senaryoda uygun başlangıç değeridir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "product_price = 99.99\ndiscount_percentage = 0.15\n\ndiscounted_price = product_price * (1 - discount_percentage)\n\nprint(f\"İndirimli fiyat: {discounted_price:.2f} TL\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "İndirimli fiyat: 84.99 TL",
+    "wrong_options": [
+      "İndirimli fiyat: 84.9915 TL",
+      "İndirimli fiyat: 85.00 TL",
+      "İndirimli fiyat: 99.99 TL"
+    ],
+    "explanation": "Önce `discounted_price` hesaplanır: `99.99 * (1 - 0.15) = 99.99 * 0.85 = 84.9915`. Ardından, f-string içinde `{discounted_price:.2f}` formatlama ifadesi, sayıyı virgülden sonra iki basamak olacak şekilde yuvarlar. `84.9915` yuvarlandığında `84.99` olur. Bu nedenle çıktı 'İndirimli fiyat: 84.99 TL'dir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_7",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "order_id = 1001\norder_description = \"İlk Sipariş\"\n\n# Line A: order_id = \"ABC-1001\"\n# Line B: order_description = 550.00\n# Line C: print(f\"Sipariş ID: {order_id}, Açıklama: {order_description}\")\n\nprint(order_id)\nprint(order_description)",
+    "question_text": "Aşağıdaki kod parçası, bir kullanıcının sipariş numarasını güncellemeyi ve ardından yeni bir sipariş açıklaması atamayı deniyor. Hangi satır bir hataya neden olur?",
+    "correct_answer": "Hiçbiri, kod hatasız çalışır.",
+    "wrong_options": [
+      "Line A, çünkü `order_id` bir tam sayıdan string'e değiştirilemez.",
+      "Line B, çünkü `order_description` bir string'den float'a değiştirilemez.",
+      "Line C, çünkü f-string'ler bu şekilde kullanılamaz."
+    ],
+    "explanation": "Python'da değişkenlerin veri tipi sabit değildir, yeniden atama ile değiştirilebilir. Line A'da `order_id` bir `int`'ten `str`'ye, Line B'de `order_description` bir `str`'den `float`'a değiştiriliyor. Bu işlemler Python'da tamamen geçerlidir ve hataya neden olmaz. Line C'deki f-string kullanımı da doğrudur.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "initial_balance = 500\ntransaction_amount = 75\n\n# İşlem gerçekleşti mi? Varsayılan olarak hayır.\nis_transaction_successful = False\n\nif initial_balance >= transaction_amount:\n    initial_balance -= transaction_amount\n    is_transaction_successful = True\n\nprint(f\"Yeni Bakiye: {initial_balance}, İşlem Başarılı: {is_transaction_successful}\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Yeni Bakiye: 425, İşlem Başarılı: True",
+    "wrong_options": [
+      "Yeni Bakiye: 500, İşlem Başarılı: False",
+      "Yeni Bakiye: 425, İşlem Başarılı: False",
+      "Yeni Bakiye: 575, İşlem Başarılı: True"
+    ],
+    "explanation": "`initial_balance` (500) `transaction_amount`'tan (75) büyük veya eşit olduğu için `if` bloğu çalışır. `initial_balance` 500 - 75 = 425 olur ve `is_transaction_successful` değişkeni `True` olarak güncellenir. Bu yüzden çıktı 'Yeni Bakiye: 425, İşlem Başarılı: True' olacaktır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_2600_9",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "user_age_str = \"30\"\ncurrent_year = 2023\n\nbirth_year = current_year - _____\n\nprint(f\"Doğum Yılı: {birth_year}\")",
+    "question_text": "Bir kullanıcının yaşını string olarak alıp, bunu bir yıl değeriyle toplayarak gelecek bir yılı hesaplamak istiyoruz. Boş bırakılan yere hangi kod gelmelidir?",
+    "correct_answer": "int(user_age_str)",
+    "wrong_options": [
+      "str(user_age_str)",
+      "user_age_str",
+      "float(user_age_str)"
+    ],
+    "explanation": "`user_age_str` bir string olduğu için, matematiksel bir işlemde (`current_year - ...`) kullanılabilmesi için öncelikle bir tamsayıya dönüştürülmesi gerekir. `int()` fonksiyonu bu dönüştürmeyi yapar. `str()` gereksizdir, `user_age_str` direkt olarak kullanılamaz (`TypeError` verir) ve `float()` tamsayı yerine ondalık sayı döndürür ki bu yaş için pek uygun değildir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_ja_30390_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class MarketHesaplama {\n    public static void main(String[] args) {\n        int urunAdedi = 3;\n        double birimFiyat = 7.5;\n        double toplamTutar = urunAdedi * birimFiyat;\n        System.out.println(\"Toplam Tutar: \" + toplamTutar + \" TL\");\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Toplam Tutar: 22.5 TL",
+    "wrong_options": [
+      "Toplam Tutar: 22 TL",
+      "Toplam Tutar: 22.50 TL",
+      "Derleme Hatası"
+    ],
+    "explanation": "`urunAdedi` (int) ve `birimFiyat` (double) çarpıldığında sonuç otomatik olarak double türünde olacaktır. Bu durumda `3 * 7.5` işleminin sonucu `22.5` olur ve bu değer `toplamTutar` değişkenine atanır. Son olarak, bu değer String ile birleştirilerek ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "import java.util.Scanner;\n\npublic class SehirIslemleri {\n    public static void main(String[] args) {\n        Scanner klavye = new Scanner(System.in);\n        System.out.print(\"Bir şehir adı girin: \");\n        String sehirAdi = klavye.nextLine();\n        String buyukHarfSehir = _____;\n        System.out.println(\"Büyük Harf Şehir: \" + buyukHarfSehir);\n        klavye.close();\n    }\n}",
+    "question_text": "Aşağıdaki kod parçacığının, kullanıcının girdiği şehir adını büyük harflere dönüştürüp `buyukHarfSehir` değişkenine atamasını sağlamak için '_____' yerine ne gelmelidir?",
+    "correct_answer": "sehirAdi.toUpperCase()",
+    "wrong_options": [
+      "toUpperCase(sehirAdi)",
+      "sehirAdi.toUpper()",
+      "new String(sehirAdi).upperCase()"
+    ],
+    "explanation": "Java'da String nesnesini büyük harfe dönüştürmek için `.toUpperCase()` metodunu kullanırız. Bu metod, orijinal String'i değiştirmeden yeni bir büyük harfli String döndürür.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class NotOrtalamasi {\n    public static void main(String[] args) {\n        int ders1Notu = 85;\n        int ders2Notu = 92;\n        int ders3Notu = 78;\n        double ortalama = (double) (ders1Notu + ders2Notu + ders3Notu) / 3;\n        System.out.println(\"Ortalama: \" + ortalama);\n    }\n}",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "Ortalama: 85.0",
+    "wrong_options": [
+      "Ortalama: 85",
+      "Ortalama: 85.00",
+      "Ortalama: 85.33333333333333"
+    ],
+    "explanation": "Önce `ders1Notu + ders2Notu + ders3Notu` toplanır ve sonuç `255` olur. Bu toplam `(double)` ile double türüne dönüştürülür. Ardından `255.0 / 3` işlemi `85.0` sonucunu verir. Bu değer `ortalama` değişkenine atanır ve ekrana yazdırılır. Eğer `(double)` casting'i olmasaydı, tamsayı bölmesi (`255 / 3`) sonucu `85` olurdu.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class SicaklikCevirici {\n    public static void main(String[] args) {\n        double fahrenheit = 98.6;\n        int celsius = (fahrenheit - 32) * 5 / 9;\n        System.out.println(\"Celsius: \" + celsius);\n    }\n}",
+    "question_text": "Aşağıdaki kod parçacığında hangi satırda bir hata bulunmaktadır ve bu hatayı nasıl düzeltirsiniz?",
+    "correct_answer": "Satır 4: `int celsius = (fahrenheit - 32) * 5 / 9;` // Sonuç küsuratlı olacağı için `double` olarak tanımlanmalı.",
+    "wrong_options": [
+      "Satır 3: `double fahrenheit = 98.6;` // `fahrenheit` bir `int` olmalıydı.",
+      "Satır 4: `int celsius = (fahrenheit - 32) * 5 / 9;` // Parantez eksik, `(fahrenheit - 32) * (5 / 9)` olmalıydı.",
+      "Hiçbir hata yok, kod doğru çalışır."
+    ],
+    "explanation": "Satır 4'te `(fahrenheit - 32) * 5 / 9` işlemi double bir sonuç üretir (örneğin 37.0). Ancak bu sonuç bir `int` değişkenine (`celsius`) atanmaya çalışıldığı için olası veri kaybı nedeniyle derleyici hatası verir. Düzeltme için `celsius` değişkeninin `double` olarak tanımlanması gerekir (`double celsius = ...;`).",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class MesajOlusturucu {\n    public static void main(String[] args) {\n        char harf1 = 'J';\n        char harf2 = 'A';\n        String mesaj = \"Merhaba \" + harf1 + harf2 + \"va!\";\n        System.out.println(mesaj);\n    }\n}",
+    "question_text": "Bu kodun çıktısı ne olacaktır?",
+    "correct_answer": "Merhaba JAva!",
+    "wrong_options": [
+      "Merhaba J65va!",
+      "Merhaba J A va!",
+      "Derleme Hatası"
+    ],
+    "explanation": "String bir ifade ile `char` değerler birleştirildiğinde, `char` değerler doğrudan karakter olarak String'e eklenir. `harf1` 'J' ve `harf2` 'A' olduğu için, `\"Merhaba \" + 'J' + 'A' + \"va!\"` işlemi `\"Merhaba JAva!\"` sonucunu verir.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class MatematikIslemleri {\n    public static void main(String[] args) {\n        int sayi = -25;\n        int mutlakDeger = _____;\n        System.out.println(\"Mutlak Değer: \" + mutlakDeger);\n    }\n}",
+    "question_text": "Aşağıdaki kod parçacığında '_____' yerine ne gelmelidir ki, `sayi` değişkeninin mutlak değeri `mutlakDeger` değişkenine doğru şekilde atansın?",
+    "correct_answer": "Math.abs(sayi)",
+    "wrong_options": [
+      "abs(sayi)",
+      "Math.absolute(sayi)",
+      "sayi.abs()"
+    ],
+    "explanation": "Java'da bir sayının mutlak değerini almak için `Math` sınıfının statik `abs()` metodunu kullanırız. Bu metod, verilen sayının mutlak değerini döndürür. `int` için `Math.abs(int)` ve `double` için `Math.abs(double)` gibi aşırı yüklenmiş versiyonları bulunur.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class KargoAgirligi {\n    public static void main(String[] args) {\n        int kutuAdedi = 5;\n        double birKutuAgirligiKg = 2.3;\n        double toplamAgirlik = kutuAdedi * birKutuAgirligiKg;\n        System.out.println(\"Toplam Ağırlık: \" + (int)toplamAgirlik + \" kg\");\n    }\n}",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "Toplam Ağırlık: 11 kg",
+    "wrong_options": [
+      "Toplam Ağırlık: 11.5 kg",
+      "Toplam Ağırlık: 12 kg",
+      "Derleme Hatası"
+    ],
+    "explanation": "`kutuAdedi` (int) ve `birKutuAgirligiKg` (double) çarpıldığında `5 * 2.3` işlemi `11.5` double değerini verir ve bu `toplamAgirlik` değişkenine atanır. `(int)toplamAgirlik` ifadesi `11.5` değerini int'e dönüştürürken ondalık kısmını atar (truncation), yani `11` olur. Sonuç olarak ekrana `Toplam Ağırlık: 11 kg` yazılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_7",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "import java.util.Scanner;\n\npublic class KullaniciBilgisi {\n    public static void main(String[] args) {\n        Scanner giris = new Scanner(System.in);\n        System.out.print(\"Adınızı girin: \");\n        String ad = giris.nextLine();\n        System.out.print(\"Yaşınızı girin: \");\n        int yas = giris.nextString();\n        System.out.println(\"Merhaba \" + ad + \", \" + yas + \" yaşındasın.\");\n        giris.close();\n    }\n}",
+    "question_text": "Aşağıdaki kodda, kullanıcının yaşını doğru bir şekilde okuyup ekrana yazdırması gereken bir hata bulunmaktadır. Hata hangi satırdadır ve nasıl düzeltilmelidir?",
+    "correct_answer": "Satır 9: `int yas = giris.nextString();` // `nextString()` diye bir metot yoktur. Doğrusu `giris.nextInt()` olmalıydı.",
+    "wrong_options": [
+      "Satır 7: `String ad = giris.nextLine();` // `nextLine()` yerine `next()` kullanılmalıydı.",
+      "Satır 5: `Scanner giris = new Scanner(System.in);` // `Scanner` objesi `main` metodu dışında tanımlanmalıydı.",
+      "Satır 11: `giris.close();` // `close()` metodu gerekli değildir."
+    ],
+    "explanation": "`Scanner` sınıfında String bir değer okumak için `nextLine()` veya `next()` metotları kullanılırken, int bir değer okumak için `nextInt()` metodu kullanılır. `nextString()` diye bir metot Java'da yoktur. Bu nedenle Satır 9'da `giris.nextString()` yerine `giris.nextInt()` kullanılmalıdır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class PuanHesaplama {\n    public static void main(String[] args) {\n        int temelPuan = 100;\n        int bonusPuan = 50;\n        boolean kazanan = true;\n        String sonucMesaji = \"\";\n\n        if (kazanan) {\n            sonucMesaji = \"Tebrikler! Toplam Puan: \" + (temelPuan + bonusPuan);\n        } else {\n            sonucMesaji = \"Kaybettiniz. Puanınız: \" + temelPuan;\n        }\n        System.out.println(sonucMesaji);\n    }\n}",
+    "question_text": "Aşağıdaki kod çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Tebrikler! Toplam Puan: 150",
+    "wrong_options": [
+      "Kaybettiniz. Puanınız: 100",
+      "Tebrikler! Toplam Puan: 10050",
+      "Derleme Hatası"
+    ],
+    "explanation": "`kazanan` değişkeni `true` olduğu için `if` bloğu çalışır. `sonucMesaji` değişkenine `\"Tebrikler! Toplam Puan: \"` ifadesi ile `(temelPuan + bonusPuan)` yani `(100 + 50)` sonucu olan `150` değeri birleştirilerek atanır. Parantezler sayesinde toplama işlemi String birleştirmeden önce yapılır. Sonuç olarak `Tebrikler! Toplam Puan: 150` ekrana yazılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_30390_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class FiyatYuvarlama {\n    public static void main(String[] args) {\n        double orjinalFiyat = 19.49;\n        long yuvarlanmisFiyat = Math.round(orjinalFiyat);\n        System.out.println(\"Yuvarlanmış Fiyat: \" + yuvarlanmisFiyat);\n    }\n}",
+    "question_text": "Aşağıdaki kodun çıktısı nedir?",
+    "correct_answer": "Yuvarlanmış Fiyat: 19",
+    "wrong_options": [
+      "Yuvarlanmış Fiyat: 20",
+      "Yuvarlanmış Fiyat: 19.0",
+      "Derleme Hatası"
+    ],
+    "explanation": "`Math.round()` metodu, kendisine verilen `double` değeri en yakın `long` tamsayıya yuvarlar. `19.49` sayısı `19`'a daha yakın olduğu için (0.5'ten küçük), yuvarlanmış hali `19` olur. Bu değer `yuvarlanmisFiyat` değişkenine `long` olarak atanır ve ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_64925_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const kitapAdi = \"Yapay Zeka\";\nconst yazarAdi = \"Alan Turing\";\nlet katalogGirdisi = kitapAdi + \" - \" + yazarAdi;\nconsole.log(katalogGirdisi);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "Yapay Zeka - Alan Turing",
+    "wrong_options": [
+      "Yapay ZekaAlan Turing",
+      "Yapay Zeka - Alan Turing undefined",
+      "Hata: Değişken tanımlanamadı."
+    ],
+    "explanation": "Bu kodda, `kitapAdi` ve `yazarAdi` sabit (const) değişkenleri tanımlanmıştır. `katalogGirdisi` değişkeni, bu iki string değişkenin arasına ' - ' eklenerek birleştirilmesiyle oluşturulur. `console.log()` bu birleştirilmiş string'i yazdırır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64925_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let antrenmanSuresiMetin = \"45\"; // Dakika cinsinden\nlet ekAntrenmanDakika = 15;\nlet toplamAntrenmanSuresi = ___________ + ekAntrenmanDakika;\nconsole.log(toplamAntrenmanSuresi);",
+    "question_text": "Toplam antrenman süresini doğru bir şekilde hesaplamak için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "parseInt(antrenmanSuresiMetin)",
+    "wrong_options": [
+      "String(antrenmanSuresiMetin)",
+      "antrenmanSuresiMetin",
+      "Number.parseFloat(antrenmanSuresiMetin)"
+    ],
+    "explanation": "`antrenmanSuresiMetin` bir string'dir ('45'). Bir sayı ile toplama işlemi yapılmadan önce bu string'in bir sayıya dönüştürülmesi gerekir. `parseInt()` fonksiyonu, string'in başındaki tam sayıyı ayrıştırır ve bir sayıya çevirir. Doğrudan toplama işlemi yapılırsa (string + sayı), string birleştirme gerçekleşir ve sonuç '4515' olur. `Number.parseFloat()` da işe yarasa da, tamsayı için `parseInt` daha yaygındır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64925_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let gecerliSarkiAdi = null;\nconsole.log(typeof gecerliSarkiAdi);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "object",
+    "wrong_options": [
+      "null",
+      "undefined",
+      "string"
+    ],
+    "explanation": "JavaScript'te `null` özel bir ilkel değerdir ve herhangi bir nesne değeri olmadığını gösterir. Ancak, `typeof` operatörü `null` için 'object' döndürür. Bu, JavaScript'in ilk sürümlerinden kalma ve bir hata olarak kabul edilen tarihi bir davranış olsa da, günümüzde hala geçerlidir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64926_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const sehirAdi = \"İstanbul\";\nconst sicaklikDegeri = 23;\nconst havaDurumuMesaji = `Bugün ${sehirAdi} şehrinde hava ${sicaklikDegeri}°C.`;\nconsole.log(havaDurumuMesaji);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "Bugün İstanbul şehrinde hava 23°C.",
+    "wrong_options": [
+      "Bugün ${sehirAdi} şehrinde hava ${sicaklikDegeri}°C.",
+      "Bugün İstanbul şehrinde hava 23Â°C.",
+      "Hata: Tanımlanmamış değişken."
+    ],
+    "explanation": "Bu kodda şablon değişmezleri (template literals) kullanılmıştır. ` (backtick) ile tanımlanan string'ler içerisinde `${}` sözdizimi ile değişkenler veya ifadeler doğrudan gömülebilir. Bu sayede `sehirAdi` ve `sicaklikDegeri` değişkenlerinin değerleri mesajın içine doğru bir şekilde yerleştirilir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64926_4",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "var aracModeli = \"Sedan\"; // Satır 1\nif (true) {\n    var aracModeli = \"SUV\"; // Satır 2\n    console.log(\"İç blok: \" + aracModeli); // Satır 3\n}\nconsole.log(\"Dış blok: \" + aracModeli); // Satır 4",
+    "question_text": "Aşağıdaki kodun çıktısının beklenenden farklı olmasını sağlayan 'mantıksal hata' hangi satırdadır? (Kod çalışır ancak yaygın bir `var` yanılgısını gösterir.)",
+    "correct_answer": "Satır 2",
+    "wrong_options": [
+      "Satır 1",
+      "Satır 3",
+      "Satır 4"
+    ],
+    "explanation": "`var` anahtar kelimesiyle tanımlanan değişkenler fonksiyon kapsamına (function scope) sahiptir, blok kapsamına (block scope) değil. Bu nedenle `if` bloğunun içindeki `var aracModeli = \"SUV\";` ifadesi yeni bir değişken tanımlamaz, aksine dışarıdaki `aracModeli` değişkenini yeniden tanımlar ve değerini 'SUV' olarak günceller. Eğer beklenti, `if` bloğunun içinde farklı bir `aracModeli` değişkeni olması ise, bu bir mantıksal hatadır. Doğrusu `let` veya `const` kullanmaktır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64926_5",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let unMiktari = 200; // gram\nlet porsiyonSayisiMetin = \"iki\"; // Metin olarak porsiyon sayısı\nlet birPorsiyonUn = unMiktari / parseInt(porsiyonSayisiMetin);\nconsole.log(birPorsiyonUn);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "NaN",
+    "wrong_options": [
+      "undefined",
+      "200",
+      "0"
+    ],
+    "explanation": "`parseInt(\"iki\")` ifadesi, 'iki' bir sayıya dönüştürülemediği için `NaN` (Not a Number) değerini döndürür. Herhangi bir sayının `NaN` ile matematiksel bir işlemi genellikle yine `NaN` sonucunu verir. Dolayısıyla, `200 / NaN` işlemi `NaN` çıktısını üretir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64926_6",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let urunStokMiktari; // Henüz stok bilgisi girilmedi\nlet sonGuncellemeTarihi = _________; // Tarih bilgisi henüz yok, bilinçli olarak boş\nconsole.log(typeof urunStokMiktari === 'undefined' && sonGuncellemeTarihi === null);",
+    "question_text": "Ürün stok kontrolünde, `sonGuncellemeTarihi`'nin bilinçli olarak 'değer yok' durumunu belirtmesi için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "null",
+    "wrong_options": [
+      "undefined",
+      "\"\"",
+      "0"
+    ],
+    "explanation": "Bir değişkene herhangi bir değer atanmadığında varsayılan olarak `undefined` değerine sahip olur. Ancak, bir değeri 'bilinçli olarak yok' veya 'boş' olarak belirtmek istediğimizde `null` kullanılır. Soruda `sonGuncellemeTarihi` için 'tarih bilgisi henüz yok, bilinçli olarak boş' denildiği için `null` doğru seçenektir. `undefined` atanırsa `sonGuncellemeTarihi === null` koşulu yanlış olur.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64926_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let temelPuan = 100;\nlet bonusAktifMi = true;\nlet toplamPuan = temelPuan + bonusAktifMi;\nconsole.log(toplamPuan);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "101",
+    "wrong_options": [
+      "100true",
+      "100",
+      "NaN"
+    ],
+    "explanation": "JavaScript'te matematiksel işlemlerde, boolean değerler sayılara dönüştürülür (type coercion). `true` değeri 1'e, `false` değeri ise 0'a dönüşür. Bu durumda, `temelPuan + bonusAktifMi` ifadesi `100 + 1` olarak değerlendirilir ve sonuç `101` olur.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64926_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const baslikMetni = \"JS Temelleri\";\nbaslikMetni = \"İleri JS Konuları\"; // Satır 2\nconsole.log(baslikMetni);",
+    "question_text": "Aşağıdaki kodun çıktısı ne olur?",
+    "correct_answer": "TypeError: Assignment to constant variable.",
+    "wrong_options": [
+      "JS Temelleri",
+      "İleri JS Konuları",
+      "undefined"
+    ],
+    "explanation": "`const` anahtar kelimesiyle tanımlanan değişkenler sabittir ve bir kere atandıktan sonra değeri değiştirilemez (yeniden atanamaz). `baslikMetni = \"İleri JS Konuları\";` satırı, sabit bir değişkene yeniden değer atamaya çalıştığı için bir `TypeError` hatasına neden olur.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_64926_9",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let aracHizi = 60; // Satır 1\nif (aracHizi > 50) {\n    let hizCezaTutari = 200; // Satır 2\n    console.log(\"Ceza tutarı: \" + hizCezaTutari + \" TL\"); // Satır 3\n}\nconsole.log(\"Toplam Ceza: \" + hizCezaTutari); // Satır 4",
+    "question_text": "Aşağıdaki kodda bir hata bulunmaktadır. Hatanın meydana geldiği satır hangisidir?",
+    "correct_answer": "Satır 4",
+    "wrong_options": [
+      "Satır 1",
+      "Satır 2",
+      "Satır 3"
+    ],
+    "explanation": "`let` anahtar kelimesiyle tanımlanan değişkenler blok kapsamına (block scope) sahiptir. Bu, `hizCezaTutari` değişkeninin yalnızca `if` bloğu (`{}`) içinde erişilebilir olduğu anlamına gelir. `if` bloğunun dışında (Satır 4'te) bu değişkene erişmeye çalışmak bir `ReferenceError` hatasına neden olur, çünkü değişken bu kapsamda tanımlı değildir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_py_3942_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "siparis_id = \"ABCD123\"\nmusteri_adi = \"Ali Can\"\ndurum_mesaji = \"Siparişiniz yolda.\"\nbilgi = \"Sayın \" + musteri_adi + \", ID: \" + siparis_id + \" olan siparişiniz için: \" + durum_mesaji\nprint(bilgi)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Sayın Ali Can, ID: ABCD123 olan siparişiniz için: Siparişiniz yolda.",
+    "wrong_options": [
+      "Sayın musteri_adi, ID: siparis_id olan siparişiniz için: durum_mesaji",
+      "Sayın Ali Can, ID: ABCD123olan siparişiniz için: Siparişiniz yolda.",
+      "Sayın Ali Can ID: ABCD123 olan siparişiniz için: Siparişiniz yolda."
+    ],
+    "explanation": "Bu kod, farklı string değişkenlerini '+' operatörü ile birleştirerek tek bir bilgilendirme mesajı oluşturur. Değişkenlerin değerleri string içine yerleştirilir ve aralarına sabit metinler eklenir. Dikkat edilmesi gereken, birleştirmeler sırasında boşlukların doğru yerleştirildiğinden emin olmaktır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "bugun_derece = 23.5\nnem_orani = 0.65\nhava_bilgisi = f\"Bugün hava {bugun_derece} derece ve nem oranı %{int(nem_orani * 100)}.\"\nprint(hava_bilgisi)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Bugün hava 23.5 derece ve nem oranı %65.",
+    "wrong_options": [
+      "Bugün hava 23.5 derece ve nem oranı %0.65.",
+      "Bugün hava 23 derece ve nem oranı %65.",
+      "Bugün hava bugun_derece derece ve nem oranı %nem_orani."
+    ],
+    "explanation": "Kod bir f-string kullanır. `bugun_derece` doğrudan kullanılırken, `nem_orani` yüzde olarak gösterilmek üzere önce 100 ile çarpılır ve ardından `int()` fonksiyonu ile tam sayıya dönüştürülür. Bu, 0.65'i 65'e çevirir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_2",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "sporcu_skoru = 100\nilk_puan = 25\nek_puanlar = 15\nsporcu_skoru _____ ilk_puan\nsporcu_skoru += ek_puanlar\nprint(sporcu_skoru)",
+    "question_text": "Bir sporcunun başlangıç skoruna ek puanlar ekleyerek toplam skoru hesaplayan aşağıdaki kodda boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "+=",
+    "wrong_options": [
+      "=",
+      "+",
+      "add"
+    ],
+    "explanation": "`+=` augmented assignment operatörü, değişkenin mevcut değerine sağdaki değeri ekleyip sonucu tekrar değişkene atar. Burada `sporcu_skoru`'na `ilk_puan` eklenir, ardından `ek_puanlar` eklenir. Sonuç olarak `100 + 25 + 15 = 140` elde edilir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "kitap_adi = \"Yazılım Temelleri\"\nstok_adedi_str = \"5\"\nstok_var_mi = bool(stok_adedi_str)\nprint(f\"{kitap_adi} stoğu mevcut mu? {stok_var_mi}\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Yazılım Temelleri stoğu mevcut mu? True",
+    "wrong_options": [
+      "Yazılım Temelleri stoğu mevcut mu? False",
+      "Yazılım Temelleri stoğu mevcut mu? 5",
+      "Hata: Geçersiz değer"
+    ],
+    "explanation": "Python'da `bool()` fonksiyonu, boş olmayan herhangi bir string için `True` döndürür. `'5'` boş bir string olmadığı için `bool('5')` değeri `True` olur ve çıktıya yansır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "film_sayisi, toplam_fiyat = 3, 45.0\nortalama_fiyat = toplam_fiyat / film_sayisi\nprint(f\"Toplam {film_sayisi} film kiralandı. Ortalama film fiyatı: {ortalama_fiyat:.2f} TL.\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Toplam 3 film kiralandı. Ortalama film fiyatı: 15.00 TL.",
+    "wrong_options": [
+      "Toplam 3 film kiralandı. Ortalama film fiyatı: 15 TL.",
+      "Hata: film_sayisi bir int, toplam_fiyat bir float.",
+      "Toplam 3 film kiralandı. Ortalama film fiyatı: 15.0 TL."
+    ],
+    "explanation": "Kodda `film_sayisi` ve `toplam_fiyat` çoklu atama ile belirlenir. `toplam_fiyat` bir float olduğu için bölme işlemi sonucu (ortalama_fiyat) da float olacaktır (45.0 / 3 = 15.0). f-string içindeki `:.2f` ifadesi, sayının noktadan sonra iki basamakla formatlanmasını sağlar, bu da 15.00 sonucunu verir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_5",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "un_miktari_kg = 0.75\nsu_miktari_litre = 0.4\nek_malzeme_gr = 150 # gram\ntoplam_karisim_kg = un_miktari_kg + su_miktari_litre + (ek_malzeme_gr / 1000)\nprint(f\"Tarif için toplam karışım: {toplam_karisim_kg:.3f} kg.\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Tarif için toplam karışım: 1.300 kg.",
+    "wrong_options": [
+      "Tarif için toplam karışım: 1.3 kg.",
+      "Tarif için toplam karışım: 1.765 kg.",
+      "Tarif için toplam karışım: 1300 gr."
+    ],
+    "explanation": "Tüm malzemeler aynı birime (kg) dönüştürüldükten sonra toplanır. `ek_malzeme_gr` (150 gram) 1000'e bölünerek kilograma (0.150 kg) çevrilir. `0.75 + 0.4 + 0.150 = 1.300`. f-string'deki `:.3f` formatı, sayının noktadan sonra üç ondalık basamakla gösterilmesini sağlar.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_6",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "katilimci_sayisi = 10\nek_kontenjan = None\n# Satır 3\ntoplam_kapasite = katilimci_sayisi + ek_kontenjan\nprint(f\"Toplam kapasite: {toplam_kapasite}\")",
+    "question_text": "Aşağıdaki Python kodunda hangi satır bir hataya neden olur?",
+    "correct_answer": "Satır 3 (`toplam_kapasite = katilimci_sayisi + ek_kontenjan`)",
+    "wrong_options": [
+      "Satır 1 (`katilimci_sayisi = 10`)",
+      "Satır 2 (`ek_kontenjan = None`)",
+      "Satır 4 (`print(f\"Toplam kapasite: {toplam_kapasite}\")`)"
+    ],
+    "explanation": "Python'da bir `int` (tam sayı) ile `NoneType` değerini doğrudan matematiksel işlemlerde (`+` operatörü gibi) kullanamazsınız. Bu durum `TypeError` hatasına yol açar. Hata, `katilimci_sayisi + ek_kontenjan` ifadesinin değerlendirildiği Satır 3'te meydana gelir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_7",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "mevcut_hiz_kmh = 80\nhizlanma_carpani = 1.2\nmevcut_hiz_kmh _____ hizlanma_carpani\nprint(f\"Yeni hız: {mevcut_hiz_kmh:.1f} km/h\")",
+    "question_text": "Bir aracın mevcut hızını belirli bir çarpanla artırıp yeni hızı gösteren aşağıdaki kodda boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "*=",
+    "wrong_options": [
+      "=",
+      "*",
+      "x="
+    ],
+    "explanation": "`*=` augmented assignment operatörü, değişkenin mevcut değerini sağdaki değerle çarpıp sonucu tekrar değişkene atar. Burada `mevcut_hiz_kmh`'nin değeri `hizlanma_carpani` ile çarpılarak güncellenir. Sonuç olarak `80 * 1.2 = 96.0` elde edilir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_8",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "matematik_notu_str = \"85\"\nfen_notu = 90\n# Satır 3\ntoplam_not = matematik_notu_str + fen_notu\nortalama_not = toplam_not / 2\nprint(f\"Ortalama Not: {ortalama_not}\")",
+    "question_text": "Aşağıdaki Python kodunda hangi satır bir hataya neden olur?",
+    "correct_answer": "Satır 3 (`toplam_not = matematik_notu_str + fen_notu`)",
+    "wrong_options": [
+      "Satır 1 (`matematik_notu_str = \"85\"`)",
+      "Satır 2 (`fen_notu = 90`)",
+      "Satır 4 (`ortalama_not = toplam_not / 2`)"
+    ],
+    "explanation": "Python'da bir string (`matematik_notu_str`) ile bir integer (`fen_notu`) doğrudan toplanamaz (`+` operatörü ile). Bu durum `TypeError` hatasına neden olur. Toplama işlemi yapılmadan önce `matematik_notu_str` değişkeninin `int()` fonksiyonu ile tam sayıya dönüştürülmesi gerekmektedir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_3942_9",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "esya_adi = \"Büyülü Kılıç\"\nmiktar = 1\nnadir_mi = True\nenvanter_bilgisi = _____ \"Envanterde: {miktar} adet {esya_adi}. Nadir mi? {nadir_mi}\"\nprint(envanter_bilgisi)",
+    "question_text": "Bir oyun envanterindeki eşya bilgilerini f-string kullanarak doğru bir şekilde yazdıran aşağıdaki kodda boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "f",
+    "wrong_options": [
+      "",
+      "str(",
+      "format("
+    ],
+    "explanation": "f-string'ler, string değişmez değerinin önüne `f` (veya `F`) harfi konularak oluşturulur. Bu, string içindeki süslü parantez `{}` ile belirtilen değişkenlerin ve ifadelerin değerlerinin doğrudan string'e gömülmesini sağlar. Eksik olan kısım f-string tanımlayıcısı olan `f` harfidir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_ja_27575_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class MarketHesaplama {\n    public static void main(String[] args) {\n        int elmaAdedi = 3;\n        double elmaFiyati = 2.50;\n        double toplamTutar = elmaAdedi * elmaFiyati;\n        System.out.println(\"Toplam: \" + toplamTutar + \" TL\");\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Toplam: 7.5 TL",
+    "wrong_options": [
+      "Toplam: 7 TL",
+      "Toplam: 7.50 TL",
+      "Derleme Hatası"
+    ],
+    "explanation": "Bu kodda `elmaAdedi` bir `int`, `elmaFiyati` ise bir `double`'dır. `int` ve `double` arasında çarpma işlemi yapıldığında sonuç otomatik olarak `double` tipinde olur. Bu nedenle `3 * 2.50` işlemi `7.5` sonucunu verir ve `toplamTutar` değişkenine `7.5` atanır. `System.out.println` bu değeri yazdırır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "import java.util.Scanner;\n\npublic class UrunMiktari {\n    public static void main(String[] args) {\n        Scanner girdiAlici = new Scanner(System.in);\n        System.out.print(\"Lütfen ürün miktarını girin: \");\n        int girilenMiktar = _____\n        System.out.println(\"Girdiğiniz miktar: \" + girilenMiktar);\n        girdiAlici.close();\n    }\n}",
+    "question_text": "Aşağıdaki kod parçasında, kullanıcının girdiği tam sayıyı okuyup `girilenMiktar` değişkenine atamak için boş bırakılan yere hangi kod yazılmalıdır?",
+    "correct_answer": "girdiAlici.nextInt();",
+    "wrong_options": [
+      "girdiAlici.nextInteger();",
+      "girdiAlici.nextLine();",
+      "girdiAlici.readInt();"
+    ],
+    "explanation": "`Scanner` sınıfı, tam sayı (integer) okumak için `nextInt()` metodunu kullanır. Diğer seçenekler ya yanlış metod adıdır ya da farklı veri tipleri okumak için kullanılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class KargoTakip {\n    public static void main(String[] args) {\n        char durumKodu = 'A';\n        String mesaj = \"Kargonuz \" + durumKodu + \" aşamasındadır.\";\n        System.out.println(mesaj);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Kargonuz A aşamasındadır.",
+    "wrong_options": [
+      "Kargonuz  aşamasındadır.",
+      "Kargonuz 65 aşamasındadır.",
+      "Derleme Hatası"
+    ],
+    "explanation": "`char` tipi bir değer (örneğin 'A'), `String` birleştirme işlemi (`+` operatörü) sırasında otomatik olarak `String`'e dönüştürülür ve metne eklenir. Bu nedenle çıktı 'Kargonuz A aşamasındadır.' olacaktır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class HavaDurumuKontrol {\n    public static void main(String[] args) {\n        int anlikSicaklik = 15;\n        boolean kisaKolluGiyilebilir;\n        if (anlikSicaklik > 20) {\n            kisaKolluGiyilebilir = true;\n        }\n        System.out.println(\"Kısa kollu giyilebilir mi? \" + kisaKolluGiyilebilir);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunda bir hata bulunmaktadır. Bu hatayı düzeltmek için hangi satırda değişiklik yapılmalıdır?",
+    "correct_answer": "Satır 4: `boolean kisaKolluGiyilebilir = false;`",
+    "wrong_options": [
+      "Satır 3: `int anlikSicaklik = \"15\";`",
+      "Satır 5: `if (anlikSicaklik < 20)`",
+      "Satır 7: `System.out.println(kisaKolluGiyilebilir);`"
+    ],
+    "explanation": "Hata, `kisaKolluGiyilebilir` değişkeninin `if` bloğuna girilmediği durumda başlatılmamış olmasıdır. Eğer `anlikSicaklik` 20'den büyük değilse (örneğin 15 ise), `kisaKolluGiyilebilir` değişkenine hiçbir değer atanmaz ve bu da bir derleme hatasına yol açar. Bu değişkeni başlangıçta bir değerle (`false` gibi) başlatmak sorunu çözer.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class PuanHesaplama {\n    public static void main(String[] args) {\n        int oyuncu1Puani = 85;\n        int oyuncu2Puani = 92;\n        int enYuksekPuan = Math.max(oyuncu1Puani, oyuncu2Puani);\n        System.out.println(\"En yüksek puan: \" + enYuksekPuan);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "En yüksek puan: 92",
+    "wrong_options": [
+      "En yüksek puan: 85",
+      "En yüksek puan: 0",
+      "Derleme Hatası"
+    ],
+    "explanation": "`Math.max()` metodu, kendisine verilen iki sayıdan büyük olanını döndürür. Bu örnekte `85` ve `92` sayıları arasında `92` daha büyük olduğu için `enYuksekPuan` değişkenine `92` atanır ve bu değer yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_5",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class OrtalamaHesaplayici {\n    public static void main(String[] args) {\n        int ders1Notu = 75;\n        int ders2Notu = 80;\n        double ortalama = (double)(ders1Notu + ders2Notu) / 2;\n        System.out.println(\"Ortalama not: \" + ortalama);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Ortalama not: 77.5",
+    "wrong_options": [
+      "Ortalama not: 77",
+      "Ortalama not: 78.0",
+      "Derleme Hatası"
+    ],
+    "explanation": "Önce `ders1Notu` ve `ders2Notu` toplanır: `75 + 80 = 155`. Ardından bu toplam `(double)` ile `double` tipine dönüştürülür. Daha sonra `155.0` değeri `2`'ye bölünür ve sonuç `77.5` olarak `double` tipinde `ortalama` değişkenine atanır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class FilmDegerlendirme {\n    public static void main(String[] args) {\n        String filmAdi = \"Matrix\";\n        String formatliFilmAdi = filmAdi.toUpperCase();\n        System.out.println(\"Film Adı: \" + formatliFilmAdi);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Film Adı: MATRIX",
+    "wrong_options": [
+      "Film Adı: Matrix",
+      "Film Adı: matrix",
+      "Derleme Hatası"
+    ],
+    "explanation": "`toUpperCase()` metodu, bir `String`'in tüm karakterlerini büyük harfe dönüştüren bir `String` metodudur. Bu nedenle \"Matrix\" kelimesi \"MATRIX\"'e dönüşür.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_7",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class SifreKontrol {\n    public static void main(String[] args) {\n        String girilenSifre = \"Java123\";\n        String kayitliSifre = \"Java123\";\n        boolean sifreEslesiyorMu = _____\n        System.out.println(\"Şifre eşleşiyor mu? \" + sifreEslesiyorMu);\n    }\n}",
+    "question_text": "Aşağıdaki kod parçasında, girilen şifrenin geçerli olup olmadığını kontrol eden `boolean` değişkenine doğru değeri atamak için boş bırakılan yere hangi kod yazılmalıdır?",
+    "correct_answer": "girilenSifre.equals(kayitliSifre);",
+    "wrong_options": [
+      "girilenSifre == kayitliSifre;",
+      "girilenSifre.match(kayitliSifre);",
+      "kayitliSifre.compareTo(girilenSifre);"
+    ],
+    "explanation": "Java'da `String` nesnelerinin içeriklerini karşılaştırmak için `equals()` metodu kullanılmalıdır. `==` operatörü nesnelerin bellekteki referanslarını karşılaştırır ki bu genellikle string içerik karşılaştırması için istenen sonuç değildir (her ne kadar basit literal stringlerde bazen çalışsa da, doğru ve güvenli yöntem `equals`'tır). Diğer seçenekler ya yanlış metod adlarıdır ya da farklı karşılaştırma mantıkları için kullanılırlar.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class OtoparkUcreti {\n    public static void main(String[] args) {\n        int gecenSaat = 4;\n        double saatlikUcret = 1.75;\n        double toplamUcret = gecenSaat * saatlikUcret;\n        System.out.println(\"Toplam Otopark Ücreti: \" + toplamUcret + \" TL\");\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Toplam Otopark Ücreti: 7.0 TL",
+    "wrong_options": [
+      "Toplam Otopark Ücreti: 7 TL",
+      "Toplam Otopark Ücreti: 6.0 TL",
+      "Derleme Hatası"
+    ],
+    "explanation": "`gecenSaat` bir `int` ve `saatlikUcret` bir `double`'dır. Bu iki değişken çarpıldığında (`4 * 1.75`), sonuç `double` tipinde `7.0` olur ve `toplamUcret` değişkenine atanır. `System.out.println` bu değeri `7.0 TL` olarak yazdırır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_27575_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "public class HayvanBarinagiKayit {\n    public static void main(String[] args) {\n        String hayvanTuru = \"Kedi\";\n        String hayvanAdi = \"Mırmır\";\n        String kayitBilgisi = \"Hayvan Türü: \" + hayvanTuru + \", Adı: \" + hayvanAdi;\n        System.out.println(kayitBilgisi);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında çıktısı ne olur?",
+    "correct_answer": "Hayvan Türü: Kedi, Adı: Mırmır",
+    "wrong_options": [
+      "Hayvan Türü: Kedi, Adı: null",
+      "Hayvan Türü: , Adı: ",
+      "Derleme Hatası"
+    ],
+    "explanation": "Bu kod, `String` birleştirme operatörü (`+`) kullanarak `hayvanTuru` ve `hayvanAdi` değişkenlerinin değerlerini bir `kayitBilgisi` dizesi oluşturur. Her iki değişken de doğru şekilde başlatıldığı için, çıktı birleştirilmiş dize olacaktır.",
+    "language": "java"
+  },
+  {
+    "id": "variable_e_ja_58418_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let kullaniciAdi = \"Ali\";\nkullaniciAdi = \"Veli\";\nlet kullaniciYasi = 30;\nconsole.log(typeof kullaniciAdi + \" \" + typeof kullaniciYasi);",
+    "question_text": "Aşağıdaki JavaScript kodunun çıktısı nedir?",
+    "correct_answer": "string number",
+    "wrong_options": [
+      "number string",
+      "string string",
+      "number number"
+    ],
+    "explanation": "İlk olarak, `kullaniciAdi` 'Ali' olarak bir `string` (metin) türünde tanımlanır ve ardından 'Veli' olarak yeniden atanır, ancak türü hala `string`'dir. `kullaniciYasi` ise bir `number` (sayı) türünde tanımlanır. `typeof` operatörü değişkenlerin veri tipini döndürür. Bu nedenle `typeof kullaniciAdi` 'string' ve `typeof kullaniciYasi` 'number' döndürecektir. Çıktı 'string number' olacaktır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58418_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const urunAdi = \"Akıllı Saat\";\nconst fiyat = 1500;\nlet mesaj = `Ürün: ${urunAdi}, Fiyat: ${fiyat} TL.`;\nconsole.log(mesaj);",
+    "question_text": "Aşağıdaki kod çalıştırıldığında konsola ne yazdırır?",
+    "correct_answer": "Ürün: Akıllı Saat, Fiyat: 1500 TL.",
+    "wrong_options": [
+      "Ürün: ${urunAdi}, Fiyat: ${fiyat} TL.",
+      "Ürün: Akıllı Saat, Fiyat: fiyat TL.",
+      "undefined"
+    ],
+    "explanation": "Bu kodda template literal (şablon değişmezleri) kullanılmıştır. Backtick (`) işaretleri arasına yazılan string'ler içinde `${}` syntax'ı ile değişkenler doğrudan kullanılabilir ve değerleri string içine otomatik olarak yerleştirilir. Bu nedenle `urunAdi` ve `fiyat` değişkenlerinin değerleri mesaj string'i içine doğru şekilde entegre edilir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58418_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "var dersAdi = \"Matematik\";\nvar sonucPuani = 85;\nvar sinavBilgisi = dersAdi + \" Sınav Sonucu: \" + sonucPuani;\nconsole.log(sinavBilgisi);",
+    "question_text": "Verilen JavaScript kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Matematik Sınav Sonucu: 85",
+    "wrong_options": [
+      "Matematik Sınav Sonucu: sonucPuani",
+      "NaN",
+      "Matematik Sınav Sonucu:"
+    ],
+    "explanation": "Bu kodda string birleştirme (concatenation) işlemi yapılmaktadır. `dersAdi` string'i, sabit bir string ve `sonucPuani` number (sayı) tipi değişkeni `+` operatörü ile birleştirilir. JavaScript'te bir string ile bir sayı birleştirildiğinde, sayı otomatik olarak string'e dönüştürülür ve string birleştirme işlemi devam eder. Bu da 'Matematik Sınav Sonucu: 85' çıktısını verir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58418_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let urunStokKodu;\nlet urunMiktari = null;\nconsole.log(urunStokKodu == urunMiktari);",
+    "question_text": "Aşağıdaki JavaScript kodunun konsol çıktısı nedir?",
+    "correct_answer": "true",
+    "wrong_options": [
+      "false",
+      "undefined",
+      "null"
+    ],
+    "explanation": "`urunStokKodu` değişkeni tanımlanmış ancak bir değer atanmadığı için varsayılan değeri `undefined`'dır. `urunMiktari` değişkenine ise açıkça `null` değeri atanmıştır. JavaScript'te `==` (eşitlik operatörü) kullanıldığında, `null` ve `undefined` değerleri birbirine eşittir (type coercion nedeniyle). Bu nedenle konsola `true` yazdırılır. (`null === undefined` ise `false` olurdu çünkü `===` hem değeri hem de tipi kontrol eder).",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58418_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let ilkGelir = 1000;\nlet harcamaTutari = \"beş yüz\";\nlet kalanBakiye = ilkGelir - harcamaTutari;\nconsole.log(typeof kalanBakiye);",
+    "question_text": "Bu JavaScript kodunun çalıştırılması sonucunda konsola hangi veri tipi yazdırılır?",
+    "correct_answer": "number",
+    "wrong_options": [
+      "string",
+      "undefined",
+      "NaN"
+    ],
+    "explanation": "Bu kodda `ilkGelir` bir sayı (`number`) ve `harcamaTutari` bir string'dir. JavaScript'te string bir değerden sayıyı çıkarmaya çalışmak, geçersiz bir sayısal işlemle sonuçlanır. Bu durum `NaN` (Not-a-Number) değeri üretir. Ancak, `NaN`'ın veri tipi hala `number`'dır. Dolayısıyla `typeof kalanBakiye` ifadesi 'number' döndürecektir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58419_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let mesajOkunduMu = true;\nconsole.log(_____);",
+    "question_text": "Aşağıdaki kodda boş bırakılan yere, `mesajOkunduMu` değişkeninin veri tipini doğru bir şekilde konsola yazdıracak ifade nedir?",
+    "correct_answer": "typeof mesajOkunduMu",
+    "wrong_options": [
+      "typeOf mesajOkunduMu",
+      "gettype(mesajOkunduMu)",
+      "mesajOkunduMu.type"
+    ],
+    "explanation": "JavaScript'te bir değişkenin veya ifadenin veri tipini öğrenmek için `typeof` operatörü kullanılır. `mesajOkunduMu` değişkeni `true` (boolean) değerine sahip olduğu için, `typeof mesajOkunduMu` ifadesi 'boolean' çıktısını verecektir. Diğer seçenekler geçerli JavaScript sözdizimleri değildir veya yanlış kullanım içerir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58419_6",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "const sehirAdi = \"Ankara\";\nlet sicaklik = 25; // Satır 2\nsehirAdi = \"İstanbul\"; // Satır 3\nsicaklik = 28; // Satır 4\nconsole.log(`${sehirAdi} sıcaklığı: ${sicaklik}°C`); // Satır 5",
+    "question_text": "Aşağıdaki JavaScript kod bloğunda bir hata vardır. Hata hangi satırdadır?",
+    "correct_answer": "Satır 3",
+    "wrong_options": [
+      "Satır 2",
+      "Satır 4",
+      "Satır 5"
+    ],
+    "explanation": "`sehirAdi` değişkeni `const` anahtar kelimesi ile tanımlanmıştır. `const` ile tanımlanan değişkenlere (ilkel tipler için) bir kez değer atanabilir ve bu değer daha sonra değiştirilemez. Satır 3'te `sehirAdi` değişkenine yeniden değer atanmaya çalışıldığı için bir `TypeError` hatası oluşacaktır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58419_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let oyuncuAdi = \"Şampiyon\";\nlet puan = 500;\nlet skorMesaji = \"Oyuncu: \" + oyuncuAdi + \", Skor: \" + puan;\nconsole.log(skorMesaji);",
+    "question_text": "Bu kod çalıştırıldığında konsola hangi metni yazdırır?",
+    "correct_answer": "Oyuncu: Şampiyon, Skor: 500",
+    "wrong_options": [
+      "Oyuncu: Şampiyon, Skor: puan",
+      "Oyuncu: Şampiyon, Skor: 500.00",
+      "undefined"
+    ],
+    "explanation": "Bu kod, string birleştirme (concatenation) örneğidir. String (`\"Oyuncu: \"`), değişkenler (`oyuncuAdi`), başka bir string (`\", Skor: \"`) ve sayı (`puan`) `+` operatörü kullanılarak birleştirilir. JavaScript'te bir sayı bir string ile birleştirildiğinde otomatik olarak string'e dönüştürülür. Bu nedenle `puan` değişkeninin değeri olan `500` string haline gelerek mesajın bir parçası olur.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58419_8",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "let kargoTakipNo = \"ABC123XYZ\";\nlet teslimTarihi;\nconsole.log(teslimTarihi === _____);",
+    "question_text": "Aşağıdaki kodda boş bırakılan yere, `teslimTarihi` değişkeninin değerini doğru bir şekilde karşılaştıracak ifade nedir?",
+    "correct_answer": "undefined",
+    "wrong_options": [
+      "null",
+      "false",
+      "NaN"
+    ],
+    "explanation": "`teslimTarihi` değişkeni `let` ile tanımlanmış ancak başlangıç değeri atanmamıştır. JavaScript'te bir değişkene değer atanmadığında, varsayılan olarak `undefined` değerini alır. `===` operatörü hem değer hem de tipi karşılaştırdığı için, `teslimTarihi`'nin `undefined` ile kesinlikle eşit olup olmadığını kontrol etmek için boşluğa `undefined` gelmelidir.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_ja_58419_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "var calisanAdi = \"Elif\";\nvar izinGunuSayisi = 10;\nvar izinGunuSayisi = 12; \nconsole.log(izinGunuSayisi);",
+    "question_text": "Aşağıdaki JavaScript kodunun konsol çıktısı ne olur?",
+    "correct_answer": "12",
+    "wrong_options": [
+      "10",
+      "undefined",
+      "Hata"
+    ],
+    "explanation": "`var` anahtar kelimesiyle tanımlanan değişkenler, aynı kapsam içinde birden fazla kez yeniden tanımlanabilir ve bu durumda en son atanan değer geçerli olur. İlk olarak `izinGunuSayisi` 10 olarak tanımlanır, sonra aynı değişken 12 olarak yeniden tanımlanır ve değeri güncellenir. Bu nedenle, konsola en son atanan değer olan `12` yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "variable_e_py_97126_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "urun_adedi = 5\nbirim_fiyat = 12.75\ntoplam_tutar = urun_adedi * birim_fiyat\nprint(f\"Toplam tutar: {toplam_tutar} TL\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Toplam tutar: 63.75 TL",
+    "wrong_options": [
+      "Toplam tutar: 63 TL",
+      "Toplam tutar: 63.75",
+      "63.75 TL"
+    ],
+    "explanation": "Bu kod, ürün adedi (integer) ve birim fiyatı (float) çarparak toplam tutarı hesaplar. Sonuç bir float değeri olacaktır. f-string, bu değeri ve ' TL' metnini birleştirerek düzgün bir şekilde biçimlendirilmiş bir çıktı sağlar. 5 * 12.75 işlemi 63.75 sonucunu verir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "takim_skoru = 85\nson_mac_puani_str = \"7\"\n# Takım skoruna son maç puanını ekleyin\ntakim_skoru ________ int(son_mac_puani_str)\nprint(f\"Yeni skor: {takim_skoru}\")",
+    "question_text": "Aşağıdaki kod parçasında, takım skoruna son maç puanını eklemek için noktalı yere hangi operatör gelmelidir?",
+    "correct_answer": "+=",
+    "wrong_options": [
+      "=+ ",
+      "+= str",
+      "+"
+    ],
+    "explanation": "`+=` operatörü, bir değişkene belirli bir değeri ekleyip sonucu tekrar değişkene atamak için kullanılır. `int(son_mac_puani_str)` ifadesi, string olan '7' değerini integer 7'ye dönüştürür. Böylece `takim_skoru` değişkenine 7 eklenir ve yeni değer 92 olur.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "gorevli1 = \"Ayşe\"\ngorevli2 = \"Can\"\ngorevli1, gorevli2 = gorevli2, gorevli1\nprint(f\"Şimdiki görevliler: {gorevli1} ve {gorevli2}\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Şimdiki görevliler: Can ve Ayşe",
+    "wrong_options": [
+      "Şimdiki görevliler: Ayşe ve Can",
+      "Şimdiki görevliler: Ayşe ve Ayşe",
+      "Şimdiki görevliler: Can ve Can"
+    ],
+    "explanation": "Bu kod, Python'ın çoklu atama özelliğini kullanarak `gorevli1` ve `gorevli2` değişkenlerinin değerlerini birbiriyle değiştirir. Başlangıçta `gorevli1` 'Ayşe', `gorevli2` 'Can' iken, atama sonrası `gorevli1` 'Can', `gorevli2` 'Ayşe' olur.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "1 film_adi = \"Gizemli Yolculuk\"\n2 baslangic_butce = \"1000000\"\n3 gişe_hasılatı = 1250000.75\n4 \n5 net_kazanc = baslangic_butce - gişe_hasılatı\n6 \n7 print(f\"{film_adi} net kazanç: {net_kazanc} TL\")",
+    "question_text": "Aşağıdaki Python kodunda bir hata vardır. Hata hangi satırdadır?",
+    "correct_answer": "Satır 5",
+    "wrong_options": [
+      "Satır 2",
+      "Satır 3",
+      "Satır 7"
+    ],
+    "explanation": "Hata Satır 5'tedir. `baslangic_butce` değişkeni bir string olarak tanımlanmıştır ('1000000'), `gişe_hasılatı` ise bir float'tır. Python'da bir string'den bir float değeri doğrudan çıkaramazsınız (çıkarma işleminden önce `baslangic_butce`'nin `int` veya `float`'a dönüştürülmesi gerekir).",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "gorev_tamamlandi = True\nmesaj = f\"Görevin durumu: {int(gorev_tamamlandi)} \" + str(gorev_tamamlandi)\nprint(mesaj)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Görevin durumu: 1 True",
+    "wrong_options": [
+      "Görevin durumu: True True",
+      "Görevin durumu: 1 1",
+      "Görevin durumu: True 1"
+    ],
+    "explanation": "`True` boolean değeri `int()` fonksiyonu ile 1'e, `str()` fonksiyonu ile 'True' stringine dönüştürülür. Bu nedenle çıktı 'Görevin durumu: 1 True' olacaktır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "sehir_adi = \"Ankara\"\nsicaklik_celsius = 23.5\nnem_orani = 60\n\n# Şehir, sıcaklık ve nem oranını gösteren bir f-string oluşturun\nhava_durumu_mesaj = f\"______\"\nprint(hava_durumu_mesaj)",
+    "question_text": "Aşağıdaki kod parçasında, şehir, sıcaklık ve nem oranını gösteren bir f-string oluşturmak için noktalı yere ne gelmelidir?",
+    "correct_answer": "{sehir_adi}: {sicaklik_celsius}°C, Nem: {nem_orani}%",
+    "wrong_options": [
+      "sehir_adi: sicaklik_celsius°C, Nem: nem_orani%",
+      "\"{sehir_adi}: {sicaklik_celsius}°C, Nem: {nem_orani}%\"",
+      "{sehir_adi} + \": \" + {sicaklik_celsius} + \"°C, Nem: \" + {nem_orani} + \"%\""
+    ],
+    "explanation": "f-string'ler, süslü parantezler `{}` içine değişken adlarını doğrudan yazarak metin içine gömmeyi sağlar. Doğru sözdizimi, değişken adlarını parantezler içinde kullanmaktır.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "kullanici_oturum_id = None\nislem_durumu = \"Beklemede\"\nkullanici_oturum_id = 12345\nkullanici_oturum_id = None\nprint(f\"Oturum ID: {kullanici_oturum_id} - Durum: {islem_durumu}\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Oturum ID: None - Durum: Beklemede",
+    "wrong_options": [
+      "Oturum ID: 12345 - Durum: Beklemede",
+      "Oturum ID: 12345 - Durum: None",
+      "Oturum ID: None - Durum: None"
+    ],
+    "explanation": "`kullanici_oturum_id` değişkeni başlangıçta `None` olarak ayarlanır, sonra `12345` olarak değiştirilir ve son olarak tekrar `None` olarak ayarlanır. `islem_durumu` değişkeni hiç değişmez. Bu nedenle çıktı, `kullanici_oturum_id`'nin son değerini (`None`) ve `islem_durumu`'nun değerini ('Beklemede') gösterir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_7",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "1 un_miktari = 500 # gram\n2 ek_un = \"100\" # gram\n3 \n4 toplam_un = un_miktari + ek_un\n5 \n6 print(f\"Toplam un miktarı: {toplam_un} gram\")",
+    "question_text": "Aşağıdaki Python kodunda bir hata vardır. Hata hangi satırdadır?",
+    "correct_answer": "Satır 4",
+    "wrong_options": [
+      "Satır 1",
+      "Satır 2",
+      "Satır 6"
+    ],
+    "explanation": "Hata Satır 4'tedir. `un_miktari` bir integer iken (`500`), `ek_un` bir stringdir (`\"100\"`). Python, bir integer ve bir string'i doğrudan toplamaz. `ek_un`'un `int()` fonksiyonu ile integer'a dönüştürülmesi gerekir.",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_8",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "oyuncu_skoru = 1500\nbonus_puan = 25.5\n# Oyuncu skoruna bonus puanı ekleyin\noyuncu_skoru ________ bonus_puan\nprint(f\"Yeni oyuncu skoru: {oyuncu_skoru}\")",
+    "question_text": "Aşağıdaki kod parçasında, oyuncu skoruna bonus puanı eklemek için noktalı yere hangi operatör gelmelidir?",
+    "correct_answer": "+=",
+    "wrong_options": [
+      "=+ ",
+      "+= int(bonus_puan)",
+      "+"
+    ],
+    "explanation": "`+=` operatörü, `oyuncu_skoru` değişkenine `bonus_puan` değerini ekleyip sonucu tekrar `oyuncu_skoru`'na atar. Bir integer ve bir float toplandığında sonuç float olacaktır (1500 + 25.5 = 1525.5).",
+    "language": "python"
+  },
+  {
+    "id": "variable_e_py_97126_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "variable",
+    "code_snippet": "proje_adi = \"Yeni Web Sitesi\"\ntamamlanma_yuzdesi = 85\nrapor_ozeti = \"Proje: {}, Tamamlanma: {}%\".format(proje_adi, tamamlanma_yuzdesi)\nprint(rapor_ozeti)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Proje: Yeni Web Sitesi, Tamamlanma: 85%",
+    "wrong_options": [
+      "Proje: Yeni Web Sitesi, Tamamlanma: {tamamlanma_yuzdesi}%",
+      "Proje: {0}, Tamamlanma: {1}%",
+      "\"Proje: Yeni Web Sitesi, Tamamlanma: 85%\""
+    ],
+    "explanation": "`.format()` metodu, string içindeki süslü parantez `{}` yer tutucularını, sırasıyla metoda sağlanan argümanlarla doldurur. `proje_adi` ve `tamamlanma_yuzdesi` değerleri, string şablonundaki yerlerine yerleştirilir.",
+    "language": "python"
+  }
+]
