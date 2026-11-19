@@ -9,6 +9,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import '../logic/analytics_service.dart';
 import '../logic/notification_service.dart';
 
 /// Loads the React Journey web app from bundled assets inside a WebView.
@@ -108,6 +109,16 @@ class _JourneyWebViewScreenState extends State<JourneyWebViewScreen> {
           break;
         case 'notificationsQuery':
           _replyReminderState();
+          break;
+        // Per-answer events. These are what lets AI-generated items be
+        // calibrated (and retired) from real answers across learners.
+        case 'analytics':
+          if (data['event'] is String) {
+            analyticsService.logWebEvent(
+              data['event'] as String,
+              data['params'] is Map ? Map<String, dynamic>.from(data['params'] as Map) : null,
+            );
+          }
           break;
       }
     } catch (e) {

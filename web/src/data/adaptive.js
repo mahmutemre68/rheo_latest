@@ -19,6 +19,7 @@
 
 import { loadSaved, saveTo } from './storage.js'
 import { journeyNodes, getActiveLanguage, getExercisesForNode } from './core.js'
+import { logEvent } from '../nativeBridge.js'
 
 const ABILITY_KEY = 'rheo_ability'
 const ITEM_KEY = 'rheo_item_difficulty'
@@ -188,8 +189,17 @@ export function recordAttempt(item, correct, lang) {
     const rec = _items[key] || { d: difficulty, n: 0 }
     rec.d = clamp(difficulty - _kItem(rec.n) * surprise)
     rec.n += 1
+    if (item.source === 'ai') rec.s = 'ai'
     _items[key] = rec
     saveTo(ITEM_KEY, _items)
+
+    // One event per answer: aggregated across learners this is the real
+    // calibration signal (p-correct per item), above all for AI items.
+    logEvent('exercise_answered', {
+        lang: l, node_id: item._nodeId, item_index: item._exerciseIndex, type: item.type,
+        source: item.source === 'ai' ? 'ai' : 'authored', correct: !!correct,
+        prior: Math.round(priorDifficulty(item)), difficulty: Math.round(rec.d), ability: Math.round(ability),
+    })
 
     return {
         skill,
@@ -198,6 +208,17 @@ export function recordAttempt(item, correct, lang) {
         difficulty: Math.round(rec.d),
         expected,
     }
+}
+
+/**
+ * Local calibration snapshot of AI items on this device: how far each moved
+ * from its prior and on how many answers. Dev/QA aid — the cross-learner view
+ * comes from the exercise_answered analytics event.
+ */
+export function getGeneratedItemCalibration() {
+    return Object.entries(_items)
+        .filter(([, rec]) => rec.s === 'ai')
+        .map(([key, rec]) => ({ key, difficulty: Math.round(rec.d), answers: rec.n }))
 }
 
 /* ── Daily activity ─────────────────────────────────────────────────

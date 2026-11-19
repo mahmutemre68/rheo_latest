@@ -41,6 +41,15 @@ export function haptic(style = 'selection') {
   try { navigator?.vibrate?.(ms) } catch (e) { /* ignore */ }
 }
 
+/**
+ * Forward an analytics event to the native shell (Firebase Analytics there).
+ * Only events the shell whitelists are recorded; in a plain browser this is a
+ * no-op. Never throws — analytics must not break a lesson.
+ */
+export function logEvent(event, params = {}) {
+  try { post({ action: 'analytics', event, params }) } catch (e) { /* ignore */ }
+}
+
 /** Open the native OS share sheet, falling back to Web Share / clipboard. */
 export async function share(text, url) {
   if (post({ action: 'share', text, url })) return true

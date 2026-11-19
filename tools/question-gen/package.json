@@ -1,0 +1,14 @@
+{
+  "name": "rheo-question-gen",
+  "private": true,
+  "type": "module",
+  "description": "Offline AI question generation for Rheo: generate -> gate -> human review -> web/src/generated",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "review": "node review.mjs",
+    "test": "node test/gates.test.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.11.0"
+  }
+}

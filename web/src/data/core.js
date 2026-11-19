@@ -1662,13 +1662,25 @@ export function isSoundEnabled() { return getSettingValue('sound') === true }
 // active language is fetched. getExercisesForNode stays synchronous; callers
 // must wait for loadLanguageBank (App gates on isLanguageBankReady).
 const nodeExercises = {}
+// Approved AI exercises (tools/question-gen → web/src/generated/ai_<lang>.json)
+// are appended AFTER the authored ones of each node, so authored indices — the
+// keys for item ratings and the weak-exercise queue — never move. An AI item
+// is never deleted from that file, only marked `retired: true`; it keeps its
+// slot and is just not served.
+function _withGenerated(authored, generated) {
+    const merged = { ...authored }
+    for (const [nodeId, list] of Object.entries(generated || {})) {
+        merged[nodeId] = [...(merged[nodeId] || []), ...list]
+    }
+    return merged
+}
 const _bankLoaders = {
-    python: () => Promise.all([import('../exercises_python.js'), import('../exercises_python2.js')])
-        .then(([a, b]) => ({ ...a.pyExercises, ...b.pyExercisesCh6to10 })),
-    javascript: () => Promise.all([import('../exercises_js.js'), import('../exercises_js2.js')])
-        .then(([a, b]) => ({ ...a.jsExercises, ...b.jsExercisesCh6to10 })),
-    java: () => Promise.all([import('../exercises_java.js'), import('../exercises_java2.js')])
-        .then(([a, b]) => ({ ...a.javaExercises, ...b.javaExercisesCh6to10 })),
+    python: () => Promise.all([import('../exercises_python.js'), import('../exercises_python2.js'), import('../generated/ai_python.json', { with: { type: 'json' } })])
+        .then(([a, b, g]) => _withGenerated({ ...a.pyExercises, ...b.pyExercisesCh6to10 }, g.default)),
+    javascript: () => Promise.all([import('../exercises_js.js'), import('../exercises_js2.js'), import('../generated/ai_javascript.json', { with: { type: 'json' } })])
+        .then(([a, b, g]) => _withGenerated({ ...a.jsExercises, ...b.jsExercisesCh6to10 }, g.default)),
+    java: () => Promise.all([import('../exercises_java.js'), import('../exercises_java2.js'), import('../generated/ai_java.json', { with: { type: 'json' } })])
+        .then(([a, b, g]) => _withGenerated({ ...a.javaExercises, ...b.javaExercisesCh6to10 }, g.default)),
 }
 const _bankPromises = {}
 export function isLanguageBankReady(lang) { return !!nodeExercises[lang || _activeLang] }
@@ -1752,8 +1764,12 @@ export function getExercisesForNode(nodeId, lang) {
 
     // Try the selected language first, NO silent fallback to Python
     const exercises = nodeExercises[l]?.[nodeId] || []
-    const tagged = exercises.length > 0
-        ? exercises.map((ex, i) => _shuffleOptions({ ...normalizeExercise(ex), _nodeId: nodeId, _exerciseIndex: i }, `${l}:${nodeId}:${i}`))
+    // Index BEFORE dropping retired items, so every item keeps its slot.
+    const live = exercises
+        .map((ex, i) => ex.retired ? null : _shuffleOptions({ ...normalizeExercise(ex), _nodeId: nodeId, _exerciseIndex: i }, `${l}:${nodeId}:${i}`))
+        .filter(Boolean)
+    const tagged = live.length > 0
+        ? live
         : [
             {
                 type: 'trace', prompt: `Coming soon! ${l.charAt(0).toUpperCase() + l.slice(1)} exercises for this lesson are being prepared.`,
@@ -1775,7 +1791,7 @@ export function buildReviewExercises(lang) {
     for (const w of weaks) {
         const exercisesForNode = nodeExercises[l]?.[w.nodeId] || []
         const ex = exercisesForNode[w.exerciseIndex]
-        if (ex) {
+        if (ex && !ex.retired) {
             // Same seed key as the original run, so review shows the learner the
             // exact layout they got it wrong on.
             reviewQueue.push(_shuffleOptions(
