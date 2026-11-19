@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { quests, stats, mascotMessages, getStreakMultiplier, t, updateQuestProgress, saveProgress, isHapticEnabled, addXP, getMysteryProgress } from '../data'
 import { showAchievement } from './XPToast'
+import LivingOtter from './LivingOtter'
 
 /* ═══════════════════════════════════════════
    QUESTS VIEW — soft, matte, Duolingo-inspired
@@ -395,37 +396,5 @@ function CylindricalBar({ current, total, color }) {
 
 /* ═══════════════ OTTER ═══════════════ */
 function FullOtterMascot() {
-    const msg = mascotMessages[1]
-    return (
-        <div className="relative animate-otter-float">
-            <div className="absolute -top-[32px] -left-[24px] animate-bubble-bounce z-20">
-                <div className="bg-white rounded-xl px-2 py-1 whitespace-nowrap relative border-b-[2px] border-slate-200">
-                    <span className="text-[9px] font-extrabold text-slate-800">{msg}</span>
-                    <div className="absolute -bottom-[4px] right-[10px] w-[8px] h-[8px] bg-white rotate-45 rounded-sm" />
-                </div>
-            </div>
-            <div className="relative w-[44px] h-[50px] mt-[6px]">
-                <div className="absolute inset-0 rounded-[14px] overflow-hidden bg-teal-700 border-b-[3px] border-teal-900">
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[28px] h-[22px] rounded-t-[50%] bg-teal-500" />
-                    <div className="absolute top-[9px] left-1/2 -translate-x-1/2 w-[32px]">
-                        <div className="flex justify-center gap-[5px] mb-[1px]">
-                            {[0, 1].map(i => (
-                                <div key={i} className="w-[7px] h-[8px] rounded-full bg-white relative">
-                                    <div className="absolute top-[1px] left-[1px] w-[4px] h-[5px] bg-slate-900 rounded-full" />
-                                </div>
-                            ))}
-                        </div>
-                        <div className="flex justify-center"><div className="w-[5px] h-[3px] bg-slate-900 rounded-full" /></div>
-                    </div>
-                    <div className="absolute bottom-[8px] left-1/2 -translate-x-1/2">
-                        <div className="w-[8px] h-[4px] border-b-[2px] border-slate-900/50 rounded-b-full" />
-                    </div>
-                </div>
-                <div className="absolute -top-[4px] left-[7px] w-[9px] h-[9px] rounded-full bg-teal-700"><div className="absolute top-[2px] left-[2px] w-[4px] h-[4px] rounded-full bg-teal-500" /></div>
-                <div className="absolute -top-[4px] right-[7px] w-[9px] h-[9px] rounded-full bg-teal-700"><div className="absolute top-[2px] right-[2px] w-[4px] h-[4px] rounded-full bg-teal-500" /></div>
-                <div className="absolute -bottom-[2px] left-[10px] w-[7px] h-[4px] rounded-b-full bg-teal-800" />
-                <div className="absolute -bottom-[2px] right-[10px] w-[7px] h-[4px] rounded-b-full bg-teal-800" />
-            </div>
-        </div>
-    )
+    return <LivingOtter mood="encouraging" size={64} bubble={mascotMessages[1]} />
 }

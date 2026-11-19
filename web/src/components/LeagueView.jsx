@@ -311,7 +311,7 @@ function Dashboard({ onStart }) {
                         </div>
                         <div className="relative">
                             {i < 3 && <motion.div animate={{ opacity: [.3, .6, .3] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -inset-1 rounded-full" style={{ background: `radial-gradient(circle,${medalColors[i]}20,transparent)` }} />}
-                            <OtterMascot size={28} bodyColor={p.isUser ? undefined : (p.otterColor || '#6366f1')} />
+                            <OtterMascot size={28} bodyColor={p.isUser ? undefined : (p.otterColor || '#6366f1')} name={p.name} />
                         </div>
                         <span className={`flex-1 text-[10px] font-extrabold truncate ${isSticky || p.isUser ? 'text-teal-300' : 'text-slate-300'}`}>{p.name}</span>
                         <span className="text-[9px] font-black" style={{ color: isSticky ? '#14b8a6' : i < 3 ? medalColors[i] + 'cc' : '#475569' }}>{p.xp}</span>
@@ -331,7 +331,7 @@ function Dashboard({ onStart }) {
                 <h3 className="text-[9px] font-extrabold text-slate-500 tracking-widest mb-2 flex items-center gap-1"><ChartIcon size={12} />{t('Recent Duels').toUpperCase()}</h3>
                 <div className="space-y-1.5">{duelHistory.slice(0, 5).map(m =>
                     <div key={m.id} className={`flex items-center gap-2 rounded-xl px-3 py-2 ${gc} backdrop-blur-md`} style={{ ...G, borderLeft: `3px solid ${m.result === 'win' ? '#34d399' : '#f87171'}` }}>
-                        <OtterMascot size={28} bodyColor={m.opponent.otterColor} />
+                        <OtterMascot size={28} bodyColor={m.opponent.otterColor} name={m.opponent.name} />
                         <div className="flex-1 min-w-0"><p className="text-[10px] font-extrabold text-white truncate">{m.opponent.name}</p><span className="text-[7px] font-bold text-slate-600">{m.date}</span></div>
                         <div className="text-right"><p className={`text-[10px] font-black ${m.result === 'win' ? 'text-emerald-400' : 'text-red-400'}`}>{m.score}</p><span className={`text-[7px] font-bold ${m.elo > 0 ? 'text-emerald-400/80' : 'text-red-400/80'}`}>{m.elo > 0 ? '+' : ''}{m.elo}</span></div>
                     </div>
@@ -510,7 +510,7 @@ function Searching({ opp, mode, onFound }) {
             <p className="text-[10px] font-bold text-slate-500">ELO: {duelStats.elo - 100} - {duelStats.elo + 100}</p>
         </> : <>
             <motion.div initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 200 }}>
-                <OtterMascot size={80} bodyColor={opp.otterColor} />
+                <OtterMascot size={80} bodyColor={opp.otterColor} name={opp.name} />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .3 }} className="text-center">
                 <h2 className="text-lg font-black text-white">{t('Opponent Found!')}</h2>
@@ -540,7 +540,7 @@ function VsIntro({ you, opp, mode, onReady }) {
             </motion.div>
             <motion.div initial={{ scale: 0 }} animate={{ scale: [0, 1.5, 1] }} transition={{ delay: .3, duration: .5 }}><VSBadge size={48} /></motion.div>
             <motion.div initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', stiffness: 150 }} className="text-center">
-                <OtterMascot size={64} bodyColor={opp.otterColor} />
+                <OtterMascot size={64} bodyColor={opp.otterColor} name={opp.name} />
                 <p className="text-xs font-black text-red-400 mt-1">{opp.name}</p>
                 <p className="text-[9px] font-bold text-slate-500 flex items-center justify-center gap-0.5"><BoltIcon size={8} />{opp.elo}</p>
             </motion.div>
@@ -678,7 +678,7 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
             <div className="flex items-center gap-1.5 flex-1 flex-row-reverse rounded-lg px-2 py-1" style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.12)' }}>
                 <div className="relative">
                     {oAns && <motion.div animate={{ scale: [1, 1.6], opacity: [0.6, 0] }} transition={{ duration: 0.8, repeat: Infinity }} className="absolute inset-0 rounded-full" style={{ background: '#ef4444', filter: 'blur(6px)' }} />}
-                    <OtterMascot size={28} bodyColor={opponent.otterColor} />
+                    <OtterMascot size={28} bodyColor={opponent.otterColor} name={opponent.name} />
                 </div>
                 <div className="text-right">
                     <p className="text-[7px] font-black text-red-400 font-mono truncate max-w-[60px]">{opponent.name}</p>
@@ -783,7 +783,7 @@ function Result({ data, onAnalytics, onBack }) {
             <motion.span animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 1, repeat: Infinity }} className="text-2xl font-black text-slate-600">—</motion.span>
             <div className="text-center relative">
                 {!won && <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 1.5, repeat: Infinity }} className="absolute inset-[-8px] rounded-full" style={{ background: 'radial-gradient(circle,rgba(239,68,68,0.3),transparent)', filter: 'blur(8px)' }} />}
-                <OtterMascot size={56} bodyColor={opponent.otterColor} /><p className="text-2xl font-black text-red-400 mt-1">{theirScore}</p>
+                <OtterMascot size={56} bodyColor={opponent.otterColor} name={opponent.name} /><p className="text-2xl font-black text-red-400 mt-1">{theirScore}</p>
             </div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7 }} className="flex items-center gap-2 flex-wrap justify-center">

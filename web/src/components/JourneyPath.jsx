@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { getCodeSnippet, getOtterMood, stats, journeyNodes, getTipOfTheDay, chapterColors, getExercisesForNode, getActiveLanguage, t, isHapticEnabled, isChestOpened, openChest, LESSON_LENGTH, SHORT_LESSON_LENGTH } from '../data'
 import { showXP } from './XPToast'
+import LivingOtter from './LivingOtter'
 
 /* ═══════════════════════════════════════════════════════
    JourneyPath v9 — Mega Feature Pack
@@ -294,114 +295,10 @@ function ChestSVG({ locked }) {
    Expressions change based on context
    ═══════════════════════════════════════════ */
 function MoodOtter({ mood }) {
-    const eyes = {
-        happy: { shape: 'round' },
-        cool: { shape: 'cool' },
-        sad: { shape: 'sad' },
-        sleepy: { shape: 'sleepy' },
-        determined: { shape: 'determined' },
-        excited: { shape: 'star' },
-    }
-    const eye = eyes[mood.face] || eyes.happy
-
+    // The official mascot beside the active node; the face picks the pose.
     return (
-        <div className="absolute -right-[78px] -top-[6px] z-20 pointer-events-none animate-otter-float">
-            {/* Speech bubble */}
-            <div className="absolute -top-[36px] -left-[10px] animate-bubble-bounce">
-                <div className="bg-white rounded-xl px-2.5 py-1 whitespace-nowrap relative">
-                    <span className="text-[10px] font-extrabold text-slate-800">{mood.bubble}</span>
-                    <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-[10px] h-[10px] bg-white rotate-45 rounded-sm" />
-                </div>
-            </div>
-
-            <div className="relative w-[56px] h-[62px]">
-                {/* Body — DARKER TEAL (distinct from buttons) */}
-                <div className="absolute inset-0 rounded-[18px] overflow-hidden bg-teal-700 border-b-[4px] border-teal-900">
-                    {/* Belly — medium mint */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[34px] h-[28px] rounded-t-[50%] bg-teal-500" />
-
-                    {/* Face with mood eyes */}
-                    <div className="absolute top-[11px] left-1/2 -translate-x-1/2 w-[38px]">
-                        <div className="flex justify-center gap-[7px] mb-[2px]">
-                            {[0, 1].map(i => (
-                                <div key={i} className="relative">
-                                    {eye.shape === 'cool' ? (
-                                        <div className="w-[11px] h-[7px] bg-slate-900 rounded-sm border border-slate-700" />
-                                    ) : eye.shape === 'sad' ? (
-                                        <div className="w-[9px] h-[7px] rounded-full bg-white relative">
-                                            <div className="absolute top-[2px] left-[2px] w-[4px] h-[4px] bg-slate-900 rounded-full" />
-                                        </div>
-                                    ) : eye.shape === 'sleepy' ? (
-                                        <div className="w-[9px] h-[4px] bg-white rounded-b-full overflow-hidden relative">
-                                            <div className="absolute bottom-[0px] left-[2px] w-[4px] h-[3px] bg-slate-900 rounded-full" />
-                                        </div>
-                                    ) : eye.shape === 'star' ? (
-                                        <svg width="10" height="10" viewBox="0 0 20 20" fill="#FCD34D"><path d="M10 0l2.5 6.5L20 7.5l-5 4 1.5 6.5L10 14.5 3.5 18 5 11.5 0 7.5l7.5-1z" /></svg>
-                                    ) : eye.shape === 'determined' ? (
-                                        <div className="w-[9px] h-[10px] rounded-full bg-white relative">
-                                            <div className="absolute top-[1px] left-[1px] w-[5px] h-[6px] bg-slate-900 rounded-full" />
-                                            <div className="absolute -top-[3px] left-0 right-0 h-[2px] bg-teal-900 rounded-full" style={{ transform: i === 0 ? 'rotate(-15deg)' : 'rotate(15deg)' }} />
-                                        </div>
-                                    ) : (
-                                        <div className="w-[9px] h-[10px] rounded-full bg-white relative">
-                                            <div className="absolute top-[1px] left-[1px] w-[5px] h-[6px] bg-slate-900 rounded-full" />
-                                            <div className="absolute top-[1px] right-[1px] w-[2px] h-[2px] bg-white rounded-full" />
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                        {/* Nose — dark */}
-                        <div className="flex justify-center"><div className="w-[6px] h-[4px] bg-slate-900 rounded-full" /></div>
-                        {/* Whiskers */}
-                        <div className="flex justify-between mt-[1px]">
-                            <div className="flex flex-col gap-[1px] -ml-3">
-                                <div className="w-[10px] h-[1px] bg-white/40 -rotate-8" />
-                                <div className="w-[8px] h-[1px] bg-white/25 rotate-5" />
-                            </div>
-                            <div className="flex flex-col gap-[1px] -mr-3">
-                                <div className="w-[10px] h-[1px] bg-white/40 rotate-8" />
-                                <div className="w-[8px] h-[1px] bg-white/25 -rotate-5" />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Mouth */}
-                    <div className="absolute bottom-[10px] left-1/2 -translate-x-1/2">
-                        {mood.face === 'sad' ? (
-                            <div className="w-[10px] h-[5px] border-t-[2px] border-slate-900/50 rounded-t-full" />
-                        ) : mood.face === 'excited' ? (
-                            <div className="w-[10px] h-[6px] bg-slate-900/40 rounded-b-full" />
-                        ) : (
-                            <div className="w-[10px] h-[5px] border-b-[2px] border-slate-900/50 rounded-b-full" />
-                        )}
-                    </div>
-                </div>
-
-                {/* Ears — darker teal */}
-                <div className="absolute -top-[5px] left-[9px] w-[11px] h-[11px] rounded-full bg-teal-700">
-                    <div className="absolute top-[2px] left-[2px] w-[5px] h-[5px] rounded-full bg-teal-500" />
-                </div>
-                <div className="absolute -top-[5px] right-[9px] w-[11px] h-[11px] rounded-full bg-teal-700">
-                    <div className="absolute top-[2px] right-[2px] w-[5px] h-[5px] rounded-full bg-teal-500" />
-                </div>
-
-                {/* Cool sunglasses bridge */}
-                {mood.face === 'cool' && (
-                    <div className="absolute top-[14px] left-1/2 -translate-x-1/2 w-[5px] h-[1px] bg-slate-700" />
-                )}
-
-                {/* Paws */}
-                <div className="absolute -bottom-[3px] left-[12px] w-[9px] h-[5px] rounded-b-full bg-teal-800" />
-                <div className="absolute -bottom-[3px] right-[12px] w-[9px] h-[5px] rounded-b-full bg-teal-800" />
-
-                {/* Code tablet — white with </> like Flutter mascot */}
-                <div className="absolute bottom-[4px] -left-[16px] animate-wiggle">
-                    <div className="w-[16px] h-[20px] rounded-[4px] bg-white border-b-[2px] border-slate-300 overflow-hidden flex items-center justify-center">
-                        <span className="text-[7px] font-black text-slate-800">&lt;/&gt;</span>
-                    </div>
-                </div>
-            </div>
+        <div className="absolute -right-[84px] -top-[10px] z-20 pointer-events-none">
+            <LivingOtter mood={mood.face} size={68} bubble={mood.bubble} />
         </div>
     )
 }

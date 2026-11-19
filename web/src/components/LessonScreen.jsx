@@ -427,7 +427,7 @@ export default function LessonScreen({ onClose, exercises = [], practice = false
                 {answered && isCorrect !== null && (
                     <motion.div initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 40, opacity: 0 }}
                         className={`shrink-0 max-h-[40vh] overflow-y-auto px-5 py-3 flex items-start gap-3 ${isCorrect ? 'bg-emerald-500/10 border-t border-emerald-700/30' : 'bg-amber-500/10 border-t border-amber-700/30'}`}>
-                        <LivingOtter mood={isCorrect ? "happy" : "thinking"} size={40} showGlow={false} />
+                        <LivingOtter mood={isCorrect ? "happy" : "encouraging"} size={40} showGlow={false} />
                         <div className="flex-1 min-w-0">
                             <p className={`text-sm font-black ${isCorrect ? 'text-emerald-400' : 'text-amber-400'}`}>{isCorrect ? t('Correct!') : t('Not quite —')}</p>
                             <p className="text-[10px] font-bold text-slate-500">
