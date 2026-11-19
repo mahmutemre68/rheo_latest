@@ -1,31 +1,55 @@
-# Rheo development source
+# Rheo
 
-Reconstructed on 2026-10-08 from the authorized UX v4 full web source and v5 source deltas.
+Gamified code-reading app ("Duolingo for reading code"): a Flutter shell that
+hosts the React Journey in a WebView, for Python, JavaScript and Java, in
+English and Turkish.
+
+This repo merges the full project from `Furkanahii/Rheo-MVP` (main @ b7ee3ad,
+7 Aug 2026) with the newer `web/` source reconstructed here on 8 Oct 2026.
+
+## Layout
+
+| path | what |
+| --- | --- |
+| `web/` | React Journey (Vite, React 19, Tailwind 4, framer-motion) — the app's main UI |
+| `rheo_app/` | Flutter shell (iOS/Android, Firebase, Hive, notifications); serves `assets/journey-web/` to a WebView over localhost |
+| `tools/question-gen/` | offline AI question generation: generate → machine gates → human review → `web/src/generated/` ([README](tools/question-gen/README.md)) |
+| `tools/verify_journey_bundle.py` | checks a web build and writes the stable `asset-manifest.json` the Flutter shell falls back to |
+| `build_and_sync.js` | build `web/` and replace `rheo_app/assets/journey-web/` |
+| `backend/` | legacy template-based question generator from the MVP (old schema; not used by the app) |
+| `rheo-dashboard*/`, `rheo-pitchdeck/`, `AppStore_Upload/`, `appstore_assets/`, `presentation_screenshots/`, `docs/` | MVP project material |
+| `qa/` | v5 browser evidence (predates the October changes) |
 
 ## Run
 
 ```sh
 cd web
 npm ci
-npm run build
-node scripts/validate-pool.mjs
-node scripts/test-exercise-schema.mjs
+npm run dev          # browser
+npm test             # pool validator, schema, generated-bank merge, mounted cards, daily reward, share
+cd ..
+node build_and_sync.js            # rebuild the bundle the Flutter app ships
+cd rheo_app && flutter pub get && flutter analyze && flutter test
 ```
 
-`web/` is the complete React web project. `flutter-assets/` is a staged Journey bundle; `flutter-patch/` contains integration changes, **not a complete Flutter application**. No store release is implied.
+## Notes
 
-Placement and Debug Mission are local prototypes, not verified App Store features. The official mascot assets are preserved.
+- Journey banks are code-split per language: only the active language's
+  exercises load (main JS ~200 KB, was 1.46 MB).
+- AI questions are generated offline and only reach the app after review. No
+  API key is in the app; the old client-side Gemini service was removed.
+- Each answer sends `exercise_answered` to Firebase Analytics via the native
+  bridge, which is how AI items are calibrated and retired.
+- Placement and Debug Mission are local prototypes, not verified store features.
+  The official mascot assets are preserved.
 
-## Validation and remaining gates
+## Not verified
 
-The reconstructed source built successfully and the 1,108-question validator returned zero schema/content validation issues. Existing v5 browser evidence is in `qa/`; this import does not claim a new browser or physical-device run. Main JS remains approximately 1.46 MB.
+Flutter `pub get` / `analyze` / `test` / `build` could not run where this merge
+was made (no Flutter SDK or pub.dev access), so run them before any release —
+`pubspec.lock` still lists the removed `flutter_dotenv` and `http` until
+`flutter pub get` rewrites it. Physical iOS/Android QA, the Firebase Analytics
+pipeline end to end, and store builds are also unverified. Do not publish store
+updates before these are done.
 
-Physical iOS/Android, Flutter analyze/test/build and production analytics remain unverified. Revenue is zero per CEO; downloads, activation and D1/D7 are unknown. Do not publish store updates before these gates are completed.
-
-## 8 October follow-up fixes
-
-Daily reward persistence now validates day/date fields and rejects duplicate same-turn claims. Corrupt saved days no longer index outside the reward table; valid same-day claims remain protected. `npm run test:daily` exercises malformed state, date boundaries, mounted double-click and same-day reopen.
-
-The share target previously returned HTTP 404. Shares now use the official App Store ID link; `npm run test:share` checks native message, browser share and clipboard payloads. These are JavaScript checks, not real OS share-sheet tests.
-
-**The checked-in `flutter-assets/` bundle and `qa/` v5 evidence predate these follow-up source fixes. Rebuild and replace the staged bundle before any native release.** Full Flutter source/SDK, physical device QA and a writable production hosting target remain unavailable. No live deploy or Store submission occurred.
+History of the October reconstruction: [IMPORT-STATUS.md](IMPORT-STATUS.md).
