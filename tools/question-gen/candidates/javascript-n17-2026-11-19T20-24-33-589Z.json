@@ -1,0 +1,303 @@
+{
+  "lang": "javascript",
+  "nodeId": 17,
+  "nodeTitle": "Arrays Deep",
+  "chapter": 5,
+  "model": "claude-opus-5-5 (chat session, --from-file)",
+  "createdAt": "2026-11-19T20:24:33.589Z",
+  "candidates": [
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "trace"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "4 lines"
+          },
+          {
+            "name": "four-options",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "execution": [
+          {
+            "name": "runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "stdout-equals-correct-option",
+            "ok": true,
+            "detail": "stdout=\"70\" correct=\"70\""
+          },
+          {
+            "name": "distractors-are-wrong",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.42 \"b was pushed to — what is a.length?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "trace",
+        "prompt": "`copy` was changed. What is `scores[0]`?",
+        "code": [
+          {
+            "text": "const scores = [70, 85, 90];"
+          },
+          {
+            "text": "const copy = [...scores];"
+          },
+          {
+            "text": "copy[0] = 100;"
+          },
+          {
+            "text": "console.log(scores[0]);",
+            "highlight": true
+          }
+        ],
+        "options": [
+          "70",
+          "100",
+          "undefined",
+          "85"
+        ],
+        "correct": 0,
+        "explanation": "The spread [...scores] builds a NEW array with the same values, so writing to copy[0] leaves scores alone: 70. 100 is what you would see with const copy = scores, which shares one array between two names.",
+        "hint": "Ask whether copy and scores point at the same array or at two different ones.",
+        "verify": {}
+      }
+    },
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "output"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "3 lines"
+          },
+          {
+            "name": "four-options",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "execution": [
+          {
+            "name": "runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "stdout-equals-correct-option",
+            "ok": true,
+            "detail": "stdout=\"bc ad\" correct=\"bc ad\""
+          },
+          {
+            "name": "distractors-are-wrong",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "terminal-output-matches",
+            "ok": true,
+            "detail": "terminalOutput=\"bc ad\""
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.39 \"b was pushed to — what is a.length?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "output",
+        "prompt": "splice takes a start and a count. What gets logged?",
+        "code": [
+          {
+            "text": "const items = [\"a\", \"b\", \"c\", \"d\"];"
+          },
+          {
+            "text": "const removed = items.splice(1, 2);"
+          },
+          {
+            "text": "console.log(removed.join(\"\"), items.join(\"\"));"
+          }
+        ],
+        "terminalOutput": "bc ad",
+        "options": [
+          "bc ad",
+          "bc abcd",
+          "b acd",
+          "bcd a"
+        ],
+        "correct": 0,
+        "explanation": "splice(1, 2) starts at index 1 and removes TWO items — \"b\" and \"c\" — returning them and changing items in place, which leaves [\"a\", \"d\"]. \"b acd\" treats 2 as an end index like slice does; \"bc abcd\" assumes splice does not mutate.",
+        "hint": "The second argument is how many to remove, not where to stop. And splice edits the original.",
+        "verify": {}
+      }
+    },
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "bug"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "6 lines"
+          }
+        ],
+        "execution": [
+          {
+            "name": "fix-runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "fix-prints-expected",
+            "ok": true,
+            "detail": "got \"25\""
+          },
+          {
+            "name": "bug-changes-behaviour",
+            "ok": true,
+            "detail": "the flagged line must matter"
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.31 \"Changing b also changed a. Which line is the problem?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "bug",
+        "prompt": "The total should be 25 but comes out as 20. Which line?",
+        "code": [
+          {
+            "text": "const prices = [5, 12, 8];",
+            "hasError": false
+          },
+          {
+            "text": "let total = 0;",
+            "hasError": false
+          },
+          {
+            "text": "for (let i = 1; i < prices.length; i++) {",
+            "hasError": true
+          },
+          {
+            "text": "  total += prices[i];",
+            "hasError": false
+          },
+          {
+            "text": "}",
+            "hasError": false
+          },
+          {
+            "text": "console.log(total);",
+            "hasError": false
+          }
+        ],
+        "correctLine": 2,
+        "explanation": "Arrays start at index 0, but the loop starts at i = 1, so prices[0] — the 5 — is never added: 12 + 8 = 20. Starting at let i = 0 includes every price. The < prices.length condition is correct; <= would read one past the end.",
+        "hint": "Which index holds the first price, and does the loop ever visit it?",
+        "verify": {
+          "fix": "for (let i = 0; i < prices.length; i++) {",
+          "expected_stdout": "25"
+        }
+      }
+    }
+  ]
+}

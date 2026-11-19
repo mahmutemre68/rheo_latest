@@ -1,0 +1,340 @@
+{
+  "lang": "java",
+  "nodeId": 5,
+  "nodeTitle": "Conditional Logic",
+  "chapter": 2,
+  "model": "claude-opus-5-5 (chat session, --from-file)",
+  "createdAt": "2026-11-19T20:24:36.060Z",
+  "candidates": [
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "trace"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "10 lines"
+          },
+          {
+            "name": "four-options",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "execution": [
+          {
+            "name": "runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "stdout-equals-correct-option",
+            "ok": true,
+            "detail": "stdout=\"t-shirt\" correct=\"t-shirt\""
+          },
+          {
+            "name": "distractors-are-wrong",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.39 \"n is 0. What ends up in `label`?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "trace",
+        "prompt": "temp is 25. What does `advice` end up as?",
+        "code": [
+          {
+            "text": "int temp = 25;"
+          },
+          {
+            "text": "String advice;"
+          },
+          {
+            "text": "if (temp > 30) {"
+          },
+          {
+            "text": "    advice = \"shorts\";"
+          },
+          {
+            "text": "} else if (temp > 20) {"
+          },
+          {
+            "text": "    advice = \"t-shirt\";"
+          },
+          {
+            "text": "} else {"
+          },
+          {
+            "text": "    advice = \"jacket\";"
+          },
+          {
+            "text": "}"
+          },
+          {
+            "text": "System.out.println(advice);",
+            "highlight": true
+          }
+        ],
+        "options": [
+          "t-shirt",
+          "shorts",
+          "jacket",
+          "t-shirt jacket"
+        ],
+        "correct": 0,
+        "explanation": "25 > 30 is false, so the first branch is skipped; 25 > 20 is true, so advice becomes \"t-shirt\" and the rest of the chain is skipped. An if / else if / else chain runs at most ONE branch, which is why \"t-shirt jacket\" can never happen.",
+        "hint": "Test each condition top to bottom and stop at the first one that is true.",
+        "verify": {}
+      }
+    },
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "output"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "4 lines"
+          },
+          {
+            "name": "four-options",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "execution": [
+          {
+            "name": "runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "stdout-equals-correct-option",
+            "ok": true,
+            "detail": "stdout=\"done\" correct=\"done\""
+          },
+          {
+            "name": "distractors-are-wrong",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "terminal-output-matches",
+            "ok": true,
+            "detail": "terminalOutput=\"done\""
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.37 \"Both operands increment i. What prints?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "output",
+        "prompt": "No braces after the if. With x = 3, what prints?",
+        "code": [
+          {
+            "text": "int x = 3;"
+          },
+          {
+            "text": "if (x > 5)"
+          },
+          {
+            "text": "    System.out.println(\"big\");"
+          },
+          {
+            "text": "    System.out.println(\"done\");"
+          }
+        ],
+        "terminalOutput": "done",
+        "options": [
+          "done",
+          "nothing",
+          "big done",
+          "big"
+        ],
+        "correct": 0,
+        "explanation": "Without braces, an if controls only the ONE statement right after it. 3 > 5 is false, so \"big\" is skipped, but the second println is not part of the if at all — indentation means nothing to Java — so \"done\" always prints.",
+        "hint": "Ignore the indentation. Which statements does the if actually own when there are no braces?",
+        "verify": {}
+      }
+    },
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "bug"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "10 lines"
+          }
+        ],
+        "execution": [
+          {
+            "name": "fix-runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "fix-prints-expected",
+            "ok": true,
+            "detail": "got \"Good afternoon\""
+          },
+          {
+            "name": "bug-changes-behaviour",
+            "ok": true,
+            "detail": "the flagged line must matter"
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.37 \"An 18-year-old is told they cannot vote. Which line is wrong?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "bug",
+        "prompt": "At 2 pm this says \"Good evening\". Which line is wrong?",
+        "code": [
+          {
+            "text": "int hour = 14;",
+            "hasError": false
+          },
+          {
+            "text": "String greeting;",
+            "hasError": false
+          },
+          {
+            "text": "if (hour < 12) {",
+            "hasError": false
+          },
+          {
+            "text": "    greeting = \"Good morning\";",
+            "hasError": false
+          },
+          {
+            "text": "} else if (hour < 12) {",
+            "hasError": true
+          },
+          {
+            "text": "    greeting = \"Good afternoon\";",
+            "hasError": false
+          },
+          {
+            "text": "} else {",
+            "hasError": false
+          },
+          {
+            "text": "    greeting = \"Good evening\";",
+            "hasError": false
+          },
+          {
+            "text": "}",
+            "hasError": false
+          },
+          {
+            "text": "System.out.println(greeting);",
+            "hasError": false
+          }
+        ],
+        "correctLine": 4,
+        "explanation": "The else if repeats hour < 12, which can never be true once the first test has already failed, so every hour from 12 on falls through to \"Good evening\". The afternoon branch needs its own upper bound: hour < 18.",
+        "hint": "If hour < 12 was false on the first test, can the same test be true one line later?",
+        "verify": {
+          "fix": "} else if (hour < 18) {",
+          "expected_stdout": "Good afternoon"
+        }
+      }
+    }
+  ]
+}
