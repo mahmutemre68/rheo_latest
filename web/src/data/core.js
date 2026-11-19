@@ -3,12 +3,6 @@ import { normalizeExercise } from './normalizeExercise.js'
    Rheo Journey Data — v10 Modular (core.js)
    Storage → ./storage.js | i18n → ./i18n.js
    ══════════════════════════════════════════ */
-import { jsExercises } from '../exercises_js.js'
-import { jsExercisesCh6to10 } from '../exercises_js2.js'
-import { javaExercises } from '../exercises_java.js'
-import { javaExercisesCh6to10 } from '../exercises_java2.js'
-import { pyExercises } from '../exercises_python.js'
-import { pyExercisesCh6to10 } from '../exercises_python2.js'
 import { duelQuestionPool } from './duel_questions.js'
 
 import { loadSaved, saveTo, STORAGE_KEY, STATS_KEY, ONBOARDING_KEY } from './storage.js'
@@ -40,6 +34,9 @@ export function setActiveLanguage(id) {
     if (!languages.some(l => l.id === id)) return
     _activeLang = id
     saveTo(LANG_KEY, id)
+    // Journey banks are code-split per language; start fetching the new one
+    // right away and repaint once it lands (see loadLanguageBank).
+    if (!isLanguageBankReady(id)) loadLanguageBank(id).finally(() => window.__refreshApp?.()).catch(() => {})
 }
 
 /* ── Otter Tip of the Day ── */
@@ -1661,14 +1658,47 @@ export function isSoundEnabled() { return getSettingValue('sound') === true }
    PER-NODE, PER-LANGUAGE EXERCISES
    All 12 types spread across journey nodes
    ══════════════════════════════════════════════════ */
-const nodeExercises = {
-    python: {},
+// Banks are ~300 KB of source per language, so they are code-split: only the
+// active language is fetched. getExercisesForNode stays synchronous; callers
+// must wait for loadLanguageBank (App gates on isLanguageBankReady).
+const nodeExercises = {}
+// Approved AI exercises (tools/question-gen → web/src/generated/ai_<lang>.json)
+// are appended AFTER the authored ones of each node, so authored indices — the
+// keys for item ratings and the weak-exercise queue — never move. An AI item
+// is never deleted from that file, only marked `retired: true`; it keeps its
+// slot and is just not served.
+function _withGenerated(authored, generated) {
+    const merged = { ...authored }
+    for (const [nodeId, list] of Object.entries(generated || {})) {
+        merged[nodeId] = [...(merged[nodeId] || []), ...list]
+    }
+    return merged
 }
-// Merge imported exercises into nodeExercises
-nodeExercises.python = { ...pyExercises, ...pyExercisesCh6to10 }
-
-nodeExercises.javascript = { ...jsExercises, ...jsExercisesCh6to10 }
-nodeExercises.java = { ...javaExercises, ...javaExercisesCh6to10 }
+const _bankLoaders = {
+    python: () => Promise.all([import('../exercises_python.js'), import('../exercises_python2.js'), import('../generated/ai_python.json', { with: { type: 'json' } })])
+        .then(([a, b, g]) => _withGenerated({ ...a.pyExercises, ...b.pyExercisesCh6to10 }, g.default)),
+    javascript: () => Promise.all([import('../exercises_js.js'), import('../exercises_js2.js'), import('../generated/ai_javascript.json', { with: { type: 'json' } })])
+        .then(([a, b, g]) => _withGenerated({ ...a.jsExercises, ...b.jsExercisesCh6to10 }, g.default)),
+    java: () => Promise.all([import('../exercises_java.js'), import('../exercises_java2.js'), import('../generated/ai_java.json', { with: { type: 'json' } })])
+        .then(([a, b, g]) => _withGenerated({ ...a.javaExercises, ...b.javaExercisesCh6to10 }, g.default)),
+}
+const _bankPromises = {}
+export function isLanguageBankReady(lang) { return !!nodeExercises[lang || _activeLang] }
+export function loadLanguageBank(lang) {
+    const l = lang || _activeLang
+    if (nodeExercises[l]) return Promise.resolve(nodeExercises[l])
+    if (!_bankLoaders[l]) return Promise.reject(new Error(`unknown language: ${l}`))
+    if (!_bankPromises[l]) {
+        _bankPromises[l] = _bankLoaders[l]().then(bank => {
+            nodeExercises[l] = bank
+            return bank
+        }, err => {
+            delete _bankPromises[l]   // allow a retry after a failed fetch
+            throw err
+        })
+    }
+    return _bankPromises[l]
+}
 /* ── Answer-order randomisation ──────────────────────────────────────────
    The authored pool puts the correct answer first in 61% of items and last in
    under 1%, so "always tap A" scored ~61% without reading any code. Options are
@@ -1728,11 +1758,18 @@ export function getExercisesForNode(nodeId, lang) {
     const cacheKey = `${l}:${nodeId}`
     const cached = _taggedExercises.get(cacheKey)
     if (cached) return cached
+    // Not fetched yet: return nothing and do NOT cache, or the "coming soon"
+    // placeholder below would stick after the bank arrives.
+    if (!nodeExercises[l]) return []
 
     // Try the selected language first, NO silent fallback to Python
     const exercises = nodeExercises[l]?.[nodeId] || []
-    const tagged = exercises.length > 0
-        ? exercises.map((ex, i) => _shuffleOptions({ ...normalizeExercise(ex), _nodeId: nodeId, _exerciseIndex: i }, `${l}:${nodeId}:${i}`))
+    // Index BEFORE dropping retired items, so every item keeps its slot.
+    const live = exercises
+        .map((ex, i) => ex.retired ? null : _shuffleOptions({ ...normalizeExercise(ex), _nodeId: nodeId, _exerciseIndex: i }, `${l}:${nodeId}:${i}`))
+        .filter(Boolean)
+    const tagged = live.length > 0
+        ? live
         : [
             {
                 type: 'trace', prompt: `Coming soon! ${l.charAt(0).toUpperCase() + l.slice(1)} exercises for this lesson are being prepared.`,
@@ -1754,7 +1791,7 @@ export function buildReviewExercises(lang) {
     for (const w of weaks) {
         const exercisesForNode = nodeExercises[l]?.[w.nodeId] || []
         const ex = exercisesForNode[w.exerciseIndex]
-        if (ex) {
+        if (ex && !ex.retired) {
             // Same seed key as the original run, so review shows the learner the
             // exact layout they got it wrong on.
             reviewQueue.push(_shuffleOptions(

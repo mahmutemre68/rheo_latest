@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { t, isHapticEnabled, setDailyXPGoal, addXP } from '../data'
+import { t, isHapticEnabled, setDailyXPGoal, addXP, languages, getActiveLanguage, setActiveLanguage } from '../data'
+import { applyPlacement } from '../data/placement.js'
+import AdaptivePlacement from './AdaptivePlacement'
 import LivingOtter, { CodeRain } from './LivingOtter'
 
 /* ══════════════════════════════════════════════
@@ -20,7 +22,9 @@ const NEON_PARTICLES = ['⚡', '💥', '✦', '🔥', '💎', '⭐']
 const FIRST_BLOOD_XP = 50
 
 export default function Onboarding({ onFinish }) {
-    const [phase, setPhase] = useState('intro') // intro -> hunt -> explosion -> welcome -> goal -> done
+    const [phase, setPhase] = useState('intro') // intro -> hunt -> explosion -> welcome -> goal -> experience -> (placement) -> done
+    const [goalXP, setGoalXP] = useState(100)
+    const [lang, setLang] = useState(getActiveLanguage())
     const [foundBug, setFoundBug] = useState(false)
     const [selectedLine, setSelectedLine] = useState(null)
     const [wrongShake, setWrongShake] = useState(null)
@@ -87,7 +91,20 @@ export default function Onboarding({ onFinish }) {
         onFinish()
     }, [onFinish])
 
-    const handleSelectGoal = useCallback((amount) => finishOnboarding(amount), [finishOnboarding])
+    // Goal → experience. New learners start at chapter 1; anyone else takes the
+    // adaptive placement first (data/placement.js).
+    const handleSelectGoal = useCallback((amount) => { setGoalXP(amount); setPhase('experience') }, [])
+
+    const handleExperience = useCallback((experience) => {
+        setActiveLanguage(lang)
+        if (experience === 'new') finishOnboarding(goalXP)
+        else setPhase(`placement:${experience}`)
+    }, [lang, goalXP, finishOnboarding])
+
+    const handlePlacementDone = useCallback((result) => {
+        if (result) applyPlacement(result, lang)
+        finishOnboarding(goalXP)
+    }, [lang, goalXP, finishOnboarding])
 
     const handleSkip = useCallback(() => finishOnboarding(100), [finishOnboarding])
 
@@ -336,8 +353,50 @@ export default function Onboarding({ onFinish }) {
                             </div>
                         </motion.div>
                     )}
+
+                    {/* ═══ PHASE: EXPERIENCE ═══ */}
+                    {phase === 'experience' && (
+                        <motion.div key="experience"
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="flex-1 flex flex-col items-center justify-center px-6 relative z-10">
+                            <h2 className="text-2xl font-black text-white mb-2 text-center">{t('Have you read code before?')}</h2>
+                            <p className="text-sm font-bold text-slate-400 mb-5 text-center">{t('If you have, a few quick questions find where you should start.')}</p>
+
+                            <div className="flex gap-2 mb-5" role="radiogroup" aria-label={t('Language')}>
+                                {languages.map(l => (
+                                    <button key={l.id} role="radio" aria-checked={lang === l.id} onClick={() => setLang(l.id)}
+                                        className={`px-3 py-2 rounded-xl border-2 text-sm font-black ${lang === l.id ? 'border-teal-400 bg-teal-500/15 text-teal-200' : 'border-slate-700 bg-slate-800/50 text-slate-300'}`}>
+                                        {l.icon} {l.name}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="w-full max-w-[300px] flex flex-col gap-3">
+                                {[
+                                    { id: 'new', label: 'New to code', desc: 'Start from the very first lesson', emoji: '🌱' },
+                                    { id: 'some', label: 'I know the basics', desc: 'Variables, if/else, loops', emoji: '📗' },
+                                    { id: 'experienced', label: 'I code regularly', desc: 'Functions, data structures, algorithms', emoji: '🧠' },
+                                ].map(o => (
+                                    <motion.button key={o.id}
+                                        whileTap={{ scale: 0.95 }}
+                                        onClick={() => handleExperience(o.id)}
+                                        className="flex items-center gap-3 p-4 rounded-2xl border-2 border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-teal-500/50 transition-colors cursor-pointer text-left">
+                                        <span className="text-2xl">{o.emoji}</span>
+                                        <div>
+                                            <div className="text-base font-black text-white">{t(o.label)}</div>
+                                            <div className="text-xs font-bold text-slate-400">{t(o.desc)}</div>
+                                        </div>
+                                    </motion.button>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
                 </AnimatePresence>
             </div>
+            {phase.startsWith('placement:') && (
+                <AdaptivePlacement language={lang} experience={phase.split(':')[1]} onDone={handlePlacementDone} />
+            )}
         </motion.div>
     )
 }

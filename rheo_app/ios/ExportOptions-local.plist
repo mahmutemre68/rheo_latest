@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Same signing as ExportOptions.plist, but it writes the .ipa to disk
+     instead of uploading. ExportOptions.plist sets destination=upload, so
+     any `flutter build ipa` using it ships the build to App Store Connect as
+     a side effect of building. Use this one to produce an .ipa to inspect,
+     and the upload variant only when you actually mean to submit. -->
+<plist version="1.0">
+<dict>
+	<key>method</key>
+	<string>app-store-connect</string>
+	<key>teamID</key>
+	<string>RRZQ42TNXK</string>
+	<!-- Keychain'de iki ayri 'Apple Distribution' sertifikasi var (eski
+	     43N65KD2PC ve yeni RRZQ42TNXK). Ad tek basina belirsiz kaldigi
+	     icin codesign errSecInternalComponent ile dusuyordu; hangisi
+	     oldugunu parmak iziyle sabitliyoruz. -->
+	<key>signingCertificate</key>
+	<string>F86C4DBE1FBE3040948084CCD9374D82AD455651</string>
+	<key>signingStyle</key>
+	<string>automatic</string>
+	<key>uploadSymbols</key>
+	<true/>
+	<key>destination</key>
+	<string>export</string>
+</dict>
+</plist>

@@ -1,0 +1,419 @@
+{
+  "lang": "python",
+  "nodeId": 9,
+  "nodeTitle": "Loop Basics",
+  "chapter": 3,
+  "model": "claude-opus-5-5 (chat session, --from-file)",
+  "createdAt": "2026-11-19T20:24:33.413Z",
+  "candidates": [
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "trace"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "6 lines"
+          },
+          {
+            "name": "four-options",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "execution": [
+          {
+            "name": "runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "stdout-equals-correct-option",
+            "ok": true,
+            "detail": "stdout=\"3\" correct=\"3\""
+          },
+          {
+            "name": "distractors-are-wrong",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.41 \"How many times does the loop body run?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "trace",
+        "prompt": "How many times does `count` go up?",
+        "code": [
+          {
+            "text": "word = \"banana\""
+          },
+          {
+            "text": "count = 0"
+          },
+          {
+            "text": "for ch in word:"
+          },
+          {
+            "text": "    if ch == \"a\":"
+          },
+          {
+            "text": "        count += 1"
+          },
+          {
+            "text": "print(count)",
+            "highlight": true
+          }
+        ],
+        "options": [
+          "3",
+          "2",
+          "6",
+          "1"
+        ],
+        "correct": 0,
+        "explanation": "The loop visits all six letters of \"banana\" and adds 1 only on an \"a\" — positions 1, 3 and 5, so 3. 6 is the length of the word, not the number of matches; 1 would mean the loop stopped at the first hit, which only happens with break.",
+        "hint": "Walk the letters one at a time and tick each one that passes the if.",
+        "verify": {}
+      }
+    },
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "output"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "4 lines"
+          },
+          {
+            "name": "four-options",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "execution": [
+          {
+            "name": "runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "stdout-equals-correct-option",
+            "ok": true,
+            "detail": "stdout=\"14\" correct=\"14\""
+          },
+          {
+            "name": "distractors-are-wrong",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "terminal-output-matches",
+            "ok": true,
+            "detail": "terminalOutput=\"14\""
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.50 \"What does break leave printed?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "output",
+        "prompt": "What does the loop leave in `total`?",
+        "code": [
+          {
+            "text": "total = 0"
+          },
+          {
+            "text": "for i in range(1, 4):"
+          },
+          {
+            "text": "    total += i * i"
+          },
+          {
+            "text": "print(total)"
+          }
+        ],
+        "terminalOutput": "14",
+        "options": [
+          "14",
+          "30",
+          "6",
+          "9"
+        ],
+        "correct": 0,
+        "explanation": "range(1, 4) gives 1, 2, 3 — the stop value 4 is never included. Their squares are 1 + 4 + 9 = 14. 30 adds 16 as if 4 were included; 6 forgets to square; 9 keeps only the last square instead of adding.",
+        "hint": "Write down each i that range(1, 4) hands out, square it, then add.",
+        "verify": {}
+      }
+    },
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "trace"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "9 lines"
+          },
+          {
+            "name": "four-options",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "execution": [
+          {
+            "name": "runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "stdout-equals-correct-option",
+            "ok": true,
+            "detail": "stdout=\"6\" correct=\"6\""
+          },
+          {
+            "name": "distractors-are-wrong",
+            "ok": true,
+            "detail": ""
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.52 \"How many times does the loop body run?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "trace",
+        "prompt": "How many passes does the while loop make before n reaches 1?",
+        "code": [
+          {
+            "text": "n = 10"
+          },
+          {
+            "text": "steps = 0"
+          },
+          {
+            "text": "while n != 1:"
+          },
+          {
+            "text": "    if n % 2 == 0:"
+          },
+          {
+            "text": "        n = n // 2"
+          },
+          {
+            "text": "    else:"
+          },
+          {
+            "text": "        n = 3 * n + 1"
+          },
+          {
+            "text": "    steps += 1"
+          },
+          {
+            "text": "print(steps)",
+            "highlight": true
+          }
+        ],
+        "options": [
+          "6",
+          "7",
+          "5",
+          "4"
+        ],
+        "correct": 0,
+        "explanation": "n goes 10 → 5 → 16 → 8 → 4 → 2 → 1: six changes, so six passes. Counting the starting 10 as a step gives 7; stopping one early (forgetting the last halving to 1) gives 5.",
+        "hint": "Keep a small table of n after each pass and count the rows.",
+        "verify": {}
+      }
+    },
+    {
+      "status": "pass",
+      "gates": {
+        "schema": [
+          {
+            "name": "app-rules",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "supported-type",
+            "ok": true,
+            "detail": "bug"
+          },
+          {
+            "name": "prompt",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "explanation",
+            "ok": true,
+            "detail": "at least 40 chars"
+          },
+          {
+            "name": "hint",
+            "ok": true,
+            "detail": "present and does not give the answer away"
+          },
+          {
+            "name": "code-length",
+            "ok": true,
+            "detail": "5 lines"
+          }
+        ],
+        "execution": [
+          {
+            "name": "fix-runs",
+            "ok": true,
+            "detail": ""
+          },
+          {
+            "name": "fix-prints-expected",
+            "ok": true,
+            "detail": "got \"[2, 4, 6]\""
+          },
+          {
+            "name": "bug-changes-behaviour",
+            "ok": true,
+            "detail": "the flagged line must matter"
+          }
+        ],
+        "duplicate": [
+          {
+            "name": "not-near-duplicate",
+            "ok": true,
+            "detail": "closest 0.40 \"total always ends up holding just the last number. Which line?\""
+          }
+        ]
+      },
+      "review": null,
+      "exercise": {
+        "type": "bug",
+        "prompt": "This should collect 2, 4 and 6. Which line is wrong?",
+        "code": [
+          {
+            "text": "evens = []",
+            "hasError": false
+          },
+          {
+            "text": "for n in range(1, 7):",
+            "hasError": false
+          },
+          {
+            "text": "    if n % 2 == 1:",
+            "hasError": true
+          },
+          {
+            "text": "        evens.append(n)",
+            "hasError": false
+          },
+          {
+            "text": "print(evens)",
+            "hasError": false
+          }
+        ],
+        "correctLine": 2,
+        "explanation": "n % 2 == 1 is true for ODD numbers, so the list ends up as [1, 3, 5]. An even number leaves remainder 0 when divided by 2, so the test should be n % 2 == 0. The range is fine: range(1, 7) covers 1 through 6.",
+        "hint": "Try n = 4 in your head: what is 4 % 2, and does the if let it through?",
+        "verify": {
+          "fix": "    if n % 2 == 0:",
+          "expected_stdout": "[2, 4, 6]"
+        }
+      }
+    }
+  ]
+}

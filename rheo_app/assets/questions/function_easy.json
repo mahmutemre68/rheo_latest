@@ -1,0 +1,162 @@
+[
+  {
+    "id": "function_e_py_88533_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def calculate_cart_total(price, quantity):\n    total = price * quantity\n    return total\n\nitem_price = 25\nitem_quantity = 3\nfinal_total = calculate_cart_total(item_price, item_quantity)\nprint(final_total)",
+    "question_text": "Bu kodun çıktısı nedir? Bir online mağaza için sepet toplamını hesaplar.",
+    "correct_answer": "75",
+    "wrong_options": [
+      "25",
+      "3",
+      "Error"
+    ],
+    "explanation": "calculate_cart_total fonksiyonu, bir ürünün fiyatını ve miktarını alarak toplam maliyeti hesaplar. item_price 25 ve item_quantity 3 olduğundan, fonksiyon 25 * 3 = 75 değerini döndürür. Bu değer final_total değişkenine atanır ve ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def create_greeting(user_name, salutation=\"Merhaba\"):\n    return f\"{salutation}, {user_name}!\"\n\nmessage1 = create_greeting(\"Ayşe\")\nprint(message1)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır? Bir web sitesi için standart bir karşılama mesajı oluşturur.",
+    "correct_answer": "Merhaba, Ayşe!",
+    "wrong_options": [
+      "Ayşe!",
+      "Merhaba!",
+      "None"
+    ],
+    "explanation": "create_greeting fonksiyonu, user_name ve varsayılan değeri 'Merhaba' olan bir salutation (selamlama) parametresi alır. İlk çağrıda sadece 'Ayşe' verildiği için, salutation varsayılan değerini ('Merhaba') kullanır ve 'Merhaba, Ayşe!' çıktısını verir.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_2",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "product_prices = [100, 200, 150]\ndiscount_rate = 0.10 # %10 indirim\n\ndiscounted_prices = list(map(_____, product_prices))\nprint(discounted_prices)",
+    "question_text": "Bir ürün listesine hızlı indirim uygulamak için `_____` yerine gelmesi gereken doğru kod parçası nedir?",
+    "correct_answer": "lambda p: p * (1 - discount_rate)",
+    "wrong_options": [
+      "lambda p: p - discount_rate",
+      "lambda p: p * discount_rate",
+      "lambda p: discount_rate"
+    ],
+    "explanation": "`map()` fonksiyonu, bir fonksiyonu (bu durumda bir lambda) bir iterabledaki her öğeye uygular. `%10 indirim` uygulamak demek, orijinal fiyatın `%90'ını almak` demektir. `lambda p: p * (1 - discount_rate)` ifadesi, her fiyat (p) için p * (1 - 0.10) yani p * 0.90 hesaplamasını yapar.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "game_score = 0\n\ndef add_points(points):\n    # Bu satır skoru doğru şekilde güncellemeyi amaçlamaktadır.\n    game_score = game_score + points # HATALI SATIR\n    print(f\"Fonksiyon içi skor: {game_score}\")\n\nadd_points(50)\nprint(f\"Oyun sonu skoru: {game_score}\")",
+    "question_text": "Bu kod bir oyundaki skoru takip etmektedir ancak beklendiği gibi çalışmamaktadır. Hatalı satırı bulunuz.",
+    "correct_answer": "`game_score = game_score + points` satırı",
+    "wrong_options": [
+      "`game_score = 0` satırı",
+      "`add_points(50)` satırı",
+      "`print(f\"Oyun sonu skoru: {game_score}\")` satırı"
+    ],
+    "explanation": "Python'da bir fonksiyon içinde bir değişkene atama yapıldığında, o değişken varsayılan olarak yerel (local) kabul edilir. `game_score = game_score + points` satırında, fonksiyon yerel bir `game_score` değişkeni oluşturmaya çalışır, ancak sağ taraftaki `game_score` ifadesi henüz tanımlanmamış yerel bir değişkene atıfta bulunduğu için `UnboundLocalError` hatasına neden olur. Global değişkeni güncellemek için `global game_score` ifadesi kullanılmalıdır.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def calculate_average_temperature(*temperatures):\n    if not temperatures:\n        return 0\n    total = sum(temperatures)\n    return total / len(temperatures)\n\ndaily_readings = calculate_average_temperature(22.5, 23.0, 21.5, 24.0)\nprint(daily_readings)",
+    "question_text": "Birden fazla sensörden gelen sıcaklık verilerinin ortalamasını hesaplayan bu kodun çıktısı nedir?",
+    "correct_answer": "22.75",
+    "wrong_options": [
+      "22.5",
+      "24.0",
+      "0"
+    ],
+    "explanation": "`*temperatures` parametresi, fonksiyona geçirilen tüm argümanları bir demet (tuple) olarak toplar. `sum(temperatures)` tüm sıcaklıkları toplar (22.5 + 23.0 + 21.5 + 24.0 = 91.0). `len(temperatures)` ise argüman sayısını verir (4). Ortalama 91.0 / 4 = 22.75'tir.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def check_pass_status(student_grade, passing_score=50):\n    if student_grade >= passing_score:\n        _____ True\n    else:\n        _____ False\n\nresult = check_pass_status(45)\nprint(result)",
+    "question_text": "Bir öğrencinin sınavı geçip geçmediğini kontrol eden aşağıdaki fonksiyonda `_____` yerine gelmesi gereken anahtar kelime nedir?",
+    "correct_answer": "return",
+    "wrong_options": [
+      "print",
+      "yield",
+      "pass"
+    ],
+    "explanation": "Bir fonksiyonun bir değer döndürmesi için `return` anahtar kelimesi kullanılır. Bu durumda, öğrencinin notu geçme puanına eşit veya büyükse `True`, aksi takdirde `False` döndürülmelidir.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def make_greeting_generator(greeting_word):\n    def greet(name):\n        return f\"{greeting_word}, {name}!\"\n    return greet\n\nsay_hello = make_greeting_generator(\"Merhaba\")\nmessage = say_hello(\"Zeynep\")\nprint(message)",
+    "question_text": "Farklı stillerde kişiselleştirilmiş karşılama işlevi oluşturmayı sağlayan bu kodun çıktısı ne olacaktır?",
+    "correct_answer": "Merhaba, Zeynep!",
+    "wrong_options": [
+      "Zeynep!",
+      "Merhaba!",
+      "None"
+    ],
+    "explanation": "`make_greeting_generator` fonksiyonu, içindeki `greet` fonksiyonunu döndürür. `say_hello = make_greeting_generator(\"Merhaba\")` çağrısı, `greeting_word` olarak 'Merhaba'yı hatırlayan bir `greet` fonksiyonu oluşturur. `say_hello(\"Zeynep\")` çağrıldığında ise 'Zeynep' ismini kullanarak kaydedilmiş 'Merhaba' kelimesiyle birleşen 'Merhaba, Zeynep!' çıktısını verir.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def display_user_profile(**details):\n    info_string = \"\"\n    for key, value in details.items():\n        info_string += f\"{key.replace('_', ' ').title()}: {value}\\n\"\n    return info_string.strip()\n\nuser_data = display_user_profile(\n    ad=\"Emre\",\n    yas=30,\n    sehir=\"Ankara\"\n)\nprint(user_data)",
+    "question_text": "Bir kullanıcının profil bilgilerini dinamik olarak görüntüleyen aşağıdaki kodun çıktısı nedir?",
+    "correct_answer": "Ad: Emre\nYas: 30\nSehir: Ankara",
+    "wrong_options": [
+      "{'ad': 'Emre', 'yas': 30, 'sehir': 'Ankara'}",
+      "ad: Emre\nyas: 30\nsehir: Ankara",
+      "None"
+    ],
+    "explanation": "`**details` parametresi, fonksiyona anahtar-değer çiftleri olarak geçirilen tüm argümanları bir sözlük (dictionary) olarak toplar. `for` döngüsü bu sözlükteki her öğeyi dolaşır, anahtarları baş harfi büyük hale getirip (title()) ve değerleriyle birlikte birleştirerek `info_string`'e ekler. Son olarak `strip()` metodu sondaki boş satırı kaldırır.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_8",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def calculate_area(length, width):\n    return length * width\n\n# Bu fonksiyon çağrısında bir hata vardır.\nroom_area = calculate_area(5) # HATALI SATIR\nprint(room_area)",
+    "question_text": "Bir dikdörtgenin alanını hesaplamak isteyen bu kodda bir hata vardır. Hatalı satırı bulunuz.",
+    "correct_answer": "`room_area = calculate_area(5)` satırı",
+    "wrong_options": [
+      "`def calculate_area(length, width):` satırı",
+      "`return length * width` satırı",
+      "`print(room_area)` satırı"
+    ],
+    "explanation": "`calculate_area` fonksiyonu iki bağımsız değişken (length ve width) beklerken, `calculate_area(5)` çağrısında yalnızca bir bağımsız değişken sağlanmıştır. Bu durum `TypeError: calculate_area() missing 1 required positional argument: 'width'` hatasına neden olur.",
+    "language": "python"
+  },
+  {
+    "id": "function_e_py_88533_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "function",
+    "code_snippet": "def simple_countdown(number):\n    if number <= 0:\n        print(\"Bitti!\")\n    else:\n        print(number)\n        simple_countdown(number - 1)\n\nsimple_countdown(3)",
+    "question_text": "Basit bir geri sayım sayacı oluşturan bu kodun çıktısı ne olacaktır?",
+    "correct_answer": "3\n2\n1\nBitti!",
+    "wrong_options": [
+      "Bitti!",
+      "3\n2\n1",
+      "RecursionError"
+    ],
+    "explanation": "Bu bir özyinelemeli (recursive) fonksiyondur. `simple_countdown(3)` çağrıldığında önce 3'ü yazdırır, sonra `simple_countdown(2)`'yi çağırır. Bu işlem sayı 0'a ulaşana kadar devam eder. 0 olduğunda 'Bitti!' yazdırılır ve fonksiyon sonlanır. Sonuç olarak sırasıyla 3, 2, 1 ve 'Bitti!' yazdırılır.",
+    "language": "python"
+  }
+]

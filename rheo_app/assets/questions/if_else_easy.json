@@ -1,0 +1,1442 @@
+[
+  {
+    "id": "if_else_e_py_8845_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "sepet_tutari = 120\nif sepet_tutari > 100:\n    indirim_orani = 0.10\nelse:\n    indirim_orani = 0.05\nprint(int(indirim_orani * 100))",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "10",
+    "wrong_options": [
+      "5",
+      "0",
+      "15"
+    ],
+    "explanation": "`sepet_tutari` (120) 100'den büyük olduğu için `if` bloğu çalışır ve `indirim_orani` 0.10 olarak ayarlanır. Sonuç olarak `0.10 * 100` işlemi 10 verir ve `int()` ile tam sayıya çevrilerek ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "ogrenci_notu = 85\nif ogrenci_notu >= 90:\n    print(\"A\")\nelif ogrenci_notu >= 80:\n    print(\"B\")\nelse:\n    print(\"C\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "B",
+    "wrong_options": [
+      "A",
+      "C",
+      "D"
+    ],
+    "explanation": "`ogrenci_notu` (85) 90'dan küçük olduğu için ilk `if` koşulu sağlanmaz. Ancak `85 >= 80` doğru olduğu için `elif` bloğu çalışır ve ekrana \"B\" yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "oyuncu_skoru = 2500\nkalan_sure = 10\nif oyuncu_skoru >= 2000 and kalan_sure > 0:\n    durum = \"Kazandı\"\nelse:\n    durum = \"Kaybetti\"\nprint(durum)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Kazandı",
+    "wrong_options": [
+      "Kaybetti",
+      "Hata",
+      "Bilinmiyor"
+    ],
+    "explanation": "`oyuncu_skoru >= 2000` (2500 >= 2000) ifadesi `True`'dur. `kalan_sure > 0` (10 > 0) ifadesi de `True`'dur. `True and True` koşulu `True` olduğu için `if` bloğu çalışır ve `durum` değişkeni \"Kazandı\" değerini alır. Bu değer ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "kullanici_rolu = \"misafir\"\nif kullanici_rolu == \"admin\" or kullanici_rolu == \"editor\":\n    print(\"Tam erişim\")\nelse:\n    print(\"Sınırlı erişim\")",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Sınırlı erişim",
+    "wrong_options": [
+      "Tam erişim",
+      "Misafir",
+      "Erişim yok"
+    ],
+    "explanation": "`kullanici_rolu == \"admin\"` (\"misafir\" == \"admin\") ifadesi `False`'tur. `kullanici_rolu == \"editor\"` (\"misafir\" == \"editor\") ifadesi de `False`'tur. `False or False` koşulu `False` olduğu için `else` bloğu çalışır ve \"Sınırlı erişim\" ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "lamba_acik_mi = False\nif not lamba_acik_mi:\n    mesaj = \"Lamba kapalı.\"\nelse:\n    mesaj = \"Lamba açık.\"\nprint(mesaj)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Lamba kapalı.",
+    "wrong_options": [
+      "Lamba açık.",
+      "Hata",
+      "Bilinmiyor"
+    ],
+    "explanation": "`lamba_acik_mi` değişkeni `False` değerine sahiptir. `not lamba_acik_mi` ifadesi `not False` anlamına gelir ki bu da `True`'dur. `if` koşulu `True` olduğu için `if` bloğu çalışır ve `mesaj` değişkeni \"Lamba kapalı.\" değerini alır. Bu değer ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "kullanici_yasi = 17\noy_hakkı = \"Evet\" if _____ else \"Hayır\"\nprint(oy_hakkı)",
+    "question_text": "Aşağıdaki kodu, `kullanici_yasi` 18 veya daha büyükse \"Evet\", değilse \"Hayır\" yazdıracak şekilde tamamlayın.",
+    "correct_answer": "kullanici_yasi >= 18",
+    "wrong_options": [
+      "kullanici_yasi > 18",
+      "kullanici_yasi == 18",
+      "kullanici_yasi < 18"
+    ],
+    "explanation": "Python'daki üçlü (ternary) operatör `(değer_doğru_ise if koşul else değer_yanlış_ise)` şeklinde kullanılır. 17 yaşındaki bir kullanıcının oy hakkı olmadığını (`oy_hakkı`nın \"Hayır\" olmasını) beklediğimiz için, koşulun `kullanici_yasi >= 18` olması gerekir. Bu durumda `17 >= 18` ifadesi `False` dönecek ve `oy_hakkı` \"Hayır\" olacaktır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_6",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "sayi_degeri = 5\nif sayi_degeri == 0: # Bu satırda mantıksal bir hata var\n    print(\"Sayı pozitiftir.\")\nelse:\n    print(\"Sayı negatif veya sıfırdır.\")",
+    "question_text": "Aşağıdaki kodun amacı `sayi_degeri` pozitifse 'Sayı pozitiftir.' yazdırmak, aksi halde 'Sayı negatif veya sıfırdır.' yazdırmaktır. Ancak şu anki haliyle hatalı çalışmaktadır. Hatanın bulunduğu satırı tespit edin.",
+    "correct_answer": "`if sayi_degeri == 0:`",
+    "wrong_options": [
+      "`print(\"Sayı pozitiftir.\")`",
+      "`else:`",
+      "`sayi_degeri = 5`"
+    ],
+    "explanation": "`sayi_degeri` 5 olarak ayarlanmıştır. Amacımız pozitif sayıları kontrol etmek olmasına rağmen, `if sayi_degeri == 0:` koşulu sadece sıfıra eşit olup olmadığını kontrol eder. Bu yüzden `5 == 0` ifadesi `False` döner ve `else` bloğu çalışarak yanlış bir çıktı verir. Doğru kontrol `if sayi_degeri > 0:` olmalıdır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_7",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "sayi1 = 7\nsayi2 = 7\nif sayi1 > sayi2:\n    sonuc = \"Birinci büyük\"\n_____ sayi1 < sayi2:\n    sonuc = \"İkinci büyük\"\nelse:\n    sonuc = \"Eşit\"\nprint(sonuc)",
+    "question_text": "Aşağıdaki kodu, `sayi1`'in `sayi2` ile karşılaştırılmasını doğru bir şekilde tamamlayın.",
+    "correct_answer": "elif",
+    "wrong_options": [
+      "if",
+      "else if",
+      "when"
+    ],
+    "explanation": "Python'da birden fazla koşulu sırayla kontrol etmek için `if`'ten sonra `elif` (else if'in kısaltması) kullanılır. `sayi1` ve `sayi2` eşit olduğu için ilk `if` ve `elif` koşulları sağlanmayacak, `else` bloğu çalışacak ve \"Eşit\" yazdıracaktır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "alisveris_listesi = []\nif alisveris_listesi:\n    mesaj = \"Liste dolu.\"\nelse:\n    mesaj = \"Liste boş.\"\nprint(mesaj)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Liste boş.",
+    "wrong_options": [
+      "Liste dolu.",
+      "Hata",
+      "None"
+    ],
+    "explanation": "Python'da boş listeler ( `[]` ), boolean bağlamda `False` olarak değerlendirilen 'Falsy' değerlerdir. Bu nedenle `if alisveris_listesi:` koşulu `False` olur ve `else` bloğu çalışır, `mesaj` değişkeni \"Liste boş.\" değerini alır ve bu değer ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_8845_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "sicaklik = 22\nalt_limit = 20\nust_limit = 30\nif alt_limit <= sicaklik <= ust_limit:\n    durum = \"Optimal\"\nelse:\n    durum = \"Normal dışı\"\nprint(durum)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı nedir?",
+    "correct_answer": "Optimal",
+    "wrong_options": [
+      "Normal dışı",
+      "Hata",
+      "Bilinmiyor"
+    ],
+    "explanation": "Python'daki `alt_limit <= sicaklik <= ust_limit` zincirleme karşılaştırması, `alt_limit <= sicaklik` VE `sicaklik <= ust_limit` koşullarının her ikisinin de doğru olup olmadığını kontrol eder. `20 <= 22` (`True`) ve `22 <= 30` (`True`) olduğu için koşul bütünüyle `True`'dur. Bu nedenle `if` bloğu çalışır ve `durum` \"Optimal\" olur, bu değer ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_ja_42523_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class WeatherApp {\n    public static void main(String[] args) {\n        int currentTemperature = 28;\n        String advice;\n        if (currentTemperature > 25) {\n            advice = \"Şort giyin.\";\n        } else {\n            advice = \"Hafif bir ceket alın.\";\n        }\n        System.out.println(advice);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "Şort giyin.",
+    "wrong_options": [
+      "Hafif bir ceket alın.",
+      "28",
+      "Hiçbir şey."
+    ],
+    "explanation": "`currentTemperature` değişkeni 28 değerine sahiptir. `if` koşulu (`currentTemperature > 25`) yani `28 > 25` doğru olduğu için `if` bloğu çalışır ve `advice` değişkenine \"Şort giyin.\" değeri atanır. Sonuç olarak, bu değer ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class ProductStatus {\n    public static void main(String[] args) {\n        double productPrice = 120.0;\n        boolean isProductInStock = false;\n        String status = ___________ ? \"Stokta Var\" : \"Tükendi\";\n        System.out.println(status);\n    }\n}",
+    "question_text": "Ürünün stok durumuna göre mesajı belirlemek için boş bırakılan yere hangi kod gelmelidir?",
+    "correct_answer": "isProductInStock",
+    "wrong_options": [
+      "productPrice > 100",
+      "!isProductInStock",
+      "productPrice == 120"
+    ],
+    "explanation": "Ternary operatörü `koşul ? değer_doğru : değer_yanlış` şeklinde çalışır. `isProductInStock` değişkeni `false` olduğu için koşul `false` olacak ve `Tükendi` değeri atanacaktır. `isProductInStock` doğru koşuldur.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class StudentGrade {\n    public static void main(String[] args) {\n        int studentScore = 75;\n        String grade;\n        if (studentScore >= 90) {\n            grade = \"A\";\n        } else if (studentScore >= 70) {\n            grade = \"B\";\n        } else {\n            grade = \"C\";\n        }\n        System.out.println(\"Not: \" + grade);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "Not: B",
+    "wrong_options": [
+      "Not: A",
+      "Not: C",
+      "Not: "
+    ],
+    "explanation": "`studentScore` değişkeni 75'tir. İlk koşul `studentScore >= 90` (75 >= 90) yanlıştır. İkinci koşul `studentScore >= 70` (75 >= 70) doğru olduğu için bu blok çalışır ve `grade` değişkenine \"B\" değeri atanır. Çıktı \"Not: B\" olur.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class ShippingCost {\n    public static void main(String[] args) {\n        double packageWeight = 7.5;\n        double shippingCost;\n        if (packageWeight > 10) {\n            shippingCost = 25.0;\n        } else {\n            shippingCost = 10.0\n        }\n        System.out.println(\"Kargo ücreti: \" + shippingCost + \" TL\");\n    }\n}",
+    "question_text": "Bu kod derleme hatası veriyor. Hangi satırda noktalı virgül (`;`) eksiktir?",
+    "correct_answer": "shippingCost = 10.0",
+    "wrong_options": [
+      "double packageWeight = 7.5;",
+      "if (packageWeight > 10) {",
+      "System.out.println(\"Kargo ücreti: \" + shippingCost + \" TL\");"
+    ],
+    "explanation": "Java'da çoğu ifadeden sonra noktalı virgül (`;`) gelmesi gerekir. `shippingCost = 10.0` ifadesinin sonunda noktalı virgül eksiktir. Doğrusu `shippingCost = 10.0;` olmalıdır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class MovieEligibility {\n    public static void main(String[] args) {\n        int viewerAge = 15;\n        boolean hasParentalPermission = true;\n        String movieAccess;\n        if (viewerAge >= 13 && hasParentalPermission) {\n            movieAccess = \"İzleyebilir.\";\n        } else {\n            movieAccess = \"İzleyemez.\";\n        }\n        System.out.println(movieAccess);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "İzleyebilir.",
+    "wrong_options": [
+      "İzleyemez.",
+      "Yaş yeterli değil.",
+      "İzin gerekli."
+    ],
+    "explanation": "viewerAge` 15 ve `hasParentalPermission` `true`'dur. `if` koşulu `viewerAge >= 13` (15 >= 13) doğru VE `hasParentalPermission` (`true`) doğru olduğu için, `&&` (mantıksal VE) operatörü sayesinde tüm koşul doğrudur. Bu nedenle `movieAccess` değişkenine \"İzleyebilir.\" değeri atanır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class DayName {\n    public static void main(String[] args) {\n        int dayNumber = 3;\n        String dayName;\n        switch (dayNumber) {\n            case 1: dayName = \"Pazartesi\"; break;\n            case 2: dayName = \"Salı\"; break;\n            _______: dayName = \"Çarşamba\"; break;\n            default: dayName = \"Bilinmeyen Gün\";\n        }\n        System.out.println(dayName);\n    }\n}",
+    "question_text": "Haftanın gününü doğru bir şekilde eşleştirmek için boş bırakılan yere hangi kod gelmelidir?",
+    "correct_answer": "case 3",
+    "wrong_options": [
+      "if (dayNumber == 3)",
+      "case '3'",
+      "case 3:"
+    ],
+    "explanation": "`switch` ifadesinde, belirli bir değeri kontrol etmek için `case` anahtar kelimesi kullanılır, ardından kontrol edilecek değer ve iki nokta üst üste (`:` ) gelir. `dayNumber` 3 olduğu için `case 3:` ifadesine ihtiyacımız var. Verilen seçeneklerde `case 3` doğru ifadeyi temsil etmektedir.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class DiscountCoupon {\n    public static void main(String[] args) {\n        double cartTotal = 60.0;\n        boolean hasCouponCode = true;\n        String discountStatus;\n        if (cartTotal > 50) {\n            if (hasCouponCode) {\n                discountStatus = \"Özel indirim uygulandı.\";\n            } else {\n                discountStatus = \"Minimum tutar indirimi.\";\n            }\n        } else {\n            discountStatus = \"İndirim yok.\";\n        }\n        System.out.println(discountStatus);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "Özel indirim uygulandı.",
+    "wrong_options": [
+      "Minimum tutar indirimi.",
+      "İndirim yok.",
+      "Hata"
+    ],
+    "explanation": "`cartTotal` 60.0'dır ve `hasCouponCode` `true`'dur. İlk `if` koşulu `cartTotal > 50` (60.0 > 50) doğru olduğu için içeri girilir. İçerideki `if` koşulu `hasCouponCode` (`true`) da doğru olduğu için `discountStatus` değişkenine \"Özel indirim uygulandı.\" değeri atanır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_7",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class UserLevel {\n    public static void main(String[] args) {\n        int experiencePoints = 150;\n        String userLevel;\n        if (experiencePoints < 100) {\n            userLevel = \"Acemi\";\n        } else if (experiencePoints < 200) {\n            userLevel = \"Deneyimli\";\n        } _______ {\n            userLevel = \"Uzman\";\n        }\n        System.out.println(\"Seviye: \" + userLevel);\n    }\n}",
+    "question_text": "Kullanıcının deneyim puanına göre seviyesini belirlemek için boş bırakılan yere hangi anahtar kelime gelmelidir?",
+    "correct_answer": "else",
+    "wrong_options": [
+      "else if (experiencePoints >= 200)",
+      "if (experiencePoints >= 200)",
+      "default"
+    ],
+    "explanation": "`if-else if-else` yapısında, ilk koşul ve sonraki `else if` koşulları yanlış olduğunda çalışacak son blok için sadece `else` anahtar kelimesi kullanılır. Bu durumda, 100'den küçük ve 200'den küçük olmayan (yani 200 veya daha büyük olan) tüm durumlar için \"Uzman\" atanacaktır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class FeatureStatus {\n    public static void main(String[] args) {\n        boolean isFeatureEnabled = false;\n        String statusMessage;\n        if (!isFeatureEnabled) {\n            statusMessage = \"Özellik devre dışı.\";\n        } else {\n            statusMessage = \"Özellik etkin.\";\n        }\n        System.out.println(statusMessage);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "Özellik devre dışı.",
+    "wrong_options": [
+      "Özellik etkin.",
+      "Doğru",
+      "Yanlış"
+    ],
+    "explanation": "`isFeatureEnabled` değişkeni `false` değerine sahiptir. `if` koşulundaki `!` (mantıksal DEĞİL) operatörü `isFeatureEnabled`'ın değerini tersine çevirir. Yani `!false` ifadesi `true` olur. Koşul doğru olduğu için `if` bloğu çalışır ve `statusMessage` değişkenine \"Özellik devre dışı.\" değeri atanır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_42523_9",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class MonthNameConverter {\n    public static void main(String[] args) {\n        int monthNumber = 2;\n        String monthName;\n        switch (monthNumber) {\n            case 1: monthName = \"Ocak\";\n            case 2: monthName = \"Şubat\";\n            case 3: monthName = \"Mart\"; break;\n            default: monthName = \"Bilinmiyor\";\n        }\n        System.out.println(monthName);\n    }\n}",
+    "question_text": "Bu kod, beklenen \"Şubat\" yerine \"Mart\" çıktısı veriyor. Hangi satırdaki eksik kod bu hataya yol açıyor?",
+    "correct_answer": "case 2: monthName = \"Şubat\";",
+    "wrong_options": [
+      "case 1: monthName = \"Ocak\";",
+      "case 3: monthName = \"Mart\"; break;",
+      "default: monthName = \"Bilinmiyor\";"
+    ],
+    "explanation": "`switch-case` yapısında, bir `case` bloğu bittiğinde bir sonraki `case`'e geçişi durdurmak için `break` anahtar kelimesi kullanılır. `case 2`'den sonra `break` olmadığı için kod 'fall-through' yaparak `case 3`'e geçer ve `monthName` \"Mart\" olarak ayarlanır. Doğru çıktı için `case 2: monthName = \"Şubat\"; break;` olmalıdır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_80535_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let currentTemperature = 22;\nlet weatherAdvice;\n\nif (currentTemperature > 25) {\n  weatherAdvice = \"Dışarısı sıcak, hafif giyinin.\";\n} else {\n  weatherAdvice = \"Hava güzel, ancak bir hırka gerekebilir.\";\n}\n\nconsole.log(weatherAdvice);",
+    "question_text": "Aşağıdaki kodun çıktısı nedir?",
+    "correct_answer": "Hava güzel, ancak bir hırka gerekebilir.",
+    "wrong_options": [
+      "Dışarısı sıcak, hafif giyinin.",
+      "Bilinmiyor",
+      "Hava soğuk."
+    ],
+    "explanation": "`currentTemperature` (22) 25'ten büyük olmadığı için `if` bloğu çalışmaz. Bunun yerine `else` bloğu çalışır ve `weatherAdvice` değişkenine \"Hava güzel, ancak bir hırka gerekebilir.\" değeri atanır. Bu değer konsola yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let coffeeType = \"Latte\";\nlet preparationTime;\n\nswitch (coffeeType) {\n  case \"Espresso\":\n    preparationTime = 2;\n    break;\n  case \"Latte\":\n    preparationTime = _____;\n    break;\n  default:\n    preparationTime = 5;\n}\n\nconsole.log(preparationTime);",
+    "question_text": "Kahve türüne göre hazırlık süresini belirleyen aşağıdaki kod parçasında, 'Latte' için doğru süreyi atayan eksik kodu tamamlayın.",
+    "correct_answer": "3",
+    "wrong_options": [
+      "2",
+      "5",
+      "0"
+    ],
+    "explanation": "`coffeeType` değişkeninin değeri \"Latte\" olduğu için `switch` ifadesi `case \"Latte\"` bloğuna gider. Bu durumda, `preparationTime` değişkenine `3` değeri atanmalıdır. Diğer seçenekler yanlış süreler veya başka kahve türleri için geçerlidir.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_2",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let itemPrice = 50;\nlet discountApplicable = itemPrice > 100 ? true : false;\n\nconsole.log(discountApplicable);",
+    "question_text": "Aşağıdaki kodun amacı, 50 TL ve üzeri fiyatlı ürünlere indirim uygulanacağını belirtmektir. Ancak, `itemPrice` 50 olduğunda `discountApplicable` yanlış değeri döndürüyor. Hatalı olan satırı tespit edin.",
+    "correct_answer": "let discountApplicable = itemPrice > 100 ? true : false;",
+    "wrong_options": [
+      "console.log(discountApplicable);",
+      "let itemPrice = 50;",
+      "Hiçbir hata yok, kod doğru çalışıyor."
+    ],
+    "explanation": "Hata, `discountApplicable` değişkeninin atandığı satırdadır. İndirimin 50 TL ve üzeri fiyatlı ürünler için uygulanması gerektiği belirtilmiştir (`itemPrice >= 50`). Ancak kodda `itemPrice > 100` kontrolü yapılmıştır. Bu yüzden `itemPrice` 50 olduğunda koşul `false` döner ve `discountApplicable` yanlışlıkla `false` olur. Doğrusu `itemPrice >= 50` olmalıdır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let borrowerName = \"\";\nlet bookStatus;\n\nif (borrowerName) {\n  bookStatus = \"Kitap ödünç alındı.\";\n} else {\n  bookStatus = \"Kitap raflarda mevcut.\";\n}\n\nconsole.log(bookStatus);",
+    "question_text": "Aşağıdaki kodun çıktısı nedir?",
+    "correct_answer": "Kitap raflarda mevcut.",
+    "wrong_options": [
+      "Kitap ödünç alındı.",
+      "Hata",
+      "Undefined"
+    ],
+    "explanation": "JavaScript'te boş bir string (`\"\"`) falsy bir değer olarak kabul edilir. `if (borrowerName)` ifadesi, `borrowerName` değişkeni falsy olduğu için `false` olarak değerlendirilir. Bu nedenle `else` bloğu çalışır ve `bookStatus` değişkenine \"Kitap raflarda mevcut.\" değeri atanır. Bu değer konsola yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_4",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let shippingAddress = null;\nlet defaultAddress = \"Ana Cadde No: 15\";\nlet finalAddress = shippingAddress ____ defaultAddress;\n\nconsole.log(finalAddress);",
+    "question_text": "Aşağıdaki kodda, `shippingAddress` null ise `defaultAddress`'ı, aksi takdirde `shippingAddress`'ı `finalAddress`'a atayan eksik operatörü tamamlayın.",
+    "correct_answer": "??",
+    "wrong_options": [
+      "||",
+      "&&",
+      "+"
+    ],
+    "explanation": "Nullish coalescing operatörü (`??`), sol tarafındaki işlenen `null` veya `undefined` ise sağ tarafındaki işleneni döndürür; aksi takdirde sol tarafındaki işleneni döndürür. `shippingAddress` `null` olduğu için `finalAddress`'a `defaultAddress`'ın değeri atanacaktır (\"Ana Cadde No: 15\"). `||` operatörü `null`'ın yanı sıra boş string veya 0 gibi falsy değerleri de yakalar, ancak burada sadece `null` ve `undefined` için yedek bir değer isteniyor.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_5",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let playlist = {\n  name: \"Akşam Şarkıları\",\n  songs: []\n};\n\nlet firstSongArtist = playlist.songs[0]?.artist;\n\nconsole.log(firstSongArtist);",
+    "question_text": "Aşağıdaki kodun çıktısı nedir?",
+    "correct_answer": "undefined",
+    "wrong_options": [
+      "Sanatçı A",
+      "null",
+      "Hata"
+    ],
+    "explanation": "`playlist.songs` bir boş dizidir. Bu nedenle `playlist.songs[0]` `undefined` olacaktır. Optional chaining operatörü (`?.`) sayesinde, `undefined` üzerinde `.artist` özelliğine erişmeye çalışmak bir hata fırlatmak yerine doğrudan `undefined` değerini döndürür. Bu nedenle `firstSongArtist`'in değeri `undefined` olur.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_6",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let playerScore = 700;\nlet playerRank;\n\nif (playerScore > 200) {\n  playerRank = \"Tecrübeli\";\n} else if (playerScore > 500) {\n  playerRank = \"Usta Oyuncu\";\n} else if (playerScore > 1000) {\n  playerRank = \"Grandmaster\";\n} else {\n  playerRank = \"Acemi\";\n}\n\nconsole.log(playerRank);",
+    "question_text": "Aşağıdaki kod, oyuncunun puanına göre sıralamasını belirlemektedir. Ancak `playerScore` 700 iken `playerRank` \"Usta Oyuncu\" yerine \"Tecrübeli\" oluyor. Bu mantık hatasına yol açan satırı tespit edin.",
+    "correct_answer": "if (playerScore > 200) {",
+    "wrong_options": [
+      "} else if (playerScore > 500) {",
+      "} else if (playerScore > 1000) {",
+      "else {"
+    ],
+    "explanation": "Hata, `if/else if` koşullarının yanlış sıradadır. `playerScore` 700 olduğu için ilk koşul olan `playerScore > 200` (`700 > 200`) doğru olur ve `playerRank` \"Tecrübeli\" olarak ayarlanır. `if/else if` zinciri ilk doğru koşulu bulduğunda durur ve diğer `else if` bloklarını kontrol etmez. Bu nedenle daha spesifik olan `playerScore > 500` koşulu hiçbir zaman kontrol edilmez. Koşullar en spesifikten en genele doğru sıralanmalıdır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_7",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let stepsCount = 9500;\nlet dailyGoal = 10000;\nlet goalAchieved;\n\nif (stepsCount ____ dailyGoal) {\n  goalAchieved = \"Hedefe ulaşıldı!\";\n} else {\n  goalAchieved = \"Daha fazla adım atın.\";\n}\n\nconsole.log(goalAchieved);",
+    "question_text": "Günlük adım hedefine ulaşılıp ulaşılmadığını kontrol eden aşağıdaki kodda, doğru karşılaştırma operatörünü kullanarak eksik kodu tamamlayın.",
+    "correct_answer": ">=",
+    "wrong_options": [
+      "<=",
+      "==",
+      "!="
+    ],
+    "explanation": "Günlük hedefe ulaşmak için atılan adım sayısı (`stepsCount`), günlük hedefe (`dailyGoal`) eşit veya ondan fazla olmalıdır. Bu koşulu sağlayan operatör `>=` (büyük veya eşit) operatörüdür.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let driverAge = 25;\nlet hasValidLicense = false;\nlet canRentCar;\n\nif (driverAge >= 21 && hasValidLicense) {\n  canRentCar = \"Araç kiralamaya uygunsunuz.\";\n} else {\n  canRentCar = \"Kiralama için uygun değilsiniz.\";\n}\n\nconsole.log(canRentCar);",
+    "question_text": "Aşağıdaki kodun çıktısı nedir?",
+    "correct_answer": "Kiralama için uygun değilsiniz.",
+    "wrong_options": [
+      "Araç kiralamaya uygunsunuz.",
+      "Hata",
+      "Undefined"
+    ],
+    "explanation": "`driverAge >= 21` (25 >= 21) koşulu `true`'dur. Ancak `hasValidLicense` değişkeni `false` olarak ayarlanmıştır. `&&` (mantıksal VE) operatörü, yalnızca her iki tarafındaki koşul da `true` ise `true` döner. Burada `true && false` sonucu `false` olduğu için `if` bloğu çalışmaz ve `else` bloğu çalışarak `canRentCar` değişkenine \"Kiralama için uygun değilsiniz.\" değeri atanır. Bu değer konsola yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_80535_9",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let emailPreference = 0; // 0 bildirim yok anlamına gelir\nlet defaultNotification = \"Haftalık Bülten\";\nlet finalPreference = emailPreference || defaultNotification;\n\nconsole.log(finalPreference);",
+    "question_text": "Aşağıdaki kodun amacı, `emailPreference` null veya undefined ise `defaultNotification`'ı kullanmaktır. Ancak `emailPreference` 0 (bildirim yok anlamında) olduğunda bile varsayılan bildirimi gösteriyor. Bu hataya neden olan satırı tespit edin.",
+    "correct_answer": "let finalPreference = emailPreference || defaultNotification;",
+    "wrong_options": [
+      "let emailPreference = 0;",
+      "let defaultNotification = \"Haftalık Bülten\";",
+      "console.log(finalPreference);"
+    ],
+    "explanation": "Hata, `finalPreference` değişkeninin atandığı satırdadır. Mantıksal VEYA operatörü (`||`), sol tarafındaki değer 'falsy' (false, 0, null, undefined, '', NaN) ise sağ tarafındaki değeri döndürür. `emailPreference` değişkeni `0` olduğu için, bu değer falsy kabul edilir ve `finalPreference`'a `defaultNotification`'ın değeri (\"Haftalık Bülten\") atanır. Amacımız sadece `null` veya `undefined` olduğunda yedek değer kullanmak ise `nullish coalescing` operatörü (`??`) kullanılmalıdır (`emailPreference ?? defaultNotification`).",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_py_14207_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "current_temperature = 28\nif current_temperature > 25:\n    weather_status = \"Sıcak hava\"\nelse:\n    weather_status = \"Normal hava\"\nprint(weather_status)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Sıcak hava",
+    "wrong_options": [
+      "Normal hava",
+      "Hata",
+      "current_temperature"
+    ],
+    "explanation": "Kodda, `current_temperature` değişkeni 28 olarak ayarlanmıştır. `if current_temperature > 25` koşulu kontrol edildiğinde (28 > 25), koşul doğru olduğu için `weather_status` değişkenine \"Sıcak hava\" değeri atanır ve bu değer ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "package_weight_kg = 1.8\npackage_dimensions_cm = 45\ndiscount_eligible = False\n\nif package_weight_kg < 2.0 _____ package_dimensions_cm < 50:\n    discount_eligible = True\nprint(discount_eligible)",
+    "question_text": "Bir kargonun indirim alabilmesi için hem ağırlığının 2 kg'dan az hem de boyutunun 50 cm'den az olması gerekmektedir. Aşağıdaki kodu tamamlamak için boşluğa hangi anahtar kelime gelmelidir?",
+    "correct_answer": "and",
+    "wrong_options": [
+      "or",
+      "not",
+      "if"
+    ],
+    "explanation": "İki koşulun da (ağırlık ve boyut) aynı anda doğru olması gerektiği durumlarda, Python'da mantıksal `and` (ve) operatörü kullanılır. Bu durumda, `package_weight_kg < 2.0` (1.8 < 2.0 -> True) ve `package_dimensions_cm < 50` (45 < 50 -> True) koşulları doğru olduğu için `and` ile birleşince genel koşul doğru olur ve `discount_eligible` True olarak ayarlanır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_2",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "customer_loyalty_points = 1200\nvip_level = \"Normal\"\nif customer_loyalty_points < 500:\n    vip_level = \"Bronz\"\nelif customer_loyalty_points >= 500: # Hatalı satır\n    vip_level = \"Gümüş\"\nelif customer_loyalty_points >= 1000:\n    vip_level = \"Altın\"\nprint(vip_level)",
+    "question_text": "Aşağıdaki kodun amacı, müşteri puanlarına göre VIP seviyesini belirlemektir:\n- 500'den az puan: Bronz\n- 500-999 puan: Gümüş\n- 1000 ve üzeri puan: Altın\n\n`customer_loyalty_points` değeri 1200 olduğunda çıktının \"Altın\" olması beklenirken, mevcut kod \"Gümüş\" çıktısı vermektedir. Hangi satır düzeltilmelidir?",
+    "correct_answer": "elif customer_loyalty_points >= 500:",
+    "wrong_options": [
+      "if customer_loyalty_points < 500:",
+      "vip_level = \"Normal\"",
+      "elif customer_loyalty_points >= 1000:"
+    ],
+    "explanation": "Bu kodda, `elif` koşullarının sırası önemlidir. Eğer `customer_loyalty_points` 1200 ise, `elif customer_loyalty_points >= 500:` koşulu önce kontrol edilir ve doğru olduğu için `vip_level` hemen \"Gümüş\" olarak ayarlanır. Ardından, daha spesifik olan `elif customer_loyalty_points >= 1000:` koşuluna ulaşılmaz. \"Altın\" seviyesinin doğru bir şekilde belirlenmesi için, `elif customer_loyalty_points >= 1000:` koşulu, `elif customer_loyalty_points >= 500:` koşulundan önce gelmelidir.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "product_stock = 0\norders_to_ship = []\nif product_stock or orders_to_ship:\n    status_message = \"İşlem bekleyen öğeler var.\"\nelse:\n    status_message = \"Her şey yolunda.\"\nprint(status_message)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Her şey yolunda.",
+    "wrong_options": [
+      "İşlem bekleyen öğeler var.",
+      "Hata",
+      "True"
+    ],
+    "explanation": "Python'da 0 (sıfır) sayısal değeri 'falsy' (yanlış) bir değer olarak kabul edilir. Benzer şekilde, boş listeler (`[]`) da 'falsy' değerlerdir. `product_stock` (0) ve `orders_to_ship` ([]) değişkenlerinin her ikisi de falsy olduğu için, `product_stock or orders_to_ship` koşulu (`False or False`) yanlış (False) olur. Bu nedenle `else` bloğu çalışır ve 'Her şey yolunda.' çıktısı verilir.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_4",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "user_age = 17\nminimum_age = 18\ncan_watch_movie = \"İzleyebilir\" _____ user_age >= minimum_age else \"İzleyemez\"\nprint(can_watch_movie)",
+    "question_text": "Bir kullanıcının yaşının belirli bir sınıra göre film izleyip izleyemeyeceğini belirleyen üçlü (ternary) operatör kodunu tamamlamak için boşluğa hangi anahtar kelime gelmelidir?",
+    "correct_answer": "if",
+    "wrong_options": [
+      "when",
+      "for",
+      "and"
+    ],
+    "explanation": "Python'da üçlü (ternary) operatörün sözdizimi `değer_eğer_doğru_ise if koşul else değer_eğer_yanlış_ise` şeklindedir. Dolayısıyla, boşluğa gelmesi gereken anahtar kelime `if` olmalıdır. `user_age` (17) `minimum_age`'den (18) küçük olduğu için koşul (`user_age >= minimum_age`) yanlış olur ve `can_watch_movie` değişkenine \"İzleyemez\" değeri atanır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_5",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "participant_age = 22\nis_member = False\nif participant_age >= 18 or is_member:\n    entry_status = \"Katılabilir\"\nelse:\n    entry_status = \"Katılamaz\"\nprint(entry_status)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Katılabilir",
+    "wrong_options": [
+      "Katılamaz",
+      "Hata",
+      "True"
+    ],
+    "explanation": "Kodda, `participant_age` 22 ve `is_member` False olarak ayarlanmıştır. `if participant_age >= 18 or is_member` koşulu kontrol edildiğinde: `(22 >= 18)` doğru (`True`) ve `is_member` yanlış (`False`)'tur. `True or False` ifadesinin sonucu `True` olduğu için `if` bloğu çalışır ve `entry_status` değişkenine \"Katılabilir\" değeri atanarak ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_6",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "password_length = 7\nis_strong_password = False\nif 6 < password_length > 12: # Hatalı satır\n    is_strong_password = True\nprint(is_strong_password)",
+    "question_text": "Aşağıdaki kodun amacı, şifre uzunluğunun 6 ile 12 karakter arasında (6'dan büyük ve 12'den küçük) olup olmadığını kontrol etmektir. `password_length` 7 olduğunda çıktının `True` olması beklenirken, mevcut kod `False` çıktısı vermektedir. Hangi satır düzeltilmelidir?",
+    "correct_answer": "if 6 < password_length > 12:",
+    "wrong_options": [
+      "password_length = 7",
+      "is_strong_password = False",
+      "print(is_strong_password)"
+    ],
+    "explanation": "Python'da zincirleme karşılaştırmalar (`6 < password_length < 12`) mümkündür, ancak `6 < password_length > 12` ifadesi `(6 < password_length) and (password_length > 12)` olarak yorumlanır. `password_length` 7 olduğunda, `(6 < 7)` doğru (`True`) ama `(7 > 12)` yanlış (`False`) olur. `True and False` ifadesi `False` olduğu için, `is_strong_password` değişkeni `False` olarak kalır. Doğru bir kontrol için bu satır `if 6 < password_length < 12:` veya `if password_length > 6 and password_length < 12:` şeklinde olmalıdır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "absentee_days = 3\nmax_absentee_days = 5\nif not (absentee_days >= max_absentee_days):\n    attendance_status = \"Devam hakkı var.\"\nelse:\n    attendance_status = \"Devam hakkı kalmadı.\"\nprint(attendance_status)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Devam hakkı var.",
+    "wrong_options": [
+      "Devam hakkı kalmadı.",
+      "True",
+      "False"
+    ],
+    "explanation": "`absentee_days` 3 ve `max_absentee_days` 5 olarak ayarlanmıştır. Koşul `absentee_days >= max_absentee_days` (3 >= 5) yanlış (`False`)'tur. `not` operatörü bu yanlış değeri tersine çevirerek doğru (`True`) yapar. Bu nedenle `if` bloğu çalışır ve `attendance_status` değişkenine \"Devam hakkı var.\" değeri atanarak ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_8",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "coffee_size = \"orta\"\ncoffee_price = 0\nmatch coffee_size:\n    case \"küçük\":\n        coffee_price = 30\n    case \"orta\":\n        coffee_price = 40\n    _____ \"büyük\":\n        coffee_price = 50\nprint(coffee_price)",
+    "question_text": "Aşağıdaki `match-case` yapısını kullanarak bir kahve siparişinin boyutuna göre fiyatını belirleyen kodu tamamlamak için boşluğa hangi anahtar kelime gelmelidir?",
+    "correct_answer": "case",
+    "wrong_options": [
+      "if",
+      "elif",
+      "default"
+    ],
+    "explanation": "Python'daki `match-case` (yapısal eşleştirme) ifadesinde, her bir eşleştirme kalıbı `case` anahtar kelimesiyle başlar. Bu nedenle boşluğa `case` kelimesi gelmelidir. `coffee_size` 'orta' olduğu için `case \"orta\":` bloğu eşleşir ve `coffee_price` 40 olarak ayarlanır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_14207_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "exam_score = 75\nproject_score = 60\nattendance_percentage = 85\n\nif (exam_score >= 70 and project_score >= 50) or attendance_percentage >= 90:\n    pass_status = \"Dersi geçti\"\nelse:\n    pass_status = \"Dersi geçemedi\"\nprint(pass_status)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Dersi geçti",
+    "wrong_options": [
+      "Dersi geçemedi",
+      "Hata",
+      "True"
+    ],
+    "explanation": "Koşulu adım adım değerlendirelim:\n1.  `exam_score >= 70` (75 >= 70) -> `True`\n2.  `project_score >= 50` (60 >= 50) -> `True`\n3.  `exam_score >= 70 and project_score >= 50` -> `True and True` -> `True`\n4.  `attendance_percentage >= 90` (85 >= 90) -> `False`\n5.  `(True) or (False)` -> `True`\n\nGenel koşul doğru olduğu için `if` bloğu çalışır ve `pass_status` değişkenine \"Dersi geçti\" değeri atanarak ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_ja_53133_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class ProductChecker {\n    public static void main(String[] args) {\n        double productPrice = 120.0;\n        String status;\n        if (productPrice > 100.0) {\n            status = \"İndirim uygulanabilir.\";\n        } else {\n            status = \"İndirim yok.\";\n        }\n        System.out.println(status);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı ne olacaktır?",
+    "correct_answer": "İndirim uygulanabilir.",
+    "wrong_options": [
+      "İndirim yok.",
+      "Hata oluştu.",
+      "null"
+    ],
+    "explanation": "`productPrice` değeri (120.0), 100.0'dan büyük olduğu için `if` bloğu çalışır ve `status` değişkenine \"İndirim uygulanabilir.\" değeri atanır. Bu nedenle çıktı \"İndirim uygulanabilir.\" olacaktır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class ParkingFee {\n    public static void main(String[] args) {\n        int parkingDurationMinutes = 90; // 1 saat 30 dakika\n        int parkingFee;\n        if (parkingDurationMinutes < 60) {\n            parkingFee = 5;\n        } else if (parkingDurationMinutes < 180) {\n            parkingFee = 10;\n        } else {\n            parkingFee = 15;\n        }\n        System.out.println(\"Otopark ücreti: \" + parkingFee + \" TL\");\n    }\n}",
+    "question_text": "Aşağıdaki otopark ücreti hesaplama kodunun çıktısı ne olur?",
+    "correct_answer": "Otopark ücreti: 10 TL",
+    "wrong_options": [
+      "Otopark ücreti: 5 TL",
+      "Otopark ücreti: 15 TL",
+      "Otopark ücreti: 0 TL"
+    ],
+    "explanation": "`parkingDurationMinutes` değeri 90'dır. İlk `if` koşulu (`90 < 60`) yanlış olduğu için `else if` bloğuna geçilir. İkinci koşul (`90 < 180`) doğru olduğu için bu blok çalışır ve `parkingFee` değeri 10 olarak belirlenir. Bu nedenle çıktı \"Otopark ücreti: 10 TL\" olacaktır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_2",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class DeliveryTracker {\n    public static void main(String[] args) {\n        int deliveryStatusCode = 2;\n        String deliveryMessage;\n        switch (deliveryStatusCode) {\n            case 1:\n                deliveryMessage = \"Sipariş hazırlanıyor.\";\n                break;\n            case 2:\n                // BURAYA KOD GELMELİ\n                break;\n            case 3:\n                deliveryMessage = \"Sipariş teslim edildi.\";\n                break;\n            default:\n                deliveryMessage = \"Bilinmeyen durum.\";\n        }\n        System.out.println(deliveryMessage);\n    }\n}",
+    "question_text": "Bir kargo takip uygulamasında, `deliveryStatusCode` 2 olduğunda doğru mesajı atamak için boş bırakılan yere hangi kod satırı gelmelidir?",
+    "correct_answer": "deliveryMessage = \"Sipariş yolda.\";",
+    "wrong_options": [
+      "deliveryMessage = \"Sipariş alındı.\";",
+      "deliveryMessage = \"Sipariş gecikti.\";",
+      "deliveryMessage = \"Teslimat başarılı.\";"
+    ],
+    "explanation": "`deliveryStatusCode` 2 olduğunda, `switch` ifadesi `case 2` bloğuna yönlendirilecektir. Bu durumda doğru mesaj \"Sipariş yolda.\" olmalıdır. Bu satır `deliveryMessage = \"Sipariş yolda.\";` ile sağlanır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class AgeClassifier {\n    public static void main(String[] args) {\n        int customerAge = 18;\n        String ageStatus;\n        ageStatus = customerAge > 18 ? \"Yetişkin\" : \"Reşit Değil\"; // SATIR A\n        System.out.println(ageStatus);\n    }\n}",
+    "question_text": "Aşağıdaki kodun çıktısı beklendiği gibi 'Yetişkin' değil, 'Reşit Değil' oluyor. Hangi satırdaki koşul ifadesi düzeltilmelidir?",
+    "correct_answer": "SATIR A",
+    "wrong_options": [
+      "public static void main(String[] args) {",
+      "System.out.println(ageStatus);",
+      "int customerAge = 18;"
+    ],
+    "explanation": "Java'da yaygın olarak 18 yaş ve üzeri yetişkin kabul edilir. `customerAge > 18` koşulu, `customerAge` 18 olduğunda yanlış (false) döner çünkü 18, 18'den büyük değildir. Bu nedenle 'Reşit Değil' çıktısı alınır. 18 yaşındaki bir kişinin 'Yetişkin' olarak sınıflandırılması için koşul `customerAge >= 18` olarak değiştirilmelidir. Hata `SATIR A`'dadır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class BankTransaction {\n    public static void main(String[] args) {\n        double accountBalance = 500.0;\n        double withdrawalAmount = 200.0;\n        boolean isAccountActive = true;\n        String message;\n        if (isAccountActive && accountBalance >= withdrawalAmount) {\n            message = \"Para çekme başarılı.\";\n        } else {\n            message = \"Para çekilemedi.\";\n        }\n        System.out.println(message);\n    }\n}",
+    "question_text": "Aşağıdaki banka hesabı işlem kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Para çekme başarılı.",
+    "wrong_options": [
+      "Para çekilemedi.",
+      "Hata oluştu.",
+      "null"
+    ],
+    "explanation": "`isAccountActive` değeri `true` ve `accountBalance` (500.0) `withdrawalAmount`'tan (200.0) büyük veya eşit olduğu için `if` koşulu (`true && true`) doğru döner. Bu nedenle `if` bloğu çalışır ve `message` değişkenine \"Para çekme başarılı.\" değeri atanır. Çıktı bu mesaj olacaktır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class StudentEvaluator {\n    public static void main(String[] args) {\n        int finalExamScore = 45;\n        int projectScore = 80;\n        String passStatus;\n        if (finalExamScore >= 50 || _____) { // BURAYA KOD GELMELİ\n            passStatus = \"Dersi geçti.\";\n        } else {\n            passStatus = \"Dersi kaldı.\";\n        }\n        System.out.println(passStatus);\n    }\n}",
+    "question_text": "Bir öğrencinin dersi geçme koşulları için `finalExamScore` 50 veya üzerinde VEYA `projectScore` 70 veya üzerinde olmalıdır. Boş bırakılan yere hangi kod gelmelidir?",
+    "correct_answer": "projectScore >= 70",
+    "wrong_options": [
+      "finalExamScore >= 70",
+      "projectScore > 70",
+      "projectScore == 80"
+    ],
+    "explanation": "Koşullardan biri veya ikisi de doğruysa öğrencinin geçmesi için 'VEYA' (`||`) operatörü kullanılır. `finalExamScore` 50'den küçük olmasına rağmen, `projectScore` 80'dir ve 70'ten büyüktür. Bu nedenle boş bırakılan yere `projectScore >= 70` gelmelidir ki toplam koşul doğru dönsün ve öğrenci dersi geçsin.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class AnimalAdoption {\n    public static void main(String[] args) {\n        int animalAgeMonths = 8; // Hayvanın yaşı (ay olarak)\n        boolean isHealthy = true; // Sağlıklı mı?\n        boolean isFriendly = false; // Cana yakın mı?\n        String adoptionStatus;\n        if (animalAgeMonths >= 6) {\n            if (isHealthy) {\n                if (isFriendly) {\n                    adoptionStatus = \"Evlat edinilebilir.\";\n                } else {\n                    adoptionStatus = \"Daha fazla eğitim gerekli.\";\n                }\n            } else {\n                adoptionStatus = \"Sağlık sorunu var.\";\n            }\n        } else {\n            adoptionStatus = \"Çok genç.\";\n        }\n        System.out.println(adoptionStatus);\n    }\n}",
+    "question_text": "Aşağıdaki hayvan barınağı evlat edinme uygunluk kontrolü kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Daha fazla eğitim gerekli.",
+    "wrong_options": [
+      "Evlat edinilebilir.",
+      "Sağlık sorunu var.",
+      "Çok genç."
+    ],
+    "explanation": "`animalAgeMonths` (8) 6'dan büyük veya eşit olduğu için ilk `if` bloğuna girilir. `isHealthy` `true` olduğu için ikinci `if` bloğuna girilir. Ancak `isFriendly` `false` olduğu için en içteki `else` bloğu çalışır ve `adoptionStatus` değişkenine \"Daha fazla eğitim gerekli.\" değeri atanır. Bu nedenle çıktı \"Daha fazla eğitim gerekli.\" olacaktır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class FilmRating {\n    public static void main(String[] args) {\n        String filmRatingCode = \"PG\";\n        String ratingDescription;\n        switch (filmRatingCode) {\n            case \"G\":\n                ratingDescription = \"Genel izleyici.\";\n                break;\n            case \"PG\":\n                ratingDescription = \"Ebeveyn rehberliği önerilir.\";\n                break;\n            case \"R\":\n                ratingDescription = \"Yasaklanmış.\";\n                break;\n            default:\n                ratingDescription = \"Bilinmeyen derecelendirme.\";\n        }\n        System.out.println(\"Film Derecesi: \" + ratingDescription);\n    }\n}",
+    "question_text": "Aşağıdaki film derecelendirme kodunun çıktısı ne olur?",
+    "correct_answer": "Film Derecesi: Ebeveyn rehberliği önerilir.",
+    "wrong_options": [
+      "Film Derecesi: Genel izleyici.",
+      "Film Derecesi: Yasaklanmış.",
+      "Film Derecesi: Bilinmeyen derecelendirme."
+    ],
+    "explanation": "`filmRatingCode` değişkeni \"PG\" değerine sahiptir. `switch` ifadesi bu değeri `case \"PG\"` ile eşleştirir. Bu nedenle `ratingDescription` \"Ebeveyn rehberliği önerilir.\" olarak ayarlanır ve çıktı bu mesajı gösterir.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_8",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class RestaurantOrder {\n    public static void main(String[] args) {\n        double orderTotal = 60.0;\n        boolean hasCoupon = true;\n        double finalPrice = orderTotal;\n        if (orderTotal > 50.0); { // SATIR B: Hatalı satır\n            if (hasCoupon) {\n                finalPrice = orderTotal * 0.9;\n            }\n        }\n        System.out.println(\"Ödenecek Tutar: \" + finalPrice + \" TL\");\n    }\n}",
+    "question_text": "Aşağıdaki restoran siparişi indirim kodunda, `orderTotal` 60.0 ve `hasCoupon` true olmasına rağmen 'Ödenecek Tutar: 54.0 TL' yerine 'Ödenecek Tutar: 60.0 TL' çıktısı alınıyor. Hangi satırda bir hata bulunmaktadır?",
+    "correct_answer": "// SATIR B: Hatalı satır",
+    "wrong_options": [
+      "double orderTotal = 60.0;",
+      "boolean hasCoupon = true;",
+      "System.out.println(\"Ödenecek Tutar: \" + finalPrice + \" TL\");"
+    ],
+    "explanation": "`SATIR B`'deki `if (orderTotal > 50.0)` ifadesinin sonunda fazladan bir noktalı virgül (`;`) bulunmaktadır. Bu durum, `if` koşulunun hemen ardından boş bir ifade yürütmesine ve gerçekte beklenen kod bloğunun `{ ... }` koşuldan bağımsız olarak her zaman çalışmasına neden olur. Dolayısıyla, `finalPrice` doğru hesaplansa da, `if (orderTotal > 50.0)` koşulu etkisiz hale gelir. Beklenen sonuç için bu noktalı virgül kaldırılmalıdır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53133_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class EventRegistration {\n    public static void main(String[] args) {\n        boolean isRegistered = true;\n        boolean isPaymentReceived = false;\n        String approvalStatus;\n        if (isRegistered && !isPaymentReceived) {\n            approvalStatus = \"Ödeme bekleniyor.\";\n        } else if (isRegistered && isPaymentReceived) {\n            approvalStatus = \"Kayıt onaylandı.\";\n        } else {\n            approvalStatus = \"Kayıt yapılmadı.\";\n        }\n        System.out.println(approvalStatus);\n    }\n}",
+    "question_text": "Aşağıdaki etkinlik kayıt onay kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Ödeme bekleniyor.",
+    "wrong_options": [
+      "Kayıt onaylandı.",
+      "Kayıt yapılmadı.",
+      "Hata oluştu."
+    ],
+    "explanation": "`isRegistered` `true` ve `isPaymentReceived` `false` olarak ayarlanmıştır. İlk `if` koşulu `(true && !false)` yani `(true && true)` olduğu için doğru döner. Bu nedenle `approvalStatus` değişkenine \"Ödeme bekleniyor.\" değeri atanır ve bu çıktı verilir.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_py_18664_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "sicaklik_celsius = 28\nhava_durumu_mesaji = \"\"\n\nif sicaklik_celsius > 30:\n    hava_durumu_mesaji = \"Çok Sıcak\"\nelif sicaklik_celsius > 20:\n    hava_durumu_mesaji = \"Ilık\"\nelse:\n    hava_durumu_mesaji = \"Serin\"\n\nprint(hava_durumu_mesaji)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Ilık",
+    "wrong_options": [
+      "Çok Sıcak",
+      "Serin",
+      "Hata"
+    ],
+    "explanation": "Kod, `sicaklik_celsius` değişkeninin değerine göre hava durumu mesajı atar. `sicaklik_celsius` 28 olduğu için, ilk `if` koşulu (`28 > 30`) yanlış olur. İkinci `elif` koşulu (`28 > 20`) doğru olduğu için 'Ilık' mesajı atanır ve bu mesaj ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "yas = 19\ngerekli_izin_formu_dolduruldu = True\nkayit_durumu = \"\"\n\nif yas >= 18 _____ gerekli_izin_formu_dolduruldu:\n    kayit_durumu = \"Kayıt Başarılı\"\nelse:\n    kayit_durumu = \"Kayıt İçin Koşullar Sağlanmadı\"\n\nprint(kayit_durumu)",
+    "question_text": "Aşağıdaki kodun 'Kayıt Başarılı' çıktısını vermesi için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "and",
+    "wrong_options": [
+      "or",
+      "not",
+      "if"
+    ],
+    "explanation": "Kayıtın başarılı olması için hem `yas >= 18` koşulunun hem de `gerekli_izin_formu_dolduruldu` koşulunun doğru olması gerekmektedir. İki koşulun da doğru olmasını sağlayan mantıksal operatör 'and'dir.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "kitap_stokta_var = False\nuye_premium_mu = True\nkiralama_sonucu = \"\"\n\nif kitap_stokta_var or uye_premium_mu:\n    kiralama_sonucu = \"Kitap Kiralanabilir\"\nelse:\n    kiralama_sonucu = \"Kitap Kiralamak İçin Koşullar Sağlanmadı\"\n\nprint(kiralama_sonucu)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Kitap Kiralanabilir",
+    "wrong_options": [
+      "Kitap Kiralamak İçin Koşullar Sağlanmadı",
+      "Hata",
+      "True"
+    ],
+    "explanation": "Kod, `kitap_stokta_var` veya `uye_premium_mu` değişkenlerinden en az birinin `True` olup olmadığını kontrol eder. `kitap_stokta_var` `False` olsa da, `uye_premium_mu` `True` olduğu için `or` koşulu doğru kabul edilir ve 'Kitap Kiralanabilir' çıktısı verilir.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "sensor_aktif = False\nsistem_devrede = True\nalarm_mesaji = \"\"\n\nif not sensor_aktif and sistem_devrede: # Satır A\n    alarm_mesaji = \"Alarm Çalıyor!\" # Satır B\nelse:\n    alarm_mesaji = \"Sistem Güvende.\" # Satır C\n\nprint(alarm_mesaji) # Satır D",
+    "question_text": "Bir güvenlik sisteminde, alarmın çalması için sensörün aktif olması GEREKİR. Sistem devrede olsa bile sensör aktif değilse alarm çalmamalıdır. Verilen kodda bu mantığı bozan satırı bulunuz.",
+    "correct_answer": "Satır A",
+    "wrong_options": [
+      "Satır B",
+      "Satır C",
+      "Satır D"
+    ],
+    "explanation": "Senaryoya göre alarmın çalması için `sensor_aktif`'in `True` olması gerekir. Ancak `Satır A`'daki `if not sensor_aktif` ifadesi, `sensor_aktif` `False` iken `True` sonucunu döndürür. Bu, `sensor_aktif` `False` olmasına rağmen alarmın çalmasına neden olur. Bu satır `if sensor_aktif and sistem_devrede:` olarak düzeltilmelidir.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "urun_fiyati = 120\nvip_uye_mi = True\nindirimli_fiyat = 0\n\nindirimli_fiyat = urun_fiyati * 0.9 if vip_uye_mi else urun_fiyati\n\nprint(indirimli_fiyat)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "108.0",
+    "wrong_options": [
+      "120",
+      "100.0",
+      "Hata"
+    ],
+    "explanation": "Bu kod bir üçlü (ternary) operatör kullanır. `vip_uye_mi` değişkeni `True` olduğu için, `indirimli_fiyat` `urun_fiyati * 0.9` yani `120 * 0.9 = 108.0` olarak atanır. Eğer `vip_uye_mi` `False` olsaydı, `urun_fiyati` doğrudan atanacaktı.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "stok_miktari = 5\nurun_aktif_mi = True\nsatis_durumu = \"\"\n\nif _____ and urun_aktif_mi:\n    satis_durumu = \"Ürün Satışa Uygun\"\nelse:\n    satis_durumu = \"Ürün Stokta Yok veya Pasif\"\n\nprint(satis_durumu)",
+    "question_text": "Aşağıdaki kodun 'Ürün Satışa Uygun' çıktısını vermesi için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "stok_miktari",
+    "wrong_options": [
+      "stok_miktari > 0",
+      "bool(stok_miktari)",
+      "stok_miktari == True"
+    ],
+    "explanation": "Python'da 0 dışındaki sayılar 'truthy' (doğru kabul edilen) değerlerdir. `stok_miktari` değeri 5 olduğu için, doğrudan `if stok_miktari` kullanmak `True` olarak değerlendirilecektir. Bu da `stok_miktari` değişkeninin kendisinin bir koşul olarak kullanılmasını sağlar.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "calisan_puani = 85\ndegerlendirme = \"\"\n\nif 70 <= calisan_puani < 80:\n    degerlendirme = \"İyi\"\nelif 80 <= calisan_puani < 90:\n    degerlendirme = \"Çok İyi\"\nelif calisan_puani >= 90:\n    degerlendirme = \"Mükemmel\"\nelse:\n    degerlendirme = \"Geliştirilmeli\"\n\nprint(degerlendirme)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Çok İyi",
+    "wrong_options": [
+      "Geliştirilmeli",
+      "İyi",
+      "Mükemmel"
+    ],
+    "explanation": "`calisan_puani` 85'tir. İlk `if` koşulu (`70 <= 85 < 80`) yanlış. İkinci `elif` koşulu (`80 <= 85 < 90`) doğru olduğu için `degerlendirme` değişkenine 'Çok İyi' değeri atanır ve ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_7",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "siparis_status = \"HAZIRLANIYOR\"\nmesaj = \"\"\n\nmatch siparis_status:\n    case \"BEKLEMEDE\":\n        mesaj = \"Siparişiniz beklemede.\"\n    case \"HAZIRLANIYOR\":\n        mesaj = \"Siparişiniz hazırlanıyor.\"\n    case \"KARGOYA_VERILDI\":\n        mesaj = \"Siparişiniz kargoya verildi.\"\n    case _:\n        mesaj = \"Bilinmeyen durum.\"\n\nprint(mesaj)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Siparişiniz hazırlanıyor.",
+    "wrong_options": [
+      "Siparişiniz beklemede.",
+      "Siparişiniz kargoya verildi.",
+      "Bilinmeyen durum."
+    ],
+    "explanation": "Python'daki `match-case` ifadesi, `siparis_status` değişkeninin değerini belirli kalıplarla eşleştirir. `siparis_status` değişkeninin değeri 'HAZIRLANIYOR' olduğu için, ikinci `case` bloğu eşleşir ve 'Siparişiniz hazırlanıyor.' mesajı atanır ve yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_8",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "kullanici_rolu = \"Admin\"\nodeme_yapildi_mi = False\nerisim_izni = \"\"\n\nif kullanici_rolu == \"Admin\" _____ kullanici_rolu == \"Editor\":\n    erisim_izni = \"Tam Erişim\"\nelif kullanici_rolu == \"Üye\" and odeme_yapildi_mi:\n    erisim_izni = \"Sınırlı Erişim\"\nelse:\n    erisim_izni = \"Erişim Reddedildi\"\n\nprint(erisim_izni)",
+    "question_text": "Aşağıdaki kodun 'Tam Erişim' çıktısını vermesi için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "or",
+    "wrong_options": [
+      "and",
+      "not",
+      "elif"
+    ],
+    "explanation": "`kullanici_rolu` 'Admin' veya 'Editor' ise 'Tam Erişim' sağlanması isteniyor. 'Admin' olduğu için ilk koşulun doğru olması ve 'Tam Erişim'in atanması için `kullanici_rolu == \"Admin\"` veya `kullanici_rolu == \"Editor\"` ifadelerinden birinin doğru olması yeterlidir. Bu durumu sağlayan mantıksal operatör 'or'dur.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_18664_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "yapilacaklar_listesi = []\nson_gorev_tamamlandi = True\ngorev_durumu = \"\"\n\nif not yapilacaklar_listesi:\n    gorev_durumu = \"Tüm görevler tamamlandı!\"\nelif son_gorev_tamamlandi:\n    gorev_durumu = \"Yeni görevler bekleniyor.\"\nelse:\n    gorev_durumu = \"Hala görevler var.\"\n\nprint(gorev_durumu)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olur?",
+    "correct_answer": "Tüm görevler tamamlandı!",
+    "wrong_options": [
+      "Yeni görevler bekleniyor.",
+      "Hala görevler var.",
+      "Hata"
+    ],
+    "explanation": "Python'da boş listeler `False` (yanlış) değere eşdeğer (falsy) olarak kabul edilir. Bu nedenle `not yapilacaklar_listesi` ifadesi, `yapilacaklar_listesi` boş olduğu için `True` sonucunu döndürür. İlk `if` koşulu doğru olduğu için 'Tüm görevler tamamlandı!' çıktısı verilir.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_ja_53474_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class KargoHesaplama {\n    public static void main(String[] args) {\n        double paket_agirligi_kg = 1.8;\n        double kargo_ucreti;\n        if (paket_agirligi_kg < 2.0) {\n            kargo_ucreti = 5.50;\n        } else {\n            kargo_ucreti = 10.00;\n        }\n        System.out.println(kargo_ucreti);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "5.50",
+    "wrong_options": [
+      "10.00",
+      "0.0",
+      "Derleme Hatası"
+    ],
+    "explanation": "Kod, paket ağırlığını kontrol eder. `paket_agirligi_kg` (1.8) değeri 2.0'dan küçük olduğu için `if` bloğu çalışır ve `kargo_ucreti` 5.50 olarak atanır. Bu değer konsola yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_1",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class IndirimKontrol {\n    public static void main(String[] args) {\n        int alisveris_tutari = 75;\n        String indirim_mesaji;\n        if (alisveris_tutari >= 100) {\n            indirim_mesaji = \"Büyük İndirim\";\n        } else if (alisveris_tutari >= 50) {\n            indirim_mesaji = \"Orta İndirim\";\n        } else {\n            indirim_mesaji = \"İndirim Yok\";\n        }\n        System.out.println(indirim_mesaji);\n    }\n}",
+    "question_text": "Verilen Java kodu çalıştırıldığında konsola ne yazdırır?",
+    "correct_answer": "Orta İndirim",
+    "wrong_options": [
+      "Büyük İndirim",
+      "İndirim Yok",
+      "Derleme Hatası"
+    ],
+    "explanation": "`alisveris_tutari` 75'tir. İlk `if` koşulu (`75 >= 100`) yanlış olduğu için `else if` koşuluna geçilir. İkinci koşul (`75 >= 50`) doğru olduğu için `indirim_mesaji` \"Orta İndirim\" olarak atanır ve bu değer ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class GunMesaji {\n    public static void main(String[] args) {\n        int gun_numarasi = 3;\n        String gun_adi;\n        switch (gun_numarasi) {\n            case 1: gun_adi = \"Pazartesi\"; break;\n            case 2: gun_adi = \"Salı\"; break;\n            case 3: gun_adi = \"Çarşamba\"; break;\n            default: gun_adi = \"Bilinmeyen\";\n        }\n        System.out.println(gun_adi);\n    }\n}",
+    "question_text": "Bu Java kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Çarşamba",
+    "wrong_options": [
+      "Salı",
+      "Bilinmeyen",
+      "Derleme Hatası"
+    ],
+    "explanation": "`gun_numarasi` değişkeninin değeri 3'tür. `switch` ifadesi bu değeri kontrol eder ve `case 3` bloğu çalışır. `gun_adi` \"Çarşamba\" olarak atanır ve ardından `break` ifadesi `switch` bloğundan çıkar. Sonuç olarak \"Çarşamba\" yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_3",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class KullaniciErisim {\n    public static void main(String[] args) {\n        boolean kullanici_aktif = true;\n        boolean yonetici_mi = false;\n        String erisim_mesaji;\n        if (kullanici_aktif && yonetici_mi) {\n            erisim_mesaji = \"Tam Erişim\";\n        } else if (kullanici_aktif) {\n            erisim_mesaji = \"Sınırlı Erişim\";\n        } else {\n            erisim_mesaji = \"Erişim Reddedildi\";\n        }\n        System.out.println(erisim_mesaji);\n    }\n}",
+    "question_text": "Aşağıdaki kod parçası çalıştırıldığında hangi çıktıyı verir?",
+    "correct_answer": "Sınırlı Erişim",
+    "wrong_options": [
+      "Tam Erişim",
+      "Erişim Reddedildi",
+      "Çalışma Zamanı Hatası"
+    ],
+    "explanation": "`kullanici_aktif` `true` ve `yonetici_mi` `false`'tur. İlk `if` koşulu (`true && false`) yanlış olduğu için `else if` bloğuna geçilir. `else if` koşulu (`kullanici_aktif`, yani `true`) doğru olduğu için `erisim_mesaji` \"Sınırlı Erişim\" olarak atanır ve ekrana yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class StokDurumu {\n    public static void main(String[] args) {\n        int stok_miktari = 15;\n        String durum_mesaji = (stok_miktari > 10) ? \"Yeterli Stok\" : \"Düşük Stok\";\n        System.out.println(durum_mesaji);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu çalıştırıldığında ekrana ne yazdırılır?",
+    "correct_answer": "Yeterli Stok",
+    "wrong_options": [
+      "Düşük Stok",
+      "true",
+      "false"
+    ],
+    "explanation": "Üçlü (ternary) operatör kullanılmıştır. `stok_miktari` (15) 10'dan büyük olduğu için (`15 > 10` koşulu `true` döner), operatörün ilk kısmı (`\"Yeterli Stok\"`) seçilir ve `durum_mesaji` değişkenine atanır. Bu nedenle çıktı \"Yeterli Stok\" olur.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_5",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class SinavSonucu {\n    public static void main(String[] args) {\n        int sinav_notu = 45;\n        boolean ek_puan_var_mi = true;\n        String sonuc_mesaji;\n        if (sinav_notu >= 50 || ek_puan_var_mi) {\n            sonuc_mesaji = \"Geçti\";\n        } else {\n            sonuc_mesaji = \"Kaldı\";\n        }\n        System.out.println(sonuc_mesaji);\n    }\n}",
+    "question_text": "Bu Java kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Geçti",
+    "wrong_options": [
+      "Kaldı",
+      "Derleme Hatası",
+      "Çalışma Zamanı Hatası"
+    ],
+    "explanation": "`sinav_notu` 45 ve `ek_puan_var_mi` `true`'dur. `if` koşulu `(45 >= 50 || true)` olarak değerlendirilir. `45 >= 50` yanlış (`false`) olsa da, `||` (VEYA) operatöründen sonraki `ek_puan_var_mi` `true` olduğu için tüm koşul `true` döner. Bu yüzden `sonuc_mesaji` \"Geçti\" olur.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class EtkinlikGiris {\n    public static void main(String[] args) {\n        int katilimci_yasi = 17;\n        boolean kimlik_dogrulandi = true;\n        String giris_izni;\n        if (katilimci_yasi >= 18 && kimlik_dogrulandi) {\n            giris_izni = \"Giriş Serbest\";\n        } else if (!kimlik_dogrulandi) {\n            giris_izni = \"Kimlik Gerekli\";\n        } else {\n            giris_izni = \"Yaş Sınırı\";\n        }\n        System.out.println(giris_izni);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "Yaş Sınırı",
+    "wrong_options": [
+      "Giriş Serbest",
+      "Kimlik Gerekli",
+      "Derleme Hatası"
+    ],
+    "explanation": "`katilimci_yasi` 17 ve `kimlik_dogrulandi` `true`'dur. İlk `if` koşulu (`17 >= 18 && true`) yanlış (`false`) döner. İkinci `else if` koşulu (`!kimlik_dogrulandi`, yani `!true`) da yanlış (`false`) döner. Bu nedenle `else` bloğu çalışır ve `giris_izni` \"Yaş Sınırı\" olarak atanır. Çıktı \"Yaş Sınırı\" olur.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_7",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class TrafikLambasi {\n    public static void main(String[] args) {\n        char lamba_rengi = 'Y'; // 'K' Kırmızı, 'Y' Yeşil, 'S' Sarı\n        String talimat;\n        switch (lamba_rengi) {\n            case 'K': talimat = \"Dur\"; break;\n            case 'Y': talimat = \"Geç\"; break;\n            _____\n                talimat = \"Hazırlan\";\n                break;\n            default: talimat = \"Bilinmiyor\";\n        }\n        System.out.println(talimat);\n    }\n}",
+    "question_text": "Aşağıdaki kodun beklenen çıktıyı (\"Geç\") vermesi için boş bırakılan yere ne gelmelidir?",
+    "correct_answer": "case 'S':",
+    "wrong_options": [
+      "if (lamba_rengi == 'S') {",
+      "else if (lamba_rengi == 'S') {",
+      "case 'S': default:"
+    ],
+    "explanation": "`lamba_rengi` 'Y' olduğunda, `switch` ifadesi `case 'Y'` bloğuna eşleşir ve `talimat` \"Geç\" olarak atanır. Bu kod zaten doğru çıktıyı verir. Ancak soru, boş bırakılan yerin `case 'S'` için nasıl tamamlanacağını soruyor. `switch` yapısında yeni bir durum eklemek için `case` anahtar kelimesi kullanılır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_8",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class SicaklikAlarm {\n    public static void main(String[] args) {\n        // Line 1\n        int anlik_sicaklik = 32;\n        // Line 2\n        String uyari_mesaji;\n        // Line 3\n        if (anlik_sicaklik > 25) {\n        // Line 4\n            uyari_mesaji = \"Sıcak Hava Uyarısı!\";\n        // Line 5\n        } else if (anlik_sicaklik > 30) {\n        // Line 6\n            uyari_mesaji = \"Aşırı Sıcaklık Acil Durumu!\";\n        // Line 7\n        } else {\n        // Line 8\n            uyari_mesaji = \"Normal Sıcaklık.\";\n        // Line 9\n        }\n        // Line 10\n        System.out.println(uyari_mesaji);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodu, `anlik_sicaklik` 32 olduğunda \"Aşırı Sıcaklık Acil Durumu!\" yerine \"Sıcak Hava Uyarısı!\" çıktısını veriyor. Hangi satırda mantıksal bir hata bulunmaktadır?",
+    "correct_answer": "Line 5",
+    "wrong_options": [
+      "Line 3",
+      "Line 1",
+      "Line 7"
+    ],
+    "explanation": "Hata Line 5'tedir. `if-else if` yapılarında koşullar sırasıyla kontrol edilir. `anlik_sicaklik` 32 iken, ilk koşul (`anlik_sicaklik > 25`) doğru olduğu için \"Sıcak Hava Uyarısı!\" atanır ve diğer `else if` blokları atlanır. `anlik_sicaklik > 30` koşulunun daha önce kontrol edilmesi gerekir ki \"Aşırı Sıcaklık Acil Durumu!\" mesajı doğru şekilde verilsin. Yani, `if (anlik_sicaklik > 30)` koşulu `if (anlik_sicaklik > 25)` koşulundan önce gelmelidir.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_53474_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "public class KullaniciDurum {\n    public static void main(String[] args) {\n        boolean kullanici_giris_yapmis = true;\n        boolean abonelik_aktif = false;\n        String durum_bilgisi;\n        if (kullanici_giris_yapmis) {\n            if (abonelik_aktif) {\n                durum_bilgisi = \"Premium Erişim\";\n            } else {\n                durum_bilgisi = \"Temel Erişim\";\n            }\n        } else {\n            durum_bilgisi = \"Giriş Yapılmadı\";\n        }\n        System.out.println(durum_bilgisi);\n    }\n}",
+    "question_text": "Aşağıdaki Java kodunun çıktısı nedir?",
+    "correct_answer": "Temel Erişim",
+    "wrong_options": [
+      "Premium Erişim",
+      "Giriş Yapılmadı",
+      "Derleme Hatası"
+    ],
+    "explanation": "`kullanici_giris_yapmis` `true` olduğu için dış `if` bloğuna girilir. İçerideki `if (abonelik_aktif)` kontrol edilir. `abonelik_aktif` `false` olduğu için iç `else` bloğu çalışır ve `durum_bilgisi` \"Temel Erişim\" olarak atanır. Bu değer konsola yazdırılır.",
+    "language": "java"
+  },
+  {
+    "id": "if_else_e_ja_1339_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let sugarAmount = 150;\nlet message;\n\nif (sugarAmount > 100) {\n  message = \"Çok şekerli.\";\n} else {\n  message = \"Yeterli şeker.\";\n}\n\nconsole.log(message);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Çok şekerli.",
+    "wrong_options": [
+      "Yeterli şeker.",
+      "undefined",
+      "Hata"
+    ],
+    "explanation": "`sugarAmount` değişkeninin değeri 150'dir. `if` koşulu (`sugarAmount > 100`) 150 > 100 olduğu için `true` döner. Bu durumda `message` değişkenine \"Çok şekerli.\" değeri atanır ve bu değer konsola yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let itemPrice = 75;\nlet discountStatus = itemPrice > 50 _____ \"Normal Fiyat\";\nconsole.log(discountStatus);",
+    "question_text": "Aşağıdaki kod parçasının doğru çalışması ve çıktısının \"İndirimli\" olması için noktalı yere (_____) hangi ifade gelmelidir?",
+    "correct_answer": "? \"İndirimli\" :",
+    "wrong_options": [
+      "?? \"İndirimli\" :",
+      ": \"İndirimli\" ?",
+      "if \"İndirimli\" else"
+    ],
+    "explanation": "Bu kod, `itemPrice` değerine göre `discountStatus` değişkenine değer atamak için üçlü (ternary) operatör kullanmaktadır. Koşul `itemPrice > 50` doğru olduğunda '?' sonrası, yanlış olduğunda ':' sonrası değer atanır. `itemPrice` 75 olduğu için koşul doğru döner ve `discountStatus` \"İndirimli\" olur.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let characterClass = \"Savaşçı\";\nlet specialAbility;\n\nswitch (characterClass) {\n  case \"Büyücü\":\n    specialAbility = \"Ateş Topu\";\n    break;\n  case \"Savaşçı\":\n    specialAbility = \"Kılıç Darbesi\";\n    break;\n  default:\n    specialAbility = \"Temel Saldırı\";\n}\n\nconsole.log(specialAbility);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Kılıç Darbesi",
+    "wrong_options": [
+      "Ateş Topu",
+      "Temel Saldırı",
+      "undefined"
+    ],
+    "explanation": "`characterClass` değişkeninin değeri \"Savaşçı\"'dır. `switch` ifadesi bu değeri \"Savaşçı\" `case`'i ile eşleştirir. Bu durumda `specialAbility` değişkenine \"Kılıç Darbesi\" değeri atanır ve `break` ifadesi `switch` bloğundan çıkar. Sonuç olarak konsola \"Kılıç Darbesi\" yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let userName = \"\"; // Kullanıcı adı girilmemiş\nlet loginStatus = \"Giriş başarılı.\";\n\nif (userName === null || userName === undefined) { // Hata: Boş string kontrolü eksik\n  loginStatus = \"Kullanıcı adı boş olamaz.\";\n}\n\nconsole.log(loginStatus);",
+    "question_text": "Aşağıdaki kodun amacı, `userName` boş bir string olduğunda \"Kullanıcı adı boş olamaz.\" mesajını göstermektir. Ancak şu anki haliyle hatalı çalışmaktadır. Hatanın bulunduğu satırı tespit ediniz.",
+    "correct_answer": "`if (userName === null || userName === undefined)`",
+    "wrong_options": [
+      "`let userName = \"\";`",
+      "`let loginStatus = \"Giriş başarılı.\";`",
+      "`console.log(loginStatus);`"
+    ],
+    "explanation": "Hata `if` koşulunda bulunmaktadır. `userName` değişkeni boş bir string (`\"\"`) olduğunda, JavaScript'te bu değer 'falsy' kabul edilir. Ancak mevcut `if` koşulu yalnızca `null` veya `undefined` değerlerini kontrol etmektedir. Boş string'i yakalamak için koşulun `if (!userName)` veya `if (userName === null || userName === undefined || userName === \"\")` şeklinde olması gerekmektedir.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let userTheme = null;\nlet defaultTheme = \"dark\";\nlet activeTheme = userTheme ?? defaultTheme;\n\nconsole.log(activeTheme);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "dark",
+    "wrong_options": [
+      "null",
+      "undefined",
+      ""
+    ],
+    "explanation": "Nullish coalescing operatörü (`??`), sol taraftaki işlenenin `null` veya `undefined` olması durumunda sağ taraftaki işleneni döndürür. Burada `userTheme` `null` olduğu için `defaultTheme` değeri olan \"dark\" `activeTheme`'e atanır ve konsola yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_5",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let movieDetails = {\n  title: \"Yıldız Yolculuğu\"\n  // director özelliği bu objede tanımlı değil\n};\n\nlet directorLastName = movieDetails.director_____;\n\nconsole.log(directorLastName);",
+    "question_text": "Aşağıdaki kod parçasının `movieDetails.director` nesnesi `undefined` olsa bile hata vermeden `directorLastName` değişkenine doğru değeri ataması için noktalı yere (_____) hangi ifade gelmelidir?",
+    "correct_answer": "?.lastName",
+    "wrong_options": [
+      ".lastName",
+      "[lastName]",
+      "['lastName']"
+    ],
+    "explanation": "Bu senaryoda `movieDetails.director` özelliği tanımlı değildir, yani `undefined`'dır. Normalde `movieDetails.director.lastName` şeklinde erişmeye çalışmak bir hata (`TypeError`) fırlatırdı. Opsiyonel zincirleme operatörü (`?.`) sayesinde, eğer `movieDetails.director` `null` veya `undefined` ise, ifade `undefined` döndürür ve hata fırlatılmaz. Bu sayede `directorLastName` değişkenine `undefined` atanır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_6",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let studentGrade = 85;\nlet feedback;\n\nif (studentGrade >= 90) {\n  feedback = \"Mükemmel\";\n} else if (studentGrade >= 70) {\n  feedback = \"İyi\";\n} else {\n  feedback = \"Geliştirilmeli\";\n}\n\nconsole.log(feedback);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "İyi",
+    "wrong_options": [
+      "Mükemmel",
+      "Geliştirilmeli",
+      "undefined"
+    ],
+    "explanation": "`studentGrade` değeri 85'tir. İlk `if` koşulu (`85 >= 90`) `false` döner. İkinci `else if` koşulu (`85 >= 70`) `true` döner. Bu nedenle `feedback` değişkenine \"İyi\" değeri atanır ve bu değer konsola yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_7",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let itemCount = 0; // Stokta hiç ürün yok\nlet stockMessage = \"Ürün mevcut.\";\n\nif (itemCount) { // Hata: itemCount 0 (falsy) olduğu için bu bloğa girmez\n  stockMessage = \"Ürün kalmadı.\";\n} else {\n  stockMessage = \"Stokta ürün var.\";\n}\n\nconsole.log(stockMessage);",
+    "question_text": "Aşağıdaki kodun amacı, `itemCount` değeri 0 (sıfır) ise \"Hiç ürün kalmadı.\" mesajını göstermektir. Ancak koşulda bir mantık hatası bulunmaktadır. Hatanın bulunduğu satırı tespit ediniz.",
+    "correct_answer": "`if (itemCount)`",
+    "wrong_options": [
+      "`let itemCount = 0;`",
+      "`let stockMessage = \"Ürün mevcut.\";`",
+      "`console.log(stockMessage);`"
+    ],
+    "explanation": "Hata `if (itemCount)` koşulunda bulunmaktadır. `itemCount` değeri 0 olduğunda, JavaScript'te bu 'falsy' bir değer olarak kabul edilir. `if (falsy)` koşulu `false` döndürdüğü için `if` bloğuna girilmez ve `else` bloğu çalışır. Amacımız `itemCount` 0 iken 'ürün kalmadı' mesajını göstermekse, koşul `if (!itemCount)` veya `if (itemCount === 0)` şeklinde olmalıdır. Mevcut kod çıktısı \"Stokta ürün var.\" olacaktır, bu da beklenen davranışın tersidir.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_8",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let hasCoupon = true;\nlet isPremiumMember = false;\nlet offerMessage;\n\nif (hasCoupon && isPremiumMember) {\n  offerMessage = \"Özel İndirim\";\n} else if (hasCoupon || isPremiumMember) {\n  offerMessage = \"Standart İndirim\";\n} else {\n  offerMessage = \"İndirim Yok\";\n}\n\nconsole.log(offerMessage);",
+    "question_text": "Bu kodun çıktısı nedir?",
+    "correct_answer": "Standart İndirim",
+    "wrong_options": [
+      "Özel İndirim",
+      "İndirim Yok",
+      "undefined"
+    ],
+    "explanation": "`hasCoupon` `true`, `isPremiumMember` ise `false`'dur. İlk `if` koşulu (`true && false`) `false` döner. İkinci `else if` koşulu (`true || false`) `true` döner. Bu nedenle `offerMessage` değişkenine \"Standart İndirim\" değeri atanır ve bu değer konsola yazdırılır.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_ja_1339_9",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "let carType = \"Sedan\";\nlet rentalPrice = 0;\n\nswitch (carType) {\n  case \"Ekonomik\":\n    rentalPrice = 50;\n    break;\n  case \"Sedan\":\n    rentalPrice = 80;\n    _____; // Buraya 'break' gelmeli\n  case \"SUV\":\n    rentalPrice = 120;\n    break;\n  default:\n    rentalPrice = 40;\n}\n\nconsole.log(rentalPrice);",
+    "question_text": "Aşağıdaki kod parçasının doğru çalışması ve çıktısının 80 olması için noktalı yere (_____) hangi ifade gelmelidir?",
+    "correct_answer": "break;",
+    "wrong_options": [
+      "return;",
+      "continue;",
+      "default:"
+    ],
+    "explanation": "`switch` ifadesinde, bir `case` bloğu çalıştıktan sonra `break` ifadesi kullanılmazsa, kod bir sonraki `case` bloğuna 'düşer' (fall-through) ve o bloğu da çalıştırır. `carType` \"Sedan\" olduğu için `rentalPrice` 80 olarak atanır. Eğer `break;` olmazsa, kod \"SUV\" `case`'ine düşecek ve `rentalPrice` 120 olacaktır. Çıktının 80 olması için `Sedan` bloğundan sonra `break;` ifadesi gelmelidir.",
+    "language": "javascript"
+  },
+  {
+    "id": "if_else_e_py_49697_0",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "kitap_stogu = 7\nistedigi_adet = 5\n\nif istedigi_adet <= kitap_stogu:\n    mesaj = \"Kitaplar mevcut.\"\nelse:\n    mesaj = \"Yetersiz stok!\"\nprint(mesaj)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Kitaplar mevcut.",
+    "wrong_options": [
+      "Yetersiz stok!",
+      "Hata oluştu.",
+      "None"
+    ],
+    "explanation": "Kodda, `kitap_stogu` (7) ile `istedigi_adet` (5) karşılaştırılıyor. `istedigi_adet` (`5`) `kitap_stogu`ndan (`7`) küçük veya eşit olduğu için `if` koşulu (`5 <= 7`) doğru olur. Bu nedenle `mesaj` değişkenine \"Kitaplar mevcut.\" değeri atanır ve bu değer ekrana yazdırılır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_1",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "siparis_tutari = 120\nmusteri_tipi = \"premium\"\n\nif siparis_tutari > 150:\n    indirim_orani = 0.15\nelif _____:\n    indirim_orani = 0.10\nelse:\n    indirim_orani = 0.05\nprint(f\"İndirim Oranı: {indirim_orani*100}%\")",
+    "question_text": "Restoran siparişlerinde premium müşterilere özel indirim uygulayan aşağıdaki kod parçasındaki boşluğu (`_____`) doğru şekilde doldurunuz.",
+    "correct_answer": "musteri_tipi == \"premium\"",
+    "wrong_options": [
+      "siparis_tutari >= 100",
+      "indirim_orani == 0.10",
+      "musteri_tipi != \"normal\""
+    ],
+    "explanation": "Kodun amacı premium müşterilere özel indirim uygulamaktır. `if` bloğu `siparis_tutari` 150'den büyük olduğunda çalışır. `elif` bloğunun premium müşterileri yakalaması için `musteri_tipi` değişkeninin \"premium\" olup olmadığını kontrol etmesi gerekir. `musteri_tipi == \"premium\"` ifadesi bu kontrolü sağlar.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_2",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "can_seviyesi = 85\nenerji_seviyesi = 60\n\nif can_seviyesi > 70 and enerji_seviyesi > 50:\n    durum = \"Saldırıya Hazır\"\nelse:\n    durum = \"Dinlenmeli\"\nprint(durum)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Saldırıya Hazır",
+    "wrong_options": [
+      "Dinlenmeli",
+      "Hata oluştu.",
+      "None"
+    ],
+    "explanation": "`if` koşulu iki durumu `and` operatörü ile birleştiriyor. `can_seviyesi > 70` (85 > 70) doğru (True) ve `enerji_seviyesi > 50` (60 > 50) de doğru (True) olduğu için, `True and True` sonucu True'dur. Bu nedenle `if` bloğu çalışır ve `durum` değişkenine \"Saldırıya Hazır\" değeri atanır.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_3",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "kullanici_adi = \"testuser\"\nsifre = \"dogrusifre\"\ngiris_hakki = True\n\n# Kullanıcı adı veya şifre yanlışsa, giriş hakkını kaybetmeli.\nif kullanici_adi != \"admin\" or sifre != \"pass123\" and giris_hakki: # Hatalı satır\n    mesaj = \"Giriş başarısız.\"\n    giris_hakki = False\nelse:\n    mesaj = \"Giriş başarılı.\"\nprint(mesaj)",
+    "question_text": "Kullanıcı adı veya şifre yanlışsa ya da giriş hakkı yoksa 'Giriş başarısız.' çıktısını vermesi beklenen aşağıdaki kodda, hangi satırda mantıksal bir hata bulunmaktadır?",
+    "correct_answer": "if kullanici_adi != \"admin\" or sifre != \"pass123\" and giris_hakki:",
+    "wrong_options": [
+      "kullanici_adi = \"testuser\"",
+      "mesaj = \"Giriş başarılı.\"",
+      "print(mesaj)"
+    ],
+    "explanation": "`and` operatörünün önceliği `or` operatöründen daha yüksektir. Bu durumda `sifre != \"pass123\" and giris_hakki` kısmı önce değerlendirilir. `kullanici_adi` \"admin\" değil (True) ve `sifre` \"pass123\" değil (True) ve `giris_hakki` True. Koşul `True or (True and True)` şeklinde değerlendirilir, bu da `True or True` yani `True` sonucunu verir. Dolayısıyla, kullanıcı adı yanlış olduğunda bile `if` bloğuna girilerek her zaman \"Giriş başarısız.\" mesajı gösterilir. `and` ve `or` operatörlerinin doğru önceliğini sağlamak için parantezler kullanılmalıdır: `(kullanici_adi != \"admin\" or sifre != \"pass123\") and giris_hakki`.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_4",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "yagmur_yagiyor_mu = False\nruzgarli_mi = True\n\nif not yagmur_yagiyor_mu and ruzgarli_mi:\n    aktivite = \"Uçurtma Uçur\"\nelif not yagmur_yagiyor_mu and not ruzgarli_mi:\n    aktivite = \"Piknik Yap\"\nelse:\n    aktivite = \"İçeride Kal\"\nprint(aktivite)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Uçurtma Uçur",
+    "wrong_options": [
+      "Piknik Yap",
+      "İçeride Kal",
+      "Hata oluştu."
+    ],
+    "explanation": "İlk `if` koşulu değerlendirilir: `not yagmur_yagiyor_mu` (`not False`) ifadesi `True` olur. `ruzgarli_mi` zaten `True`. Dolayısıyla `True and True` ifadesi `True` sonucunu verir. Bu nedenle `if` bloğu çalışır ve `aktivite` değişkenine \"Uçurtma Uçur\" değeri atanır. Diğer `elif` ve `else` blokları kontrol edilmez.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_5",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "kullanici_adi = \"Ayşe\"\nemail_adresi = \"\" # E-posta adresi boş\n\nif kullanici_adi:\n    if email_adresi is not None: # Hatalı satır\n        profil_durumu = \"Profil Tamamlandı.\"\n    else:\n        profil_durumu = \"Profilde eksik bilgi var.\"\nelse:\n    profil_durumu = \"Profilde eksik bilgi var.\"\nprint(profil_durumu)",
+    "question_text": "Kullanıcının e-posta adresi boşken \"Profilde eksik bilgi var.\" çıktısını vermesi beklenen aşağıdaki kodda, hangi satırda mantıksal bir hata bulunmaktadır?",
+    "correct_answer": "if email_adresi is not None:",
+    "wrong_options": [
+      "kullanici_adi = \"Ayşe\"",
+      "profil_durumu = \"Profil Tamamlandı.\"",
+      "print(profil_durumu)"
+    ],
+    "explanation": "Beklenen çıktı, `email_adresi` boş olduğu için \"Profilde eksik bilgi var.\" olmalıdır. Ancak `email_adresi` (`\"\"`) bir boş string'dir ve `None` değildir. Dolayısıyla `email_adresi is not None` koşulu `True` olarak değerlendirilir ve `profil_durumu` yanlışlıkla \"Profil Tamamlandı.\" olarak atanır. Boş string'lerin de falsy olduğunu göz önünde bulundurarak, `if email_adresi:` şeklinde bir kontrol yapmak daha doğru olurdu.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_6",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "abonelik_tipi = \"premium\"\nerisim_seviyesi = \"Tam Erişim\" if _____ else \"Sınırlı Erişim\"\nprint(f\"Kullanıcı erişim seviyesi: {erisim_seviyesi}\")",
+    "question_text": "Abonelik tipine göre kullanıcıya doğru erişim seviyesini atayan ternary operatörlü aşağıdaki kod parçasındaki boşluğu (`_____`) doğru şekilde doldurunuz.",
+    "correct_answer": "abonelik_tipi == \"premium\"",
+    "wrong_options": [
+      "abonelik_tipi != \"temel\"",
+      "\"premium\" in abonelik_tipi",
+      "abonelik_tipi is not None"
+    ],
+    "explanation": "Ternary operatör `değer_eğer_doğruysa if koşul else değer_eğer_yanlışsa` şeklinde çalışır. Bu durumda, `erisim_seviyesi`nin \"Tam Erişim\" olması için `abonelik_tipi`nin \"premium\" olması koşulu aranmaktadır. Bu koşulu `abonelik_tipi == \"premium\"` ifadesi sağlar.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_7",
+    "type": "debug",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "hava_sicakligi = 22\n\nif hava_sicakligi < 15:\n    durum = \"Çok Soğuk\"\nelif hava_sicakligi > 28:\n    durum = \"Çok Sıcak\"\nelif hava_sicakligi > 15 and hava_sicakligi < 20: # Hatalı satır\n    durum = \"Ilık\"\nelse:\n    durum = \"Bilinmiyor\"\nprint(f\"Hava Durumu: {durum}\")",
+    "question_text": "Hava sıcaklığı 20 ila 25 derece (dahil) arasındaysa 'Mükemmel' olarak belirtilmesi beklenen aşağıdaki kodda, bu aralığı doğru şekilde sınıflandırmayan mantıksal hata hangi satırda bulunmaktadır?",
+    "correct_answer": "elif hava_sicakligi > 15 and hava_sicakligi < 20:",
+    "wrong_options": [
+      "hava_sicakligi = 22",
+      "durum = \"Bilinmiyor\"",
+      "if hava_sicakligi < 15:"
+    ],
+    "explanation": "Kodda `hava_sicakligi` 22'dir. İlk iki `if/elif` koşulu (22 < 15 ve 22 > 28) yanlış çıkar. Üçüncü `elif` koşulu `hava_sicakligi > 15 and hava_sicakligi < 20` ise (22 > 15 doğru, 22 < 20 yanlış olduğu için) `True and False` yani `False` olarak değerlendirilir. Bu, 20-25 derece aralığını hiç kapsamadığı gibi, mevcut 22 derecelik sıcaklığı da doğru sınıflandıramaz. Bu nedenle kod `else` bloğuna düşer ve 'Bilinmiyor' çıktısını verirken, beklenen 'Mükemmel'dir. Hatalı satır, 20-25 aralığını ele almayan bu `elif` koşuludur.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_8",
+    "type": "missing_code",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "arac_kategorisi = \"hatchback\"\nfiyat_grubu = \"\"\n\nmatch arac_kategorisi:\n    case \"sedan\":\n        fiyat_grubu = \"Standart\"\n    case \"suv\":\n        fiyat_grubu = \"Premium\"\n    case _____:\n        fiyat_grubu = \"Ekonomik\"\nprint(f\"Araç fiyat grubu: {fiyat_grubu}\")",
+    "question_text": "Araç kategorisine göre fiyat grubu belirleyen aşağıdaki `match-case` ifadesindeki boşluğu (`_____`) doğru şekilde doldurunuz.",
+    "correct_answer": "\"hatchback\":",
+    "wrong_options": [
+      "default:",
+      "case _: # Diğer durumlar",
+      "\"pickup\":"
+    ],
+    "explanation": "`arac_kategorisi` değişkeni \"hatchback\" değerini taşımaktadır ve beklenen `fiyat_grubu` \"Ekonomik\"tir. `match-case` ifadesinde belirli bir değer için durum belirtmek amacıyla `case \"değer\":` yapısı kullanılır. Bu nedenle boşluğa `\"hatchback\":` gelmelidir.",
+    "language": "python"
+  },
+  {
+    "id": "if_else_e_py_49697_9",
+    "type": "output",
+    "difficulty": 1,
+    "topic": "if_else",
+    "code_snippet": "mevcut_surum = 4.1\ninternet_baglantisi_var_mi = True\npil_seviyesi = 75\n\nif mevcut_surum < 4.0 or not internet_baglantisi_var_mi:\n    durum = \"Güncelleme için uygun değil.\"\nelif mevcut_surum >= 4.0 and pil_seviyesi < 50:\n    durum = \"Güncelleme için pil düşük.\"\nelse:\n    durum = \"Güncelleme hazır.\"\nprint(durum)",
+    "question_text": "Aşağıdaki Python kodunun çıktısı ne olacaktır?",
+    "correct_answer": "Güncelleme hazır.",
+    "wrong_options": [
+      "Güncelleme için uygun değil.",
+      "Güncelleme için pil düşük.",
+      "Hata oluştu."
+    ],
+    "explanation": "İlk `if` koşulu: `mevcut_surum < 4.0` (4.1 < 4.0) yanlıştır. `not internet_baglantisi_var_mi` (`not True`) yanlıştır. `False or False` sonucu `False` olduğu için ilk `if` bloğu atlanır.\nİkinci `elif` koşulu: `mevcut_surum >= 4.0` (4.1 >= 4.0) doğrudur. `pil_seviyesi < 50` (75 < 50) yanlıştır. `True and False` sonucu `False` olduğu için `elif` bloğu da atlanır.\nSonuç olarak `else` bloğu çalışır ve `durum` değişkenine \"Güncelleme hazır.\" değeri atanır.",
+    "language": "python"
+  }
+]

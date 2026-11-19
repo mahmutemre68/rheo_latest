@@ -1,0 +1,162 @@
+[
+  {
+    "id": "loop_m_py_92459_0",
+    "type": "output",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "flight_delays = [10, 5, 0, 22, 8]\nwarning_threshold = 15\ntotal_warnings = 0\nfor delay in flight_delays:\n    if delay > warning_threshold:\n        total_warnings += 1\n    else:\n        continue\nprint(total_warnings)",
+    "question_text": "Aşağıdaki kod bloğunun çıktısı ne olacaktır?",
+    "correct_answer": "1",
+    "wrong_options": [
+      "0",
+      "2",
+      "Hata oluşur"
+    ],
+    "explanation": "Döngü, her bir gecikme süresini kontrol eder. Yalnızca 22 değeri, 15'ten büyüktür. Bu nedenle, total_warnings değişkeni sadece bir kez artırılır (22 için), sonuç 1'dir.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_1",
+    "type": "missing_code",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "temperatures = [25.1, 26.5, 24.9, -1.5, 27.0]\nfor index, temp in enumerate(temperatures):\n    if temp < 0:\n        print(f\"Anormal değer bulundu index: {index}\")\n    _____\nprint(\"Veri işleme tamamlandı\")",
+    "question_text": "Aşağıdaki kodun amacı, sıcaklık verilerindeki (temperatures) ilk negatif değeri bulduğunda döngüyü durdurmaktır. Eksik olan kısım nedir?",
+    "correct_answer": "break",
+    "wrong_options": [
+      "pass",
+      "continue",
+      "return"
+    ],
+    "explanation": "Kodun amacı, negatif bir değer bulunduğunda döngüyü derhal sonlandırmaktır. Bunun için 'break' ifadesi kullanılır. 'continue' bir sonraki iterasyona geçer, 'pass' hiçbir şey yapmaz.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_2",
+    "type": "debug",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "1: squares = []\n2: for num in range(1, 5):\n3:     square = num ** 2\n4:     squares.append(square)\n5: print(squares)",
+    "question_text": "Aşağıdaki kod, 1'den 5'e kadar olan sayıların karesini hesaplamalıdır, ancak beklenenden farklı bir çıktı veriyor. Hangi satır hatalıdır?",
+    "correct_answer": "Satır 2",
+    "wrong_options": [
+      "Satır 1",
+      "Satır 3",
+      "Satır 4"
+    ],
+    "explanation": "range(1, 5) fonksiyonu 1, 2, 3 ve 4 sayılarını üretir (üst sınır dahil değildir). 5'in karesini almak için aralığın range(1, 6) olması gerekirdi.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_3",
+    "type": "output",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "items = ['A', 'B']\nquantities = [1, 2]\n\nfor item, qty in zip(items, quantities):\n    for i in range(qty):\n        print(f\"{item}{i+1}\", end=' ')",
+    "question_text": "Aşağıdaki iç içe döngü yapısının çıktısı ne olur?",
+    "correct_answer": "A1 B1 B2 ",
+    "wrong_options": [
+      "A1 B1 B2",
+      "A1 A2 B1 B2 ",
+      "A1 B1 "
+    ],
+    "explanation": "İlk döngüde (item='A', qty=1) A1 yazdırılır. İkinci döngüde (item='B', qty=2) B1 ve B2 yazdırılır. 'end=' ' sayesinde hepsi tek satırda boşlukla ayrılır.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_4",
+    "type": "missing_code",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "student_scores = [88, 92, 75]\nstudent_names = ['Ali', 'Buse', 'Can']\nfor index, name in enumerate(student_scores):\n    score = student_names[index]\n    print(f\"{name}: {score}\")",
+    "question_text": "Bu kod, öğrenci isimlerini ve aldıkları puanları eşleştirmek için 'enumerate' kullanıyor. Ancak 'name' ve 'score' değişkenlerini yanlışlıkla karıştırıyor. Hangi satırda 'enumerate' doğru kullanılmamıştır?",
+    "correct_answer": "Satır 3",
+    "wrong_options": [
+      "Satır 1",
+      "Satır 2",
+      "Satır 4"
+    ],
+    "explanation": "Satır 3'te, enumerate student_scores üzerinde çalıştırıldığı için 'name' değişkeni aslında puanı (int) tutar. 'score' değişkeni ise öğrenci ismini (string) tutar. Bu bir mantık hatasıdır, ancak enumerate kullanımının kendisi Satır 3'tedir ve burada yanlış değişkene atanmıştır (index=puan, name=puan).",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_5",
+    "type": "output",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "for i in range(10):\n    if i % 3 == 0:\n        continue\n    print(i, end=' ')",
+    "question_text": "Aşağıdaki kod, 0'dan 9'a kadar sayıları kontrol ediyor. 'continue' kullanımı nedeniyle hangi sayı ekrana yazdırılmayacaktır?",
+    "correct_answer": "0 3 6 9",
+    "wrong_options": [
+      "1 2 4 5 7 8",
+      "0 1 2 4 5 7 8",
+      "1 2 3 4 5 6 7 8 9"
+    ],
+    "explanation": "i % 3 == 0 koşulu, i'nin 3'ün katı olduğu durumları (0, 3, 6, 9) belirtir. 'continue' bu durumlarda döngünün geri kalanını atlayıp bir sonraki iterasyona geçmesini sağlar. Bu nedenle 0, 3, 6 ve 9 yazdırılmaz.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_6",
+    "type": "missing_code",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "prices = [19.99, 45.50, 12.00]\ncart_total = 0\nfor price in prices:\n    cart_total += price\n_____\n    print(f\"Toplam: {cart_total:.2f} TL\")\nelse:\n    print(\"Sepet Boş\")",
+    "question_text": "Bu kod, bir alışveriş sepetindeki toplam fiyatı hesaplamaktadır. Sepet boşsa (cart_total 0 kalırsa) 'Sepet Boş' mesajı yazdırılmalıdır. 'for' döngüsü tamamlandıktan sonra doğru kontrol mekanizması nedir?",
+    "correct_answer": "if cart_total == 0:",
+    "wrong_options": [
+      "while cart_total > 0:",
+      "if cart_total != 0:",
+      "for price in prices:"
+    ],
+    "explanation": "Python'daki for-else yapısı, döngü normal şekilde (break olmadan) biterse 'else' bloğunu çalıştırır. Ancak burada döngü sonunda toplamı kontrol edip, eğer toplam sıfırsa 'Sepet Boş' yazdırmak istiyoruz. Bu nedenle, döngü bittikten sonra 'if cart_total == 0:' ile kontrol yapıp (veya if/else kullanıp) ilgili çıktıyı vermeliyiz. Soruda verilen yapıya en uygun mantık, toplamı kontrol etmektir. Ancak bu kod bloğu, for-else yapısının doğru kullanımıyla karıştırılmış. Doğru yapı, for döngüsünden sonra if ile kontrol etmektir: 'if cart_total == 0: print(\"Sepet Boş\") else: print(...)'.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_7",
+    "type": "output",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "employees = ['Ayşe', 'Burak', 'Cem', 'Deniz']\ndepartments = ['HR', 'IT']\n\ncombined_data = []\nfor emp, dept in zip(employees, departments):\n    combined_data.append((emp, dept))\n\nprint(len(combined_data))",
+    "question_text": "İki listenin elemanlarını eşleştirerek birleştirme yapan bu kodun çıktısı ne olacaktır? (listenin uzunlukları farklıdır)",
+    "correct_answer": "2",
+    "wrong_options": [
+      "4",
+      "TypeError",
+      "0"
+    ],
+    "explanation": "'zip()' fonksiyonu, verilen iterable'lardan en kısası bitene kadar elemanları eşleştirir. departments listesi 2 elemanlı olduğu için, zip sadece ('Ayşe', 'HR') ve ('Burak', 'IT') çiftlerini oluşturur. Bu nedenle combined_data listesinin uzunluğu 2 olur.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_8",
+    "type": "debug",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "1: game_scores = {'P1': 950, 'P2': 1050, 'P3': 1100}\n2: winner_found = False\n3: for player, score in game_scores.items():\n4:     if score > 1000:\n5:         print(f\"{player} kazandı!\")\n6:         winner_found = True\n7:         continue\n8: if not winner_found:\n9:     print(\"Kimse 1000 puanı geçemedi.\")",
+    "question_text": "Aşağıdaki kod, oyun skorlarını kontrol ederek 1000 puanı geçen ilk oyuncuyu bulmaya çalışıyor. Ancak, kod her zaman 'Kimse 1000 puanı geçemedi.' çıktısını veriyor. Hangi satır, döngünün erken sonlanmasını engellemektedir?",
+    "correct_answer": "Satır 7",
+    "wrong_options": [
+      "Satır 4",
+      "Satır 5",
+      "Satır 8"
+    ],
+    "explanation": "Satır 7'deki 'continue' ifadesi, bir kazanan bulunduğunda (P2 için) döngüyü sonlandırmak yerine bir sonraki iterasyona (P3 için) geçmesini sağlar. Eğer amaç ilk kazananı bulmaksa, Satır 7'de 'break' kullanılmalıydı.",
+    "language": "python"
+  },
+  {
+    "id": "loop_m_py_92459_9",
+    "type": "output",
+    "difficulty": 2,
+    "topic": "loop",
+    "code_snippet": "inventory_count = 5\nreorder_level = 2\nwhile inventory_count > reorder_level:\n    print(inventory_count)\n    inventory_count -= 1\n    if inventory_count == 3:\n        inventory_count -= 1",
+    "question_text": "Aşağıdaki kodda, 'while' döngüsü kaç kez çalışır?",
+    "correct_answer": "3",
+    "wrong_options": [
+      "4",
+      "2",
+      "Sonsuz döngü"
+    ],
+    "explanation": "Başlangıç: 5. \n1. iterasyon: 5 > 2 (Doğru). 5 yazdırılır. 5-1=4. 4 != 3. inventory_count=4.\n2. iterasyon: 4 > 2 (Doğru). 4 yazdırılır. 4-1=3. 3 == 3 olduğu için 3-1=2. inventory_count=2.\n3. iterasyon: 2 > 2 (Yanlış). Döngü durur.\nToplam 2 kez çalıştıktan sonra 3. kez kontrol edilir ve durur. Bu durumda 2 kez çalışır. (Kontrol: 5, 4 yazdırılır. 3. döngüde 2 olur ve durur. Yani 5 ve 4 yazdırıldığı için 2 kez çalışır.) Hata payı olmaması için: 5, 4 yazdırılır. 3. iterasyonda inventory_count 2 olur ve koşul sağlanmaz. 2 kez çalışır.",
+    "language": "python"
+  }
+]

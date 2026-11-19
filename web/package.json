@@ -8,7 +8,13 @@
     "build": "vite build",
     "preview": "vite preview",
     "test:daily": "node scripts/test-daily-reward-state.mjs && node scripts/test-daily-reward-mounted.cjs",
-    "test:share": "node scripts/test-share-target.mjs"
+    "test:share": "node scripts/test-share-target.mjs",
+    "test:mount": "esbuild scripts/schema-mount.jsx --bundle --format=iife --jsx=automatic --loader:.js=jsx --define:process.env.NODE_ENV='\"production\"' --define:import.meta.env.BASE_URL='\"./\"' --outfile=dist-test/schema-mount.js --log-level=error && node scripts/test-schema-mount.cjs dist-test/schema-mount.js",
+    "test:schema": "node scripts/test-exercise-schema.mjs",
+    "validate": "node scripts/validate-pool.mjs",
+    "test": "npm run validate && npm run test:schema && npm run test:generated && npm run test:placement && npm run test:mount && npm run test:daily && npm run test:share",
+    "test:generated": "node scripts/test-generated-merge.mjs",
+    "test:placement": "node scripts/test-placement.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.0.0",
