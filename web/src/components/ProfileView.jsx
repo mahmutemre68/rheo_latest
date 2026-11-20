@@ -780,7 +780,7 @@ function ThemeGallery() {
                                 {!isUnlocked && <div className="w-full h-full flex items-center justify-center text-[11px]">🔒</div>}
                             </div>
                             <p className="text-[11px] font-black text-slate-400 leading-tight">{theme.name}</p>
-                            {!isUnlocked && <p className="text-[6px] font-bold text-slate-500">{theme.unlockXP} XP</p>}
+                            {!isUnlocked && <p className="text-[10px] font-bold text-slate-500">{theme.unlockXP} XP</p>}
                         </motion.div>
                     )
                 })}
