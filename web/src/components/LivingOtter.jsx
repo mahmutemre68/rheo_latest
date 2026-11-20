@@ -3,17 +3,67 @@ import { motion, useReducedMotion } from 'framer-motion'
 
 const BASE = import.meta.env.BASE_URL || '/'
 
-/** Official mascot asset. Legacy visual props remain accepted for callers;
- * they never replace, redraw, or add body parts to the supplied character. */
-// Preserve the official mascot artwork; moods change motion, never its identity.
-export default function LivingOtter({ mood = 'idle', size = 64, showGlow = true, showSparkles = false, showTablet = false, className = '' }) {
+/* ══════════════════════════════════════════════
+   LIVING OTTER — the one Rheo mascot
+   Every otter in the app is this component, drawn from the official poses
+   (public/mascot/*.webp, background-free cut-outs of the official artwork).
+   A mood picks the pose; motion adds life. The character is never redrawn.
+   ══════════════════════════════════════════════ */
+const POSE_FOR_MOOD = {
+    idle: 'happy', happy: 'happy', cool: 'happy', proud: 'happy', rich: 'happy', king: 'happy', sparkle: 'happy', fast: 'happy',
+    greeting: 'greeting', welcome: 'greeting', hello: 'greeting',
+    celebrate: 'celebrating', celebrating: 'celebrating', excited: 'celebrating', champion: 'celebrating', hero: 'celebrating', victory: 'celebrating',
+    encourage: 'encouraging', encouraging: 'encouraging', determined: 'encouraging', warrior: 'encouraging',
+    thinking: 'thinking', sleepy: 'thinking', scholar: 'thinking', detective: 'thinking',
+    sad: 'sad', defeat: 'sad',
+}
+export const MASCOT_POSES = ['happy', 'greeting', 'celebrating', 'encouraging', 'thinking', 'sad']
+export const poseForMood = mood => POSE_FOR_MOOD[mood] || 'happy'
+export const mascotSrc = mood => `${BASE}mascot/${poseForMood(mood)}.webp`
+
+// Costume emoji sit on the pose, as fractions of the image box.
+const COSTUME_SPOT = {
+    hat: { top: '-6%', left: '44%', size: 0.34 },
+    face: { top: '22%', left: '45%', size: 0.26 },
+    body: { top: '58%', left: '44%', size: 0.30 },
+}
+
+/**
+ * mood      — picks the pose (see POSE_FOR_MOOD); unknown moods fall back to happy
+ * size      — px
+ * bubble    — optional speech bubble text
+ * equipped  — costume items ({ slot, emoji }) drawn on top of the pose
+ * animate   — idle float (default true; always off with reduced motion)
+ */
+export default function LivingOtter({ mood = 'idle', size = 64, bubble = null, equipped = [], animate = true, className = '', alt = 'Rheo' }) {
     const reducedMotion = useReducedMotion()
-    const celebrating = mood === 'happy' || mood === 'celebrate'
-    return <motion.img src={`${BASE}mascot_happy.png`} alt="Rheo" draggable={false}
-        className={`shrink-0 object-contain rounded-xl ${className}`}
-        style={{ width: size, height: size }}
-        animate={reducedMotion ? { y: 0, scale: 1 } : celebrating ? { y: [0, -3, 0], scale: [1, 1.03, 1] } : { y: 0, scale: 1 }}
-        transition={{ duration: 0.45 }} />
+    const pose = poseForMood(mood)
+    const lively = animate && !reducedMotion
+    const motionProps = !lively ? {} : pose === 'celebrating'
+        ? { animate: { y: [0, -6, 0], rotate: [0, -2, 2, 0] }, transition: { duration: 0.9, repeat: Infinity, repeatDelay: 0.6 } }
+        : pose === 'sad'
+            ? { animate: { y: [0, 1, 0] }, transition: { duration: 3, repeat: Infinity } }
+            : { animate: { y: [0, -3, 0] }, transition: { duration: 2.6, repeat: Infinity, ease: 'easeInOut' } }
+    return (
+        <div className={`relative shrink-0 ${className}`} style={{ width: size, height: size }}>
+            {bubble && (
+                <div className="absolute left-1/2 -translate-x-1/2 z-10 pointer-events-none" style={{ bottom: '96%' }}>
+                    <div className="bg-white rounded-xl px-2.5 py-1 whitespace-nowrap relative shadow-md">
+                        <span className="text-[11px] font-extrabold text-slate-800">{bubble}</span>
+                        <div className="absolute -bottom-[4px] left-1/2 -translate-x-1/2 w-2 h-2 bg-white rotate-45" />
+                    </div>
+                </div>
+            )}
+            <motion.img src={mascotSrc(mood)} alt={alt} draggable={false} {...motionProps}
+                className="w-full h-full object-contain select-none" style={{ filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.35))' }} />
+            {equipped.map(item => {
+                const spot = COSTUME_SPOT[item.slot]
+                if (!spot) return null
+                return <span key={item.id || item.slot} aria-hidden="true" className="absolute -translate-x-1/2 pointer-events-none leading-none"
+                    style={{ top: spot.top, left: spot.left, fontSize: size * spot.size }}>{item.emoji}</span>
+            })}
+        </div>
+    )
 }
 
 /* ══════════════════════════════════════════════

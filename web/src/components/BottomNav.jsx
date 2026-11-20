@@ -66,11 +66,11 @@ export default function BottomNav({ activeTab, onTabChange }) {
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         className="absolute -top-1.5 -right-2 min-w-[16px] h-[16px] rounded-full bg-red-500 border-2 border-[#0B1120] flex items-center justify-center px-0.5">
-                                        <span className="text-[8px] font-black text-white leading-none">{badge}</span>
+                                        <span className="text-[11px] font-black text-white leading-none">{badge}</span>
                                     </motion.div>
                                 )}
                             </div>
-                            <span className={`text-[10px] font-extrabold mt-0.5 ${isActive ? 'text-teal-400' : 'text-slate-500'
+                            <span className={`text-[11px] font-extrabold mt-0.5 ${isActive ? 'text-teal-400' : 'text-slate-400'
                                 }`}>
                                 {t(tab.label)}
                             </span>

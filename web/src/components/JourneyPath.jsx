@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { getCodeSnippet, getOtterMood, stats, journeyNodes, getTipOfTheDay, chapterColors, getExercisesForNode, getActiveLanguage, t, isHapticEnabled, isChestOpened, openChest, LESSON_LENGTH, SHORT_LESSON_LENGTH } from '../data'
 import { showXP } from './XPToast'
+import LivingOtter from './LivingOtter'
 
 /* ═══════════════════════════════════════════════════════
    JourneyPath v9 — Mega Feature Pack
@@ -83,9 +84,9 @@ export default function JourneyPath({ nodes }) {
                     <div className="relative z-20 mx-4 mb-4 mt-2 rounded-2xl px-4 py-3 bg-slate-800/80 border border-teal-700/30 border-b-[3px] border-b-slate-950 flex items-start gap-3">
                         <span className="text-lg mt-0.5">💡</span>
                         <div className="flex-1 min-w-0">
-                            <p className="text-[10px] font-extrabold text-teal-400 mb-0.5">{t('TIP OF THE DAY')}</p>
+                            <p className="text-[11px] font-extrabold text-teal-400 mb-0.5">{t('TIP OF THE DAY')}</p>
                             <p className="text-[11px] font-bold text-slate-300 leading-snug">{t(todayTip.tip)}</p>
-                            <code className="text-[9px] font-mono text-teal-300/80 mt-1 block">{todayTip.code}</code>
+                            <code className="text-[11px] font-mono text-teal-300/80 mt-1 block">{todayTip.code}</code>
                         </div>
                     </div>
                 )
@@ -214,7 +215,7 @@ function NodeButton({ node, index, openNodeId, setOpenNodeId, showOtter }) {
             {/* Daily label */}
             {isDaily && (
                 <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 bg-amber-500 rounded-full px-2 py-0.5">
-                    <span className="text-[8px] font-black text-amber-950">TODAY</span>
+                    <span className="text-[11px] font-black text-amber-950">TODAY</span>
                 </div>
             )}
 
@@ -237,7 +238,7 @@ function NodeButton({ node, index, openNodeId, setOpenNodeId, showOtter }) {
               ${s < node.stars ? 'bg-yellow-400 border-b-[2px] border-yellow-600' : 'bg-slate-700 border-b-[2px] border-slate-800'}
               ${isCompleted && s < node.stars ? 'animate-star-pop' : ''}
             `} style={isCompleted && s < node.stars ? { animationDelay: `${s * 0.15}s` } : {}}>
-                            <svg className={`w-[12px] h-[12px] ${s < node.stars ? 'text-yellow-700' : 'text-slate-600'}`} fill="currentColor" viewBox="0 0 24 24">
+                            <svg className={`w-[12px] h-[12px] ${s < node.stars ? 'text-yellow-700' : 'text-slate-400'}`} fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                             </svg>
                         </div>
@@ -245,7 +246,7 @@ function NodeButton({ node, index, openNodeId, setOpenNodeId, showOtter }) {
                 </div>
             )}
 
-            <span className={`mt-0.5 text-[10px] font-extrabold tracking-wide ${isLocked ? 'text-slate-600' : (isActive || isAvailable) ? 'text-teal-300' : isDaily ? 'text-amber-400' : 'text-slate-400'
+            <span className={`mt-0.5 text-[11px] font-extrabold tracking-wide ${isLocked ? 'text-slate-500' : (isActive || isAvailable) ? 'text-teal-300' : isDaily ? 'text-amber-400' : 'text-slate-400'
                 }`}>{t(node.title)}</span>
         </div>
     )
@@ -261,11 +262,11 @@ function CodePreview({ iconKey, onClose }) {
             <div className="bg-slate-900 border-2 border-slate-700 border-b-[4px] border-b-slate-800 rounded-xl overflow-hidden">
                 {/* Header */}
                 <div className="flex items-center justify-between px-3 py-1.5 bg-slate-800">
-                    <span className="text-[9px] font-extrabold text-slate-400">{snippet.lang}</span>
-                    <button onClick={onClose} className="text-slate-500 hover:text-white text-xs cursor-pointer">✕</button>
+                    <span className="text-[11px] font-extrabold text-slate-400">{snippet.lang}</span>
+                    <button onClick={onClose} className="text-slate-400 hover:text-white text-xs cursor-pointer">✕</button>
                 </div>
                 {/* Code */}
-                <pre className="px-3 py-2 text-[10px] font-mono leading-[1.6] text-teal-300 overflow-hidden">
+                <pre className="px-3 py-2 text-[11px] font-mono leading-[1.6] text-teal-300 overflow-hidden">
                     {snippet.code}
                 </pre>
             </div>
@@ -294,114 +295,10 @@ function ChestSVG({ locked }) {
    Expressions change based on context
    ═══════════════════════════════════════════ */
 function MoodOtter({ mood }) {
-    const eyes = {
-        happy: { shape: 'round' },
-        cool: { shape: 'cool' },
-        sad: { shape: 'sad' },
-        sleepy: { shape: 'sleepy' },
-        determined: { shape: 'determined' },
-        excited: { shape: 'star' },
-    }
-    const eye = eyes[mood.face] || eyes.happy
-
+    // The official mascot beside the active node; the face picks the pose.
     return (
-        <div className="absolute -right-[78px] -top-[6px] z-20 pointer-events-none animate-otter-float">
-            {/* Speech bubble */}
-            <div className="absolute -top-[36px] -left-[10px] animate-bubble-bounce">
-                <div className="bg-white rounded-xl px-2.5 py-1 whitespace-nowrap relative">
-                    <span className="text-[10px] font-extrabold text-slate-800">{mood.bubble}</span>
-                    <div className="absolute -bottom-[5px] left-1/2 -translate-x-1/2 w-[10px] h-[10px] bg-white rotate-45 rounded-sm" />
-                </div>
-            </div>
-
-            <div className="relative w-[56px] h-[62px]">
-                {/* Body — DARKER TEAL (distinct from buttons) */}
-                <div className="absolute inset-0 rounded-[18px] overflow-hidden bg-teal-700 border-b-[4px] border-teal-900">
-                    {/* Belly — medium mint */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[34px] h-[28px] rounded-t-[50%] bg-teal-500" />
-
-                    {/* Face with mood eyes */}
-                    <div className="absolute top-[11px] left-1/2 -translate-x-1/2 w-[38px]">
-                        <div className="flex justify-center gap-[7px] mb-[2px]">
-                            {[0, 1].map(i => (
-                                <div key={i} className="relative">
-                                    {eye.shape === 'cool' ? (
-                                        <div className="w-[11px] h-[7px] bg-slate-900 rounded-sm border border-slate-700" />
-                                    ) : eye.shape === 'sad' ? (
-                                        <div className="w-[9px] h-[7px] rounded-full bg-white relative">
-                                            <div className="absolute top-[2px] left-[2px] w-[4px] h-[4px] bg-slate-900 rounded-full" />
-                                        </div>
-                                    ) : eye.shape === 'sleepy' ? (
-                                        <div className="w-[9px] h-[4px] bg-white rounded-b-full overflow-hidden relative">
-                                            <div className="absolute bottom-[0px] left-[2px] w-[4px] h-[3px] bg-slate-900 rounded-full" />
-                                        </div>
-                                    ) : eye.shape === 'star' ? (
-                                        <svg width="10" height="10" viewBox="0 0 20 20" fill="#FCD34D"><path d="M10 0l2.5 6.5L20 7.5l-5 4 1.5 6.5L10 14.5 3.5 18 5 11.5 0 7.5l7.5-1z" /></svg>
-                                    ) : eye.shape === 'determined' ? (
-                                        <div className="w-[9px] h-[10px] rounded-full bg-white relative">
-                                            <div className="absolute top-[1px] left-[1px] w-[5px] h-[6px] bg-slate-900 rounded-full" />
-                                            <div className="absolute -top-[3px] left-0 right-0 h-[2px] bg-teal-900 rounded-full" style={{ transform: i === 0 ? 'rotate(-15deg)' : 'rotate(15deg)' }} />
-                                        </div>
-                                    ) : (
-                                        <div className="w-[9px] h-[10px] rounded-full bg-white relative">
-                                            <div className="absolute top-[1px] left-[1px] w-[5px] h-[6px] bg-slate-900 rounded-full" />
-                                            <div className="absolute top-[1px] right-[1px] w-[2px] h-[2px] bg-white rounded-full" />
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                        {/* Nose — dark */}
-                        <div className="flex justify-center"><div className="w-[6px] h-[4px] bg-slate-900 rounded-full" /></div>
-                        {/* Whiskers */}
-                        <div className="flex justify-between mt-[1px]">
-                            <div className="flex flex-col gap-[1px] -ml-3">
-                                <div className="w-[10px] h-[1px] bg-white/40 -rotate-8" />
-                                <div className="w-[8px] h-[1px] bg-white/25 rotate-5" />
-                            </div>
-                            <div className="flex flex-col gap-[1px] -mr-3">
-                                <div className="w-[10px] h-[1px] bg-white/40 rotate-8" />
-                                <div className="w-[8px] h-[1px] bg-white/25 -rotate-5" />
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Mouth */}
-                    <div className="absolute bottom-[10px] left-1/2 -translate-x-1/2">
-                        {mood.face === 'sad' ? (
-                            <div className="w-[10px] h-[5px] border-t-[2px] border-slate-900/50 rounded-t-full" />
-                        ) : mood.face === 'excited' ? (
-                            <div className="w-[10px] h-[6px] bg-slate-900/40 rounded-b-full" />
-                        ) : (
-                            <div className="w-[10px] h-[5px] border-b-[2px] border-slate-900/50 rounded-b-full" />
-                        )}
-                    </div>
-                </div>
-
-                {/* Ears — darker teal */}
-                <div className="absolute -top-[5px] left-[9px] w-[11px] h-[11px] rounded-full bg-teal-700">
-                    <div className="absolute top-[2px] left-[2px] w-[5px] h-[5px] rounded-full bg-teal-500" />
-                </div>
-                <div className="absolute -top-[5px] right-[9px] w-[11px] h-[11px] rounded-full bg-teal-700">
-                    <div className="absolute top-[2px] right-[2px] w-[5px] h-[5px] rounded-full bg-teal-500" />
-                </div>
-
-                {/* Cool sunglasses bridge */}
-                {mood.face === 'cool' && (
-                    <div className="absolute top-[14px] left-1/2 -translate-x-1/2 w-[5px] h-[1px] bg-slate-700" />
-                )}
-
-                {/* Paws */}
-                <div className="absolute -bottom-[3px] left-[12px] w-[9px] h-[5px] rounded-b-full bg-teal-800" />
-                <div className="absolute -bottom-[3px] right-[12px] w-[9px] h-[5px] rounded-b-full bg-teal-800" />
-
-                {/* Code tablet — white with </> like Flutter mascot */}
-                <div className="absolute bottom-[4px] -left-[16px] animate-wiggle">
-                    <div className="w-[16px] h-[20px] rounded-[4px] bg-white border-b-[2px] border-slate-300 overflow-hidden flex items-center justify-center">
-                        <span className="text-[7px] font-black text-slate-800">&lt;/&gt;</span>
-                    </div>
-                </div>
-            </div>
+        <div className="absolute -right-[84px] -top-[10px] z-20 pointer-events-none">
+            <LivingOtter mood={mood.face} size={68} bubble={mood.bubble} />
         </div>
     )
 }
@@ -436,18 +333,18 @@ function ChestModal({ node, onClose, onStart }) {
                     </h3>
 
                     {isLocked ? (
-                        <p className="text-[10px] font-bold text-slate-500 mb-3">{t('Complete previous lessons to unlock')}</p>
+                        <p className="text-[11px] font-bold text-slate-400 mb-3">{t('Complete previous lessons to unlock')}</p>
                     ) : reward ? (
                         <div className="my-3">
                             <span className="text-3xl">{reward.emoji}</span>
                             <p className="text-sm font-black text-amber-400 mt-2">+{reward.amount} {t(reward.label)}</p>
                         </div>
                     ) : collected ? (
-                        <p className="text-[10px] font-bold text-slate-500 mb-3">{t('Already collected')}</p>
+                        <p className="text-[11px] font-bold text-slate-400 mb-3">{t('Already collected')}</p>
                     ) : isDone ? (
-                        <p className="text-[10px] font-bold text-slate-500 mb-3">{t('Lesson done — the chest is yours.')}</p>
+                        <p className="text-[11px] font-bold text-slate-400 mb-3">{t('Lesson done — the chest is yours.')}</p>
                     ) : (
-                        <p className="text-[10px] font-bold text-slate-500 mb-3">{t('Pass a 4-question round to unlock it.')}</p>
+                        <p className="text-[11px] font-bold text-slate-400 mb-3">{t('Pass a 4-question round to unlock it.')}</p>
                     )}
 
                     {!isLocked && !isDone && (
@@ -496,13 +393,13 @@ function LessonModal({ node, onClose, onStart }) {
                 <div className="h-2 w-full" style={{ backgroundColor: chapter.accent }} />
                 <div className="p-4 text-center">
                     <h3 className="text-sm font-black text-white mb-1">{t(node.title)}</h3>
-                    <p className="text-[9px] font-bold text-slate-500 mb-3">{chapter.name} • {qCount} questions</p>
+                    <p className="text-[11px] font-bold text-slate-400 mb-3">{chapter.name} • {qCount} questions</p>
 
                     {/* Difficulty */}
                     <div className="flex items-center justify-center gap-1 mb-3">
-                        <span className="text-[9px] font-extrabold text-slate-500 mr-1">Difficulty:</span>
+                        <span className="text-[11px] font-extrabold text-slate-400 mr-1">Difficulty:</span>
                         {[0, 1, 2].map(s => (
-                            <svg key={s} className={`w-3 h-3 ${s < diffStars ? 'text-amber-400' : 'text-slate-700'}`} fill="currentColor" viewBox="0 0 24 24">
+                            <svg key={s} className={`w-3 h-3 ${s < diffStars ? 'text-amber-400' : 'text-slate-500'}`} fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                             </svg>
                         ))}
@@ -511,7 +408,7 @@ function LessonModal({ node, onClose, onStart }) {
                     {/* Skill tag */}
                     {node.skill && (
                         <div className="inline-block px-3 py-1 rounded-full bg-slate-800 border border-slate-700 mb-4">
-                            <span className="text-[9px] font-extrabold" style={{ color: chapter.accent }}>{node.skill.replace('_', ' ').toUpperCase()}</span>
+                            <span className="text-[11px] font-extrabold" style={{ color: chapter.accent }}>{node.skill.replace('_', ' ').toUpperCase()}</span>
                         </div>
                     )}
 
@@ -557,23 +454,23 @@ function ConceptPreviewModal({ node, onStart }) {
 
                     {/* Length badge */}
                     <div className="absolute bottom-2 right-2 bg-black/60 rounded px-1.5 py-0.5">
-                        <span className="text-[9px] font-bold text-white">{cards} {t('cards')} · ~{info.minutes || 2} {t('min')}</span>
+                        <span className="text-[11px] font-bold text-white">{cards} {t('cards')} · ~{info.minutes || 2} {t('min')}</span>
                     </div>
 
                     {isCompleted && (
                         <div className="absolute top-2 left-2 bg-emerald-500 rounded-full px-2 py-0.5">
-                            <span className="text-[7px] font-black text-emerald-950">✓ {t('READ')}</span>
+                            <span className="text-[11px] font-black text-emerald-950">✓ {t('READ')}</span>
                         </div>
                     )}
                 </div>
 
                 <div className="p-4 text-center">
                     <h3 className="text-sm font-black text-white mb-1">{t(node.title)}</h3>
-                    <p className="text-[10px] font-bold text-purple-400 mb-1">{t('Swipe-through concept lesson')}</p>
-                    <p className="text-[9px] font-bold text-slate-500 mb-3">{t(chapter.name)} • {t('no wrong answers')}</p>
+                    <p className="text-[11px] font-bold text-purple-400 mb-1">{t('Swipe-through concept lesson')}</p>
+                    <p className="text-[11px] font-bold text-slate-400 mb-3">{t(chapter.name)} • {t('no wrong answers')}</p>
 
                     {isLocked ? (
-                        <p className="text-[10px] font-bold text-slate-500">{t('Complete previous lessons to unlock')}</p>
+                        <p className="text-[11px] font-bold text-slate-400">{t('Complete previous lessons to unlock')}</p>
                     ) : (
                         <button onClick={() => { haptic(); onStart?.() }}
                             className="w-full py-2.5 rounded-xl font-black text-sm text-white bg-purple-600 border-b-[4px] border-purple-800 active:border-b-0 active:translate-y-[4px] transition-all duration-75 cursor-pointer">
@@ -640,7 +537,7 @@ function PlaygroundModal({ node, onClose, onStart }) {
                 <div className="p-3">
                     <div className="flex items-center justify-between mb-2">
                         <h3 className="text-xs font-black text-white">{t(node.title)}</h3>
-                        <button onClick={onClose} className="text-slate-500 hover:text-white text-xs cursor-pointer font-bold">✕</button>
+                        <button onClick={onClose} className="text-slate-400 hover:text-white text-xs cursor-pointer font-bold">✕</button>
                     </div>
 
                     {/* Short lesson — the sandbox teaches nothing on its own, so the
@@ -658,12 +555,12 @@ function PlaygroundModal({ node, onClose, onStart }) {
                             <div className="w-2 h-2 rounded-full bg-red-400" />
                             <div className="w-2 h-2 rounded-full bg-amber-400" />
                             <div className="w-2 h-2 rounded-full bg-green-400" />
-                            <span className="text-[8px] font-bold text-slate-500 ml-auto">{(() => { const l = getActiveLanguage(); return l === 'java' ? 'Main.java' : l === 'javascript' ? 'main.js' : 'main.py' })()}</span>
+                            <span className="text-[11px] font-bold text-slate-400 ml-auto">{(() => { const l = getActiveLanguage(); return l === 'java' ? 'Main.java' : l === 'javascript' ? 'main.js' : 'main.py' })()}</span>
                         </div>
                         <textarea
                             value={code}
                             onChange={e => setCode(e.target.value)}
-                            className="w-full h-[90px] bg-slate-950 text-[10px] font-mono text-teal-300 p-3 border-none outline-none resize-none leading-relaxed"
+                            className="w-full h-[90px] bg-slate-950 text-[11px] font-mono text-teal-300 p-3 border-none outline-none resize-none leading-relaxed"
                             spellCheck="false"
                         />
                     </div>
@@ -678,10 +575,10 @@ function PlaygroundModal({ node, onClose, onStart }) {
                     {ran && (
                         <div className={`rounded-xl overflow-hidden border ${isCorrect ? 'border-emerald-600/50' : 'border-slate-700'}`}>
                             <div className="flex items-center justify-between px-3 py-1.5 bg-slate-800">
-                                <span className="text-[8px] font-bold text-slate-500">OUTPUT</span>
-                                {isCorrect && <span className="text-[8px] font-black text-emerald-400">✓ CORRECT!</span>}
+                                <span className="text-[11px] font-bold text-slate-400">OUTPUT</span>
+                                {isCorrect && <span className="text-[11px] font-black text-emerald-400">✓ CORRECT!</span>}
                             </div>
-                            <pre className="px-3 py-2 text-[10px] font-mono text-emerald-300 bg-slate-950 whitespace-pre-wrap">
+                            <pre className="px-3 py-2 text-[11px] font-mono text-emerald-300 bg-slate-950 whitespace-pre-wrap">
                                 {output}
                             </pre>
                         </div>

@@ -14,6 +14,15 @@ export function getLocale() { return _locale }
 export function setLocale(loc) { _locale = loc; try { localStorage.setItem('rheo_locale', loc) } catch (e) { /* ignore */ } }
 
 const _tr = {
+    'Sun': 'Paz',
+    'Sat': 'Cmt',
+    'Fri': 'Cum',
+    'Thu': 'Per',
+    'Wed': 'Çar',
+    'Tue': 'Sal',
+    'Mon': 'Pzt',
+    'Learning': 'Öğrenme',
+    'Dismiss': 'Kapat',
     'Find your level': 'Seviyeni bul',
     'skip what you already know · ~8 questions': 'bildiğin yerleri atla · ~8 soru',
     'Up to 8 questions from across the journey. They get harder when you are right and easier when you are not. No hearts, no timer.': 'Yolculuğun her yerinden en fazla 8 soru. Doğru bildikçe zorlaşır, bilemediğinde kolaylaşır. Kalp yok, süre yok.',
@@ -574,6 +583,7 @@ const _tr = {
     'correct': 'doğru',
     'Wrong': 'Yanlış',
     'days': 'gün',
+    'day': 'gün',
     'games': 'maç',
     'Loading...': 'Yükleniyor...',
     'Your XP Bet?': 'XP Bahsin?',

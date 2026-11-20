@@ -14,13 +14,13 @@ export default function MoreView() {
                 {/* Header */}
                 <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
                     <h1 className="text-2xl font-black text-white pt-2">More</h1>
-                    <p className="text-xs font-bold text-slate-500 mt-0.5">Settings & insights</p>
+                    <p className="text-xs font-bold text-slate-400 mt-0.5">Settings & insights</p>
                 </motion.div>
 
                 {/* Quick Stats Overview */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
                     className="rounded-2xl p-5 bg-slate-800 border-2 border-slate-700/40 border-b-[5px] border-b-slate-950">
-                    <h3 className="text-[11px] font-extrabold text-slate-500 tracking-widest uppercase mb-4">Learning Summary</h3>
+                    <h3 className="text-[11px] font-extrabold text-slate-400 tracking-widest uppercase mb-4">Learning Summary</h3>
                     <div className="grid grid-cols-3 gap-3">
                         <StatBubble emoji="📚" value="142" label="Lessons" />
                         <StatBubble emoji="⏱️" value="38h" label="Total Time" />
@@ -36,13 +36,13 @@ export default function MoreView() {
                 {/* Weekly Activity */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
                     className="rounded-2xl p-5 bg-slate-800 border-2 border-slate-700/40 border-b-[5px] border-b-slate-950">
-                    <h3 className="text-[11px] font-extrabold text-slate-500 tracking-widest uppercase mb-4">This Week</h3>
+                    <h3 className="text-[11px] font-extrabold text-slate-400 tracking-widest uppercase mb-4">This Week</h3>
                     <WeeklyChart />
                 </motion.div>
 
                 {/* Settings */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
-                    <h3 className="text-[11px] font-extrabold text-slate-500 tracking-widest uppercase mb-3">Settings</h3>
+                    <h3 className="text-[11px] font-extrabold text-slate-400 tracking-widest uppercase mb-3">Settings</h3>
                     <div className="space-y-2">
                         <SettingRow icon="🔔" label="Notifications" type="toggle" defaultOn={true} />
                         <SettingRow icon="🌙" label="Dark Mode" type="toggle" defaultOn={true} />
@@ -55,7 +55,7 @@ export default function MoreView() {
 
                 {/* About */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-                    <h3 className="text-[11px] font-extrabold text-slate-500 tracking-widest uppercase mb-3">About</h3>
+                    <h3 className="text-[11px] font-extrabold text-slate-400 tracking-widest uppercase mb-3">About</h3>
                     <div className="space-y-2">
                         <SettingRow icon="📖" label="Terms of Service" type="arrow" />
                         <SettingRow icon="🔒" label="Privacy Policy" type="arrow" />
@@ -63,7 +63,7 @@ export default function MoreView() {
                         <SettingRow icon="⭐" label="Rate Rheo" type="arrow" />
                     </div>
                     <div className="text-center py-4">
-                        <p className="text-[10px] font-bold text-slate-600">Rheo v2.0 • Made with 🦦 by Furkan & Arda</p>
+                        <p className="text-[11px] font-bold text-slate-400">Rheo v2.0 • Made with 🦦 by Furkan & Arda</p>
                     </div>
                 </motion.div>
             </div>
@@ -76,7 +76,7 @@ function StatBubble({ emoji, value, label }) {
         <div className="rounded-xl p-3 bg-slate-900/60 border border-slate-700/20 border-b-[2px] border-b-slate-950 text-center">
             <div className="text-lg mb-0.5">{emoji}</div>
             <p className="text-sm font-black text-white">{value}</p>
-            <p className="text-[8px] font-bold text-slate-600">{label}</p>
+            <p className="text-[11px] font-bold text-slate-400">{label}</p>
         </div>
     )
 }
@@ -104,7 +104,7 @@ function WeeklyChart() {
                                 <div className="w-full h-[3px] rounded-t-lg bg-white/20 mt-[1px]" />
                             )}
                         </motion.div>
-                        <span className={`text-[8px] font-extrabold ${isToday ? 'text-teal-400' : 'text-slate-600'}`}>{day}</span>
+                        <span className={`text-[11px] font-extrabold ${isToday ? 'text-teal-400' : 'text-slate-400'}`}>{day}</span>
                     </div>
                 )
             })}
@@ -127,7 +127,7 @@ function SettingRow({ icon, label, type, value, defaultOn }) {
                 </button>
             )}
             {type === 'value' && (
-                <span className="text-xs font-bold text-slate-500">{value}</span>
+                <span className="text-xs font-bold text-slate-400">{value}</span>
             )}
             {type === 'arrow' && (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#475569" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

@@ -112,12 +112,12 @@ function Dashboard({ onStart }) {
             {/* Floating code particles */}
             {['</>', '{}', '()', '[]', '//', 'fn', 'if', '0x'].map((t, i) =>
                 <motion.span key={i} animate={{ y: [0, -40, 0], opacity: [0, .25, 0] }} transition={{ duration: 6 + i * 1.5, repeat: Infinity, delay: i * .8 }}
-                    className="absolute text-[8px] font-mono" style={{ color: tier.color + '40', left: `${10 + i * 12}%`, top: `${20 + ((i * 17) % 60)}%` }}>{t}</motion.span>
+                    className="absolute text-[11px] font-mono" style={{ color: tier.color + '40', left: `${10 + i * 12}%`, top: `${20 + ((i * 17) % 60)}%` }}>{t}</motion.span>
             )}
         </div>
 
         <div className="max-w-md mx-auto px-4 space-y-4 relative" style={{ paddingTop: 'max(12px,env(safe-area-inset-top,12px))' }}>
-            <button onClick={() => { _snd.v = !_snd.v; setSnd(!snd) }} className="absolute right-4 top-3 w-8 h-8 rounded-lg flex items-center justify-center text-[10px] opacity-50 hover:opacity-90 cursor-pointer z-20 backdrop-blur-md" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>{snd ? '🔊' : '🔇'}</button>
+            <button onClick={() => { _snd.v = !_snd.v; setSnd(!snd) }} className="absolute right-4 top-3 w-8 h-8 rounded-lg flex items-center justify-center text-[11px] opacity-50 hover:opacity-90 cursor-pointer z-20 backdrop-blur-md" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>{snd ? '🔊' : '🔇'}</button>
 
             {/* ── HEADER with glow ── */}
             <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center pt-3 pb-1 flex flex-col items-center">
@@ -126,19 +126,19 @@ function Dashboard({ onStart }) {
                 </motion.div>
                 <h1 className="text-xl font-black text-white mt-2" style={{ textShadow: `0 0 20px ${tier.color}30` }}>{tier.name} League</h1>
                 <div className="flex items-center gap-2 mt-1">
-                    <span className="flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-black backdrop-blur-md" style={{ background: `${tier.color}15`, color: tier.color, border: `1px solid ${tier.color}35`, boxShadow: `0 0 12px ${tier.color}20` }}><BoltIcon size={10} color={tier.color} />{duelStats.elo} ELO</span>
-                    <span className="flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-black bg-white/5 text-slate-400 border border-white/10 backdrop-blur-md"><StarIcon size={10} />{title.name}</span>
+                    <span className="flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-black backdrop-blur-md" style={{ background: `${tier.color}15`, color: tier.color, border: `1px solid ${tier.color}35`, boxShadow: `0 0 12px ${tier.color}20` }}><BoltIcon size={10} color={tier.color} />{duelStats.elo} ELO</span>
+                    <span className="flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-black bg-white/5 text-slate-400 border border-white/10 backdrop-blur-md"><StarIcon size={10} />{title.name}</span>
                 </div>
 
                 {/* ── FLUID ELO BAR ── */}
                 {(() => {
                     const nx = leagueTiers.find(t => t.minElo > duelStats.elo)
-                    if (!nx) return <p className="text-[8px] font-bold text-amber-400 mt-2">Max Tier!</p>
+                    if (!nx) return <p className="text-[11px] font-bold text-amber-400 mt-2">Max Tier!</p>
                     const pct = Math.min(((duelStats.elo - tier.minElo) / (nx.minElo - tier.minElo)) * 100, 100)
                     return <div className="mt-3 w-full px-2">
-                        <div className="flex justify-between items-center text-[8px] font-bold mb-1.5">
+                        <div className="flex justify-between items-center text-[11px] font-bold mb-1.5">
                             <span className="flex items-center gap-1 px-2 py-0.5 rounded-md" style={{ background: tier.color + '15', color: tier.color, border: `1px solid ${tier.color}30` }}><ShieldIcon size={10} tier={tier.name.toLowerCase()} />{tier.name}</span>
-                            <motion.span animate={{ opacity: [.5, 1, .5] }} transition={{ duration: 2, repeat: Infinity }} className="text-[8px] text-slate-400 font-black">{duelStats.elo} / {nx.minElo} ELO</motion.span>
+                            <motion.span animate={{ opacity: [.5, 1, .5] }} transition={{ duration: 2, repeat: Infinity }} className="text-[11px] text-slate-400 font-black">{duelStats.elo} / {nx.minElo} ELO</motion.span>
                             <span className="flex items-center gap-1 px-2 py-0.5 rounded-md" style={{ background: nx.color + '15', color: nx.color, border: `1px solid ${nx.color}30` }}><ShieldIcon size={10} tier={nx.name.toLowerCase()} />{nx.name}</span>
                         </div>
                         <div className="h-3 rounded-full overflow-hidden relative" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
@@ -147,7 +147,7 @@ function Dashboard({ onStart }) {
                                 <motion.div animate={{ x: ['-100%', '200%'] }} transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }} className="absolute inset-0" style={{ background: 'linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent)', width: '50%' }} />
                             </motion.div>
                         </div>
-                        <p className="text-[7px] font-black text-slate-500 text-center mt-1">{nx.minElo - duelStats.elo} {t('ELO remaining')}</p>
+                        <p className="text-[11px] font-black text-slate-400 text-center mt-1">{nx.minElo - duelStats.elo} {t('ELO remaining')}</p>
                     </div>
                 })()}
             </motion.div>
@@ -178,15 +178,15 @@ function Dashboard({ onStart }) {
                 {[{ l: t('Wins'), v: duelStats.wins, c: '#34d399' }, { l: t('Losses'), v: duelStats.losses, c: '#f87171' }, { l: t('Win Rate'), v: `${wr}%`, c: '#fbbf24' }, { l: t('Streak'), v: duelStats.winStreak, c: '#fb923c', icon: true }].map((s, i) =>
                     <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .1 + i * .04 }} className={`${gc} text-center backdrop-blur-md`} style={{ ...G, boxShadow: `0 4px 20px rgba(0,0,0,0.2), 0 0 1px ${s.c}20` }}>
                         <div className="flex items-center justify-center gap-0.5"><p className="text-sm font-black" style={{ color: s.c, textShadow: `0 0 8px ${s.c}40` }}>{s.v}</p>{s.icon && <FireIcon size={12} />}</div>
-                        <p className="text-[7px] font-bold text-slate-400">{s.l}</p>
+                        <p className="text-[11px] font-bold text-slate-400">{s.l}</p>
                     </motion.div>
                 )}
             </motion.div>
 
             {/* ── SEASON + BP ── */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .12 }} className="grid grid-cols-2 gap-2">
-                <div className={`${gc} backdrop-blur-md`} style={G}><p className="text-[8px] font-extrabold text-slate-500 flex items-center gap-1"><CalendarIcon size={10} day="S" />{t('SEASON')}</p><p className="text-xs font-black text-white mt-0.5">{t('Season 1: Zero Day')}</p><p className="text-[8px] font-bold text-slate-600">{season.daysLeft} {t('days')} • {season.gamesPlayed} {t('games')}</p></div>
-                <div className={`${gc} backdrop-blur-md`} style={G}><p className="text-[8px] font-extrabold text-slate-500 flex items-center gap-1"><StarIcon size={10} />{t('BATTLE PASS')}</p><p className="text-xs font-black text-amber-400 mt-0.5">Tier {bp.currentTier}/{bp.tiers.length}</p><div className="h-1.5 rounded-full mt-1" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}><div className="h-full rounded-full" style={{ width: `${Math.min(((bp.xp - bp.prevXp) / Math.max(bp.nextTier.xpNeeded - bp.prevXp, 1)) * 100, 100)}%`, background: 'linear-gradient(90deg,#f59e0b,#fbbf24)', boxShadow: '0 0 8px rgba(251,191,36,0.3)' }} /></div></div>
+                <div className={`${gc} backdrop-blur-md`} style={G}><p className="text-[11px] font-extrabold text-slate-400 flex items-center gap-1"><CalendarIcon size={10} day="S" />{t('SEASON')}</p><p className="text-xs font-black text-white mt-0.5">{t('Season 1: Zero Day')}</p><p className="text-[11px] font-bold text-slate-400">{season.daysLeft} {t('days')} • {season.gamesPlayed} {t('games')}</p></div>
+                <div className={`${gc} backdrop-blur-md`} style={G}><p className="text-[11px] font-extrabold text-slate-400 flex items-center gap-1"><StarIcon size={10} />{t('BATTLE PASS')}</p><p className="text-xs font-black text-amber-400 mt-0.5">Tier {bp.currentTier}/{bp.tiers.length}</p><div className="h-1.5 rounded-full mt-1" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}><div className="h-full rounded-full" style={{ width: `${Math.min(((bp.xp - bp.prevXp) / Math.max(bp.nextTier.xpNeeded - bp.prevXp, 1)) * 100, 100)}%`, background: 'linear-gradient(90deg,#f59e0b,#fbbf24)', boxShadow: '0 0 8px rgba(251,191,36,0.3)' }} /></div></div>
             </motion.div>
 
             {/* ── CIRCUIT BOARD BATTLE PASS ── */}
@@ -198,7 +198,7 @@ function Dashboard({ onStart }) {
                 <div className="absolute top-1 left-1 w-2 h-2 rounded-full border border-green-900/30" style={{ background: 'radial-gradient(circle,rgba(34,197,94,0.1),transparent)' }} />
                 <div className="absolute top-1 right-1 w-2 h-2 rounded-full border border-green-900/30" style={{ background: 'radial-gradient(circle,rgba(34,197,94,0.1),transparent)' }} />
 
-                <p className="text-[8px] font-extrabold mb-3 flex items-center gap-1.5 relative z-10" style={{ color: '#4ade80', fontFamily: 'monospace', letterSpacing: '0.1em' }}>
+                <p className="text-[11px] font-extrabold mb-3 flex items-center gap-1.5 relative z-10" style={{ color: '#4ade80', fontFamily: 'monospace', letterSpacing: '0.1em' }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#4ade80" strokeWidth="1.5" /><rect x="8" y="8" width="8" height="8" rx="1" fill="#4ade80" fillOpacity="0.3" /><line x1="12" y1="0" x2="12" y2="4" stroke="#4ade80" strokeWidth="1" /><line x1="12" y1="20" x2="12" y2="24" stroke="#4ade80" strokeWidth="1" /><line x1="0" y1="12" x2="4" y2="12" stroke="#4ade80" strokeWidth="1" /><line x1="20" y1="12" x2="24" y2="12" stroke="#4ade80" strokeWidth="1" /></svg>
                     CIRCUIT_PASS v1.0
                 </p>
@@ -272,7 +272,7 @@ function Dashboard({ onStart }) {
                                 </motion.div>
 
                                 {/* Tier label - terminal style */}
-                                <span className={`text-[7px] font-black mt-1.5 font-mono ${u ? 'text-green-400' : isCurrent ? 'text-teal-400' : 'text-slate-400'}`}>T{String(t.tier).padStart(2, '0')}</span>
+                                <span className={`text-[11px] font-black mt-1.5 font-mono ${u ? 'text-green-400' : isCurrent ? 'text-teal-400' : 'text-slate-400'}`}>T{String(t.tier).padStart(2, '0')}</span>
                                 {/* Reward - command style */}
                                 <span className={`text-[6px] font-mono leading-tight text-center ${u ? 'text-green-400/70' : isCurrent ? 'text-teal-400/70' : 'text-slate-400'}`}>{bpRewards[i] || 'BONUS'}</span>
                             </div>
@@ -282,9 +282,9 @@ function Dashboard({ onStart }) {
 
                 {/* Bottom PCB info strip */}
                 <div className="flex items-center justify-between mt-2 pt-1.5 relative z-10" style={{ borderTop: '1px solid rgba(34,197,94,0.08)' }}>
-                    <span className="text-[5px] font-mono text-slate-600">REV 2026.03</span>
+                    <span className="text-[5px] font-mono text-slate-400">REV 2026.03</span>
                     <span className="text-[6px] font-mono font-bold" style={{ color: '#4ade8080' }}>NEXT: {bpRewards[bp.currentTier] || 'MAX'}</span>
-                    <span className="text-[5px] font-mono text-slate-600">RHEO PCB</span>
+                    <span className="text-[5px] font-mono text-slate-400">RHEO PCB</span>
                 </div>
             </motion.div>
 
@@ -293,7 +293,7 @@ function Dashboard({ onStart }) {
 
             {/* ── LEADERBOARD — Top 3 + Sticky User ── */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .2 }} className={`${gc} backdrop-blur-md`} style={G}>
-                <h3 className="text-[9px] font-extrabold text-slate-500 tracking-widest mb-2 flex items-center gap-1"><TrophyIcon size={14} color="#fbbf24" />{t('Leaderboard').toUpperCase()}</h3>
+                <h3 className="text-[11px] font-extrabold text-slate-400 tracking-widest mb-2 flex items-center gap-1"><TrophyIcon size={14} color="#fbbf24" />{t('Leaderboard').toUpperCase()}</h3>
                 <div className="space-y-1">{(() => {
                     const medalColors = ['#fbbf24', '#C0C0C0', '#CD7F32']
                     const top3 = lb.slice(0, 3)
@@ -307,19 +307,19 @@ function Dashboard({ onStart }) {
                         <div className="w-6 flex justify-center">
                             {i < 3 ? <motion.div animate={{ boxShadow: [`0 0 4px ${medalColors[i]}30`, `0 0 10px ${medalColors[i]}50`, `0 0 4px ${medalColors[i]}30`] }} transition={{ duration: 2, repeat: Infinity }} className="rounded-full">
                                 <MedalIcon rank={i + 1} size={20} />
-                            </motion.div> : <span className="text-[10px] font-black text-slate-600">{i + 1}</span>}
+                            </motion.div> : <span className="text-[11px] font-black text-slate-400">{i + 1}</span>}
                         </div>
                         <div className="relative">
                             {i < 3 && <motion.div animate={{ opacity: [.3, .6, .3] }} transition={{ duration: 2, repeat: Infinity }} className="absolute -inset-1 rounded-full" style={{ background: `radial-gradient(circle,${medalColors[i]}20,transparent)` }} />}
-                            <OtterMascot size={28} bodyColor={p.isUser ? undefined : (p.otterColor || '#6366f1')} />
+                            <OtterMascot size={28} bodyColor={p.isUser ? undefined : (p.otterColor || '#6366f1')} name={p.name} />
                         </div>
-                        <span className={`flex-1 text-[10px] font-extrabold truncate ${isSticky || p.isUser ? 'text-teal-300' : 'text-slate-300'}`}>{p.name}</span>
-                        <span className="text-[9px] font-black" style={{ color: isSticky ? '#14b8a6' : i < 3 ? medalColors[i] + 'cc' : '#475569' }}>{p.xp}</span>
+                        <span className={`flex-1 text-[11px] font-extrabold truncate ${isSticky || p.isUser ? 'text-teal-300' : 'text-slate-300'}`}>{p.name}</span>
+                        <span className="text-[11px] font-black" style={{ color: isSticky ? '#14b8a6' : i < 3 ? medalColors[i] + 'cc' : '#475569' }}>{p.xp}</span>
                     </motion.div>
                     return <>
                         {top3.map((p, i) => renderRow(p, i, false))}
                         {userEntry && userIdx >= 3 && <>
-                            <div className="flex items-center justify-center py-1"><span className="text-[8px] font-bold text-slate-600 tracking-[0.3em]">•••</span></div>
+                            <div className="flex items-center justify-center py-1"><span className="text-[11px] font-bold text-slate-400 tracking-[0.3em]">•••</span></div>
                             {renderRow(userEntry, userIdx, true)}
                         </>}
                     </>
@@ -328,24 +328,24 @@ function Dashboard({ onStart }) {
 
             {/* ── HISTORY ── */}
             {duelHistory.length > 0 && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .25 }}>
-                <h3 className="text-[9px] font-extrabold text-slate-500 tracking-widest mb-2 flex items-center gap-1"><ChartIcon size={12} />{t('Recent Duels').toUpperCase()}</h3>
+                <h3 className="text-[11px] font-extrabold text-slate-400 tracking-widest mb-2 flex items-center gap-1"><ChartIcon size={12} />{t('Recent Duels').toUpperCase()}</h3>
                 <div className="space-y-1.5">{duelHistory.slice(0, 5).map(m =>
                     <div key={m.id} className={`flex items-center gap-2 rounded-xl px-3 py-2 ${gc} backdrop-blur-md`} style={{ ...G, borderLeft: `3px solid ${m.result === 'win' ? '#34d399' : '#f87171'}` }}>
-                        <OtterMascot size={28} bodyColor={m.opponent.otterColor} />
-                        <div className="flex-1 min-w-0"><p className="text-[10px] font-extrabold text-white truncate">{m.opponent.name}</p><span className="text-[7px] font-bold text-slate-600">{m.date}</span></div>
-                        <div className="text-right"><p className={`text-[10px] font-black ${m.result === 'win' ? 'text-emerald-400' : 'text-red-400'}`}>{m.score}</p><span className={`text-[7px] font-bold ${m.elo > 0 ? 'text-emerald-400/80' : 'text-red-400/80'}`}>{m.elo > 0 ? '+' : ''}{m.elo}</span></div>
+                        <OtterMascot size={28} bodyColor={m.opponent.otterColor} name={m.opponent.name} />
+                        <div className="flex-1 min-w-0"><p className="text-[11px] font-extrabold text-white truncate">{m.opponent.name}</p><span className="text-[11px] font-bold text-slate-400">{m.date}</span></div>
+                        <div className="text-right"><p className={`text-[11px] font-black ${m.result === 'win' ? 'text-emerald-400' : 'text-red-400'}`}>{m.score}</p><span className={`text-[11px] font-bold ${m.elo > 0 ? 'text-emerald-400/80' : 'text-red-400/80'}`}>{m.elo > 0 ? '+' : ''}{m.elo}</span></div>
                     </div>
                 )}</div>
             </motion.div>}
             {duelHistory.length === 0 && <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8 flex flex-col items-center gap-3">
                 <motion.div animate={{ rotate: [0, 10, -10, 0], y: [0, -4, 0] }} transition={{ duration: 3, repeat: Infinity }} className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: 'rgba(20,184,166,0.1)', border: '1px solid rgba(20,184,166,0.2)' }}><SwordIcon size={28} color="#14b8a6" /></motion.div>
-                <div><p className="text-sm font-black text-slate-300">{t('Ready for your first duel?')}</p><p className="text-[10px] font-bold text-slate-500 mt-0.5">{t('Challenge AI opponents and climb the ranks!')}</p></div>
+                <div><p className="text-sm font-black text-slate-300">{t('Ready for your first duel?')}</p><p className="text-[11px] font-bold text-slate-400 mt-0.5">{t('Challenge AI opponents and climb the ranks!')}</p></div>
                 <motion.button whileTap={{ scale: .95 }} onClick={() => onStart('classic')} className="px-5 py-2 rounded-xl font-black text-xs text-white cursor-pointer" style={{ background: 'linear-gradient(135deg,#14b8a6,#06b6d4)', boxShadow: '0 4px 15px rgba(20,184,166,0.3)' }}>⚔️ {t('Start First Duel!')}</motion.button>
             </motion.div>}
 
             {/* ── ACHIEVEMENTS (Hologram Cards) ── */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .3 }} className={`${gc} backdrop-blur-md`} style={G}>
-                <h3 className="text-[9px] font-extrabold text-slate-500 tracking-widest mb-2 flex items-center gap-1"><MedalIcon rank={1} size={14} />{t('Achievements').toUpperCase()} ({getUnlockedAchievements().length}/{achievementDefs.length})</h3>
+                <h3 className="text-[11px] font-extrabold text-slate-400 tracking-widest mb-2 flex items-center gap-1"><MedalIcon rank={1} size={14} />{t('Achievements').toUpperCase()} ({getUnlockedAchievements().length}/{achievementDefs.length})</h3>
                 <div className="grid grid-cols-4 gap-1.5">{achievementDefs.map(a => {
                     const unlocked = getUnlockedAchievements().find(u => u.id === a.id)
                     return <HologramCard key={a.id} unlocked={!!unlocked} color={unlocked ? a.color : '#64748b'}>
@@ -355,7 +355,7 @@ function Dashboard({ onStart }) {
                                 <span className={`text-sm ${unlocked ? '' : 'grayscale opacity-40'}`}>{a.icon || '🏅'}</span>
                             </motion.div>
                             <span className="text-[5px] font-black text-center leading-tight" style={{ color: unlocked ? a.color : '#94a3b8' }}>{a.name}</span>
-                            <span className="text-[4px] font-bold text-slate-600 text-center leading-tight">{a.desc}</span>
+                            <span className="text-[4px] font-bold text-slate-400 text-center leading-tight">{a.desc}</span>
                         </div>
                     </HologramCard>
                 })}</div>
@@ -368,7 +368,7 @@ function Dashboard({ onStart }) {
 /* ── Glassmorphism Button ── */
 function GlassBtn({ icon, label, onClick, color, disabled }) {
     return <motion.button whileTap={disabled ? {} : { scale: .95 }} onClick={disabled ? undefined : onClick}
-        className={`w-full pt-3 pb-2 rounded-xl font-black text-[9px] text-white transition-all cursor-pointer flex flex-col items-center justify-center gap-1 backdrop-blur-md relative overflow-hidden ${disabled ? 'opacity-35' : ''}`}
+        className={`w-full pt-3 pb-2 rounded-xl font-black text-[11px] text-white transition-all cursor-pointer flex flex-col items-center justify-center gap-1 backdrop-blur-md relative overflow-hidden ${disabled ? 'opacity-35' : ''}`}
         style={{ background: `linear-gradient(135deg,${color}25,${color}10)`, border: `1px solid ${color}35`, boxShadow: `0 4px 15px ${color}15, 0 0 1px ${color}40`, height: 56 }}>
         <motion.div animate={{ x: ['-100%', '200%'] }} transition={{ duration: 4, repeat: Infinity, repeatDelay: 2 }} className="absolute inset-0" style={{ background: `linear-gradient(90deg,transparent,${color}15,transparent)`, width: '30%' }} />
         <span className="relative z-10 flex items-center justify-center" style={{ width: 20, height: 20 }}>{icon}</span>
@@ -402,10 +402,10 @@ function EmoteShop() {
 
     return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .16 }} className={gc} style={G}>
         <div className="flex items-center justify-between py-1 mb-1">
-            <p className="text-[8px] font-extrabold text-slate-500 leading-none">{t('Emotes').toUpperCase()} ({owned.length}/{allEmotes.length})</p>
+            <p className="text-[11px] font-extrabold text-slate-400 leading-none">{t('Emotes').toUpperCase()} ({owned.length}/{allEmotes.length})</p>
             <div className="flex items-center gap-2">
-                <span className="text-[8px] font-black text-amber-400">{stats.gems || 0} 💎</span>
-                <button onClick={() => setShow(!show)} className="text-[8px] font-black text-teal-400 cursor-pointer leading-none">{show ? t('Close') : t('Shop')}</button>
+                <span className="text-[11px] font-black text-amber-400">{stats.gems || 0} 💎</span>
+                <button onClick={() => setShow(!show)} className="text-[11px] font-black text-teal-400 cursor-pointer leading-none">{show ? t('Close') : t('Shop')}</button>
             </div>
         </div>
         {/* Owned emotes - horizontal scroll */}
@@ -414,12 +414,12 @@ function EmoteShop() {
                 className="flex-shrink-0 rounded-xl py-1.5 px-3 flex items-center gap-1.5 border"
                 style={{ background: `${e.color}15`, border: `1px solid ${e.color}30`, boxShadow: `0 0 12px ${e.color}10` }}>
                 <span className="text-sm font-black" style={{ color: e.color }}>{e.label}</span>
-                <span className="text-[7px] font-bold" style={{ color: e.color + '99' }}>{e.text}</span>
+                <span className="text-[11px] font-bold" style={{ color: e.color + '99' }}>{e.text}</span>
             </motion.div>
         )}</div>
         {/* Shop panel */}
         <AnimatePresence>{show && <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
-            {error && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[8px] font-black text-red-400 text-center mt-2 py-1 rounded-lg" style={{ background: 'rgba(239,68,68,0.1)' }}>⚠️ {error}</motion.p>}
+            {error && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[11px] font-black text-red-400 text-center mt-2 py-1 rounded-lg" style={{ background: 'rgba(239,68,68,0.1)' }}>⚠️ {error}</motion.p>}
             <div className="grid grid-cols-2 gap-1.5 mt-2">{allEmotes.filter(e => !owned.find(o => o.id === e.id)).map(e => {
                 const canAfford = (stats.gems || 0) >= e.price
                 return <motion.button key={e.id} whileTap={{ scale: .95 }} onClick={() => handleBuy(e)}
@@ -430,8 +430,8 @@ function EmoteShop() {
                         <span className="text-xs font-black" style={{ color: e.color }}>{e.label}</span>
                         <span className="text-[5px] font-black px-1 py-0.5 rounded" style={{ background: tierColors[e.tier] + '20', color: tierColors[e.tier] }}>{e.tier?.toUpperCase()}</span>
                     </div>
-                    <p className="text-[6px] font-bold text-slate-500 mb-1">{e.text}</p>
-                    <span className="text-[7px] font-black text-amber-400">{e.price} 💎</span>
+                    <p className="text-[6px] font-bold text-slate-400 mb-1">{e.text}</p>
+                    <span className="text-[11px] font-black text-amber-400">{e.price} 💎</span>
                 </motion.button>
             })}</div>
         </motion.div>}</AnimatePresence>
@@ -487,7 +487,7 @@ function LangSelect({ mode, onSelect, onBack }) {
                     </motion.button>
                 ))}
             </div>
-            <p className="text-white/30 text-[10px] text-center mt-4">{t('Your rank is calculated separately for each language')}</p>
+            <p className="text-white/30 text-[11px] text-center mt-4">{t('Your rank is calculated separately for each language')}</p>
         </motion.div>
     )
 }
@@ -499,7 +499,7 @@ function Searching({ opp, mode, onFound }) {
     useEffect(() => { S.sw(); const d = setInterval(() => setDots(v => v.length >= 3 ? '' : v + '.'), 400); const f = setTimeout(() => { setFound(true); S.pop(); setTimeout(onFound, 1800) }, 2500 + Math.random() * 2000); return () => { clearInterval(d); clearTimeout(f) } }, [onFound])
 
     return <div className="h-full flex flex-col items-center justify-center px-8 gap-5">
-        <span className="text-[9px] font-black text-slate-500 px-3 py-0.5 rounded-full border border-white/10" style={G}>{gameModes[mode]?.name}</span>
+        <span className="text-[11px] font-black text-slate-400 px-3 py-0.5 rounded-full border border-white/10" style={G}>{gameModes[mode]?.name}</span>
         {!found ? <>
             <div className="relative w-44 h-44">
                 <div className="absolute inset-0 rounded-full border-2 border-red-500/20" /><div className="absolute inset-4 rounded-full border border-red-500/15" /><div className="absolute inset-8 rounded-full border border-red-500/10" />
@@ -507,15 +507,15 @@ function Searching({ opp, mode, onFound }) {
                 <div className="absolute inset-0 flex items-center justify-center"><motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 1, repeat: Infinity }}><OtterMascot size={48} tier={getLeagueTier()} /></motion.div></div>
             </div>
             <h2 className="text-lg font-black text-white">{t('Searching Opponent')}{dots}</h2>
-            <p className="text-[10px] font-bold text-slate-500">ELO: {duelStats.elo - 100} - {duelStats.elo + 100}</p>
+            <p className="text-[11px] font-bold text-slate-400">ELO: {duelStats.elo - 100} - {duelStats.elo + 100}</p>
         </> : <>
             <motion.div initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 200 }}>
-                <OtterMascot size={80} bodyColor={opp.otterColor} />
+                <OtterMascot size={80} bodyColor={opp.otterColor} name={opp.name} />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .3 }} className="text-center">
                 <h2 className="text-lg font-black text-white">{t('Opponent Found!')}</h2>
                 <p className="text-sm font-extrabold text-red-400 mt-0.5">{opp.name}</p>
-                <p className="text-[10px] font-bold text-slate-500 flex items-center justify-center gap-1"><BoltIcon size={10} />{opp.elo} ELO</p>
+                <p className="text-[11px] font-bold text-slate-400 flex items-center justify-center gap-1"><BoltIcon size={10} />{opp.elo} ELO</p>
             </motion.div>
         </>}
     </div>
@@ -536,16 +536,16 @@ function VsIntro({ you, opp, mode, onReady }) {
             <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', stiffness: 150 }} className="text-center">
                 <OtterMascot size={64} tier={getLeagueTier()} glow={you.glow} />
                 <p className="text-xs font-black text-teal-300 mt-1">SEN</p>
-                <p className="text-[9px] font-bold text-slate-500 flex items-center justify-center gap-0.5"><BoltIcon size={8} />{duelStats.elo}</p>
+                <p className="text-[11px] font-bold text-slate-400 flex items-center justify-center gap-0.5"><BoltIcon size={8} />{duelStats.elo}</p>
             </motion.div>
             <motion.div initial={{ scale: 0 }} animate={{ scale: [0, 1.5, 1] }} transition={{ delay: .3, duration: .5 }}><VSBadge size={48} /></motion.div>
             <motion.div initial={{ x: 100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', stiffness: 150 }} className="text-center">
-                <OtterMascot size={64} bodyColor={opp.otterColor} />
+                <OtterMascot size={64} bodyColor={opp.otterColor} name={opp.name} />
                 <p className="text-xs font-black text-red-400 mt-1">{opp.name}</p>
-                <p className="text-[9px] font-bold text-slate-500 flex items-center justify-center gap-0.5"><BoltIcon size={8} />{opp.elo}</p>
+                <p className="text-[11px] font-bold text-slate-400 flex items-center justify-center gap-0.5"><BoltIcon size={8} />{opp.elo}</p>
             </motion.div>
         </div>
-        <span className="text-[9px] font-black text-slate-600 px-3 py-0.5 rounded-full border border-white/10" style={G}>{gameModes[mode]?.desc}</span>
+        <span className="text-[11px] font-black text-slate-400 px-3 py-0.5 rounded-full border border-white/10" style={G}>{gameModes[mode]?.desc}</span>
         <motion.div key={c} initial={{ scale: 2, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className={`text-6xl font-black ${c > 0 ? 'text-amber-400' : 'text-red-500'}`} style={{ textShadow: c > 0 ? '0 0 40px rgba(251,191,36,0.4)' : '0 0 40px rgba(239,68,68,0.5)' }}>{c > 0 ? c : 'FIGHT!'}</motion.div>
     </div>
 }
@@ -611,8 +611,8 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
 
     if (showBet) return <div className="h-full flex flex-col items-center justify-center gap-5 px-8">
         <DiceIcon size={48} /><h2 className="text-lg font-black text-white">{t('XP Wager?')}</h2>
-        <p className="text-[10px] font-bold text-slate-500">{t('Correct')} = +{bet * 2} XP • {t('Wrong')} = -{bet} XP</p>
-        <div className="w-full max-w-xs"><input type="range" min="10" max="100" step="10" value={bet} onChange={e => setBet(+e.target.value)} className="w-full accent-purple-500" /><div className="flex justify-between text-[9px] font-black"><span className="text-slate-500">10</span><span className="text-purple-400 text-lg">{bet} XP</span><span className="text-slate-500">100</span></div></div>
+        <p className="text-[11px] font-bold text-slate-400">{t('Correct')} = +{bet * 2} XP • {t('Wrong')} = -{bet} XP</p>
+        <div className="w-full max-w-xs"><input type="range" min="10" max="100" step="10" value={bet} onChange={e => setBet(+e.target.value)} className="w-full accent-purple-500" /><div className="flex justify-between text-[11px] font-black"><span className="text-slate-400">10</span><span className="text-purple-400 text-lg">{bet} XP</span><span className="text-slate-400">100</span></div></div>
         <div className="flex gap-3"><button onClick={() => { setBet(100); S.pop() }} className="px-4 py-2 rounded-xl font-black text-xs text-amber-400 border border-amber-700/50 cursor-pointer" style={G}>MAX</button><button onClick={() => { setShowBet(false); S.pop() }} className="px-6 py-2 rounded-xl font-black text-xs text-white bg-purple-600 border-b-[3px] border-purple-800 cursor-pointer active:border-b-[1px] active:translate-y-[2px]">{t('START')}</button></div>
     </div>
 
@@ -645,10 +645,10 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
                 </motion.div>
             </div>
             <div className="flex justify-between">
-                <span className="text-[7px] font-mono font-bold text-slate-600">{li}</span>
+                <span className="text-[11px] font-mono font-bold text-slate-400">{li}</span>
                 <motion.span animate={isCrit ? { scale: [1, 1.15, 1], color: ['#ef4444', '#fbbf24', '#ef4444'] } : {}} transition={{ duration: 0.6, repeat: Infinity }}
-                    className="text-[9px] font-black font-mono" style={{ color: isCrit ? '#ef4444' : '#94a3b8' }}>{tl}s</motion.span>
-                <span className="text-[7px] font-mono font-bold text-slate-600">R{rd + 1}/{tot}</span>
+                    className="text-[11px] font-black font-mono" style={{ color: isCrit ? '#ef4444' : '#94a3b8' }}>{tl}s</motion.span>
+                <span className="text-[11px] font-mono font-bold text-slate-400">R{rd + 1}/{tot}</span>
             </div>
         </div>
 
@@ -661,7 +661,7 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
                     <OtterMascot size={28} tier={getLeagueTier()} />
                 </div>
                 <div>
-                    <p className="text-[7px] font-black text-teal-400 font-mono">{t('Wins') === 'Galibiyet' ? 'SEN' : 'YOU'}</p>
+                    <p className="text-[11px] font-black text-teal-400 font-mono">{t('Wins') === 'Galibiyet' ? 'SEN' : 'YOU'}</p>
                     <p className="text-base font-black text-teal-300 leading-none">{sc.you}</p>
                 </div>
             </div>
@@ -670,7 +670,7 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
             <div className="flex flex-col items-center mx-1.5">
                 <motion.div animate={{ boxShadow: ['0 0 4px #fbbf2440', '0 0 12px #fbbf2480', '0 0 4px #fbbf2440'] }} transition={{ duration: 2, repeat: Infinity }}
                     className="w-6 h-6 rounded-full flex items-center justify-center" style={{ background: 'rgba(251,191,36,0.1)', border: '1px solid rgba(251,191,36,0.25)' }}>
-                    <span className="text-[8px] font-black text-amber-400">VS</span>
+                    <span className="text-[11px] font-black text-amber-400">VS</span>
                 </motion.div>
             </div>
 
@@ -678,10 +678,10 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
             <div className="flex items-center gap-1.5 flex-1 flex-row-reverse rounded-lg px-2 py-1" style={{ background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.12)' }}>
                 <div className="relative">
                     {oAns && <motion.div animate={{ scale: [1, 1.6], opacity: [0.6, 0] }} transition={{ duration: 0.8, repeat: Infinity }} className="absolute inset-0 rounded-full" style={{ background: '#ef4444', filter: 'blur(6px)' }} />}
-                    <OtterMascot size={28} bodyColor={opponent.otterColor} />
+                    <OtterMascot size={28} bodyColor={opponent.otterColor} name={opponent.name} />
                 </div>
                 <div className="text-right">
-                    <p className="text-[7px] font-black text-red-400 font-mono truncate max-w-[60px]">{opponent.name}</p>
+                    <p className="text-[11px] font-black text-red-400 font-mono truncate max-w-[60px]">{opponent.name}</p>
                     <p className="text-base font-black text-red-300 leading-none">{sc.them}</p>
                 </div>
             </div>
@@ -692,7 +692,7 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
             {sEmote && <FEmote emoji={sEmote} from="left" />}{oEmote && <FEmote emoji={oEmote} from="right" />}
             {oAns && sel === null && <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="flex justify-center mb-1">
                 <motion.span animate={{ boxShadow: ['0 0 6px rgba(239,68,68,0.2)', '0 0 16px rgba(239,68,68,0.5)', '0 0 6px rgba(239,68,68,0.2)'] }} transition={{ duration: 1, repeat: Infinity }}
-                    className="text-[8px] font-black text-red-400 font-mono px-3 py-1 rounded-full tracking-wider"
+                    className="text-[11px] font-black text-red-400 font-mono px-3 py-1 rounded-full tracking-wider"
                     style={{ background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)' }}>
                     ⚠ OPPONENT LOCKED IN
                 </motion.span>
@@ -702,13 +702,13 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
         {/* ── WRONG ANSWER alert ── */}
         <AnimatePresence>
             {flash === 'wrong' && <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex justify-center mb-1">
-                <span className="text-[8px] font-black text-red-500 font-mono px-3 py-1 rounded-full tracking-wider"
+                <span className="text-[11px] font-black text-red-500 font-mono px-3 py-1 rounded-full tracking-wider"
                     style={{ background: 'rgba(239,68,68,0.15)', border: '1px solid rgba(239,68,68,0.3)' }}>
                     ✖ SYSTEM COMPROMISED
                 </span>
             </motion.div>}
             {flash === 'correct' && <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex justify-center mb-1">
-                <span className="text-[8px] font-black text-teal-400 font-mono px-3 py-1 rounded-full tracking-wider"
+                <span className="text-[11px] font-black text-teal-400 font-mono px-3 py-1 rounded-full tracking-wider"
                     style={{ background: 'rgba(20,184,166,0.15)', border: '1px solid rgba(20,184,166,0.3)' }}>
                     ✓ ACCESS GRANTED
                 </span>
@@ -728,9 +728,9 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
         {/* ── QUESTION AREA ── */}
         <div className="flex-1 px-3 flex flex-col justify-start overflow-y-auto pt-1" style={{ paddingBottom: 12 }}>
             <AnimatePresence mode="wait"><motion.div key={rd} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} className={`${gc} mb-2`} style={{ ...G, borderLeft: `3px solid ${qColors[q.type || 'mcq']}` }}>
-                <p className="text-[8px] font-extrabold font-mono tracking-widest mb-1" style={{ color: qColors[q.type || 'mcq'] }}>{{ mcq: '// QUESTION', debug: '// DEBUG', complete: '// COMPLETE', trace: '// TRACE', algo: '// COMPLEXITY' }[q.type || 'mcq']}</p>
+                <p className="text-[11px] font-extrabold font-mono tracking-widest mb-1" style={{ color: qColors[q.type || 'mcq'] }}>{{ mcq: '// QUESTION', debug: '// DEBUG', complete: '// COMPLETE', trace: '// TRACE', algo: '// COMPLEXITY' }[q.type || 'mcq']}</p>
                 <p className={`text-sm font-black leading-relaxed ${decrypting ? 'text-emerald-300' : 'text-white'}`} style={decrypting ? { fontFamily: 'monospace', letterSpacing: '0.05em' } : undefined}>{decText || q.text}</p>
-                {q.code && <pre className="mt-2 p-2 rounded-lg text-[10px] font-mono text-emerald-300 overflow-x-auto whitespace-pre-wrap" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(34,197,94,0.1)' }}>{q.code.replace(/\\n/g, '\n')}</pre>}
+                {q.code && <pre className="mt-2 p-2 rounded-lg text-[11px] font-mono text-emerald-300 overflow-x-auto whitespace-pre-wrap" style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(34,197,94,0.1)' }}>{q.code.replace(/\\n/g, '\n')}</pre>}
             </motion.div></AnimatePresence>
 
             {/* ── ANSWER OPTIONS (stretched to fill void) ── */}
@@ -740,7 +740,7 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
                 else if (ch && !ok) stl = { background: 'rgba(239,68,68,0.15)', border: '1px solid rgba(239,68,68,0.35)', boxShadow: '0 0 12px rgba(239,68,68,0.15)' }
                 return <motion.button key={`${rd}-${i}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .04 + i * .05 }} onClick={() => answer(i)} disabled={sel !== null}
                     className={`w-full text-left px-4 py-3.5 rounded-xl font-extrabold text-[12px] text-white transition-all flex items-center min-h-[48px] ${sel === null ? 'cursor-pointer active:scale-[0.98]' : ''}`} style={stl}>
-                    <span className="text-slate-500 mr-2 font-black font-mono text-[11px] shrink-0">{String.fromCharCode(65 + i)}.</span><span className="flex-1">{opt}</span>
+                    <span className="text-slate-400 mr-2 font-black font-mono text-[11px] shrink-0">{String.fromCharCode(65 + i)}.</span><span className="flex-1">{opt}</span>
                 </motion.button>
             })}</div>
         </div>
@@ -748,7 +748,7 @@ function Duel({ opponent, questions, mode, modeConfig, onFinish }) {
         {/* ── EMOTE BAR (sticky bottom) ── */}
         <div className="shrink-0 px-3 py-2 flex justify-center gap-1.5 border-t border-white/5" style={{ background: 'rgba(15,23,42,0.95)', backdropFilter: 'blur(12px)' }}>
             {ownEm.slice(0, 4).map(e => <motion.button key={e.id} whileTap={{ scale: .85 }} onClick={() => { setSEmote(e.label); S.pop(); setTimeout(() => setSEmote(null), 2500) }}
-                className="h-7 rounded-lg text-[8px] font-black px-2.5 cursor-pointer font-mono" style={{ ...G, color: e.color, borderColor: e.color + '30' }}>{e.label}</motion.button>)}
+                className="h-7 rounded-lg text-[11px] font-black px-2.5 cursor-pointer font-mono" style={{ ...G, color: e.color, borderColor: e.color + '30' }}>{e.label}</motion.button>)}
         </div>
     </motion.div>
 }
@@ -780,33 +780,33 @@ function Result({ data, onAnalytics, onBack }) {
                 {won && <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 1.5, repeat: Infinity }} className="absolute inset-[-8px] rounded-full" style={{ background: 'radial-gradient(circle,rgba(20,184,166,0.3),transparent)', filter: 'blur(8px)' }} />}
                 <OtterMascot size={56} tier={getLeagueTier()} /><p className="text-2xl font-black text-teal-400 mt-1">{yourScore}</p>
             </div>
-            <motion.span animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 1, repeat: Infinity }} className="text-2xl font-black text-slate-600">—</motion.span>
+            <motion.span animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 1, repeat: Infinity }} className="text-2xl font-black text-slate-400">—</motion.span>
             <div className="text-center relative">
                 {!won && <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 1.5, repeat: Infinity }} className="absolute inset-[-8px] rounded-full" style={{ background: 'radial-gradient(circle,rgba(239,68,68,0.3),transparent)', filter: 'blur(8px)' }} />}
-                <OtterMascot size={56} bodyColor={opponent.otterColor} /><p className="text-2xl font-black text-red-400 mt-1">{theirScore}</p>
+                <OtterMascot size={56} bodyColor={opponent.otterColor} name={opponent.name} /><p className="text-2xl font-black text-red-400 mt-1">{theirScore}</p>
             </div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .7 }} className="flex items-center gap-2 flex-wrap justify-center">
             <Chip label={`+${reward.xpGain} XP`} color="#fbbf24" />{reward.gemGain > 0 && <Chip label={`+${reward.gemGain} Gem`} color="#14b8a6" />}<Chip label={`${reward.eloChange > 0 ? '+' : ''}${reward.eloChange} ELO`} color={reward.eloChange > 0 ? '#34d399' : '#f87171'} />
         </motion.div>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .9 }} className="text-[10px] font-bold text-slate-600">ELO: <span className="text-white font-black">{reward.newElo}</span> • {reward.tier.name} • {reward.title.name}</motion.p>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .9 }} className="text-[11px] font-bold text-slate-400">ELO: <span className="text-white font-black">{reward.newElo}</span> • {reward.tier.name} • {reward.title.name}</motion.p>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }} className="flex gap-3 w-full max-w-[320px]">
             <button onClick={onAnalytics} className="flex-1 py-3 rounded-xl font-black text-xs text-slate-300 cursor-pointer flex items-center justify-center gap-1.5 border border-slate-700/50 active:scale-[0.97] transition-all" style={{ background: 'rgba(15,23,42,0.6)', backdropFilter: 'blur(8px)' }}><ChartIcon size={12} />{t('Analysis')}</button>
             <button onClick={onBack} className="flex-1 py-3 rounded-xl font-black text-xs text-white bg-teal-500 border-b-[4px] border-teal-700 active:border-b-[1px] active:translate-y-[3px] transition-all cursor-pointer">{t('BACK TO ARENA')}</button>
         </motion.div>
     </div>
 }
-function Chip({ label, color }) { return <div className="rounded-lg px-2.5 py-1" style={{ background: color + '18', border: `1px solid ${color}50` }}><span className="text-[10px] font-black" style={{ color }}>{label}</span></div> }
+function Chip({ label, color }) { return <div className="rounded-lg px-2.5 py-1" style={{ background: color + '18', border: `1px solid ${color}50` }}><span className="text-[11px] font-black" style={{ color }}>{label}</span></div> }
 
 /* ════════════════ ANALYTICS ════════════════ */
 function Analytics({ data, onBack }) {
     const det = data.result.roundDetails || []
     return <div className="h-full overflow-y-auto pb-24" style={{ paddingTop: 'max(16px,env(safe-area-inset-top,16px))' }}>
         <div className="max-w-md mx-auto px-4 space-y-4">
-            <div className="text-center flex flex-col items-center"><ChartIcon size={20} /><h2 className="text-lg font-black text-white mt-1">{t('Match Analysis')}</h2><p className="text-[10px] font-bold text-slate-500">{det.filter(d => d.correct).length}/{det.length} {t('correct')} • {Math.round((data.result.totalTimeMs || 0) / 1000)}s</p></div>
+            <div className="text-center flex flex-col items-center"><ChartIcon size={20} /><h2 className="text-lg font-black text-white mt-1">{t('Match Analysis')}</h2><p className="text-[11px] font-bold text-slate-400">{det.filter(d => d.correct).length}/{det.length} {t('correct')} • {Math.round((data.result.totalTimeMs || 0) / 1000)}s</p></div>
             {det.map((d, i) => <motion.div key={i} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * .1 }} className={gc} style={{ ...G, borderLeft: `3px solid ${d.correct ? '#34d399' : '#f87171'}` }}>
-                <div className="flex items-center gap-2 mb-1"><span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black ${d.correct ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'}`}>{i + 1}</span><span className={`text-[10px] font-black ${d.correct ? 'text-emerald-400' : 'text-red-400'}`}>{d.correct ? t('Correct') : t('Wrong')}</span><span className="text-[9px] font-bold text-slate-600 ml-auto">{d.timeUsed}s</span>{d.speedBonus && d.speedBonus > 1 && <span className="text-[8px] font-black text-amber-400">{d.speedBonus}x</span>}</div>
-                <p className="text-[10px] font-bold text-slate-400 truncate">{d.question}</p>
+                <div className="flex items-center gap-2 mb-1"><span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-black ${d.correct ? 'bg-emerald-600 text-white' : 'bg-red-600 text-white'}`}>{i + 1}</span><span className={`text-[11px] font-black ${d.correct ? 'text-emerald-400' : 'text-red-400'}`}>{d.correct ? t('Correct') : t('Wrong')}</span><span className="text-[11px] font-bold text-slate-400 ml-auto">{d.timeUsed}s</span>{d.speedBonus && d.speedBonus > 1 && <span className="text-[11px] font-black text-amber-400">{d.speedBonus}x</span>}</div>
+                <p className="text-[11px] font-bold text-slate-400 truncate">{d.question}</p>
             </motion.div>)}
             <button onClick={onBack} className="w-full py-3 rounded-xl font-black text-sm text-white bg-teal-500 border-b-[4px] border-teal-700 active:border-b-[1px] active:translate-y-[3px] transition-all cursor-pointer">{t('BACK TO ARENA')}</button>
         </div>

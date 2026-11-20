@@ -73,7 +73,7 @@ export default function ConceptDeck({ deck, accent = '#2DD4BF', onFinish }) {
                         {locale === 'tr' ? deck.titleTr : deck.titleEn}
                     </p>
                 </div>
-                <span className="text-[10px] font-black text-slate-500 shrink-0">
+                <span className="text-[11px] font-black text-slate-400 shrink-0">
                     {index + 1} / {total}
                 </span>
             </div>
@@ -150,14 +150,14 @@ export default function ConceptDeck({ deck, accent = '#2DD4BF', onFinish }) {
                         className="flex items-center gap-1.5"
                         animate={{ x: [0, 5, 0] }}
                         transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}>
-                        <span className="text-[10px] font-black text-slate-500">{t('Swipe to continue')}</span>
+                        <span className="text-[11px] font-black text-slate-400">{t('Swipe to continue')}</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="3" strokeLinecap="round">
                             <path d="M9 6l6 6-6 6" />
                         </svg>
                     </motion.div>
                 ) : (
                     <motion.span initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }}
-                        className="text-[10px] font-black" style={{ color: accent }}>
+                        className="text-[11px] font-black" style={{ color: accent }}>
                         {t('Lesson read — tap CONTINUE')}
                     </motion.span>
                 )}
@@ -236,7 +236,7 @@ function CardBody({ card, locale, accent }) {
             {body && <p className="text-[12.5px] font-bold text-slate-400 leading-relaxed mb-3">{body}</p>}
             {card.code && <CodeCard lines={card.code} />}
             {card.caption && (
-                <p className="text-[11px] font-bold text-slate-500 leading-relaxed mt-2.5">
+                <p className="text-[11px] font-bold text-slate-400 leading-relaxed mt-2.5">
                     💡 {pickLocale(card.caption, locale)}
                 </p>
             )}
@@ -260,7 +260,7 @@ function ComparePane({ tone, pane, locale }) {
         <div className={`rounded-xl overflow-hidden border ${bad ? 'border-red-700/40 bg-red-500/5' : 'border-emerald-700/40 bg-emerald-500/5'}`}>
             <div className="flex items-center gap-1.5 px-3 py-1.5">
                 <span className="text-[11px]">{bad ? '❌' : '✅'}</span>
-                <span className={`text-[9px] font-black uppercase tracking-wide ${bad ? 'text-red-400' : 'text-emerald-400'}`}>
+                <span className={`text-[11px] font-black uppercase tracking-wide ${bad ? 'text-red-400' : 'text-emerald-400'}`}>
                     {pickLocale(pane.label, locale)}
                 </span>
             </div>
@@ -294,7 +294,7 @@ const BUILTINS = ['len', 'str', 'list', 'dict', 'append', 'pop', 'popleft', 'pus
 function CodeLine({ text }) {
     const trimmed = text.trimStart()
     if (trimmed.startsWith('#') || trimmed.startsWith('//')) {
-        return <div className="text-slate-600 whitespace-pre">{text || ' '}</div>
+        return <div className="text-slate-400 whitespace-pre">{text || ' '}</div>
     }
     if (!text) return <div>{' '}</div>
 
@@ -312,10 +312,10 @@ function CodeLine({ text }) {
                 if (BUILTINS.includes(tk)) return <span key={i} className="text-sky-400">{token}</span>
                 if (/^\d+(\.\d+)?$/.test(tk)) return <span key={i} className="text-amber-300">{token}</span>
                 if (/^["'`]/.test(tk)) return <span key={i} className="text-emerald-400">{token}</span>
-                if (/^[()[\]{},.:;=+\-*/%<>!&|?]+$/.test(tk)) return <span key={i} className="text-slate-500">{token}</span>
+                if (/^[()[\]{},.:;=+\-*/%<>!&|?]+$/.test(tk)) return <span key={i} className="text-slate-400">{token}</span>
                 return <span key={i}>{token}</span>
             })}
-            {commentPart && <span className="text-slate-600">{commentPart}</span>}
+            {commentPart && <span className="text-slate-400">{commentPart}</span>}
         </div>
     )
 }
