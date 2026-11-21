@@ -16,6 +16,7 @@ This repo merges the full project from `Furkanahii/Rheo-MVP` (main @ b7ee3ad,
 | `tools/question-gen/` | offline AI question generation: generate → machine gates → human review → `web/src/generated/` ([README](tools/question-gen/README.md)) |
 | `tools/verify_journey_bundle.py` | checks a web build and writes the stable `asset-manifest.json` the Flutter shell falls back to |
 | `build_and_sync.js` | build `web/` and replace `rheo_app/assets/journey-web/` |
+| `firebase/` | live duel backend: Realtime Database + Cloud Functions + anonymous Auth ([setup](firebase/README.md)) |
 | `backend/` | legacy template-based question generator from the MVP (old schema; not used by the app) |
 | `rheo-dashboard*/`, `rheo-pitchdeck/`, `AppStore_Upload/`, `appstore_assets/`, `presentation_screenshots/`, `docs/` | MVP project material |
 | `qa/` | v5 browser evidence (predates the October changes) |
@@ -38,6 +39,7 @@ cd rheo_app && flutter pub get && flutter analyze && flutter test
   exercises load (main JS ~200 KB, was 1.46 MB).
 - AI questions are generated offline and only reach the app after review. No
   API key is in the app; the old client-side Gemini service was removed.
+- **Find Match** is a live duel against a real player when the Firebase backend is configured (`web/.env.local`, see `firebase/README.md`); other modes and the fallback are labelled practice bots.
 - Each answer sends `exercise_answered` to Firebase Analytics via the native
   bridge, which is how AI items are calibrated and retired.
 - Placement and Debug Mission are local prototypes, not verified store features.
