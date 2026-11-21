@@ -9,3 +9,7 @@ web/dist/
 *.mobileprovision
 __pycache__/
 web/dist-test/
+firebase/functions/node_modules/
+firebase/.firebase/
+firebase/*-debug.log
+web/.env.local
