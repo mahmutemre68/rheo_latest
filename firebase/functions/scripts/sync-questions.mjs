@@ -5,7 +5,7 @@ import { writeFileSync } from 'node:fs'
 const { duelQuestionPool } = await import('../../../web/src/data/duel_questions.js')
 const out = {}
 for (const [lang, list] of Object.entries(duelQuestionPool)) {
-    out[lang] = list.map(({ text, options, correct, type, difficulty }) => ({ text, options, correct, type, difficulty }))
+    out[lang] = list.map(({ text, code, options, correct, type, difficulty }) => ({ text, ...(code ? { code } : {}), options, correct, type, difficulty }))
 }
 writeFileSync(new URL('../src/questions.json', import.meta.url), JSON.stringify(out) + '\n')
 console.log(Object.fromEntries(Object.entries(out).map(([k, v]) => [k, v.length])))

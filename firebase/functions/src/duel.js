@@ -87,7 +87,7 @@ export function publicView(m) {
         version: m.version, lang: m.lang, state: m.state,
         players: m.players, round: m.round, roundCount: m.roundCount,
         roundStartsAt: m.roundStartsAt, roundDeadline: m.roundDeadline, revealUntil: m.revealUntil ?? null,
-        questions: m.questions.map(({ text, options, type, difficulty }) => ({ text, options, type, difficulty })),
+        questions: m.questions.map(({ text, code, options, type, difficulty }) => ({ text, ...(code ? { code } : {}), options, type, difficulty })),
         answered: Object.fromEntries(Object.entries(m.picks || {}).map(([r, byUid]) => [r, Object.fromEntries(Object.keys(byUid).map(u => [u, true]))])),
         results: m.results || {},
         score: m.score, winner: m.winner ?? null, endReason: m.endReason ?? null, eloDelta: m.eloDelta ?? null,

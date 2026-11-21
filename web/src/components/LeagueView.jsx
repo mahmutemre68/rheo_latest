@@ -10,6 +10,9 @@ import {
     powerUps, achievementDefs, getUnlockedAchievements, checkAndUnlockAchievements,
 } from '../data'
 import HologramCard from './HologramCard'
+import { lazy, Suspense } from 'react'
+import { isOnlineAvailable } from '../online/duelClient.js'
+const OnlineDuel = lazy(() => import('./OnlineDuel'))
 import { showXP } from './XPToast'
 import {
     ShieldIcon, SwordIcon, BoltIcon, TrophyIcon, FireIcon, MedalIcon,
@@ -69,9 +72,12 @@ export default function LeagueView() {
     const [, fu] = useState(0)
     const [pendingMode, setPendingMode] = useState('classic')
     const startLangSelect = (mode = 'classic') => { S.pop(); setPendingMode(mode); setPhase('langSelect') }
-    const start = (mode = 'classic', forceLang = null) => {
+    const start = (mode = 'classic', forceLang = null, { practice = false } = {}) => {
         const lang = forceLang || getActiveLanguage()
         if (forceLang) setActiveLanguage(forceLang)
+        // Find Match = a live opponent when the duel server is available;
+        // every other mode (and the fallback) is a practice bot.
+        if (mode === 'classic' && !practice && isOnlineAvailable()) { setMd({ lang }); setPhase('online'); return }
         const mc = gameModes[mode]
         const opp = getRandomOpponent()
         opp._duelLang = lang
@@ -81,6 +87,7 @@ export default function LeagueView() {
     }
     const back = () => { setPhase('dashboard'); setMd(null); fu(v => v + 1) }
 
+    if (phase === 'online') return <Suspense fallback={null}><OnlineDuel lang={md.lang} onExit={back} onPractice={() => start('classic', md.lang, { practice: true })} /></Suspense>
     if (phase === 'langSelect') return <LangSelect mode={pendingMode} onSelect={(lang) => start(pendingMode, lang)} onBack={back} />
     if (phase === 'searching') return <Searching opp={md.opponent} mode={md.mode} onFound={() => setPhase('vs')} />
     if (phase === 'vs') return <VsIntro you={getMascotEvolution()} opp={md.opponent} mode={md.mode} onReady={() => setPhase('playing')} />
@@ -204,7 +211,7 @@ function Dashboard({ onStart }) {
                 )}</div>
             </div> : <div className="text-center py-4">
                 <p className="text-sm font-black text-slate-300">{t('Ready for your first duel?')}</p>
-                <p className="text-[12px] font-bold text-slate-400 mt-0.5">{t('Practice opponents are bots for now — real players are coming.')}</p>
+                <p className="text-[12px] font-bold text-slate-400 mt-0.5">{isOnlineAvailable() ? t('Find Match pairs you with a live player at your level.') : t('Duels are against practice bots until the duel server is set up.')}</p>
             </div>}
 
             {/* Emotes: tucked away, not a headline */}
@@ -361,6 +368,7 @@ function Searching({ opp, mode, onFound }) {
                 <div className="absolute inset-0 flex items-center justify-center"><motion.div animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 1, repeat: Infinity }}><OtterMascot size={48} tier={getLeagueTier()} /></motion.div></div>
             </div>
             <h2 className="text-lg font-black text-white">{t('Searching Opponent')}{dots}</h2>
+            <p className="text-[11px] font-black tracking-wider text-amber-300 mt-1">{t('PRACTICE · BOT OPPONENT')}</p>
             <p className="text-[11px] font-bold text-slate-400">ELO: {duelStats.elo - 100} - {duelStats.elo + 100}</p>
         </> : <>
             <motion.div initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: 'spring', stiffness: 200 }}>
@@ -368,6 +376,7 @@ function Searching({ opp, mode, onFound }) {
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .3 }} className="text-center">
                 <h2 className="text-lg font-black text-white">{t('Opponent Found!')}</h2>
+                <p className="text-[11px] font-black tracking-wider text-amber-300">{t('PRACTICE · BOT OPPONENT')}</p>
                 <p className="text-sm font-extrabold text-red-400 mt-0.5">{opp.name}</p>
                 <p className="text-[11px] font-bold text-slate-400 flex items-center justify-center gap-1"><BoltIcon size={10} />{opp.elo} ELO</p>
             </motion.div>

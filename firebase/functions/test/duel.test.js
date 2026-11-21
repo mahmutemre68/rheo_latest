@@ -39,6 +39,17 @@ test('answers never reach the public node until a round closes', async () => {
     assert.deepEqual(p.results ?? {}, {})
 })
 
+test('code snippets reach the players with the question', async () => {
+    const db = memoryDb()
+    const withCode = { python: pool.python.filter(q => q.code).slice(0, 3) }
+    assert.equal(withCode.python.length, 3)
+    await D.joinQueue(db, 'a', { lang: 'python' }, { pool: withCode })
+    const { matchId } = await D.joinQueue(db, 'b', { lang: 'python' }, { pool: withCode })
+    const p = await pub(db, matchId)
+    assert.ok(p.questions.every(q => typeof q.code === 'string' && q.code.length > 0))
+    assert.ok(p.questions.every(q => !('correct' in q)))
+})
+
 test('a full match: too-early, correct vs wrong, reveal, finish, ELO and stats', async () => {
     const db = memoryDb()
     const id = await matchUp(db)
